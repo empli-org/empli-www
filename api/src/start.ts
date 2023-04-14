@@ -7,7 +7,7 @@ import "express-async-errors"; // for async handlers
 import { getRoutes } from "./routes";
 import { AddressInfo } from "net";
 
-export function startServer({ port = process.env.PORT } = {}) {
+export function startServer({ port = process.env.PORT || "8080" } = {}) {
   const app = express();
 
   app.disable("x-powered-by");
