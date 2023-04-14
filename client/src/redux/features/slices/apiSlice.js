@@ -6,6 +6,7 @@ const headers = {
   'Content-type': 'application/json;',
 }
 
+//* Creamos una instancia de "fetchBaseQuery" con la URL base de la API
 const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_URL_BASE,
 })
@@ -17,12 +18,28 @@ const endpoints = {
   careers: 'careers',
 }
 
+//* Función para configurar los headers de las peticiones
 const setHeaders = headers => {
   headers['Content-type'] = 'application/json;'
   return headers
 }
 
 export const apiSlice = createApi({
+  /* 
+		El código define un conjunto de endpoints de API para interactuar con 
+		recursos relacionados con trabajos, talentos, categorías y carreras.
+
+    Cada endpoint define un conjunto de operaciones que se pueden realizar sobre el recurso relacionado.
+
+    El código utiliza Redux Toolkit y createApi para definir los endpoints y sus respectivas operaciones.
+
+    El código también define hooks para acceder fácilmente a los endpoints y operaciones desde otros componentes de la aplicación.
+
+    La mayoría de las operaciones incluyen el manejo de headers y otros parámetros de solicitud para autenticación y autorización en el servidor.
+		
+    El código utiliza los tagTypes para cachear los resultados y mejorar la eficiencia al recuperar datos ya obtenidos. 
+	*/
+
   reducerPath: 'api',
   baseQuery,
   tagTypes: ['Jobs', 'Categories', 'Talents', 'Careers'],
