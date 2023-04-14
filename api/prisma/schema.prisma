@@ -3,9 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Talent {
@@ -26,9 +26,6 @@ model Talent {
   career      Career       @relation(fields: [careerId], references: [id])
   contactInfo ContactInfo?
   socialInfo  SocialInfo?
-
-  @@index([locationId])
-  @@index([careerId])
 }
 
 model Career {
@@ -77,8 +74,6 @@ model Skill {
   description String
   talentId    String?
   talent      Talent? @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-
-  @@index([talentId])
 }
 
 model Company {
@@ -94,8 +89,6 @@ model Company {
   contactInfo ContactInfo?
   socialInfo  SocialInfo?
   jobs        Job[]
-
-  @@index([categoryId])
 }
 
 model Category {
@@ -121,7 +114,4 @@ model Job {
   updatedAt   DateTime @updatedAt
   location    Location @relation(fields: [locationId], references: [id])
   company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-
-  @@index([locationId])
-  @@index([companyId])
 }
