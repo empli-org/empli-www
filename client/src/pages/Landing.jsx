@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Navbar from '../components/Navbar'
 import Ofertas from './Ofertas'
 import Empresas from './Empresas'
