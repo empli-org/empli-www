@@ -25,8 +25,8 @@ export const MiniCard = ({ logo, title, description, subtitle, office, amount, t
   )
 
   return (
-    <div className="bg-blue-200 rounded-lg overflow-hidden shadow-xl hover:shadow-lg transform hover:-translate-y-1 transition duration-300 w-64 sm:w-128 md:w-128 lg:w-128 h-30 mr-10">
-      <div className="p-4 md:p-6 lg:p-8 flex flex-col items-center">
+    <div className="bg-blue-200 rounded-lg overflow-hidden shadow-xl h-64 w-25 mr-10 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 grid grid-cols-auto">
+      <div className="p-4 md:p-6 lg:p-8 flex flex-col items-center w-50 h-40">
         <div className="flex justify-between mb-4 w-full">
           <img className="h-14 w-14 mr-2 rounded-lg shadow-xl" src={logo} alt="logo" />
           <div className='w-full h-full' >
