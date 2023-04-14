@@ -35,7 +35,7 @@ export default function Login() {
             </div>
             <div>
               <h6 className="text-xl font-quicksand-light text-white-font">
-                Mas de 1k de personas en nuestro marketplace
+                Mas de +1k personas en nuestro marketplace
               </h6>
             </div>
           </div>
