@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Talent {
+  id          String       @id @default(cuid())
+  name        String
+  lastname    String
+  age         Int
+  image       String
+  expTime     Float
+  verified    Boolean      @default(false)
+  userEmail   String?      @unique
+  careerId    String
+  locationId  String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  skills      Skill[]
+  location    Location     @relation(fields: [locationId], references: [id])
+  career      Career       @relation(fields: [careerId], references: [id])
+  contactInfo ContactInfo?
+  socialInfo  SocialInfo?
+
+  @@index([locationId])
+  @@index([careerId])
+}
+
+model Career {
+  id     String   @id @default(cuid())
+  name   String
+  Talent Talent[]
+}
+
+model Location {
+  id      String   @id @default(cuid())
+  city    String
+  country String
+  zip     String?
+  Talent  Talent[]
+  Job     Job[]
+}
+
+model SocialInfo {
+  id        String   @id @default(cuid())
+  twitter   String?
+  facebook  String?
+  linkedin  String?
+  website   String?
+  talentId  String?  @unique
+  companyId String?  @unique
+  talent    Talent?  @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model ContactInfo {
+  id        String   @id @default(cuid())
+  phone     String?
+  address   String?
+  city      String?
+  zip       String?
+  country   String?
+  talentId  String?  @unique
+  companyId String?  @unique
+  talent    Talent?  @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Skill {
+  id          String  @id @default(cuid())
+  name        String
+  description String
+  talentId    String?
+  talent      Talent? @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([talentId])
+}
+
+model Company {
+  id          String       @id @default(cuid())
+  name        String
+  description String
+  plan        String?
+  userEmail   String?      @unique
+  categoryId  String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  category    Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  contactInfo ContactInfo?
+  socialInfo  SocialInfo?
+  jobs        Job[]
+
+  @@index([categoryId])
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String
+  companies Company[]
+}
+
+model Job {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  title       String
+  description String
+  area        String
+  type        String
+  body        String
+  requiredExp Int
+  minRate     Float?
+  maxRate     Float?
+  companyId   String
+  locationId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  location    Location @relation(fields: [locationId], references: [id])
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([locationId])
+  @@index([companyId])
+}
