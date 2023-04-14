@@ -1,14 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom'
 import LandingPage from '@/pages/Landing'
+import Login from './components/Login/Login'
 import Ofertas from './pages/Ofertas'
 import Empresas from './pages/Empresas'
 import Noticias from './pages/Noticias'
 import Acerca from './pages/Acerca'
 import Contacto from './pages/Contacto'
-import Login from './pages/Login'
+// import Login from './pages/Login'
 import Register from './pages/Register'
 import Layout from './components/Layout'
 import ErrorPage from './pages/ErrorPage'
+
 
 export const router = createBrowserRouter([
   {
@@ -52,5 +54,9 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ])
