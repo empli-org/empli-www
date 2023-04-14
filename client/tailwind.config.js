@@ -18,6 +18,12 @@ export default {
         'bg-fb': '#2252FF',
         'color-google': '#F06464',
       },
+      spacing: {
+        // eslint-disable-next-line prettier/prettier
+        login: '93vh',
+        negative: '-15px',
+        15: '60px',
+      },
     },
   },
   plugins: [],

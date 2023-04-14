@@ -8,9 +8,9 @@ import ob3 from '../assets/ob-3.jpg'
 /* eslint-disable jsx-a11y/label-has-associated-control */
 export default function Login() {
   return (
-    <div className="container flex mx-auto h-screen justify-center items-center">
+    <div className="container flex mx-auto h-login justify-center items-center">
       <div className="container m-1.5 p-7 flex h-4/5 flex-wrap">
-        <div className="flex flex-col w-3/5 py-36 px-32 justify-around bg-login-img bg-cover">
+        <div className="flex flex-col w-3/5 py-28 px-32 justify-around bg-login-img bg-cover">
           <h1 className="text-5xl font-amenable text-white-font">
             Bienvenido a la comunidad Empli
           </h1>
@@ -21,13 +21,21 @@ export default function Login() {
           </h6>
           <div className="flex justify-center items-center gap-4">
             <div className="flex">
-              <img src={ob1} alt="ob" className="w-14 h-14 rounded-full" />
-              <img src={ob2} alt="ob" className="w-14 h-14 rounded-full" />
-              <img src={ob3} alt="ob" className="w-14 h-14 rounded-full" />
+              <img src={ob3} alt="ob" className="w-15 h-15 rounded-full" />
+              <img
+                src={ob1}
+                alt="ob"
+                className="w-15 h-15 rounded-full ml-negative"
+              />
+              <img
+                src={ob2}
+                alt="ob"
+                className="w-15 h-15 rounded-full ml-negative"
+              />
             </div>
             <div>
               <h6 className="text-xl font-quicksand-light text-white-font">
-                Mas de 1k de personas en nuestro marketplace
+                Mas de +1k personas en nuestro marketplace
               </h6>
             </div>
           </div>
@@ -75,7 +83,7 @@ export default function Login() {
             </button>
           </div>
           <h6 className="text-center">
-            Haz olvidado tu contraseña?
+            Haz olvidado tu contraseña?{' '}
             <a className="font-semibold underline">Click aqui!</a>
           </h6>
           <div className="flex flex-row gap-6 items-center justify-center">
