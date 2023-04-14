@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Noticias = () => {
-  return <div></div>
+  return (
+    <div>
+      <h1>News</h1>
+    </div>
+  )
 }
 
 export default Noticias

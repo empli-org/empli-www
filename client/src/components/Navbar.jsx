@@ -1,57 +1,51 @@
-import { Link, Outlet } from 'react-router-dom'
-import './Navbar.css'
+import { Link } from 'react-router-dom'
+import { MenuIcon } from './icons'
+import empliLogo from '/empli-logo.png'
+
+const NAV_LINKS = [
+  { to: '/offers', label: 'Ofertas' },
+  { to: '/companies', label: 'Empresas' },
+  { to: '/news', label: 'Noticias' },
+  { to: '/about', label: 'Nosotros' },
+  { to: '/contact', label: 'Contacto' },
+]
 
 const Navbar = () => {
   return (
-    <nav className="relative flex  flex h-16 items-center justify-between space-x-4 bg-white text-black shadow-sm">
+    <nav className="flex h-16 w-full items-center justify-between space-x-4 px-4 text-black shadow-sm">
       <Link to="/">
-        <img src="./logo-empli.png" alt="logo" width="150"></img>
+        <img src={empliLogo} alt="logo" className="w-16" />
       </Link>
 
-      <div className="cursor-pointer px-4 md:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-6 w-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+      <div className="hidden space-x-6 md:flex">
+        {NAV_LINKS.map(l => (
+          <Link key={l.to} to={l.to} className="hover:underline">
+            {l.label}
+          </Link>
+        ))}
       </div>
 
-      <div className="flex space-x-4 ">
-        <Link to="/ofertas" className="link-barra">
-          Ofertas
-        </Link>
-        <Link to="/empresas" className="link-barra">
-          Empresas
-        </Link>
-        <Link to="/noticias" className="link-barra">
-          Noticias
-        </Link>
-        <Link to="/acerca" className="link-barra">
-          Acerca
-        </Link>
-        <Link to="/contacto" className="link-barra">
-          Contactanos
-        </Link>
-      </div>
-      <div className="flex hidden space-x-4 pr-8 md:block ">
+      <div className="hidden space-x-4 pr-8 md:flex">
         <Link to="/login" className="link-barra">
           Login
         </Link>
         <Link to="/crear" className="link-barra">
           Crear Cuenta
         </Link>
-        <Outlet />
       </div>
+
+      <MobileMenu />
     </nav>
+  )
+}
+
+function MobileMenu() {
+  return (
+    <div className="block md:hidden">
+      <button>
+        <MenuIcon />
+      </button>
+    </div>
   )
 }
 
