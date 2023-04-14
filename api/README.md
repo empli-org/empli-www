@@ -1,15 +1,18 @@
 development:
 
 ```
-NODE_ENV=development PORT=3001 npm start
-```
-
-production:
-
-```
-npm run build
+cp .env-sample .env
 ```
 
 ```
-NODE_ENV=production PORT=80 npm start
+npm run dev
 ```
+
+## ENDPOINTS
+
+### GET
+
+- `/api/jobs`
+- `/api/talents`
+- `/api/categories`
+- `/api/careers`
