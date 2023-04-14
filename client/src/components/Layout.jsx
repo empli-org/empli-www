@@ -1,20 +1,16 @@
 // @ts-nocheck
-import React, { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
-import Menu from '@/pages/Menu'
 
-const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  //funcion para cambiar el estado
-  function toggleOpen() {
-    setIsOpen(!isOpen)
-  }
+const Layout = () => {
   return (
-    <div className="h-screen">
-      <Navbar props={toggleOpen} />
-      <Menu />
-      {children}
+    <div className="flex min-h-screen flex-col">
+      <div>
+        <Navbar />
+      </div>
+      <main className="h-full flex-1">
+        <Outlet />
+      </main>
     </div>
   )
 }
