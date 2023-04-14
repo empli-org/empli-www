@@ -1,7 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
 import LandingPage from '@/pages/Landing'
-// <<<<<<< HEAD
-// =======
 import Ofertas from './pages/Ofertas'
 import Empresas from './pages/Empresas'
 import Noticias from './pages/Noticias'
@@ -11,9 +9,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Layout from './components/Layout'
 import ErrorPage from './pages/ErrorPage'
-
-// >>>>>>> 6401be99c860fa0ab3b12cadf50e2a00d8f831f5
-
 export const router = createBrowserRouter([
   {
     path: '/',
