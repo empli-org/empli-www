@@ -13,6 +13,10 @@ export default {
       },
       colors: {
         'white-font': '#F6F2EC',
+        'blue-font': '#1C2441',
+        'bg-tw': '#9FCEE7',
+        'bg-fb': '#2252FF',
+        'color-google': '#F06464',
       },
     },
   },
