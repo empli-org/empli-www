@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MenuIcon } from './icons'
+// @ts-ignore
 import empliLogo from '/empli-logo.png'
 
 const NAV_LINKS = [
