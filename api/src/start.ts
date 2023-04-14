@@ -5,6 +5,7 @@ import logger from "loglevel";
 import { errorMiddleware } from "./middlewares";
 import "express-async-errors"; // for async handlers
 import { getRoutes } from "./routes";
+import { AddressInfo } from "net";
 
 export function startServer({ port = process.env.PORT } = {}) {
   const app = express();
@@ -26,14 +27,16 @@ export function startServer({ port = process.env.PORT } = {}) {
   );
 
   // Register routes
-  app.use(getRoutes());
+  app.use("/api", getRoutes());
 
   // generic error handler
   app.use(errorMiddleware);
 
   return new Promise((resolve) => {
     const server = app.listen(port, () => {
-      logger.info(`Listening on port ${server.address().port}`);
+      logger.info(
+        `Listening on port ${(server.address() as AddressInfo).port}`
+      );
 
       // resolve the whole promise with the express server
       resolve(server);
