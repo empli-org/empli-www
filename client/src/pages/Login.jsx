@@ -1,9 +1,9 @@
 // @ts-ignore
-import ob1 from '../../assets/ob-1.jpg'
+import ob1 from '../assets/ob-1.jpg'
 // @ts-ignore
-import ob2 from '../../assets/ob-2.jpg'
+import ob2 from '../assets/ob-2.jpg'
 // @ts-ignore
-import ob3 from '../../assets/ob-3.jpg'
+import ob3 from '../assets/ob-3.jpg'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 export default function Login() {
@@ -45,7 +45,7 @@ export default function Login() {
                 type="text"
                 name="user"
                 placeholder="Ingrese usuario"
-                className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96"
+                className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96 p-3"
               />
             </div>
             <div className="flex flex-col justify-around gap-1">
@@ -56,7 +56,7 @@ export default function Login() {
                 type="password"
                 name="password"
                 placeholder="Ingrese contraseña"
-                className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96"
+                className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
               />
             </div>
           </form>
