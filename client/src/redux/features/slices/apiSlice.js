@@ -1,14 +1,36 @@
 // @ts-nocheck
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+// eslint-disable-next-line no-unused-vars
+const headers = {
+  'Content-type': 'application/json;',
+}
+
+const baseQuery = fetchBaseQuery({
+  baseUrl: import.meta.env.VITE_API_URL_BASE,
+})
+
+const endpoints = {
+  jobs: 'jobs',
+  talents: 'talents',
+  categories: 'categories',
+  careers: 'careers',
+}
+
+const setHeaders = headers => {
+  headers['Content-type'] = 'application/json;'
+  return headers
+}
+
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL_BASE }),
+  baseQuery,
   tagTypes: ['Jobs', 'Categories', 'Talents', 'Careers'],
   endpoints: builder => ({
+    //* Endpoints Jobs
     getJobs: builder.query({
       query: () => ({
-        url: 'jobs',
+        url: endpoints.jobs,
         method: 'GET',
         mode: 'cors',
       }),
@@ -17,38 +39,27 @@ export const apiSlice = createApi({
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
     createJobs: builder.mutation({
       query: newJobs => ({
-        url: `jobs/`,
+        url: `${endpoints.jobs}/`,
         method: 'POST',
         body: newJobs,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     updateJobs: builder.mutation({
       query: updateJobs => ({
-        url: `jobs/${updateJobs.id}/`,
+        url: `${endpoints.jobs}/${updateJobs.id}/`,
         method: 'PATCH',
         body: updateJobs,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     deleteJobs: builder.mutation({
       query: id => ({
-        url: `jobs/${id}/`,
+        url: `${endpoints.jobs}/${id}/`,
         method: 'DELETE',
-        headers: {
-          // If we have a token set in state, let's assume that we should be passing it.
-          'Content-type': 'application/json; ',
-        },
+        headers: headers => setHeaders(headers),
       }),
     }),
 
@@ -56,7 +67,7 @@ export const apiSlice = createApi({
 
     getTalent: builder.query({
       query: () => ({
-        url: 'talents',
+        url: endpoints.talents,
         method: 'GET',
         mode: 'cors',
       }),
@@ -65,38 +76,27 @@ export const apiSlice = createApi({
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
     createTalent: builder.mutation({
       query: newTalent => ({
-        url: `talents/`,
+        url: `${endpoints.talents}/`,
         method: 'POST',
         body: newTalent,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     updateTalent: builder.mutation({
       query: updateTalent => ({
-        url: `talents/${updateTalent.id}/`,
+        url: `${endpoints.talents}/${updateTalent.id}/`,
         method: 'PATCH',
         body: updateTalent,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     deleteTalent: builder.mutation({
       query: id => ({
-        url: `talents/${id}/`,
+        url: `${endpoints.talents}/${id}/`,
         method: 'DELETE',
-        headers: {
-          // If we have a token set in state, let's assume that we should be passing it.
-          'Content-type': 'application/json; ',
-        },
+        headers: headers => setHeaders(headers),
       }),
     }),
 
@@ -104,7 +104,7 @@ export const apiSlice = createApi({
 
     getCategories: builder.query({
       query: () => ({
-        url: 'categories',
+        url: endpoints.categories,
         method: 'GET',
         mode: 'cors',
       }),
@@ -113,38 +113,27 @@ export const apiSlice = createApi({
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
     createCategories: builder.mutation({
       query: newCategories => ({
-        url: `categories/`,
+        url: `${endpoints.categories}/`,
         method: 'POST',
         body: newCategories,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     updateCategories: builder.mutation({
       query: updateCategories => ({
-        url: `categories/${updateCategories.id}/`,
+        url: `${endpoints.categories}/${updateCategories.id}/`,
         method: 'PATCH',
         body: updateCategories,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     deleteCategories: builder.mutation({
       query: id => ({
-        url: `categories/${id}/`,
+        url: `${endpoints.categories}/${id}/`,
         method: 'DELETE',
-        headers: {
-          // If we have a token set in state, let's assume that we should be passing it.
-          'Content-type': 'application/json; ',
-        },
+        headers: headers => setHeaders(headers),
       }),
     }),
 
@@ -152,7 +141,7 @@ export const apiSlice = createApi({
 
     getCareers: builder.query({
       query: () => ({
-        url: 'careers',
+        url: endpoints.careers,
         method: 'GET',
         mode: 'cors',
       }),
@@ -161,38 +150,27 @@ export const apiSlice = createApi({
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
     createCareers: builder.mutation({
       query: newCareers => ({
-        url: `careers/`,
+        url: `${endpoints.careers}/`,
         method: 'POST',
         body: newCareers,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     updateCareers: builder.mutation({
       query: updateCareers => ({
-        url: `careers/${updateCareers.id}/`,
+        url: `${endpoints.careers}/${updateCareers.id}/`,
         method: 'PATCH',
         body: updateCareers,
         mode: 'cors',
-        prepareHeaders: headers => {
-          // If we have a token set in state, let's assume that we should be passing it.
-          headers.set('Content-type', 'application/json;')
-          return headers
-        },
+        prepareHeaders: headers => setHeaders(headers),
       }),
     }),
     deleteCareers: builder.mutation({
       query: id => ({
-        url: `careers/${id}/`,
+        url: `${endpoints.careers}/${id}/`,
         method: 'DELETE',
-        headers: {
-          // If we have a token set in state, let's assume that we should be passing it.
-          'Content-type': 'application/json; ',
-        },
+        headers: headers => setHeaders(headers),
       }),
     }),
   }),
