@@ -9,7 +9,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Layout from './components/Layout'
 import ErrorPage from './pages/ErrorPage'
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -43,9 +42,6 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />,
-      },
-      {
-        path: '/register',
       },
       {
         path: '/register',

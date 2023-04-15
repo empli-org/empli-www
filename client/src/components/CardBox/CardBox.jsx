@@ -3,7 +3,7 @@ import React from 'react'
 import { MiniCard } from '../MiniCard/MiniCard'
 
 //We can received data from props or bring from global state
-function CardBox({data}) {
+function CardBox({ data }) {
     const gruposDeDiez = data.reduce((accumulator, obj, index) => {
     const indexGroup = Math.floor(index / 10)
 
@@ -20,7 +20,7 @@ function CardBox({data}) {
     <div className='bg-gray-900 flex flex-col w-3/4 mx-auto m-5 p-10 rounded-3xl'>
       <div className='p-5 text-white flex flex-col items-end justify-end m-5'>
         <div className='font-bold text-2xl'>
-            <h1>Top Profesionales</h1>
+           <h1>Top Profesionales</h1>
         </div>
         <div>
             <span>Mas de 200 ofertas por dia</span>
@@ -46,4 +46,3 @@ function CardBox({data}) {
 }
 
 export default CardBox
-

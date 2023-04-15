@@ -1,66 +1,135 @@
 import { faker } from "@faker-js/faker";
+import {
+  Company,
+  Prisma,
+  Location,
+  Project,
+  Career,
+  Category,
+  Skill,
+} from "@prisma/client";
 
-export function createCategory() {
-  return {
+export function createCategory(n: number = 3): Prisma.CategoryCreateInput[] {
+  return Array.from({ length: n }, () => ({
     name: faker.name.jobArea(),
-  };
+  }));
 }
 
-export function createSkill() {
-  return {
+export function createSkill(n: number = 3): Prisma.SkillCreateInput[] {
+  return Array.from({ length: n }, () => ({
     name: faker.name.jobArea(),
     description: faker.name.jobDescriptor(),
-  };
+  }));
 }
 
-export function createLocation() {
-  return {
+export function createCareer(n: number = 3): Prisma.CareerCreateInput[] {
+  return Array.from({ length: n }, () => ({
+    name: faker.name.jobArea(),
+  }));
+}
+
+export function createLocation(n: number = 3): Prisma.LocationCreateInput[] {
+  return Array.from({ length: n }, () => ({
     city: faker.address.city(),
     country: faker.address.country(),
-  };
+  }));
 }
 
-export function createTalent() {
-  return {
+export function createProjects(n: number = 3): Prisma.ProjectCreateInput[] {
+  return Array.from({ length: n }, () => ({
+    name: faker.name.jobTitle(),
+    description: faker.lorem.paragraph(),
+    verified: faker.datatype.boolean(),
+    startDate: faker.date.past(),
+    endDate: faker.date.future(),
+    amount: faker.datatype.float({ min: 10000 }),
+    area: {
+      create: {
+        name: faker.name.jobArea(),
+      },
+    },
+  }));
+}
+
+export function createTalent({
+  n = 3,
+  locations,
+  projects,
+  careers,
+  skills,
+}: {
+  n?: number;
+  locations: Location[];
+  projects: Project[];
+  careers: Career[];
+  skills: Skill[];
+}): Prisma.TalentCreateInput[] {
+  return Array.from({ length: n }, () => ({
     name: faker.name.firstName(),
     lastname: faker.name.lastName(),
     age: faker.datatype.number({ min: 18, max: 50 }),
     image: faker.image.avatar(),
-    expTime: faker.datatype.number({ min: 1, max: 15 }),
     verified: faker.datatype.boolean(),
-  };
+    tuitionNumber: faker.datatype.number({ min: 100000, max: 900000 }),
+    skills: {
+      connect: {
+        id: skills[Math.floor(Math.random() * skills.length)].id,
+      },
+    },
+    career: {
+      connect: {
+        id: careers[Math.floor(Math.random() * careers.length)].id,
+      },
+    },
+    experienceInfo: {
+      create: {
+        projects: {
+          connect: {
+            id: projects[Math.floor(Math.random() * projects.length)].id,
+          },
+        },
+      },
+    },
+    contactInfo: {
+      create: {
+        location: {
+          connect: {
+            id: locations[Math.floor(Math.random() * locations.length)].id,
+          },
+        },
+      },
+    },
+  }));
 }
 
-export function createContactInfo() {
-  return {
-    phone: faker.phone.number(),
-    address: faker.address.streetAddress(),
-    city: faker.address.city(),
-  };
-}
-
-export function createSocialInfo() {
-  return {
-    linkedin: faker.internet.url(),
-    website: faker.internet.url(),
-  };
-}
-
-export function createCareer() {
-  return {
-    name: faker.name.jobType(),
-  };
-}
-
-export function createCompany() {
-  return {
+export function createCompany({
+  n = 3,
+  categories,
+}: {
+  n?: number;
+  categories: Category[];
+}): Prisma.CompanyCreateInput[] {
+  return Array.from({ length: n }, () => ({
     name: faker.company.name(),
     description: faker.company.bs(),
-  };
+    category: {
+      connect: {
+        id: categories[Math.floor(Math.random() * categories.length)].id,
+      },
+    },
+  }));
 }
 
-export function createJob() {
-  return {
+export function createJob({
+  n = 5,
+  locations,
+  companies,
+}: {
+  n?: number;
+  locations: Location[];
+  companies: Company[];
+}): Prisma.JobCreateInput[] {
+  return Array.from({ length: n }, () => ({
     code: faker.random.alphaNumeric(6),
     title: faker.name.jobTitle(),
     description: faker.name.jobDescriptor(),
@@ -69,14 +138,30 @@ export function createJob() {
     requiredExp: faker.datatype.number({ min: 1, max: 5 }),
     minRate: faker.datatype.float({ min: 1000, max: 1999 }),
     maxRate: faker.datatype.float({ min: 2000, max: 3000 }),
+    company: {
+      connect: {
+        id: companies[Math.floor(Math.random() * companies.length)].id,
+      },
+    },
+    location: {
+      connect: {
+        id: locations[Math.floor(Math.random() * locations.length)].id,
+      },
+    },
     body: `
-This is the body of the job.
+## This is the first section. 
 
 ${faker.lorem.paragraph()}
+
+### This is another section.
+
+${faker.lorem.paragraph()}
+
+### Other section
 
 - item1
 - item2
 - item3
 `,
-  };
+  }));
 }

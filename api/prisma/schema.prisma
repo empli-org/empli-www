@@ -9,86 +9,107 @@ datasource db {
 }
 
 model Talent {
-  id          String       @id @default(cuid())
-  name        String
-  lastname    String
-  age         Int
-  image       String
-  expTime     Float
-  verified    Boolean      @default(false)
-  userEmail   String?      @unique
-  careerId    String
-  locationId  String
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  skills      Skill[]
-  location    Location     @relation(fields: [locationId], references: [id])
-  career      Career       @relation(fields: [careerId], references: [id])
-  contactInfo ContactInfo?
-  socialInfo  SocialInfo?
+  id             String          @id @default(cuid())
+  name           String
+  lastname       String
+  age            Int
+  image          String?
+  plan           Plan?           @default(FREE)
+  verified       Boolean         @default(false)
+  userEmail      String?         @unique
+  tuitionNumber  Int
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  careerId       String?
+  contactInfo    ContactInfo?
+  experienceInfo ExperienceInfo?
+  skills         Skill[]
+  career         Career?         @relation(fields: [careerId], references: [id], onDelete: SetNull)
+}
+
+model ExperienceInfo {
+  id         String      @id @default(cuid())
+  talentId   String      @unique
+  talent     Talent      @relation(fields: [talentId], references: [id], onDelete: Cascade)
+  projects   Project[]
+  references Reference[]
 }
 
 model Career {
-  id     String   @id @default(cuid())
-  name   String
-  Talent Talent[]
+  id      String   @id @default(cuid())
+  name    String
+  talents Talent[]
+}
+
+model Project {
+  id           String          @id @default(cuid())
+  name         String
+  description  String
+  startDate    DateTime?
+  endDate      DateTime?
+  amount       Float?
+  verified     Boolean         @default(false)
+  jobAreaId    String?
+  experienceId String?
+  experience   ExperienceInfo? @relation(fields: [experienceId], references: [id], onDelete: SetNull)
+  area         JobArea?        @relation(fields: [jobAreaId], references: [id], onDelete: SetNull)
 }
 
 model Location {
-  id      String   @id @default(cuid())
-  city    String
-  country String
-  zip     String?
-  Talent  Talent[]
-  Job     Job[]
+  id          String        @id @default(cuid())
+  city        String
+  country     String
+  zip         String?
+  ContactInfo ContactInfo[]
+  Job         Job[]
 }
 
 model SocialInfo {
-  id        String   @id @default(cuid())
-  twitter   String?
-  facebook  String?
-  linkedin  String?
-  website   String?
-  talentId  String?  @unique
-  companyId String?  @unique
-  talent    Talent?  @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  id            String      @id @default(cuid())
+  twitter       String?
+  facebook      String?
+  linkedin      String?
+  website       String?
+  contactInfoId String      @unique
+  ContactInfo   ContactInfo @relation(fields: [contactInfoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model ContactInfo {
-  id        String   @id @default(cuid())
-  phone     String?
-  address   String?
-  city      String?
-  zip       String?
-  country   String?
-  talentId  String?  @unique
-  companyId String?  @unique
-  talent    Talent?  @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  company   Company? @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  id         String      @id @default(cuid())
+  phone      String?
+  address    String?
+  city       String?
+  zip        String?
+  country    String?
+  locationId String?
+  talentId   String?     @unique
+  companyId  String?     @unique
+  company    Company?    @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  location   Location?   @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  talent     Talent?     @relation(fields: [talentId], references: [id], onDelete: Cascade)
+  social     SocialInfo?
 }
 
-model Skill {
-  id          String  @id @default(cuid())
+model JobArea {
+  id          String    @id @default(cuid())
   name        String
-  description String
-  talentId    String?
-  talent      Talent? @relation(fields: [talentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  description String?
+  projects    Project[]
 }
 
 model Company {
   id          String       @id @default(cuid())
   name        String
   description String
-  plan        String?
+  plan        Plan?        @default(FREE)
   userEmail   String?      @unique
-  categoryId  String
+  categoryId  String?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
-  category    Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  category    Category?    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   contactInfo ContactInfo?
-  socialInfo  SocialInfo?
   jobs        Job[]
+  references  Reference[]
 }
 
 model Category {
@@ -98,8 +119,8 @@ model Category {
 }
 
 model Job {
-  id          String   @id @default(cuid())
-  code        String   @unique
+  id          String    @id @default(cuid())
+  code        String    @unique
   title       String
   description String
   area        String
@@ -109,9 +130,32 @@ model Job {
   minRate     Float?
   maxRate     Float?
   companyId   String
-  locationId  String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  location    Location @relation(fields: [locationId], references: [id])
-  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  locationId  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  location    Location? @relation(fields: [locationId], references: [id], onDelete: SetNull)
+}
+
+model Reference {
+  id           String          @id @default(cuid())
+  experienceId String?
+  companyId    String?
+  description  String
+  company      Company?        @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  experience   ExperienceInfo? @relation(fields: [experienceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model Skill {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  talentId    String?
+  talent      Talent? @relation(fields: [talentId], references: [id], onDelete: SetNull)
+}
+
+enum Plan {
+  FREE
+  PRO
+  ADVANCED
 }

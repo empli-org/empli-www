@@ -3,9 +3,9 @@ import {
   createCareer,
   createCategory,
   createCompany,
-  createContactInfo,
   createJob,
   createLocation,
+  createProjects,
   createSkill,
   createTalent,
 } from "./utils";
@@ -15,7 +15,9 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("Seeding database");
 
+  /*
   console.time("Clear database");
+  await prisma.project.deleteMany({ where: {} });
   await prisma.talent.deleteMany({ where: {} });
   await prisma.location.deleteMany({ where: {} });
   await prisma.category.deleteMany({ where: {} });
@@ -23,102 +25,54 @@ async function main() {
   await prisma.skill.deleteMany({ where: {} });
   await prisma.career.deleteMany({ where: {} });
   await prisma.job.deleteMany({ where: {} });
+  await prisma.jobArea.deleteMany({ where: {} });
   console.timeEnd("Clear database");
-
-  console.time("Inserting skills");
-  const skills = await Promise.all(
-    Array.from({ length: 20 }, async () => {
-      return await prisma.skill.create({
-        data: { ...createSkill() },
-      });
-    })
-  );
-  console.timeEnd("Inserting skills");
-
-  console.time("Inserting careers");
-  const careers = await Promise.all(
-    Array.from({ length: 20 }, async () => {
-      return await prisma.career.create({
-        data: { ...createCareer() },
-      });
-    })
-  );
-  console.timeEnd("Inserting careers");
-
-  console.time("Inserting talents");
-  const skillIds = skills.map((s) => s.id);
-  const careersIds = careers.map((r) => r.id);
-  Promise.all(
-    Array.from({ length: 30 }, async () => {
-      await prisma.talent.create({
-        data: {
-          ...createTalent(),
-          location: {
-            create: createLocation(),
-          },
-          career: {
-            connect: {
-              id: careersIds[Math.floor(Math.random() * careersIds.length)],
-            },
-          },
-          skills: {
-            connect: {
-              id: skillIds[Math.floor(Math.random() * skillIds.length)],
-            },
-          },
-          contactInfo: {
-            create: {
-              ...createContactInfo(),
-            },
-          },
-        },
-      });
-    })
-  );
+  */
 
   console.time("Inserting categories");
   const categories = await Promise.all(
-    Array.from({ length: 15 }, async () => {
-      return await prisma.category.create({
-        data: { ...createCategory() },
-      });
-    })
+    createCategory(5).map((c) => prisma.category.create({ data: c }))
   );
   console.timeEnd("Inserting categories");
-
+  console.time("Inserting skills");
+  const skills = await Promise.all(
+    createSkill(5).map((s) => prisma.skill.create({ data: s }))
+  );
+  console.timeEnd("Inserting skills");
+  console.time("Inserting careers");
+  const careers = await Promise.all(
+    createCareer(5).map((c) => prisma.career.create({ data: c }))
+  );
+  console.timeEnd("Inserting careers");
+  console.time("Inserting locations");
+  const locations = await Promise.all(
+    createLocation(5).map((l) => prisma.location.create({ data: l }))
+  );
+  console.timeEnd("Inserting locations");
+  console.time("Inserting projects");
+  const projects = await Promise.all(
+    createProjects(5).map((p) => prisma.project.create({ data: p }))
+  );
+  console.timeEnd("Inserting projects");
+  console.time("Inserting talents");
+  await Promise.all(
+    createTalent({ n: 5, locations, projects, careers, skills }).map((t) =>
+      prisma.talent.create({ data: t })
+    )
+  );
+  console.timeEnd("Inserting talents");
   console.time("Inserting companies");
   const companies = await Promise.all(
-    Array.from({ length: 20 }, async () => {
-      return await prisma.company.create({
-        data: {
-          category: {
-            connect: {
-              id: categories[Math.floor(Math.random() * categories.length)].id,
-            },
-          },
-          ...createCompany(),
-        },
-      });
-    })
+    createCompany({ n: 5, categories }).map((c) =>
+      prisma.company.create({ data: c })
+    )
   );
   console.timeEnd("Inserting companies");
-
   console.time("Inserting jobs");
-  const companiesIds = companies.map((c) => c.id);
-  Promise.all(
-    Array.from({ length: companiesIds.length }, async (_, idx) => {
-      await prisma.job.create({
-        data: {
-          ...createJob(),
-          location: { create: createLocation() },
-          company: {
-            connect: {
-              id: companiesIds[Math.floor(Math.random() * companiesIds.length)],
-            },
-          },
-        },
-      });
-    })
+  await Promise.all(
+    createJob({ n: 5, companies, locations }).map((j) =>
+      prisma.job.create({ data: j })
+    )
   );
   console.timeEnd("Inserting jobs");
 }
