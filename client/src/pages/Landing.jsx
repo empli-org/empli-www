@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 import { BlogNews } from '@/components/BlogNews/BlogNews'
 import Container from '@/components/ui/Container'
 export default function LandingPage() {
