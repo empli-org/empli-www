@@ -80,24 +80,24 @@ const Register = () => {
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
                 />
               </div>
+              <div className="flex items-center gap-2 justify-start">
+                <input type="checkbox" name="remember" className="h-5 w-5" />
+                <span className="text-1xl font-quicksand-light text-base font-semibold">
+                  Acepto los{' '}
+                  <a href="/Terminos" className="font-semibold underline">
+                    Terminos y condiciones
+                  </a>
+                </span>
+              </div>
+              <div className="flex justify-cebter items-center mx-auto">
+                <button
+                  type="submit"
+                  className="bg-white-font h-10 w-40 flex justify-center items-center rounded-3xl text-blue-font font-semibold ml-ing"
+                >
+                  Registrarme
+                </button>
+              </div>
             </form>
-            <div className="flex items-center gap-2 justify-start">
-              <input type="checkbox" name="remember" className="h-5 w-5" />
-              <span className="text-1xl font-quicksand-light text-base font-semibold">
-                Acepto los{' '}
-                <a href="/Terminos" className="font-semibold underline">
-                  Terminos y condiciones
-                </a>
-              </span>
-            </div>
-            <div className="flex justify-cebter items-center mx-auto">
-              <button
-                type="submit"
-                className="bg-white-font h-10 w-40 flex justify-center items-center rounded-3xl text-blue-font font-semibold"
-              >
-                Registrarme
-              </button>
-            </div>
             <h6 className="text-center font-bold font-quicksand-light text-base">
               Ingresar con:
             </h6>
@@ -110,13 +110,7 @@ const Register = () => {
               </button>
               <button
                 type="button"
-                className="bg-bg-tw w-32 text-white-font h-10 rounded-3xl font-semibold"
-              >
-                Twitter
-              </button>
-              <button
-                type="button"
-                className="bg-bg-fb w-32 text-white-font h-10 rounded-3xl font-semibold"
+                className="bg-bg-lk w-32 text-white-font h-10 rounded-3xl font-semibold"
               >
                 Facebook
               </button>
