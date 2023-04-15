@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 import Container from "@/components/ui/Container"
 export default function LandingPage() {
   return (
