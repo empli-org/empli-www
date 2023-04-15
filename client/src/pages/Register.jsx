@@ -11,6 +11,7 @@ import * as yup from 'yup'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const Register = () => {
+  //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
     user: yup
       .string()
@@ -24,13 +25,14 @@ const Register = () => {
       .required('Ingrese contraseña')
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/,
-        'La contraseña debe contener una minuscula, una mayuscula, un numero y un caracter especial',
+        'La contraseña debe contener una minuscula, una mayuscula, un numero y un caracter especial($@$!%*?&)',
       ),
     repeatPassword: yup
       .string()
       .oneOf([yup.ref('password')], 'Las contraseñas deben coincidir'),
   })
 
+  //Controlador del formulario
   const {
     register,
     formState: { errors },
@@ -97,7 +99,8 @@ const Register = () => {
                   {...register('user')}
                 />
                 {errors.user?.message && (
-                  <span className="text-red-600">{errors.user.message}</span>
+                  // eslint-disable-next-line prettier/prettier
+                  <span className="text-red-600 w-100">{errors.user.message}</span>
                 )}
               </div>
               <div className="flex flex-col justify-around gap-1">
@@ -113,7 +116,7 @@ const Register = () => {
                   {...register('password')}
                 />
                 {errors.password?.message && (
-                  <span className="text-red-600 w-96">
+                  <span className="text-red-600 w-100">
                     {errors.password.message}
                   </span>
                 )}
@@ -131,7 +134,7 @@ const Register = () => {
                   {...register('repeatPassword')}
                 />
                 {errors.repeatPassword?.message && (
-                  <span className="text-red-600 w-96">
+                  <span className="text-red-600 w-100">
                     {errors.repeatPassword.message}
                   </span>
                 )}

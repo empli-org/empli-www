@@ -25,6 +25,7 @@ export default {
         15: '60px',
         ing: '162.4px',
         all: '444px',
+        100: '410px',
       },
     },
   },

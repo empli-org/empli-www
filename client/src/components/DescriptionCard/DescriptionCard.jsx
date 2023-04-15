@@ -31,4 +31,3 @@ export const DescriptionCard = ({ info }) => {
     </div>
   )
 }
-
