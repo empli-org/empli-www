@@ -3,44 +3,59 @@ import React from 'react'
 import { ArrowBtnR } from './ArrowBtnR'
 import { Link } from 'react-router-dom'
 
-export const MiniCard = ({ logo, title, description, subtitle, office, amount, time }) => {
+export const MiniCard = ({
+  logo,
+  title,
+  description,
+  subtitle,
+  office,
+  amount,
+  time,
+}) => {
   const price = (
-    <div className='w-full flex justify-between'>
+    <div className="flex w-full justify-between">
       <div>
-      <span className='font-bold'>${amount}K/</span><span>mes</span>
+        <span className="font-bold">${amount}K/</span>
+        <span>mes</span>
       </div>
       <span>{time}</span>
     </div>
   )
 
   const btn = (
-    <Link to='/talent'>
-      <div className="flex items-center justify-end bg-blue-400 hover:bg-blue-600 rounded-full mr-2">
-        <button className=" text-white font-bold py-2 px-4">Empecemos</button>
-        <div className="rounded-full mr-2 bg-black hover:scale-125 transition duration-300">
-          <span className="text-white text-2xl"><ArrowBtnR /></span>
+    <Link to="/talent">
+      <div className="mr-2 flex items-center justify-end rounded-full bg-blue-400 hover:bg-blue-600">
+        <button className=" px-4 py-2 font-bold text-white">Empecemos</button>
+        <div className="mr-2 rounded-full bg-black transition duration-300 hover:scale-125">
+          <span className="text-2xl text-white">
+            <ArrowBtnR />
+          </span>
         </div>
       </div>
     </Link>
   )
 
   return (
-    <div className="bg-blue-200 rounded-lg overflow-hidden shadow-xl hover:shadow-lg transform hover:-translate-y-1 transition duration-300 w-64 sm:w-128 md:w-128 lg:w-128 h-30 mr-10">
-      <div className="p-4 md:p-6 lg:p-8 flex flex-col items-center">
-        <div className="flex justify-between mb-4 w-full">
-          <img className="h-14 w-14 mr-2 rounded-lg shadow-xl" src={logo} alt="logo" />
-          <div className='w-full h-full' >
+    <div className="sm:w-128 md:w-128 lg:w-128 h-30 mr-10 w-64 transform overflow-hidden rounded-lg bg-blue-200 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className="flex flex-col items-center p-4 md:p-6 lg:p-8">
+        <div className="mb-4 flex w-full justify-between">
+          <img
+            className="mr-2 h-14 w-14 rounded-lg shadow-xl"
+            src={logo}
+            alt="logo"
+          />
+          <div className="h-full w-full">
             <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
             {subtitle && <h2>{subtitle}</h2>}
           </div>
         </div>
         <div className="mb-4">
-        {office && <h4 className='text-2xl font-bold text-gray-900'>{office}</h4>}
-          <p className="text-gray-700 text-ellipsis">{description}</p>
+          {office && (
+            <h4 className="text-2xl font-bold text-gray-900">{office}</h4>
+          )}
+          <p className="text-ellipsis text-gray-700">{description}</p>
         </div>
-        {
-          amount ? price : btn
-        }
+        {amount ? price : btn}
       </div>
     </div>
   )

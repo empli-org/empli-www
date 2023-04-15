@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Menu = () => {
@@ -13,7 +12,7 @@ const Menu = () => {
       <Link className='"p-4' to="/empresas">
         Empresas
       </Link>
-      <Link className='"p-4' to="noticias/">
+      <Link className='"p-4' to="/>noticias">
         Noticias
       </Link>
       <Link className='"p-4' to="/acerca">
@@ -25,8 +24,7 @@ const Menu = () => {
       <Link className='"p-4' to="/login">
         Login
       </Link>
-
-      <Link className='"p-4' to="/crearLogin">
+      <Link className='"p-4' to="/registro">
         Crear Cuenta
       </Link>
     </div>
