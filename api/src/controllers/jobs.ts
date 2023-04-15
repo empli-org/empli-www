@@ -63,3 +63,30 @@ export async function getJobByCode(req: Request, res: Response) {
       .json({ status: 500, error: true, message: `Fail to fetch data` });
   }
 }
+
+export async function searchJobsByKey(req: Request, res: Response) {
+  try {
+    const { key } = req.query;
+    const jobs = await db.job.findMany({
+      where: {
+        title: { contains: key as string, mode: "insensitive" },
+      },
+      select: {
+        code: true,
+        title: true,
+        area: true,
+        company: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+
+    return res.json(jobs);
+  } catch {
+    return res
+      .status(500)
+      .json({ status: 500, error: true, message: "Failt to fetch data" });
+  }
+}
