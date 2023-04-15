@@ -13,7 +13,6 @@ export const MiniCard = ({
   time,
 }) => {
   const price = (
-
     <div className="w-full flex justify-between">
       <div>
         <span className="font-bold">${amount}K/</span>
