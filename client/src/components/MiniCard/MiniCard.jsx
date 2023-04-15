@@ -13,7 +13,8 @@ export const MiniCard = ({
   time,
 }) => {
   const price = (
-    <div className="flex w-full justify-between">
+
+    <div className="w-full flex justify-between">
       <div>
         <span className="font-bold">${amount}K/</span>
         <span>mes</span>
@@ -24,10 +25,10 @@ export const MiniCard = ({
 
   const btn = (
     <Link to="/talent">
-      <div className="mr-2 flex items-center justify-end rounded-full bg-blue-400 hover:bg-blue-600">
-        <button className=" px-4 py-2 font-bold text-white">Empecemos</button>
-        <div className="mr-2 rounded-full bg-black transition duration-300 hover:scale-125">
-          <span className="text-2xl text-white">
+      <div className="flex items-center justify-end bg-blue-400 hover:bg-blue-600 rounded-full mr-2">
+        <button className=" text-white font-bold py-2 px-4">Empecemos</button>
+        <div className="rounded-full mr-2 bg-black hover:scale-125 transition duration-300">
+          <span className="text-white text-2xl">
             <ArrowBtnR />
           </span>
         </div>
@@ -36,15 +37,15 @@ export const MiniCard = ({
   )
 
   return (
-    <div className="sm:w-128 md:w-128 lg:w-128 h-30 mr-10 w-64 transform overflow-hidden rounded-lg bg-blue-200 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <div className="flex flex-col items-center p-4 md:p-6 lg:p-8">
-        <div className="mb-4 flex w-full justify-between">
+    <div className="bg-blue-200 rounded-lg overflow-hidden shadow-xl h-64 w-25 mr-10 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 grid grid-cols-auto">
+      <div className="p-4 md:p-6 lg:p-8 flex flex-col items-center w-50 h-40">
+        <div className="flex justify-between mb-4 w-full">
           <img
-            className="mr-2 h-14 w-14 rounded-lg shadow-xl"
+            className="h-14 w-14 mr-2 rounded-lg shadow-xl"
             src={logo}
             alt="logo"
           />
-          <div className="h-full w-full">
+          <div className="w-full h-full">
             <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
             {subtitle && <h2>{subtitle}</h2>}
           </div>
@@ -53,7 +54,7 @@ export const MiniCard = ({
           {office && (
             <h4 className="text-2xl font-bold text-gray-900">{office}</h4>
           )}
-          <p className="text-ellipsis text-gray-700">{description}</p>
+          <p className="text-gray-700 text-ellipsis">{description}</p>
         </div>
         {amount ? price : btn}
       </div>
