@@ -1,12 +1,43 @@
+// @ts-nocheck
 // @ts-ignore
 import ob1 from '../assets/ob-1.jpg'
 // @ts-ignore
 import ob2 from '../assets/ob-2.jpg'
 // @ts-ignore
 import ob3 from '../assets/ob-3.jpg'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 export default function Login() {
+  const schema = yup.object({
+    user: yup
+      .string()
+      .required('Ingrese email')
+      .matches(
+        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+        'Ingrese un mail valido',
+      ),
+    password: yup
+      .string()
+      .required('Ingrese contraseña')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/,
+        'La contraseña debe contener una minuscula, una mayuscula, un numero y un caracter especial',
+      ),
+  })
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ resolver: yupResolver(schema) })
+
+  const onSubmit = data => {
+    console.log(data)
+  }
+
   return (
     <div className="container flex mx-auto h-login justify-center items-center">
       <div className="container m-1.5 p-7 flex h-4/5 flex-wrap">
@@ -44,17 +75,24 @@ export default function Login() {
           <h1 className="text-4xl font-amenable text-center text-blue-font">
             Inicio de sesion
           </h1>
-          <form className="flex flex-col w-2/5 justify-around gap-12">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col w-2/5 justify-around gap-10"
+          >
             <div className="flex flex-col justify-around gap-1">
               <label className="text-1xl font-quicksand-light font-medium">
-                Usuario/Email
+                Email
               </label>
               <input
                 type="text"
                 name="user"
-                placeholder="Ingrese usuario"
+                placeholder="Ingrese email"
                 className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96 p-3"
+                {...register('user')}
               />
+              {errors.user?.message && (
+                <span className="text-red-600">{errors.user.message}</span>
+              )}
             </div>
             <div className="flex flex-col justify-around gap-1">
               <label className="text-1xl font-quicksand-light font-medium">
@@ -65,23 +103,29 @@ export default function Login() {
                 name="password"
                 placeholder="Ingrese contraseña"
                 className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
+                {...register('password')}
               />
+              {errors.password?.message && (
+                <span className="text-red-600 w-96">
+                  {errors.password.message}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2 justify-start">
+              <input type="checkbox" name="remember" className="h-5 w-5" />
+              <span className="text-1xl font-quicksand-light text-base font-semibold">
+                Recordarme
+              </span>
+            </div>
+            <div className="flex justify-center items-center mx-auto">
+              <button
+                type="submit"
+                className="bg-white-font h-10 w-40 flex justify-center items-center rounded-3xl text-blue-font font-semibold ml-ing"
+              >
+                Ingresar
+              </button>
             </div>
           </form>
-          <div className="flex items-center gap-2 justify-start">
-            <input type="checkbox" name="remember" className="h-5 w-5" />
-            <span className="text-1xl font-quicksand-light text-base font-semibold">
-              Recordarme
-            </span>
-          </div>
-          <div className="flex justify-cebter items-center mx-auto">
-            <button
-              type="submit"
-              className="bg-white-font h-10 w-40 flex justify-center items-center rounded-3xl text-blue-font font-semibold"
-            >
-              Ingresar
-            </button>
-          </div>
           <h6 className="text-center">
             Haz olvidado tu contraseña?{' '}
             <a className="font-semibold underline">Click aqui!</a>
@@ -95,15 +139,9 @@ export default function Login() {
             </button>
             <button
               type="button"
-              className="bg-bg-tw w-32 text-white-font h-10 rounded-3xl font-semibold"
+              className="bg-bg-lk w-32 text-white-font h-10 rounded-3xl font-semibold"
             >
-              Twitter
-            </button>
-            <button
-              type="button"
-              className="bg-bg-fb w-32 text-white-font h-10 rounded-3xl font-semibold"
-            >
-              Facebook
+              Linkedin
             </button>
           </div>
         </div>

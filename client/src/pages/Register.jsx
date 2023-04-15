@@ -1,12 +1,46 @@
+// @ts-nocheck
 // @ts-ignore
 import ob1 from '../assets/ob-1.jpg'
 // @ts-ignore
 import ob2 from '../assets/ob-2.jpg'
 // @ts-ignore
 import ob3 from '../assets/ob-3.jpg'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const Register = () => {
+  const schema = yup.object({
+    user: yup
+      .string()
+      .required('Ingrese email')
+      .matches(
+        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+        'Ingrese un mail valido',
+      ),
+    password: yup
+      .string()
+      .required('Ingrese contraseña')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/,
+        'La contraseña debe contener una minuscula, una mayuscula, un numero y un caracter especial',
+      ),
+    repeatPassword: yup
+      .string()
+      .oneOf([yup.ref('password')], 'Las contraseñas deben coincidir'),
+  })
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ resolver: yupResolver(schema) })
+
+  const onSubmit = data => {
+    console.log(data)
+  }
+
   return (
     <div>
       <div className="container flex mx-auto h-login justify-center items-center">
@@ -46,58 +80,80 @@ const Register = () => {
             <h1 className="text-4xl font-amenable text-center text-blue-font">
               Registrarse
             </h1>
-            <form className="flex flex-col w-2/5 justify-around gap-5">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col w-2/5 justify-around gap-5"
+            >
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
-                  Usuario/Email
+                  Email
                 </label>
                 <input
+                  id="email"
                   type="text"
-                  name="user"
-                  placeholder="Ingrese usuario"
+                  name="email"
+                  placeholder="Ingrese email"
                   className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96 p-3"
+                  {...register('user')}
                 />
+                {errors.user?.message && (
+                  <span className="text-red-600">{errors.user.message}</span>
+                )}
               </div>
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
                   Contraseña
                 </label>
                 <input
+                  id="password"
                   type="password"
                   name="password"
                   placeholder="Ingrese contraseña"
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
+                  {...register('password')}
                 />
+                {errors.password?.message && (
+                  <span className="text-red-600 w-96">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
                   Repetir contraseña
                 </label>
                 <input
+                  id="repeatPassword"
                   type="password"
-                  name="password"
-                  placeholder="Ingrese contraseña"
+                  name="repeatPassword"
+                  placeholder="Repita contraseña"
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
+                  {...register('repeatPassword')}
                 />
+                {errors.repeatPassword?.message && (
+                  <span className="text-red-600 w-96">
+                    {errors.repeatPassword.message}
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center gap-2 justify-start w-96">
+                <input type="checkbox" name="remember" className="h-5 w-5" />
+                <span className="text-1xl font-quicksand-light text-base font-semibold">
+                  Acepto los{' '}
+                  <a href="/Terminos" className="font-semibold underline">
+                    Terminos y condiciones
+                  </a>
+                </span>
+              </div>
+              <div className="flex justify-cebter items-center mx-auto">
+                <button
+                  type="submit"
+                  className="bg-white-font h-10 w-40 flex justify-center items-center rounded-3xl text-blue-font font-semibold ml-ing"
+                >
+                  Registrarme
+                </button>
               </div>
             </form>
-            <div className="flex items-center gap-2 justify-start">
-              <input type="checkbox" name="remember" className="h-5 w-5" />
-              <span className="text-1xl font-quicksand-light text-base font-semibold">
-                Acepto los{' '}
-                <a href="/Terminos" className="font-semibold underline">
-                  Terminos y condiciones
-                </a>
-              </span>
-            </div>
-            <div className="flex justify-cebter items-center mx-auto">
-              <button
-                type="submit"
-                className="bg-white-font h-10 w-40 flex justify-center items-center rounded-3xl text-blue-font font-semibold"
-              >
-                Registrarme
-              </button>
-            </div>
             <h6 className="text-center font-bold font-quicksand-light text-base">
               Ingresar con:
             </h6>
@@ -110,13 +166,7 @@ const Register = () => {
               </button>
               <button
                 type="button"
-                className="bg-bg-tw w-32 text-white-font h-10 rounded-3xl font-semibold"
-              >
-                Twitter
-              </button>
-              <button
-                type="button"
-                className="bg-bg-fb w-32 text-white-font h-10 rounded-3xl font-semibold"
+                className="bg-bg-lk w-32 text-white-font h-10 rounded-3xl font-semibold"
               >
                 Facebook
               </button>

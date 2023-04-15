@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom'
 
 export const DescriptionCard = ({ info }) => {
@@ -32,3 +31,4 @@ export const DescriptionCard = ({ info }) => {
     </div>
   )
 }
+
