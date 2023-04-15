@@ -9,6 +9,7 @@ import CrearLogin from './CrearLogin'
 import Home from './Home'
 import { Routes, Route } from 'react-router-dom'
 import '../components/Navbar.css'
+import Footer from './footer/Footer'
 
 export default function LandingPage() {
   return (
@@ -17,7 +18,7 @@ export default function LandingPage() {
       <div className="container">
         <h1 className="text-5xl font-bold">
           Encuentra{' '}
-          <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-green-500">
+          <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-green-600">
             <span className="relative ">La Mejor</span>
           </span>
           <br />
@@ -40,8 +41,9 @@ export default function LandingPage() {
         <Route path="/acerca" element={<Acerca />}></Route>
         <Route path="/contacto" element={<Contacto />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="crearlogin" element={<CrearLogin />}></Route>
+        <Route path="/register " element={<CrearLogin />}></Route>
       </Routes>
+      <Footer />
     </>
   )
 }

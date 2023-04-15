@@ -39,14 +39,14 @@ const Navbar = () => {
           Acerca
         </Link>
         <Link to="/contacto" className="link-barra">
-          Contactanos
+          Contáctanos
         </Link>
       </div>
       <div className="flex hidden space-x-4 pr-8 md:block ">
         <Link to="/login" className="link-barra">
           Login
         </Link>
-        <Link to="/crear" className="link-barra">
+        <Link to="/register" className="link-barra">
           Crear Cuenta
         </Link>
         <Outlet />

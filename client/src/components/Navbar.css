@@ -35,23 +35,11 @@ link {
   text-align: justify;
   vertical-align: center;
   letter-spacing: 4.5%;
-  color: #1c2441;
+  color: #0c142f;
   margin-top: 20px;
 }
 .link-barra {
-  /* position: relative;
-  justify-content: center;
-  display: flex;
-  flex-direction: row; */
-  /* list-style: none;
-  padding: 0;
-  position: relative;
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #fff;
-  transition: 0.3s ease-in-out;
-  left: 460px; */
+  color: #0b132c;
 }
 
 .link-barra:hover {
@@ -61,7 +49,7 @@ link {
 .link-barra:hover::after {
   width: 30%;
   height: 2px;
-  background-color: aquamarine;
+  background-color: rgb(12, 40, 31);
   position: absolute;
 
   /* left: 20px; */
