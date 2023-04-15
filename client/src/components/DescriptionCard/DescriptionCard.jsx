@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { Link } from 'react-router-dom'
 
 export const DescriptionCard = ({ info }) => {
