@@ -1,3 +1,4 @@
+// @ts-nocheck
 // @ts-ignore
 import ob1 from '../assets/ob-1.jpg'
 // @ts-ignore
@@ -5,18 +6,41 @@ import ob2 from '../assets/ob-2.jpg'
 // @ts-ignore
 import ob3 from '../assets/ob-3.jpg'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const Register = () => {
+  const schema = yup.object({
+    user: yup
+      .string()
+      .required('Ingrese email')
+      .matches(
+        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+        'Ingrese un mail valido',
+      ),
+    password: yup
+      .string()
+      .required('Ingrese contraseña')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/,
+        'La contraseña debe contener una minuscula, una mayuscula, un numero y un caracter especial',
+      ),
+    repeatPassword: yup
+      .string()
+      .oneOf([yup.ref('password')], 'Las contraseñas deben coincidir'),
+  })
+
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm()
+  } = useForm({ resolver: yupResolver(schema) })
 
   const onSubmit = data => {
     console.log(data)
   }
+
   return (
     <div>
       <div className="container flex mx-auto h-login justify-center items-center">
@@ -65,21 +89,15 @@ const Register = () => {
                   Email
                 </label>
                 <input
+                  id="email"
                   type="text"
-                  name="user"
+                  name="email"
                   placeholder="Ingrese email"
                   className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96 p-3"
-                  {...register('user', {
-                    required: true,
-                    pattern:
-                      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-                  })}
+                  {...register('user')}
                 />
-                {errors.user?.type === 'required' && (
-                  <span className="text-red-600">Ingresar usuario</span>
-                )}
-                {errors.user?.type === 'pattern' && (
-                  <span className="text-red-600">Introducir email valido</span>
+                {errors.user?.message && (
+                  <span className="text-red-600">{errors.user.message}</span>
                 )}
               </div>
               <div className="flex flex-col justify-around gap-1">
@@ -87,24 +105,16 @@ const Register = () => {
                   Contraseña
                 </label>
                 <input
+                  id="password"
                   type="password"
                   name="password"
                   placeholder="Ingrese contraseña"
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
-                  {...register('password', {
-                    required: true,
-                    pattern:
-                      // eslint-disable-next-line no-useless-escape
-                      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0,9])(?=.*[!@#\$%\^&\*])(?=-{8,})/,
-                  })}
+                  {...register('password')}
                 />
-                {errors.password?.type === 'required' && (
-                  <span className="text-red-600">Ingresar contraseña</span>
-                )}
-                {errors.password?.type === 'pattern' && (
-                  <span className="text-red-600 inline-block w-all">
-                    La contraseña debe contener una minuscula, una mayuscula, un
-                    numero y un caracter especial
+                {errors.password?.message && (
+                  <span className="text-red-600 w-96">
+                    {errors.password.message}
                   </span>
                 )}
               </div>
@@ -113,11 +123,18 @@ const Register = () => {
                   Repetir contraseña
                 </label>
                 <input
+                  id="repeatPassword"
                   type="password"
-                  name="password"
-                  placeholder="Ingrese contraseña"
+                  name="repeatPassword"
+                  placeholder="Repita contraseña"
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
+                  {...register('repeatPassword')}
                 />
+                {errors.repeatPassword?.message && (
+                  <span className="text-red-600 w-96">
+                    {errors.repeatPassword.message}
+                  </span>
+                )}
               </div>
               <div className="flex items-center gap-2 justify-start w-96">
                 <input type="checkbox" name="remember" className="h-5 w-5" />
