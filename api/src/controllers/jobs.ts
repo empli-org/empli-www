@@ -10,6 +10,25 @@ export async function getAllJobs(req: Request, res: Response) {
           title: { contains: key as string, mode: "insensitive" },
         },
       }),
+      select: {
+        code: true,
+        title: true,
+        area: true,
+        type: true,
+        minRate: true,
+        maxRate: true,
+        company: {
+          select: {
+            name: true,
+          },
+        },
+        location: {
+          select: {
+            city: true,
+            country: true,
+          },
+        },
+      },
     });
 
     return res.json(jobs);
@@ -23,7 +42,13 @@ export async function getAllJobs(req: Request, res: Response) {
 export async function getJobByCode(req: Request, res: Response) {
   try {
     const { code } = req.params;
-    const job = await db.job.findUnique({ where: { code } });
+    const job = await db.job.findUnique({
+      where: { code },
+      include: {
+        company: { select: { name: true } },
+        location: { select: { city: true, country: true, zip: true } },
+      },
+    });
     if (!job) {
       return res.json({
         status: 404,
