@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 const IconFace = props => {
   return (
     <svg
