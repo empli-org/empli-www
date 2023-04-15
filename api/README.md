@@ -14,8 +14,13 @@ npm run dev
 
 - `/api/jobs`
 - `/api/jobs/:code`
+- `/api/jobs?key=eng` `key = titulo del trabajo`
+
 - `/api/talents`
 - `/api/talents/:id`
+- `/api/talents?key=engineer` `key = skill o profesion`
+
+- `/api/companies`
 - `/api/categories`
 - `/api/careers`
 

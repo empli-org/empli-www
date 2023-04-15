@@ -2,9 +2,22 @@ import { Request, Response } from "express";
 import db from "../utils/db";
 
 export async function getAllJobs(req: Request, res: Response) {
-  const jobs = await db.job.findMany();
+  try {
+    const { key } = req.query;
+    const jobs = await db.job.findMany({
+      ...(key && {
+        where: {
+          title: { contains: key as string, mode: "insensitive" },
+        },
+      }),
+    });
 
-  return res.json(jobs);
+    return res.json(jobs);
+  } catch {
+    return res
+      .status(500)
+      .json({ status: 500, error: true, message: "Failt to fetch data" });
+  }
 }
 
 export async function getJobByCode(req: Request, res: Response) {
