@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 
+import { BlogNews } from '@/components/BlogNews/BlogNews'
 import Container from '@/components/ui/Container'
 export default function LandingPage() {
   return (
@@ -22,6 +23,9 @@ export default function LandingPage() {
             red, contamos con una gran cantidad de <br></br>empresas que buscan
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
+          <div className=" m-6 p2 shadow-lg shadow-gray-900 rounded-s-2xl w-3/4">
+            <BlogNews />
+          </div>
         </div>
       </div>
     </Container>
