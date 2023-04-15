@@ -36,7 +36,6 @@ const Navbar = () => {
       </div>
 
       <MobileMenu />
-
     </nav>
   )
 }
