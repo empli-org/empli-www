@@ -24,6 +24,7 @@ export default {
         negative: '-15px',
         15: '60px',
         ing: '162.4px',
+        all: '444px',
       },
     },
   },

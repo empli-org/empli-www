@@ -4,9 +4,20 @@ import ob1 from '../assets/ob-1.jpg'
 import ob2 from '../assets/ob-2.jpg'
 // @ts-ignore
 import ob3 from '../assets/ob-3.jpg'
-
+import { useForm } from 'react-hook-form'
 /* eslint-disable jsx-a11y/label-has-associated-control */
+
 export default function Login() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm()
+
+  const onSubmit = data => {
+    console.log(data)
+  }
+
   return (
     <div className="container flex mx-auto h-login justify-center items-center">
       <div className="container m-1.5 p-7 flex h-4/5 flex-wrap">
@@ -44,17 +55,31 @@ export default function Login() {
           <h1 className="text-4xl font-amenable text-center text-blue-font">
             Inicio de sesion
           </h1>
-          <form className="flex flex-col w-2/5 justify-around gap-10">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col w-2/5 justify-around gap-10"
+          >
             <div className="flex flex-col justify-around gap-1">
               <label className="text-1xl font-quicksand-light font-medium">
-                Usuario/Email
+                Email
               </label>
               <input
                 type="text"
                 name="user"
-                placeholder="Ingrese usuario"
+                placeholder="Ingrese email"
                 className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96 p-3"
+                {...register('user', {
+                  required: true,
+                  pattern:
+                    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                })}
               />
+              {errors.user?.type === 'required' && (
+                <span className="text-red-600">Ingresar usuario</span>
+              )}
+              {errors.user?.type === 'pattern' && (
+                <span className="text-red-600">Introducir email valido</span>
+              )}
             </div>
             <div className="flex flex-col justify-around gap-1">
               <label className="text-1xl font-quicksand-light font-medium">
@@ -65,7 +90,13 @@ export default function Login() {
                 name="password"
                 placeholder="Ingrese contraseña"
                 className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
+                {...register('password', {
+                  required: true,
+                })}
               />
+              {errors.password?.type === 'required' && (
+                <span className="text-red-600">Ingresar contraseña</span>
+              )}
             </div>
             <div className="flex items-center gap-2 justify-start">
               <input type="checkbox" name="remember" className="h-5 w-5" />

@@ -4,9 +4,19 @@ import ob1 from '../assets/ob-1.jpg'
 import ob2 from '../assets/ob-2.jpg'
 // @ts-ignore
 import ob3 from '../assets/ob-3.jpg'
+import { useForm } from 'react-hook-form'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const Register = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm()
+
+  const onSubmit = data => {
+    console.log(data)
+  }
   return (
     <div>
       <div className="container flex mx-auto h-login justify-center items-center">
@@ -46,17 +56,31 @@ const Register = () => {
             <h1 className="text-4xl font-amenable text-center text-blue-font">
               Registrarse
             </h1>
-            <form className="flex flex-col w-2/5 justify-around gap-5">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col w-2/5 justify-around gap-5"
+            >
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
-                  Usuario/Email
+                  Email
                 </label>
                 <input
                   type="text"
                   name="user"
-                  placeholder="Ingrese usuario"
+                  placeholder="Ingrese email"
                   className="border border-solid boder-4 rounded-lg border-blue-font h-10 w-96 p-3"
+                  {...register('user', {
+                    required: true,
+                    pattern:
+                      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                  })}
                 />
+                {errors.user?.type === 'required' && (
+                  <span className="text-red-600">Ingresar usuario</span>
+                )}
+                {errors.user?.type === 'pattern' && (
+                  <span className="text-red-600">Introducir email valido</span>
+                )}
               </div>
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
@@ -67,7 +91,22 @@ const Register = () => {
                   name="password"
                   placeholder="Ingrese contraseña"
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
+                  {...register('password', {
+                    required: true,
+                    pattern:
+                      // eslint-disable-next-line no-useless-escape
+                      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0,9])(?=.*[!@#\$%\^&\*])(?=-{8,})/,
+                  })}
                 />
+                {errors.password?.type === 'required' && (
+                  <span className="text-red-600">Ingresar contraseña</span>
+                )}
+                {errors.password?.type === 'pattern' && (
+                  <span className="text-red-600 inline-block w-all">
+                    La contraseña debe contener una minuscula, una mayuscula, un
+                    numero y un caracter especial
+                  </span>
+                )}
               </div>
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
@@ -80,7 +119,7 @@ const Register = () => {
                   className="border border-solid boder-3 rounded-lg border-blue-font cursor-text h-10 w-96 p-3"
                 />
               </div>
-              <div className="flex items-center gap-2 justify-start">
+              <div className="flex items-center gap-2 justify-start w-96">
                 <input type="checkbox" name="remember" className="h-5 w-5" />
                 <span className="text-1xl font-quicksand-light text-base font-semibold">
                   Acepto los{' '}
