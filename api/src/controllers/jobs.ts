@@ -163,7 +163,14 @@ export async function searchJobsByKey(req: Request, res: Response) {
       take: 6,
     });
 
-    return res.json(jobs);
+    return res.json(
+      jobs.map((job) => ({
+        code: job.code,
+        title: job.title,
+        area: job.area,
+        company: job.company.name,
+      }))
+    );
   } catch {
     return res
       .status(500)
