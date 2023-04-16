@@ -7,7 +7,7 @@ import Container from '@/components/ui/Container'
 import JobCard from '@/components/ui/cards/JobCard'
 import { useGetJobsQuery } from '@/redux/features/api/jobs'
 import { motion, AnimatePresence } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const queryStringFromObj = obj =>
   Object.keys(obj)
@@ -17,6 +17,7 @@ const queryStringFromObj = obj =>
 const Ofertas = () => {
   const [filterOpen, setFilterOpen] = useState(false)
   const [filters, setFilters] = useState({})
+  const hasFilters = Object.values(filters).some(Boolean)
   const queryString = queryStringFromObj(filters)
   const [page, setPage] = useState(1)
   const { data, isLoading, isFetching } = useGetJobsQuery({ queryString, page })
@@ -24,6 +25,10 @@ const Ofertas = () => {
   const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
   const totalPages = Math.ceil(countJobs / 10)
+
+  useEffect(() => {
+    setPage(1)
+  }, [data])
 
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value })
@@ -43,10 +48,13 @@ const Ofertas = () => {
               <JobSearch />
               <motion.button
                 initial={false}
-                className="rounded-lg bg-slate-200 p-4"
+                className="relative rounded-lg bg-slate-200 p-4"
                 onClick={() => setFilterOpen(!filterOpen)}
               >
                 {filterOpen ? <CloseIcon /> : <FilterIcon />}
+                {hasFilters && (
+                  <span className="absolute -right-1 -top-1 h-2 w-2 animate-pulse rounded-full bg-red-400" />
+                )}
               </motion.button>
             </div>
             <AnimatePresence initial={false}>
