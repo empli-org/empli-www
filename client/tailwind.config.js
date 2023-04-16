@@ -10,6 +10,10 @@ export default {
     extend: {
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
+        'contact-img': "url('/src/assets/bg-cont.svg')",
+      },
+      gridTemplateColumns: {
+        listing: 'repeat(auto-fill, minmax(375px, 1fr))',
       },
       colors: {
         'white-font': '#F6F2EC',
@@ -17,6 +21,7 @@ export default {
         'bg-tw': '#9FCEE7',
         'bg-lk': '#0a66c2',
         'color-google': '#F06464',
+        'bg-green': '#70b39b',
       },
       spacing: {
         // eslint-disable-next-line prettier/prettier
@@ -25,6 +30,11 @@ export default {
         15: '60px',
         ing: '162.4px',
         all: '444px',
+        100: '410px',
+        contact: '68vh',
+      },
+      screens: {
+        xs: '420px',
       },
     },
   },

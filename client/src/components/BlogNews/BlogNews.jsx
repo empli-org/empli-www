@@ -1,7 +1,20 @@
+import useIntersectionObserver from '../hooks/useObserver'
+
 export const BlogNews = () => {
+  const AnimatedComponent = useIntersectionObserver({
+    threshold: 0.5,
+    rootMargin: '0px',
+    animationDuration: 0.5,
+    staggerChildren: 0.1,
+    easing: 'easeInOut',
+    direction: 'right',
+    x: 50,
+    fade: true,
+  })
+
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex w-96 flex-shrink px-4 py-9 2xl:container sm:w-auto md:px-6 md:py-12 lg:px-20 lg:py-16 2xl:mx-auto">
+    <AnimatedComponent>
+      <div className="flex w-96 flex-shrink py-9 2xl:container sm:w-auto md:px-6 md:py-12 lg:px-20 lg:py-16 2xl:mx-auto">
         <div role="main" className="flex flex-col items-center justify-center">
           <h1 className="text-center text-4xl font-semibold leading-9 text-gray-800 dark:text-gray-50">
             Actualizacion semanal
@@ -281,6 +294,6 @@ export const BlogNews = () => {
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedComponent>
   )
 }
