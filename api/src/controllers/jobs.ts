@@ -44,7 +44,6 @@ export async function getJobLocations(req: Request, res: Response) {
       select: {
         location: {
           select: {
-            id: true,
             country: true,
             city: true,
           },
@@ -53,7 +52,12 @@ export async function getJobLocations(req: Request, res: Response) {
       take: 6,
     });
 
-    return res.json(locations);
+    return res.json(
+      locations.map((l) => ({
+        city: l.location.city,
+        country: l.location.country,
+      }))
+    );
   } catch {
     return res
       .status(500)
