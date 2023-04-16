@@ -18,10 +18,12 @@ const Ofertas = () => {
   const [filterOpen, setFilterOpen] = useState(false)
   const [filters, setFilters] = useState({})
   const queryString = queryStringFromObj(filters)
-  const { data, isLoading, isFetching } = useGetJobsQuery(queryString)
+  const [page, setPage] = useState(1)
+  const { data, isLoading, isFetching } = useGetJobsQuery({ queryString, page })
   const jobs = data?.data
   const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
+  const totalPages = Math.ceil(countJobs / 10)
 
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value })
@@ -127,9 +129,8 @@ const Ofertas = () => {
         {jobsLoading && <JobsFallback />}
 
         <section className="grid grid-cols-listing gap-4 py-4">
-          {jobs?.map(job => (
-            <JobCard key={job.code} job={job} />
-          ))}
+          {!jobsLoading &&
+            jobs?.map(job => <JobCard key={job.code} job={job} />)}
         </section>
 
         {(!countJobs || countJobs === 0) && !jobsLoading && (
@@ -140,9 +141,20 @@ const Ofertas = () => {
           </div>
         )}
 
-        <div className="py-6 text-center">
+        <div>
+          <button disabled={page === 1} onClick={() => setPage(v => v - 1)}>
+            Prev
+          </button>
+          <p>
+            {page} of {totalPages}
+          </p>
           <p>{countJobs} total item(s)</p>
-          <button className="rounded-lg bg-slate-300 p-4">Mostrar mas</button>
+          <button
+            disabled={page === totalPages}
+            onClick={() => setPage(v => v + 1)}
+          >
+            Next
+          </button>
         </div>
       </Container>
     </div>
