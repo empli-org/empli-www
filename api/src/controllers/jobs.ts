@@ -71,7 +71,7 @@ export async function getAllJobs(req: Request, res: Response) {
     const { key, page, location, area } = req.query;
     const currentPage = Math.max(Number(page) || 1, 1);
     const peerPage = 10;
-    const countOptions: Prisma.JobFindManyArgs = {};
+    const countOptions: Prisma.JobCountArgs = {};
     const options: Prisma.JobFindManyArgs = {
       select: {
         code: true,
@@ -114,7 +114,7 @@ export async function getAllJobs(req: Request, res: Response) {
     countOptions.where = options.where;
 
     const jobs = await db.job.findMany(options);
-    const count = await db.job.findMany(countOptions);
+    const count = await db.job.count(countOptions);
 
     return res.json({
       data: jobs,
