@@ -13,7 +13,7 @@ const NAV_LINKS = [
 
 const Navbar = () => {
   return (
-    <nav className="flex h-16 w-full items-center justify-between space-x-4 px-4 text-black shadow-sm">
+    <nav className="fixed flex h-16 w-full items-center justify-between space-x-4 px-4 text-black shadow-sm">
       <Link to="/">
         <img src={empliLogo} alt="logo" className="w-16" />
       </Link>
