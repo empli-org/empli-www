@@ -1,6 +1,7 @@
 import JobAreaSearch from '@/components/Search/JobAreaSearch'
 import JobSearch from '@/components/Search/JobSearch'
 import LocationSearch from '@/components/Search/LocationSearch'
+import JobsFallback from '@/components/fallbacks/JobsFallback'
 import { CloseIcon, FilterIcon } from '@/components/icons'
 import Container from '@/components/ui/Container'
 import JobCard from '@/components/ui/cards/JobCard'
@@ -123,15 +124,15 @@ const Ofertas = () => {
           </ul>
         </div>
 
+        {jobsLoading && <JobsFallback />}
+
         <section className="grid grid-cols-listing gap-4 py-4">
-          {jobsLoading ? (
-            <p>Loading....</p>
-          ) : (
-            jobs?.map(job => <JobCard key={job.code} job={job} />)
-          )}
+          {jobs?.map(job => (
+            <JobCard key={job.code} job={job} />
+          ))}
         </section>
 
-        {(!countJobs || countJobs === 0) && (
+        {(!countJobs || countJobs === 0) && !jobsLoading && (
           <div className="py-12">
             <h1 className="text-center text-2xl font-bold text-slate-500 sm:text-4xl">
               Aún no tenemos nada por aquí!!
