@@ -17,9 +17,9 @@ function CardBox({ data }) {
   }, [])
 
   return (
-    <div className="bg-gray-900 flex flex-col w-3/4 mx-auto m-5 p-10 rounded-3xl">
-      <div className="p-5 text-white flex flex-col items-end justify-end m-5">
-        <div className="font-bold text-2xl">
+    <div className="m-5 mx-auto flex w-3/4 flex-col rounded-3xl bg-gray-900 p-10">
+      <div className="m-5 flex flex-col items-end justify-end p-5 text-white">
+        <div className="text-2xl font-bold">
           <h1>Top Profesionales</h1>
         </div>
         <div>
