@@ -5,18 +5,19 @@ import { Prisma } from "@prisma/client";
 export async function getJobAreas(req: Request, res: Response) {
   try {
     const { key } = req.query;
-    const areas = await db.job.findMany({
+    const areas = await db.jobArea.findMany({
       ...(key && {
         where: {
-          area: {
+          name: {
             contains: key as string,
             mode: "insensitive",
           },
         },
       }),
       select: {
-        area: true,
+        name: true,
       },
+      distinct: ["name"],
       take: 6,
     });
 
@@ -50,6 +51,7 @@ export async function getJobLocations(req: Request, res: Response) {
           },
         },
       },
+      distinct: ["locationId"],
       take: 6,
     });
 
