@@ -1,5 +1,6 @@
 import { BlogNews } from '@/components/BlogNews/BlogNews'
 import Container from '@/components/ui/Container'
+import Footer from './footer/Footer'
 
 export default function LandingPage() {
   return (
@@ -8,7 +9,7 @@ export default function LandingPage() {
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">
             Encuentra{' '}
-            <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-green-500">
+            <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-green-400">
               <span className="relative ">La Mejor</span>
             </span>
             <br />
@@ -22,10 +23,11 @@ export default function LandingPage() {
             red, contamos con una gran cantidad de <br></br>empresas que buscan
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
-          <div className=" m-6 p2 shadow-lg shadow-gray-900 rounded-s-2xl w-3/4">
+          <div className=" p2 m-6 w-3/4 rounded-s-2xl shadow-lg shadow-gray-900">
             <BlogNews />
           </div>
         </div>
+        <Footer />
       </div>
     </Container>
   )

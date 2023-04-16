@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Layout from './components/Layout'
 import ErrorPage from './pages/ErrorPage'
+
 export const router = createBrowserRouter([
   {
     path: '/',
