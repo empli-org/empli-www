@@ -12,36 +12,36 @@ import {
 
 export const CardProfile = ({ name, address, image, rol, yearsOfExp }) => {
   return (
-    <div className="w-3/5 bg-gray-100 rounded-2xl shadow-lg bg-blend-darken">
-      <div className="m-2 p-2 flex justify-between">
-        <div className="flex flex-col items-between justify-center w-fit">
-          <div className="flex justify-center relative rounded-full overflow-hidden w-48 h-48 m-5 shadow-2xl">
+    <div className="w-3/5 rounded-2xl bg-gray-100 bg-blend-darken shadow-lg">
+      <div className="m-2 flex justify-between p-2">
+        <div className="items-between flex w-fit flex-col justify-center">
+          <div className="relative m-5 flex h-48 w-48 justify-center overflow-hidden rounded-full shadow-2xl">
             <img
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
               src={image}
               alt="perfil"
             />
-            <div className="flex justify-center items-center absolute bottom-0 left-0 w-full">
-              <div className="flex justify-center items-center w-fit m-2 p-1 bg-green-200 text-black rounded-tr-full rounded-tl-full rounded-bl-full shadow-lg">
+            <div className="absolute bottom-0 left-0 flex w-full items-center justify-center">
+              <div className="m-2 flex w-fit items-center justify-center rounded-bl-full rounded-tl-full rounded-tr-full bg-green-200 p-1 text-black shadow-lg">
                 <IconCheckEmpty />
                 <span>open to work</span>
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center w-full">
-            <div className="flex justify-center items-center w-full m-1 p-1">
+          <div className="flex w-full items-center justify-center">
+            <div className="m-1 flex w-full items-center justify-center p-1">
               <IconLocation />
               <span>{address}</span>
             </div>
           </div>
         </div>
-        <div className="w-6/12 flex flex-col justify-center p-2">
+        <div className="flex w-6/12 flex-col justify-center p-2">
           <div className="flex flex-col">
-            <div className="flex justify-start w-full">
-              <h1 className="font-bold text-2xl">{name}</h1>
+            <div className="flex w-full justify-start">
+              <h1 className="text-2xl font-bold">{name}</h1>
               <IconCheckEmpty />
             </div>
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <Link to="">
                 <IconFace />
               </Link>
@@ -54,37 +54,37 @@ export const CardProfile = ({ name, address, image, rol, yearsOfExp }) => {
               <Link to="">
                 <IconLink />
               </Link>
-              <button className="bg-gray-900 text-white rounded-lg m-1 p-1 flex justify-stretch items-center shadow-lg">
+              <button className="m-1 flex items-center justify-stretch rounded-lg bg-gray-900 p-1 text-white shadow-lg">
                 <IconEmail />
                 Mensaje
               </button>
-              <button className="bg-gray-900 text-white rounded-lg m-1 p-1 flex justify-stretch items-center shadow-lg">
+              <button className="m-1 flex items-center justify-stretch rounded-lg bg-gray-900 p-1 text-white shadow-lg">
                 <IconEmail />
                 Mensaje
               </button>
             </div>
           </div>
-          <div className="flex justify-between p-2 w-full">
-            <div className="w-6/12 flex flex-col">
+          <div className="flex w-full justify-between p-2">
+            <div className="flex w-6/12 flex-col">
               <span>Rol / Cargo</span>
-              <h1 className="font-bold text-xl">{rol}</h1>
+              <h1 className="text-xl font-bold">{rol}</h1>
             </div>
             <div className="w-6/12">
               <span>Experiencia</span>
-              <h1 className="font-bold text-xl">{yearsOfExp} Anos</h1>
+              <h1 className="text-xl font-bold">{yearsOfExp} Anos</h1>
             </div>
           </div>
           <h2 className="text-shadow-lg">Superpoderes</h2>
-          <div className="flex justify-around w-full gap-x-px">
-            <div className="bg-blue-200 rounded-tr-full rounded-tl-full rounded-bl-full p-1 m-3 flex justify-stretch items-center shadow-lg">
+          <div className="flex w-full justify-around gap-x-px">
+            <div className="m-3 flex items-center justify-stretch rounded-bl-full rounded-tl-full rounded-tr-full bg-blue-200 p-1 shadow-lg">
               <IconStar />
               AutoCad
             </div>
-            <div className="bg-yellow-200 rounded-tr-full rounded-tl-full rounded-bl-full p-2 m-3 flex justify-stretch items-center shadow-lg">
+            <div className="m-3 flex items-center justify-stretch rounded-bl-full rounded-tl-full rounded-tr-full bg-yellow-200 p-2 shadow-lg">
               <IconStar />
               AutoCad
             </div>
-            <div className="bg-gray-300 rounded-tr-full rounded-tl-full rounded-bl-full p-2  m-3 flex justify-stretch items-center shadow-lg">
+            <div className="m-3 flex items-center justify-stretch rounded-bl-full  rounded-tl-full rounded-tr-full bg-gray-300 p-2 shadow-lg">
               <IconStar />
               AutoCad
             </div>
