@@ -33,73 +33,73 @@ const Contacto = () => {
   }
   return (
     <div>
-      <div className="w-screen h-52 bg-contact-img bg-cover flex justify-center items-center">
-        <h1 className="font-amenable font-bold text-6xl text-blue-font">
+      <div className="flex h-52 w-screen items-center justify-center bg-contact-img bg-cover">
+        <h1 className="font-amenable text-6xl font-bold text-blue-font">
           Contactenos
         </h1>
       </div>
-      <div className="flex justify-center items-center h-contact w-screen">
+      <div className="flex h-contact w-screen items-center justify-center">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col justify-evenly items-center bg-white-font w-4/6 h-full p-14 gap-4 rounded-3xl mt-7"
+          className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14"
         >
-          <div className="w-full flex ml-32">
-            <div className="w-full h-full">
+          <div className="ml-32 flex w-full">
+            <div className="h-full w-full">
               <label className="block font-quicksand-light text-lg font-semibold">
                 Nombre Completo
               </label>
               <input
                 type="text"
-                className="border-2 border-black w-3/5 block rounded-lg p-1"
+                className="block w-3/5 rounded-lg border-2 border-black p-1"
                 {...register('name')}
               />
               {errors.name?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="text-red-600 w-100">{errors.name.message}</p>
+                <p className="w-100 text-red-600">{errors.name.message}</p>
               )}
             </div>
-            <div className="w-full h-full">
+            <div className="h-full w-full">
               <label className="block font-quicksand-light text-lg font-semibold">
                 Asunto
               </label>
               <input
                 type="text"
-                className="border-2 border-black w-3/5 block rounded-lg p-1"
+                className="block w-3/5 rounded-lg border-2 border-black p-1"
                 {...register('asunto')}
               />
               {errors.asunto?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="text-red-600 w-100">{errors.asunto.message}</p>
+                <p className="w-100 text-red-600">{errors.asunto.message}</p>
               )}
             </div>
           </div>
-          <div className="w-full flex ml-32">
-            <div className="w-full h-full">
+          <div className="ml-32 flex w-full">
+            <div className="h-full w-full">
               <label className="block font-quicksand-light text-lg font-semibold">
                 Email
               </label>
               <input
                 type="text"
-                className="border-2 border-black w-3/5 rounded-lg p-1"
+                className="w-3/5 rounded-lg border-2 border-black p-1"
                 {...register('email')}
               />
               {errors.email?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="text-red-600 w-100">{errors.email.message}</p>
+                <p className="w-100 text-red-600">{errors.email.message}</p>
               )}
             </div>
-            <div className="w-full h-full">
+            <div className="h-full w-full">
               <label className="block font-quicksand-light text-lg font-semibold">
                 Categoria
               </label>
               <input
                 type="text"
-                className="border-2 border-black w-3/5 rounded-lg p-1"
+                className="w-3/5 rounded-lg border-2 border-black p-1"
                 {...register('category')}
               />
               {errors.category?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="text-red-600 w-100">{errors.category.message}</p>
+                <p className="w-100 text-red-600">{errors.category.message}</p>
               )}
             </div>
           </div>
@@ -109,16 +109,16 @@ const Contacto = () => {
           <textarea
             cols="100"
             rows="5"
-            className="border-2 border-black resize-none rounded-lg p-1"
+            className="resize-none rounded-lg border-2 border-black p-1"
             {...register('description')}
           />
           {errors.description?.message && (
             // eslint-disable-next-line prettier/prettier
-            <p className="text-red-600 w-100">{errors.description.message}</p>
+            <p className="w-100 text-red-600">{errors.description.message}</p>
           )}
           <button
             type="submit"
-            className="mt-8 bg-blue-font w-2/6 h-12 rounded-xl text-white-font"
+            className="mt-8 h-12 w-2/6 rounded-xl bg-blue-font text-white-font"
           >
             Enviar
           </button>

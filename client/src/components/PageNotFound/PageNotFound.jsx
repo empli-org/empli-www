@@ -1,19 +1,19 @@
 export const PageNOtFound = () => {
   return (
-    <div className="w-full h-screen flex flex-col lg:flex-row items-center justify-center space-y-16 lg:space-y-0 space-x-8 2xl:space-x-0">
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center lg:px-2 xl:px-0 text-center">
-        <p className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-wider text-gray-300 hover:text-slate-950 transition duration-100 ease-out hover:-rotate-180">
+    <div className="flex h-screen w-full flex-col items-center justify-center space-x-8 space-y-16 lg:flex-row lg:space-y-0 2xl:space-x-0">
+      <div className="flex w-full flex-col items-center justify-center text-center lg:w-1/2 lg:px-2 xl:px-0">
+        <p className="text-7xl font-bold tracking-wider text-gray-300 transition duration-100 ease-out hover:-rotate-180 hover:text-slate-950 md:text-8xl lg:text-9xl">
           404
         </p>
-        <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-gray-300 mt-2">
+        <p className="mt-2 text-4xl font-bold tracking-wider text-gray-300 md:text-5xl lg:text-6xl">
           Page Not Found
         </p>
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-500 my-12">
+        <p className="my-12 text-lg text-gray-500 md:text-xl lg:text-2xl">
           Sorry, the page you are looking for could not be found.
         </p>
         <a
           href="/"
-          className="flex items-center space-x-2 bg-gray-900 hover:bg-blue-700 hover:border border-white text-gray-100 px-4 py-2 rounded transition duration-150"
+          className="flex items-center space-x-2 rounded border-white bg-gray-900 px-4 py-2 text-gray-100 transition duration-150 hover:border hover:bg-blue-700"
           title="Return Home"
         >
           <svg
@@ -31,9 +31,9 @@ export const PageNOtFound = () => {
           <span>Return Home</span>
         </a>
       </div>
-      <div className="w-1/2 lg:h-full flex lg:items-center justify-center p-4 bg-login-img">
+      <div className="flex w-1/2 justify-center bg-login-img p-4 lg:h-full lg:items-center">
         <svg
-          className="w-full text-blue-600  backdrop-blur-sm shadow-sm"
+          className="w-full text-blue-600  shadow-sm backdrop-blur-sm"
           xmlns="http://www.w3.org/2000/svg"
           data-name="Layer 1"
           viewBox="0 0 1120.59226 777.91584"
