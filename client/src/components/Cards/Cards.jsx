@@ -108,7 +108,7 @@ const Cards = () => {
             //esto devolverá una sola publicación de trabajo basada en la identificación
             <div
               key={id}
-              className="group/item singleJob [10px] shadow-greyIsh-400/700 group w-[250px] rounded rounded bg-white p-[20px] shadow-lg hover:bg-emerald-500 hover:shadow-lg"
+              className="group/item singleJob [10px] shadow-greyIsh-400/700 group w-[250px] rounded bg-white p-[20px] shadow-lg hover:bg-emerald-500 hover:shadow-lg"
             >
               <span className="flex items-center justify-between gap-4">
                 <h1 className="text-textColor group-hover text-bg-neutral-950 text-[16px] font-semibold">
