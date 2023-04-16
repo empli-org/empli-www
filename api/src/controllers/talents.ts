@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import db from "../utils/db";
+import { Prisma } from "@prisma/client";
 
 export async function getAllSkills(req: Request, res: Response) {
   try {
@@ -54,7 +55,7 @@ export async function getAllTalents(req: Request, res: Response) {
     const currentPage = Math.max(Number(page) || 1, 1);
     const peerPage = 10;
 
-    const talents = await db.talent.findMany({
+    const options: Prisma.TalentFindManyArgs = {
       select: {
         id: true,
         name: true,
@@ -102,9 +103,14 @@ export async function getAllTalents(req: Request, res: Response) {
       }),
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
-    });
+    };
 
-    return res.json({ error: false, status: 200, data: talents });
+    const talents = await db.talent.findMany();
+    const countOptions: Prisma.TalentCountArgs = {};
+    countOptions.where = options.where;
+    const count = await db.talent.count(countOptions);
+
+    return res.json({ error: false, status: 200, data: talents, count });
   } catch {
     return res
       .status(500)
