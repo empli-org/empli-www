@@ -7,7 +7,7 @@ export const jobsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL_API }),
   endpoints: builder => ({
     getJobs: builder.query({
-      query: key => `/jobs${key ? `?key=${key}` : ''}`,
+      query: queryString => `/jobs${queryString && `?${queryString}`}`,
     }),
     searchJobs: builder.query({
       query: key => `/jobs/search?key=${key}`,

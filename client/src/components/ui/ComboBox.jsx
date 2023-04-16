@@ -35,7 +35,6 @@ export default function ComboBox({
     onSelectedItemChange: ({ selectedItem }) => {
       setSelectedJob(selectedItem)
       if (onSelect && typeof onSelect === 'function') onSelect(selectedItem)
-      // navigate to job
       // router.push(`/jobs/${selectedItem?.code}`)
     },
     items: query === '' ? [] : data || [],

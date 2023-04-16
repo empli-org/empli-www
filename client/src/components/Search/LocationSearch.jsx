@@ -2,7 +2,7 @@ import { useGetJobLocationsQuery } from '@/redux/features/api/jobs'
 import { useState } from 'react'
 import ComboBox from '@/components/ui/ComboBox'
 
-export default function LocationSearch() {
+export default function LocationSearch({ onSelect }) {
   const [query, setQuery] = useState('')
   const { data, isFetching } = useGetJobLocationsQuery(query)
 
@@ -12,6 +12,7 @@ export default function LocationSearch() {
       placeholder="Ubicación..."
       query={query}
       setQuery={setQuery}
+      onSelect={onSelect}
       data={data}
       isFetching={isFetching}
       itemTitle="city"

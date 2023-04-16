@@ -8,11 +8,22 @@ import { useGetJobsQuery } from '@/redux/features/api/jobs'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 
+const queryStringFromObj = obj =>
+  Object.keys(obj)
+    .map(key => obj[key] && key + '=' + obj[key])
+    .join('&')
+
 const Ofertas = () => {
   const [filterOpen, setFilterOpen] = useState(false)
-  const { data: jobs, isLoading } = useGetJobsQuery()
+  const [filters, setFilters] = useState({})
+  const queryString = queryStringFromObj(filters)
+  const { data: jobs, isLoading, isFetching } = useGetJobsQuery(queryString)
+  const jobsLoading = isLoading || isFetching
 
-  if (isLoading) return <p>Loading...</p>
+  const handleFilters = (key, value) => {
+    setFilters({ ...filters, [key]: value })
+  }
+
   return (
     <div>
       <Container>
@@ -48,8 +59,48 @@ const Ofertas = () => {
                   transition={{ duration: 0.6, ease: 'easeInOut' }}
                 >
                   <div className="flex w-full flex-col gap-2 py-4 md:flex-row md:gap-4">
-                    <LocationSearch />
-                    <JobAreaSearch />
+                    <div className="w-full">
+                      <LocationSearch
+                        onSelect={selected =>
+                          handleFilters('location', selected.city)
+                        }
+                      />
+                      {filters?.location && (
+                        <div className="flex py-3">
+                          <div className="flex items-center gap-2 rounded-full bg-slate-200 px-3 py-2 text-sm">
+                            <span>{filters.location}</span>
+                            <button
+                              onClick={() =>
+                                setFilters({ ...filters, location: null })
+                              }
+                            >
+                              <CloseIcon className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="w-full">
+                      <JobAreaSearch
+                        onSelect={selected =>
+                          handleFilters('area', selected.area)
+                        }
+                      />
+                      {filters?.area && (
+                        <div className="flex py-3">
+                          <div className="flex items-center gap-2 rounded-full bg-slate-200 px-3 py-2 text-sm">
+                            <span>{filters.area}</span>
+                            <button
+                              onClick={() =>
+                                setFilters({ ...filters, area: null })
+                              }
+                            >
+                              <CloseIcon className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -71,9 +122,11 @@ const Ofertas = () => {
         </div>
 
         <section className="grid grid-cols-listing gap-4 py-4">
-          {jobs?.map(job => (
-            <JobCard key={job.code} job={job} />
-          ))}
+          {jobsLoading ? (
+            <p>Loading....</p>
+          ) : (
+            jobs?.map(job => <JobCard key={job.code} job={job} />)
+          )}
         </section>
 
         <div className="py-6 text-center">
