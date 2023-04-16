@@ -15,7 +15,7 @@ export default function JobAreaSearch({ onSelect }) {
       data={data}
       onSelect={onSelect}
       isFetching={isFetching}
-      itemTitle="area"
+      itemTitle="name"
     />
   )
 }

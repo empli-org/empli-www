@@ -96,7 +96,7 @@ const Ofertas = () => {
                     <div className="w-full">
                       <JobAreaSearch
                         onSelect={selected =>
-                          handleFilters('area', selected.area)
+                          handleFilters('area', selected.name)
                         }
                       />
                       {filters?.area && (
