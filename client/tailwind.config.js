@@ -12,6 +12,9 @@ export default {
         'login-img': "url('/src/assets/bg.svg')",
         'contact-img': "url('/src/assets/bg-cont.svg')",
       },
+      gridTemplateColumns: {
+        listing: 'repeat(auto-fill, minmax(375px, 1fr))',
+      },
       colors: {
         'white-font': '#F6F2EC',
         'blue-font': '#1C2441',
@@ -29,6 +32,9 @@ export default {
         all: '444px',
         100: '410px',
         contact: '68vh',
+      },
+      screens: {
+        xs: '420px',
       },
     },
   },
