@@ -22,7 +22,7 @@ export const BlogNews = () => {
           <p className="mt-4 w-11/12 text-center text-base leading-normal text-gray-600 dark:text-white md:w-10/12 lg:w-1/2">
             Mantenerte actualizado con las noticias del mercado de la
             construccion y sus competencias, es de vital importancia para todo
-            profeional del campo.
+            profesional del campo.
           </p>
         </div>
         <div className="mt-8 items-stretch md:mt-12 lg:flex">

@@ -1,10 +1,87 @@
 import { Request, Response } from "express";
+
 import db from "../utils/db";
+
+export async function getAllSkills(req: Request, res: Response) {
+  try {
+    const { key } = req.query;
+    const skills = await db.skill.findMany({
+      select: {
+        name: true,
+      },
+      ...(key && {
+        where: {
+          name: { contains: key as string, mode: "insensitive" },
+        },
+      }),
+      take: 6,
+      distinct: ["name"],
+    });
+    return res.json(skills);
+  } catch {
+    return res
+      .status(500)
+      .json({ error: true, status: 500, message: "Fail to fetch data" });
+  }
+}
+
+export async function getCareers(req: Request, res: Response) {
+  try {
+    const { key } = req.query;
+    const careers = await db.career.findMany({
+      select: {
+        name: true,
+      },
+      ...(key && {
+        where: {
+          name: { contains: key as string, mode: "insensitive" },
+        },
+      }),
+      take: 6,
+      distinct: ["name"],
+    });
+    return res.json(careers);
+  } catch {
+    return res
+      .status(500)
+      .json({ error: true, status: 500, message: "Fail to fetch data" });
+  }
+}
 
 export async function getAllTalents(req: Request, res: Response) {
   try {
-    const { key } = req.query;
+    const { key, page } = req.query;
+    const currentPage = Math.max(Number(page) || 1, 1);
+    const peerPage = 10;
+
     const talents = await db.talent.findMany({
+      select: {
+        id: true,
+        name: true,
+        lastname: true,
+        image: true,
+        verified: true,
+        career: {
+          select: {
+            name: true,
+          },
+        },
+        skills: {
+          select: {
+            name: true,
+          },
+        },
+        contactInfo: {
+          select: {
+            location: {
+              select: {
+                city: true,
+                country: true,
+              },
+            },
+          },
+        },
+      },
       ...(key && {
         where: {
           OR: [
@@ -23,37 +100,8 @@ export async function getAllTalents(req: Request, res: Response) {
           ],
         },
       }),
-      include: {
-        career: true,
-        skills: {
-          select: {
-            name: true,
-          },
-        },
-        contactInfo: {
-          select: {
-            location: {
-              select: {
-                city: true,
-                country: true,
-              },
-            },
-          },
-        },
-        experienceInfo: {
-          select: {
-            projects: {
-              select: {
-                name: true,
-                description: true,
-                startDate: true,
-                endDate: true,
-                amount: true,
-              },
-            },
-          },
-        },
-      },
+      take: peerPage,
+      skip: (currentPage - 1) * peerPage,
     });
 
     return res.json({ error: false, status: 200, data: talents });
