@@ -47,7 +47,7 @@ export default function ComboBox({
     },
   })
 
-  const displayMenu = cb.isOpen && query !== '' && data.length > 0
+  const displayMenu = cb.isOpen && query !== '' && data?.length > 0
 
   return (
     <div className="relative w-full">

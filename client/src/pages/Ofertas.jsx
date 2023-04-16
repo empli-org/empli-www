@@ -17,7 +17,9 @@ const Ofertas = () => {
   const [filterOpen, setFilterOpen] = useState(false)
   const [filters, setFilters] = useState({})
   const queryString = queryStringFromObj(filters)
-  const { data: jobs, isLoading, isFetching } = useGetJobsQuery(queryString)
+  const { data, isLoading, isFetching } = useGetJobsQuery(queryString)
+  const jobs = data?.data
+  const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
 
   const handleFilters = (key, value) => {
@@ -129,7 +131,16 @@ const Ofertas = () => {
           )}
         </section>
 
+        {(!countJobs || countJobs === 0) && (
+          <div className="py-12">
+            <h1 className="text-center text-2xl font-bold text-slate-500 sm:text-4xl">
+              Aún no tenemos nada por aquí!!
+            </h1>
+          </div>
+        )}
+
         <div className="py-6 text-center">
+          <p>{countJobs} total item(s)</p>
           <button className="rounded-lg bg-slate-300 p-4">Mostrar mas</button>
         </div>
       </Container>
