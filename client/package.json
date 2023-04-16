@@ -13,11 +13,19 @@
     "validate": "run-s lint build"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
+    "@hookform/resolvers": "^3.0.1",
     "@reduxjs/toolkit": "^1.9.3",
+    "clsx": "^1.2.1",
+    "downshift": "^7.6.0",
+    "framer-motion": "^10.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
