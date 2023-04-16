@@ -11,6 +11,9 @@ export default {
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
       },
+      gridTemplateColumns: {
+        listing: 'repeat(auto-fill, minmax(375px, 1fr))',
+      },
       colors: {
         'white-font': '#F6F2EC',
         'blue-font': '#1C2441',
@@ -25,6 +28,9 @@ export default {
         15: '60px',
         ing: '162.4px',
         all: '444px',
+      },
+      screens: {
+        xs: '420px',
       },
     },
   },
