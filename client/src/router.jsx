@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage'
 import DetalleOferta from './pages/DetalleOferta'
 import Talents from './pages/Talents'
 import TalentDetail from './pages/TalentDetail'
+import UserProfileForm from './pages/UserForm'
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/user/profile',
+        element: <UserProfileForm />,
       },
     ],
   },

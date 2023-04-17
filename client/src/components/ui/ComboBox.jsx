@@ -66,7 +66,7 @@ export default function ComboBox({
             id,
             value: query,
             className: clsx(
-              'w-full px-4 py-3 text-lg outline-none focus:ring-2',
+              'w-full px-4 py-3 border border-slate-200 text-lg outline-none focus:ring-2',
               {
                 'rounded-t-lg rounded-b-0': displayMenu,
                 'rounded-lg': !displayMenu,
