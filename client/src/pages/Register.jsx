@@ -146,7 +146,7 @@ const Register = () => {
                 <span className="text-1xl font-quicksand-light text-base font-semibold">
                   Acepto los{' '}
                   <a href="/Terminos" className="font-semibold underline">
-                    Terminos y condiciones
+                    Términos y condiciones
                   </a>
                 </span>
               </div>

@@ -88,7 +88,7 @@ export default function Login() {
           </div>
           <div className="flex w-2/5 flex-col justify-around p-10">
             <h1 className="text-center font-amenable text-4xl text-blue-font">
-              Inicio de sesion
+              Inicio de sesión
             </h1>
             <form
               onSubmit={handleSubmit(onSubmit)}
