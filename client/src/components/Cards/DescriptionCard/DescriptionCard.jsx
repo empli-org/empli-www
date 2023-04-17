@@ -1,6 +1,6 @@
 // import { info } from '../../pages/info'
-import { Biografy } from '../Biografy/Biografy'
-import { Tags } from '../Tags/Tags'
+import { Biography } from '../../Biografy/Biography'
+import { Tags } from '../../Tags/Tags'
 import { useState } from 'react'
 export const DescriptionCard = () => {
   //The local initial state is Biografia
@@ -35,7 +35,7 @@ export const DescriptionCard = () => {
           </div>
         ) : title === 'Biografia' ? (
           <div className="m-3">
-            <Biografy />
+            <Biography />
           </div>
         ) : (
           <div>

@@ -11,8 +11,8 @@ import {
   IconInfo,
   Tags,
 } from 'components'
-
-export const CardProfile = ({ info }) => {
+import { info } from '@/components/info'
+export const CardProfile = () => {
   return (
     <div className="w-3/4 rounded-2xl bg-gray-100 bg-blend-darken shadow-lg">
       <div className="m-2 flex justify-between p-2">
@@ -80,7 +80,7 @@ export const CardProfile = ({ info }) => {
           </div>
           <h2 className="font-semibold">Superpoderes</h2>
           <div className="flex">
-            <Tags skills={info.skills} />
+            <Tags />
           </div>
         </div>
       </div>

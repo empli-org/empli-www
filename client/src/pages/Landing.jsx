@@ -1,5 +1,91 @@
-import { Container, BlogNews } from 'components'
+import { MiniCard, CardBox, Container } from 'components'
 export const Landing = () => {
+  // Data sirve unicamente para probar que las cards,
+  // porque lo que se quiere es que la informacion que utilizan las cards vengan por props
+  const data = [
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 1,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 2,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 3,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 1,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 2,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 3,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 1,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 2,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+    {
+      title: 'Incoingroup',
+      subtitle: 'Buenos Aires, ARG',
+      rol: 'Arquitecto',
+      description: 'obtener la oportunidad de trabajar con una gran empresa',
+      amount: 3,
+      time: '1 hora',
+      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+    },
+  ]
+
   return (
     <Container>
       <div className="mx-auto max-w-screen-lg py-12">
@@ -20,8 +106,29 @@ export const Landing = () => {
             red, contamos con una gran cantidad de <br></br>empresas que buscan
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
-          <div className=" p2 m-6 w-3/4 rounded-s-2xl shadow-lg shadow-gray-900">
-            <BlogNews />
+          <CardBox data={data} />
+          <div className="p2 w-11-12 m-6 flex flex-wrap justify-between rounded-s-2xl shadow-lg">
+            {data.map(
+              (
+                { logo, title, subtitle, time, amount, rol, description },
+                index,
+              ) => {
+                return (
+                  <div key={index} className="inline-block">
+                    <MiniCard
+                      key={index}
+                      logo={logo}
+                      title={title}
+                      subtitle={subtitle}
+                      description={description}
+                      time={time}
+                      amount={amount}
+                      rol={rol}
+                    />
+                  </div>
+                )
+              },
+            )}
           </div>
         </div>
       </div>

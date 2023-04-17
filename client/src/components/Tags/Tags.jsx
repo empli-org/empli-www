@@ -1,9 +1,10 @@
 import { IconStar } from 'components'
-export const Tags = ({ skills }) => {
+import { info } from '../info'
+export const Tags = () => {
   return (
     <>
       <div className="flex w-full flex-wrap">
-        {skills.map((tag, index) => {
+        {info.skills.map((tag, index) => {
           return (
             <div key={index}>
               <div className="flex w-full justify-around gap-x-px">
