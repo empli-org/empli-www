@@ -4,14 +4,16 @@ import { ArrowBtnR } from './ArrowBtnR'
 import { Link } from 'react-router-dom'
 
 export const MiniCard = ({
-  logo,
   title,
-  description,
+  logo,
   subtitle,
-  office,
   amount,
   time,
+  description,
+  rol,
 }) => {
+  // esta variable sera renderizada unicamente si se recibe por props amount y time. 
+  // de igual modo se hace con la variable btn. de esta forma hacemos que el componente sea dinamico y reutilizable
   const price = (
     <div className="flex w-full justify-between">
       <div>
@@ -36,23 +38,25 @@ export const MiniCard = ({
   )
 
   return (
-    <div className="w-25 grid-cols-auto mr-10 grid h-64 transform overflow-hidden rounded-lg bg-blue-200 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <div className="w-50 flex h-40 flex-col items-center p-4 md:p-6 lg:p-8">
-        <div className="mb-4 flex w-full justify-between">
-          <img
-            className="mr-2 h-14 w-14 rounded-lg shadow-xl"
-            src={logo}
-            alt="logo"
-          />
-          <div className="h-full w-full">
-            <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+    <div className="grid-cols-2-auto m-2 grid h-auto w-64 transform grid-flow-col overflow-hidden rounded-lg bg-blue-200 p-2 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className="flex h-auto w-fit flex-col items-center p-2 md:p-2 lg:p-2">
+        <div className="mb-2 flex h-auto w-fit justify-center">
+          <div className="flex w-2/6">
+            <img
+              className="mr-2 w-fit overflow-hidden rounded-lg shadow-xl"
+              src={logo}
+              alt="logo"
+            />
+          </div>
+          <div className=" w-3/4">
+            <h3 className="break-words text-2xl font-bold text-gray-900">
+              {title}
+            </h3>
             {subtitle && <h2>{subtitle}</h2>}
           </div>
         </div>
         <div className="mb-4">
-          {office && (
-            <h4 className="text-2xl font-bold text-gray-900">{office}</h4>
-          )}
+          {rol && <h4 className="text-2xl font-bold text-gray-900">{rol}</h4>}
           <p className="text-ellipsis text-gray-700">{description}</p>
         </div>
         {amount ? price : btn}

@@ -26,13 +26,13 @@ export const CardBox = ({ data }) => {
           <span>Mas de 200 ofertas por dia</span>
         </div>
       </div>
-      <div className="flex overflow-x-scroll p-5">
+      <div className="flex w-full overflow-x-scroll p-5">
         {gruposDeDiez[0].map((obj, index) => (
           <div key={index} className="flex-shrink-0">
             <MiniCard
-              subtitle={null}
+              subtitle={obj.subtitle}
               amount={null}
-              office={null}
+              rol={obj.rol}
               time={null}
               title={obj.title}
               description={obj.descripcion}
