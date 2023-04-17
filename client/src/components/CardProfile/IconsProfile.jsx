@@ -140,11 +140,29 @@ const IconCheckFull = props => {
       width="1em"
       height="1em"
       viewBox="0 0 24 24"
+      color="green"
       {...props}
     >
       <path
         fill="currentColor"
         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+      ></path>
+    </svg>
+  )
+}
+
+const IconInfo = props => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 32 32"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M18 13a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2h-6a1 1 0 0 1-1-1Zm1 4a1 1 0 1 0 0 2h6a1 1 0 0 0 0-2h-6Zm-6-4a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-6 4.5A1.5 1.5 0 0 1 8.5 16h5a1.5 1.5 0 0 1 1.5 1.5s0 3.5-4 3.5s-4-3.5-4-3.5ZM2 7.25A3.25 3.25 0 0 1 5.25 4h21.5A3.25 3.25 0 0 1 30 7.25v17.5A3.25 3.25 0 0 1 26.75 28H5.25A3.25 3.25 0 0 1 2 24.75V7.25ZM5.25 6C4.56 6 4 6.56 4 7.25v17.5c0 .69.56 1.25 1.25 1.25h21.5c.69 0 1.25-.56 1.25-1.25V7.25C28 6.56 27.44 6 26.75 6H5.25Z"
       ></path>
     </svg>
   )
@@ -160,4 +178,5 @@ export {
   IconEmail,
   IconCheckEmpty,
   IconCheckFull,
+  IconInfo,
 }
