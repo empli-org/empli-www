@@ -1,0 +1,14 @@
+.obrero {
+  width: 400px;
+  display: flex;
+  position: relative;
+  margin-left: 900px;
+  bottom: 850px;
+}
+
+.personas3 {
+  position: relative;
+  bottom: 300px;
+  left: 800px;
+  display: flex;
+}
