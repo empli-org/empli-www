@@ -1,3 +1,4 @@
+import SimplePagination from '@/components/Pagination'
 import JobAreaSearch from '@/components/Search/JobAreaSearch'
 import JobSearch from '@/components/Search/JobSearch'
 import LocationSearch from '@/components/Search/LocationSearch'
@@ -5,7 +6,7 @@ import JobsFallback from '@/components/fallbacks/JobsFallback'
 import { CloseIcon, FilterIcon } from '@/components/icons'
 import Container from '@/components/ui/Container'
 import JobCard from '@/components/ui/cards/JobCard'
-import { useGetJobsQuery } from '@/redux/features/api/jobs'
+import { useGetJobsQuery } from '@/redux/features/api/base'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 
@@ -28,7 +29,7 @@ const Ofertas = () => {
 
   useEffect(() => {
     setPage(1)
-  }, [data])
+  }, [filters])
 
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value })
@@ -96,7 +97,7 @@ const Ofertas = () => {
                     <div className="w-full">
                       <JobAreaSearch
                         onSelect={selected =>
-                          handleFilters('area', selected.area)
+                          handleFilters('area', selected.name)
                         }
                       />
                       {filters?.area && (
@@ -149,21 +150,11 @@ const Ofertas = () => {
           </div>
         )}
 
-        <div>
-          <button disabled={page === 1} onClick={() => setPage(v => v - 1)}>
-            Prev
-          </button>
-          <p>
-            {page} of {totalPages}
-          </p>
-          <p>{countJobs} total item(s)</p>
-          <button
-            disabled={page === totalPages}
-            onClick={() => setPage(v => v + 1)}
-          >
-            Next
-          </button>
-        </div>
+        <SimplePagination
+          currentPage={page}
+          totalPages={totalPages}
+          setCurrentPage={setPage}
+        />
       </Container>
     </div>
   )

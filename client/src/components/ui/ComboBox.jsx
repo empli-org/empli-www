@@ -34,7 +34,9 @@ export default function ComboBox({
     id,
     onSelectedItemChange: ({ selectedItem }) => {
       setSelectedJob(selectedItem)
-      if (onSelect && typeof onSelect === 'function') onSelect(selectedItem)
+      if (onSelect && typeof onSelect === 'function') {
+        onSelect(selectedItem)
+      }
       // router.push(`/jobs/${selectedItem?.code}`)
     },
     items: query === '' ? [] : data || [],
@@ -79,7 +81,10 @@ export default function ComboBox({
                 !selectedJob &&
                 cb.highlightedIndex < 0
               ) {
-                if (onEnter && typeof onEnter === 'function') onEnter()
+                if (onEnter && typeof onEnter === 'function') {
+                  onEnter(query)
+                  setQuery('')
+                }
                 // Navigate to advanced ssearch
                 /*
                 router.push(
