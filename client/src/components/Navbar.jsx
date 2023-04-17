@@ -5,6 +5,7 @@ import empliLogo from '/empli-logo.png'
 
 const NAV_LINKS = [
   { to: '/offers', label: 'Ofertas' },
+  { to: '/talents', label: 'Profesionales' },
   { to: '/companies', label: 'Empresas' },
   { to: '/news', label: 'Noticias' },
   { to: '/about', label: 'Nosotros' },
