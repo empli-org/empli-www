@@ -1,11 +1,11 @@
 // @ts-nocheck
-import ob1 from '../../assets/ob-1.jpg'
-import ob2 from '../../assets/ob-2.jpg'
-import ob3 from '../../assets/ob-3.jpg'
+import ob1 from '@/assets/ob-1.jpg'
+import ob2 from '@/assets/ob-2.jpg'
+import ob3 from '@/assets/ob-3.jpg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import useIntersectionObserver from '../components/hooks/useObserver'
+import useIntersectionObserver from '@/hooks/useObserver'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 export const Register = () => {
@@ -57,7 +57,7 @@ export const Register = () => {
       <div className="bg-white-font">
         <div className="container mx-auto flex h-login items-center justify-center">
           <div className="container m-1.5 flex h-4/5 flex-wrap p-7">
-            <div className="flex w-3/5 flex-col justify-around bg-login-img bg-cover px-32 py-28 rounded-l-3xl">
+            <div className="flex w-3/5 flex-col justify-around rounded-l-3xl bg-login-img bg-cover px-32 py-28">
               <h1 className="font-amenable text-5xl text-white-font">
                 Bienvenido a la comunidad Empli
               </h1>
@@ -88,7 +88,7 @@ export const Register = () => {
                 </div>
               </div>
             </div>
-            <div className="flex w-2/5 flex-col justify-around p-10 bg-white rounded-r-3xl">
+            <div className="flex w-2/5 flex-col justify-around rounded-r-3xl bg-white p-10">
               <h1 className="text-center font-amenable text-4xl text-blue-font">
                 Registrarse
               </h1>
