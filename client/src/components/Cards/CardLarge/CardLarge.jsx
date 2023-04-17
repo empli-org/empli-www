@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { PlusIcons } from './PlusIcons'
+import { PlusIcons } from 'components'
 
 export const CardLarge = ({ proffesionals, offers, companies }) => {
   return (

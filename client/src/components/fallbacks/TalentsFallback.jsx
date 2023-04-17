@@ -1,4 +1,4 @@
-export default function TalentsFallback() {
+export const TalentsFallback = () => {
   return (
     <section className="grid animate-pulse grid-cols-listing gap-4 py-4">
       {Array.from({ length: 10 }, (_, idx) => (

@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { MiniCard } from '../MiniCard/MiniCard'
+import { MiniCard } from 'components'
 
 //We can received data from props or bring from global state
-function CardBox({ data }) {
+export const CardBox = ({ data }) => {
   const gruposDeDiez = data.reduce((accumulator, obj, index) => {
     const indexGroup = Math.floor(index / 10)
 

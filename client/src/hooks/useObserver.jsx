@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-const useIntersectionObserver = ({
+export const useIntersectionObserver = ({
   threshold = 0.5,
   rootMargin = '0px',
   animationDuration = 0.5,

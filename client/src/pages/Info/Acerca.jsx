@@ -1,7 +1,7 @@
-import Container from '@/components/ui/Container'
+import { Container } from 'components'
 import React from 'react'
 
-const Acerca = () => {
+export const Acerca = () => {
   return (
     <Container>
       <h1>About us</h1>

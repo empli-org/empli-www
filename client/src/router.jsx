@@ -1,17 +1,20 @@
 import { createBrowserRouter } from 'react-router-dom'
-import LandingPage from '@/pages/Landing'
-import Ofertas from './pages/Info/Ofertas'
-import Empresas from './pages/Community/Empresas'
-import Noticias from './pages/Info/Noticias'
-import Acerca from './pages/Info/Acerca'
-import Contacto from './pages/Info/Contacto'
-import Login from './pages/Auth/Login'
-import Register from './pages/Auth/Register'
-import Layout from './components/Layout'
-import Error404 from './pages/404'
-import DetalleOferta from './pages/DetalleOferta'
-import Talents from './pages/Community/Talents/Talents'
-import TalentDetail from './pages/Community/Talents/TalentDetail'
+import { Layout } from './components/Layout'
+
+import {
+  Landing,
+  TalentDetail,
+  Ofertas,
+  Empresas,
+  Noticias,
+  Acerca,
+  Contacto,
+  Login,
+  Register,
+  Talents,
+  Error404,
+  DetalleOferta,
+} from 'pages'
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -20,7 +23,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <LandingPage />,
+        element: <Landing />,
       },
       {
         path: '/offers',

@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { to: '/contact', label: 'Contacto' },
 ]
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <nav className="flex h-16 w-full items-center justify-between space-x-4 px-4 text-black shadow-sm">
       <Link to="/">
@@ -31,6 +31,7 @@ const Navbar = () => {
         <Link to="/login" className="link-barra">
           Login
         </Link>
+        <span>|</span>
         <Link to="/register" className="link-barra">
           Crear Cuenta
         </Link>

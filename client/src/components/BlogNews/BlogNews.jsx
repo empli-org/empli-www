@@ -1,4 +1,4 @@
-import useIntersectionObserver from '../hooks/useObserver'
+import useIntersectionObserver from '../../hooks/useObserver'
 
 export const BlogNews = () => {
   const AnimatedComponent = useIntersectionObserver({

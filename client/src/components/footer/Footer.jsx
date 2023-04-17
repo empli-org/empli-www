@@ -1,8 +1,8 @@
 import React from 'react'
-import Container from '../ui/Container'
+import { Container } from 'components'
 import { Link } from 'react-router-dom'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="bg-[#1c2441] py-10 text-white">
       <Container>

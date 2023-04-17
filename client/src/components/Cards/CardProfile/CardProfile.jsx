@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import {
   IconCheckEmpty,
   IconEmail,
-  IconFace,
+  IconStar,
+  IconLocation,
+  IconTwi,
   IconInst,
   IconLink,
-  IconLocation,
-  IconStar,
-  IconTwi,
-} from './IconsProfile'
+  IconFace,
+} from 'components'
 
 export const CardProfile = ({ name, address, image, rol, yearsOfExp }) => {
   return (

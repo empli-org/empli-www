@@ -1,7 +1,7 @@
-import Container from '@/components/ui/Container'
+import { Container } from 'components'
 import { useParams } from 'react-router-dom'
 
-export default function TalentDetail() {
+export const TalentDetail = () => {
   const { id } = useParams()
   return (
     <div>

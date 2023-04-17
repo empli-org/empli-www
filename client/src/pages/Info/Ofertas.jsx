@@ -1,22 +1,25 @@
-import SimplePagination from '@/components/Pagination'
-import JobAreaSearch from '@/components/Search/JobAreaSearch'
-import JobSearch from '@/components/Search/JobSearch'
-import LocationSearch from '@/components/Search/LocationSearch'
-import JobsFallback from '@/components/fallbacks/JobsFallback'
-import { CloseIcon, FilterIcon } from '@/components/icons'
-import Container from '@/components/ui/Container'
-import JobCard from '@/components/ui/cards/JobCard'
-import { useGetJobsQuery } from '@/redux/features/api/base'
+import { useGetJobsQuery } from 'redux/features/api/base'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import {
+  SimplePagination,
+  JobAreaSearch,
+  JobSearch,
+  LocationSearch,
+  JobsFallback,
+  Container,
+  JobCard,
+  CloseIcon,
+  FilterIcon,
+} from 'components'
 const queryStringFromObj = obj =>
   Object.keys(obj)
     .map(key => obj[key] && key + '=' + obj[key])
     .join('&')
 
-const Ofertas = () => {
+export const Ofertas = () => {
+  console.log()
   const [filterOpen, setFilterOpen] = useState(false)
   const [filters, setFilters] = useState({})
   const hasFilters = Object.values(filters).some(Boolean)

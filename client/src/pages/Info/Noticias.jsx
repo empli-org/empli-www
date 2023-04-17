@@ -1,7 +1,6 @@
-import { BlogNews } from '@/components/BlogNews/BlogNews'
-import React from 'react'
+import { BlogNews } from 'components'
 
-const Noticias = () => {
+export const Noticias = () => {
   return (
     <div>
       <BlogNews />

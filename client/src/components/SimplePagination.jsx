@@ -1,8 +1,8 @@
-export default function SimplePagination({
+export const SimplePagination = ({
   totalPages,
   currentPage,
   setCurrentPage,
-}) {
+}) => {
   return (
     <div className="mb-6 flex items-center justify-center gap-4 py-4">
       <button

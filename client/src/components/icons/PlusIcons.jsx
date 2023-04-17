@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-export function PlusIcons(props) {
+export const PlusIcons = props => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

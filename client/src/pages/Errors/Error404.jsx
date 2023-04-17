@@ -1,8 +1,8 @@
 // @ts-nocheck
-import { PageNOtFound } from '@/components/PageNotFound/PageNotFound'
+import { PageNotFound } from '@/components/PageNotFound/PageNotFound'
 import { useRouteError } from 'react-router-dom'
 
-export default function Error404() {
+export const Error404 = () => {
   const error = useRouteError()
   console.error(error)
 

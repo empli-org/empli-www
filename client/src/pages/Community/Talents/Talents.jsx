@@ -1,13 +1,15 @@
-import Container from '@/components/ui/Container'
-import CareerSearch from '@/components/Search/CareerSearch'
-import { useGetAllTalentsQuery } from '@/redux/features/api/base'
-import TalentCard from '@/components/ui/cards/TalentCard'
-import SimplePagination from '@/components/Pagination'
+import { useGetAllTalentsQuery } from 'redux/features/api/base'
 import { useState } from 'react'
-import TalentsFallback from '@/components/fallbacks/TalentsFallback'
-import { CloseIcon } from '@/components/icons'
+import {
+  Container,
+  CareerSearch,
+  TalentCard,
+  SimplePagination,
+  CloseIcon,
+  TalentsFallback,
+} from 'components'
 
-export default function Talents() {
+export const Talents = () => {
   const [page, setPage] = useState(1)
   const [key, setKey] = useState('')
   const { data, isLoading, isFetching } = useGetAllTalentsQuery({ page, key })

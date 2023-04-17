@@ -1,4 +1,4 @@
-export default function CloseIcon(props) {
+export const CloseIcon = props => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

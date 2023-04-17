@@ -6,9 +6,9 @@ import ob3 from '../../assets/ob-3.jpg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import useIntersectionObserver from '../../components/hooks/useObserver'
+import useIntersectionObserver from 'hooks/useObserver'
 /* eslint-disable jsx-a11y/label-has-associated-control */
-export default function Login() {
+export const Login = () => {
   const AnimatedComponent = useIntersectionObserver({
     threshold: 0.5,
     rootMargin: '0px',
