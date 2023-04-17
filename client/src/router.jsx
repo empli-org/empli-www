@@ -12,6 +12,7 @@ import ErrorPage from './pages/ErrorPage'
 import DetalleOferta from './pages/DetalleOferta'
 import Talents from './pages/Talents'
 import TalentDetail from './pages/TalentDetail'
+
 export const router = createBrowserRouter([
   {
     path: '/',
