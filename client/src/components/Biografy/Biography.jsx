@@ -1,7 +1,9 @@
-export const Biography = ({ biografyUser }) => {
+import { info } from '../info'
+
+export const Biography = () => {
   return (
     <div>
-      <p>{biografyUser}</p>
+      <p>{info.biografy}</p>
     </div>
   )
 }
