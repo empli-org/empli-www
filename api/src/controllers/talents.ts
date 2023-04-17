@@ -124,7 +124,24 @@ export async function getTalentById(req: Request, res: Response) {
     const talent = await db.talent.findUnique({
       where: { id },
       include: {
-        contactInfo: true,
+        skills: {
+          select: {
+            name: true,
+          },
+        },
+        career: {
+          select: { name: true },
+        },
+        contactInfo: {
+          select: {
+            location: {
+              select: {
+                city: true,
+                country: true,
+              },
+            },
+          },
+        },
         experienceInfo: {
           select: {
             projects: true,
