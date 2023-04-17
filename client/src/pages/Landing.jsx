@@ -1,6 +1,4 @@
-import { BlogNews } from '@/components/BlogNews/BlogNews'
 import Container from '@/components/ui/Container'
-
 export default function LandingPage() {
   return (
     <Container>
@@ -22,9 +20,6 @@ export default function LandingPage() {
             red, contamos con una gran cantidad de <br></br>empresas que buscan
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
-          <div className=" p2 m-6 w-3/4 rounded-s-2xl shadow-lg shadow-gray-900">
-            <BlogNews />
-          </div>
         </div>
       </div>
     </Container>

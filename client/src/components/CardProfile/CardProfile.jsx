@@ -1,47 +1,47 @@
 import { Link } from 'react-router-dom'
 import {
   IconCheckEmpty,
+  IconCheckFull,
   IconEmail,
   IconFace,
+  IconInfo,
   IconInst,
   IconLink,
   IconLocation,
-  IconStar,
   IconTwi,
 } from './IconsProfile'
+import { Tags } from '../Tags/Tags'
 
-export const CardProfile = ({ name, address, image, rol, yearsOfExp }) => {
+export const CardProfile = ({ info }) => {
   return (
-    <div className="w-3/5 rounded-2xl bg-gray-100 bg-blend-darken shadow-lg">
+    <div className="w-3/4 rounded-2xl bg-gray-100 bg-blend-darken shadow-lg">
       <div className="m-2 flex justify-between p-2">
-        <div className="items-between flex w-fit flex-col justify-center">
-          <div className="relative m-5 flex h-48 w-48 justify-center overflow-hidden rounded-full shadow-2xl">
+        <div className="m-2 flex w-4/12 flex-col items-center justify-center">
+          <div className="relative">
             <img
-              className="h-full w-full object-cover"
-              src={image}
-              alt="perfil"
+              src={info.image}
+              alt={info.name}
+              className="w-fit overflow-hidden rounded-full object-cover"
             />
-            <div className="absolute bottom-0 left-0 flex w-full items-center justify-center">
-              <div className="m-2 flex w-fit items-center justify-center rounded-bl-full rounded-tl-full rounded-tr-full bg-green-200 p-1 text-black shadow-lg">
-                <IconCheckEmpty />
-                <span>open to work</span>
-              </div>
-            </div>
           </div>
-          <div className="flex w-full items-center justify-center">
-            <div className="m-1 flex w-full items-center justify-center p-1">
-              <IconLocation />
-              <span>{address}</span>
-            </div>
+          <div className="absolute m-1 mt-16 flex justify-center rounded-bl-full rounded-tl-full rounded-tr-full bg-blue-200 p-1 text-center">
+            <IconCheckFull />
+            <span>open to work</span>
+          </div>
+          <div className="flex justify-center">
+            <IconLocation />
+            <span>{info.contactInfo.address}</span>
           </div>
         </div>
-        <div className="flex w-6/12 flex-col justify-center p-2">
+        <div className="flex w-9/12 flex-col justify-center p-2">
           <div className="flex flex-col">
             <div className="flex w-full justify-start">
-              <h1 className="text-2xl font-bold">{name}</h1>
-              <IconCheckEmpty />
+              <h1 className="text-2xl font-bold">
+                {info.name} {info.lastname}
+              </h1>
+              {info.verified ? <IconCheckFull /> : <IconCheckEmpty />}
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3.5">
               <Link to="">
                 <IconFace />
               </Link>
@@ -54,40 +54,33 @@ export const CardProfile = ({ name, address, image, rol, yearsOfExp }) => {
               <Link to="">
                 <IconLink />
               </Link>
-              <button className="m-1 flex items-center justify-stretch rounded-lg bg-gray-900 p-1 text-white shadow-lg">
+              <button className="m-1 flex items-center justify-stretch gap-px rounded-lg bg-gray-900 p-1 text-white shadow-sm shadow-gray-900 hover:shadow-white">
                 <IconEmail />
                 Mensaje
               </button>
-              <button className="m-1 flex items-center justify-stretch rounded-lg bg-gray-900 p-1 text-white shadow-lg">
-                <IconEmail />
-                Mensaje
+              <button className="m-1 flex items-center justify-stretch gap-px rounded-lg bg-gray-900 p-1 text-white shadow-sm shadow-gray-900 hover:shadow-white">
+                <IconInfo />
+                Mas info
               </button>
             </div>
           </div>
-          <div className="flex w-full justify-between p-2">
-            <div className="flex w-6/12 flex-col">
+          <div className="flex w-full justify-center gap-3.5 p-2">
+            <div className="flex w-6/12 flex-col items-center">
               <span>Rol / Cargo</span>
-              <h1 className="text-xl font-bold">{rol}</h1>
+              <h1 className="text-xl font-bold">{info.rol}</h1>
             </div>
-            <div className="w-6/12">
+            <div className="flex w-6/12 flex-col items-center">
               <span>Experiencia</span>
-              <h1 className="text-xl font-bold">{yearsOfExp} Anos</h1>
+              <h1 className="text-xl font-bold">{info.yearsOfExp} Anos</h1>
+            </div>
+            <div className="flex w-6/12 flex-col items-center">
+              <span>Usermail</span>
+              <h1 className="text-xl font-bold">{info.userEmail}</h1>
             </div>
           </div>
-          <h2 className="text-shadow-lg">Superpoderes</h2>
-          <div className="flex w-full justify-around gap-x-px">
-            <div className="m-3 flex items-center justify-stretch rounded-bl-full rounded-tl-full rounded-tr-full bg-blue-200 p-1 shadow-lg">
-              <IconStar />
-              AutoCad
-            </div>
-            <div className="m-3 flex items-center justify-stretch rounded-bl-full rounded-tl-full rounded-tr-full bg-yellow-200 p-2 shadow-lg">
-              <IconStar />
-              AutoCad
-            </div>
-            <div className="m-3 flex items-center justify-stretch rounded-bl-full  rounded-tl-full rounded-tr-full bg-gray-300 p-2 shadow-lg">
-              <IconStar />
-              AutoCad
-            </div>
+          <h2 className="font-semibold">Superpoderes</h2>
+          <div className="flex">
+            <Tags skills={info.skills} />
           </div>
         </div>
       </div>
