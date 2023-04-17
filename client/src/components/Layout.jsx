@@ -9,10 +9,10 @@ export const Layout = () => {
       <div>
         <Navbar />
       </div>
-      <main className="h-full flex-1 bg-slate-100">
+      <main className="h-full flex-1 bg-slate-100 pb-16">
         <Outlet />
       </main>
-      <div className="mt-16">
+      <div>
         <Footer />
       </div>
     </div>

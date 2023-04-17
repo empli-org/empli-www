@@ -1,7 +1,7 @@
 import { Container } from 'components'
 import React from 'react'
 
-export const Acerca = () => {
+export const About = () => {
   return (
     <Container>
       <h1>About us</h1>
@@ -9,4 +9,4 @@ export const Acerca = () => {
   )
 }
 
-export default Acerca
+export default About

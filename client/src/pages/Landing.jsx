@@ -1,6 +1,4 @@
-// import { BlogNews } from '@/components/BlogNews/BlogNews'
-import { Container } from 'components'
-
+import { Container, BlogNews } from 'components'
 export const Landing = () => {
   return (
     <Container>
@@ -23,7 +21,7 @@ export const Landing = () => {
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
           <div className=" p2 m-6 w-3/4 rounded-s-2xl shadow-lg shadow-gray-900">
-            {/* <BlogNews /> */}
+            <BlogNews />
           </div>
         </div>
       </div>

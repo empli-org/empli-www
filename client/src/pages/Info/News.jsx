@@ -1,6 +1,6 @@
 import { BlogNews } from 'components'
 
-export const Noticias = () => {
+export const News = () => {
   return (
     <div>
       <BlogNews />
@@ -8,4 +8,4 @@ export const Noticias = () => {
   )
 }
 
-export default Noticias
+export default News

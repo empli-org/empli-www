@@ -1,11 +1,12 @@
 // @ts-nocheck
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react'
+
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import useIntersectionObserver from '../../hooks/useObserver'
-export const Contacto = () => {
+
+export const Contact = () => {
   const AnimatedComponent = useIntersectionObserver({
     threshold: 0.5,
     rootMargin: '0px',
@@ -143,4 +144,4 @@ export const Contacto = () => {
   )
 }
 
-export default Contacto
+

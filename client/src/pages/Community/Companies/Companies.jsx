@@ -3,7 +3,7 @@
 // import Container from '@/components/ui/Container'
 import { Cards, Search, Container } from 'components'
 
-export const Empresas = () => {
+export const Companies = () => {
   return (
     <Container>
       <div>
@@ -14,4 +14,3 @@ export const Empresas = () => {
   )
 }
 
-export default Empresas

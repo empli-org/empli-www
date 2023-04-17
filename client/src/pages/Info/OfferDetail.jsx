@@ -2,10 +2,10 @@ import { useGetJobByCodeQuery } from '@/redux/features/api/base'
 import { useParams } from 'react-router-dom'
 import { marked } from 'marked'
 
-export const DetalleOferta = () => {
+export const OfferDetail = () => {
   const { code } = useParams()
-  const body = marked(detail?.body)
   const { data: detail, isLoading } = useGetJobByCodeQuery(code)
+  const body = marked(detail?.body)
   if (isLoading) return <p>Loading...</p>
   return (
     <div className="mx-auto max-w-screen-xl">

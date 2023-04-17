@@ -18,7 +18,7 @@ const queryStringFromObj = obj =>
     .map(key => obj[key] && key + '=' + obj[key])
     .join('&')
 
-export const Ofertas = () => {
+export const Offers = () => {
   console.log()
   const [filterOpen, setFilterOpen] = useState(false)
   const [filters, setFilters] = useState({})
@@ -165,4 +165,4 @@ export const Ofertas = () => {
   )
 }
 
-export default Ofertas
+export default Offers
