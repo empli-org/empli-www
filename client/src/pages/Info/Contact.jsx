@@ -143,5 +143,3 @@ export const Contact = () => {
     </AnimatedComponent>
   )
 }
-
-

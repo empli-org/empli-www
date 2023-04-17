@@ -4,16 +4,16 @@ import { Layout } from './components/Layout'
 import {
   Landing,
   TalentDetail,
-  Ofertas,
-  Empresas,
-  Noticias,
-  Acerca,
-  Contacto,
+  OfferDetail,
+  Companies,
+  News,
+  About,
+  Contact,
   Login,
   Register,
   Talents,
   Error404,
-  DetalleOferta,
+  Offers,
 } from 'pages'
 export const router = createBrowserRouter([
   {
@@ -27,11 +27,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/offers',
-        element: <Ofertas />,
+        element: <Offers />,
       },
       {
         path: '/offers/:code',
-        element: <DetalleOferta />,
+        element: <OfferDetail />,
       },
       {
         path: '/talents',
@@ -43,19 +43,19 @@ export const router = createBrowserRouter([
       },
       {
         path: '/companies',
-        element: <Empresas />,
+        element: <Companies />,
       },
       {
         path: '/news',
-        element: <Noticias />,
+        element: <News />,
       },
       {
         path: '/about',
-        element: <Acerca />,
+        element: <About />,
       },
       {
         path: '/contact',
-        element: <Contacto />,
+        element: <Contact />,
       },
       {
         path: '/login',
