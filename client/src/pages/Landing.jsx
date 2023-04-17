@@ -1,6 +1,5 @@
-import { BlogNews } from '@/components/BlogNews/BlogNews'
+// import { BlogNews } from '@/components/BlogNews/BlogNews'
 import Container from '@/components/ui/Container'
-import Footer from './footer/Footer'
 
 export default function LandingPage() {
   return (
@@ -24,10 +23,9 @@ export default function LandingPage() {
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
           <div className=" p2 m-6 w-3/4 rounded-s-2xl shadow-lg shadow-gray-900">
-            <BlogNews />
+            {/* <BlogNews /> */}
           </div>
         </div>
-        <Footer />
       </div>
     </Container>
   )
