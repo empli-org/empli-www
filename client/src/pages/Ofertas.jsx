@@ -1,3 +1,4 @@
+import SimplePagination from '@/components/Pagination'
 import JobAreaSearch from '@/components/Search/JobAreaSearch'
 import JobSearch from '@/components/Search/JobSearch'
 import LocationSearch from '@/components/Search/LocationSearch'
@@ -5,9 +6,10 @@ import JobsFallback from '@/components/fallbacks/JobsFallback'
 import { CloseIcon, FilterIcon } from '@/components/icons'
 import Container from '@/components/ui/Container'
 import JobCard from '@/components/ui/cards/JobCard'
-import { useGetJobsQuery } from '@/redux/features/api/jobs'
+import { useGetJobsQuery } from '@/redux/features/api/base'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const queryStringFromObj = obj =>
   Object.keys(obj)
@@ -25,10 +27,11 @@ const Ofertas = () => {
   const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
   const totalPages = Math.ceil(countJobs / 10)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setPage(1)
-  }, [data])
+  }, [filters])
 
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value })
@@ -45,7 +48,7 @@ const Ofertas = () => {
         <header className="flex items-center justify-between py-4">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 rounded-lg bg-slate-100 px-2 py-4 sm:p-8">
             <div className="flex w-full items-center justify-between gap-4">
-              <JobSearch />
+              <JobSearch onSelect={item => navigate(`/offers/${item.code}`)} />
               <motion.button
                 initial={false}
                 className="relative rounded-lg bg-slate-200 p-4"
@@ -96,7 +99,7 @@ const Ofertas = () => {
                     <div className="w-full">
                       <JobAreaSearch
                         onSelect={selected =>
-                          handleFilters('area', selected.area)
+                          handleFilters('area', selected.name)
                         }
                       />
                       {filters?.area && (
@@ -149,21 +152,11 @@ const Ofertas = () => {
           </div>
         )}
 
-        <div>
-          <button disabled={page === 1} onClick={() => setPage(v => v - 1)}>
-            Prev
-          </button>
-          <p>
-            {page} of {totalPages}
-          </p>
-          <p>{countJobs} total item(s)</p>
-          <button
-            disabled={page === totalPages}
-            onClick={() => setPage(v => v + 1)}
-          >
-            Next
-          </button>
-        </div>
+        <SimplePagination
+          currentPage={page}
+          totalPages={totalPages}
+          setCurrentPage={setPage}
+        />
       </Container>
     </div>
   )
