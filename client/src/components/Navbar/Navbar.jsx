@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MenuIcon } from './icons'
+// import { MenuIcon } from './icons'
 // @ts-ignore
 import empliLogo from '/empli-logo.png'
 
@@ -35,19 +35,19 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </nav>
   )
 }
 
-function MobileMenu() {
-  return (
-    <div className="block md:hidden">
-      <button>
-        <MenuIcon />
-      </button>
-    </div>
-  )
-}
+// function MobileMenu() {
+//   return (
+//     <div className="block md:hidden">
+//       <button>
+//         <MenuIcon />
+//       </button>
+//     </div>
+//   )
+// }
 
 export default Navbar

@@ -1,16 +1,25 @@
 // @ts-nocheck
 // @ts-ignore
-import ob1 from '../assets/ob-1.jpg'
-// @ts-ignore
-import ob2 from '../assets/ob-2.jpg'
-// @ts-ignore
-import ob3 from '../assets/ob-3.jpg'
+import ob1 from '../../assets/ob-1.jpg'
+import ob2 from '../../assets/ob-2.jpg'
+import ob3 from '../../assets/ob-3.jpg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-
+import useIntersectionObserver from '../../components/hooks/useObserver'
 /* eslint-disable jsx-a11y/label-has-associated-control */
-const Register = () => {
+export default function Login() {
+  const AnimatedComponent = useIntersectionObserver({
+    threshold: 0.5,
+    rootMargin: '0px',
+    animationDuration: 0.5,
+    staggerChildren: 0.1,
+    easing: 'easeInOut',
+    direction: 'up',
+    y: 50,
+    fade: true,
+  })
+
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
     user: yup
@@ -27,9 +36,6 @@ const Register = () => {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/,
         'La contraseña debe contener una minuscula, una mayuscula, un numero y un caracter especial($@$!%*?&)',
       ),
-    repeatPassword: yup
-      .string()
-      .oneOf([yup.ref('password')], 'Las contraseñas deben coincidir'),
   })
 
   //Controlador del formulario
@@ -44,7 +50,7 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <AnimatedComponent>
       <div className="container mx-auto flex h-login items-center justify-center">
         <div className="container m-1.5 flex h-4/5 flex-wrap p-7">
           <div className="flex w-3/5 flex-col justify-around bg-login-img bg-cover px-32 py-28">
@@ -80,20 +86,19 @@ const Register = () => {
           </div>
           <div className="flex w-2/5 flex-col justify-around p-10">
             <h1 className="text-center font-amenable text-4xl text-blue-font">
-              Registrarse
+              Inicio de sesion
             </h1>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex w-2/5 flex-col justify-around gap-5"
+              className="flex w-2/5 flex-col justify-around gap-10"
             >
               <div className="flex flex-col justify-around gap-1">
                 <label className="text-1xl font-quicksand-light font-medium">
                   Email
                 </label>
                 <input
-                  id="email"
                   type="text"
-                  name="email"
+                  name="user"
                   placeholder="Ingrese email"
                   className="boder-4 h-10 w-96 rounded-lg border border-solid border-blue-font p-3"
                   {...register('user')}
@@ -110,7 +115,6 @@ const Register = () => {
                   Contraseña
                 </label>
                 <input
-                  id="password"
                   type="password"
                   name="password"
                   placeholder="Ingrese contraseña"
@@ -123,44 +127,24 @@ const Register = () => {
                   </span>
                 )}
               </div>
-              <div className="flex flex-col justify-around gap-1">
-                <label className="text-1xl font-quicksand-light font-medium">
-                  Repetir contraseña
-                </label>
-                <input
-                  id="repeatPassword"
-                  type="password"
-                  name="repeatPassword"
-                  placeholder="Repita contraseña"
-                  className="boder-3 h-10 w-96 cursor-text rounded-lg border border-solid border-blue-font p-3"
-                  {...register('repeatPassword')}
-                />
-                {errors.repeatPassword?.message && (
-                  <span className="w-100 text-red-600">
-                    {errors.repeatPassword.message}
-                  </span>
-                )}
-              </div>
-              <div className="flex w-96 items-center justify-start gap-2">
+              <div className="flex items-center justify-start gap-2">
                 <input type="checkbox" name="remember" className="h-5 w-5" />
                 <span className="text-1xl font-quicksand-light text-base font-semibold">
-                  Acepto los{' '}
-                  <a href="/Terminos" className="font-semibold underline">
-                    Terminos y condiciones
-                  </a>
+                  Recordarme
                 </span>
               </div>
-              <div className="justify-cebter mx-auto flex items-center">
+              <div className="mx-auto flex items-center justify-center">
                 <button
                   type="submit"
                   className="ml-ing flex h-10 w-40 items-center justify-center rounded-3xl bg-white-font font-semibold text-blue-font"
                 >
-                  Registrarme
+                  Ingresar
                 </button>
               </div>
             </form>
-            <h6 className="text-center font-quicksand-light text-base font-bold">
-              Ingresar con:
+            <h6 className="text-center">
+              Haz olvidado tu contraseña?{' '}
+              <a className="font-semibold underline">Click aqui!</a>
             </h6>
             <div className="flex flex-row items-center justify-center gap-6">
               <button
@@ -173,14 +157,12 @@ const Register = () => {
                 type="button"
                 className="h-10 w-32 rounded-3xl bg-bg-lk font-semibold text-white-font"
               >
-                Facebook
+                Linkedin
               </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedComponent>
   )
 }
-
-export default Register

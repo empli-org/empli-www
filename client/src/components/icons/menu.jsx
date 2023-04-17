@@ -1,4 +1,4 @@
-export default function HeroiconsBars3Solid(props) {
+export const MenuIcon = props => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

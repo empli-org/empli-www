@@ -25,7 +25,7 @@ const Menu = () => {
       <Link className='"p-4' to="/login">
         Login
       </Link>
-
+      <span>|</span>
       <Link className='"p-4' to="/crearLogin">
         Crear Cuenta
       </Link>
