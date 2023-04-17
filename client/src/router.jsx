@@ -1,36 +1,37 @@
 import { createBrowserRouter } from 'react-router-dom'
-import LandingPage from '@/pages/Landing'
-import Ofertas from './pages/Ofertas'
-import Empresas from './pages/Empresas'
-import Noticias from './pages/Noticias'
-import Acerca from './pages/Acerca'
-import Contacto from './pages/Contacto'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Layout from './components/Layout'
-import ErrorPage from './pages/ErrorPage'
-import DetalleOferta from './pages/DetalleOferta'
-import Talents from './pages/Talents'
-import TalentDetail from './pages/TalentDetail'
+import { Layout } from '@/components/Layout'
+import {
+  Landing,
+  TalentDetail,
+  OfferDetail,
+  Companies,
+  News,
+  About,
+  Contact,
+  Login,
+  Register,
+  Talents,
+  Error404,
+  Offers,
+} from 'pages'
 import UserProfileForm from './pages/UserForm'
-
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error404 />,
     children: [
       {
         path: '/',
-        element: <LandingPage />,
+        element: <Landing />,
       },
       {
         path: '/offers',
-        element: <Ofertas />,
+        element: <Offers />,
       },
       {
         path: '/offers/:code',
-        element: <DetalleOferta />,
+        element: <OfferDetail />,
       },
       {
         path: '/talents',
@@ -42,19 +43,19 @@ export const router = createBrowserRouter([
       },
       {
         path: '/companies',
-        element: <Empresas />,
+        element: <Companies />,
       },
       {
         path: '/news',
-        element: <Noticias />,
+        element: <News />,
       },
       {
         path: '/about',
-        element: <Acerca />,
+        element: <About />,
       },
       {
         path: '/contact',
-        element: <Contacto />,
+        element: <Contact />,
       },
       {
         path: '/login',

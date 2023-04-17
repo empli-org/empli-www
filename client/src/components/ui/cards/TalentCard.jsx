@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function TalentCard({ talent }) {
+export const TalentCard = ({ talent }) => {
   const { id, name, lastname, image, verified, career, skills, contactInfo } =
     talent
 

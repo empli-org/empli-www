@@ -1,4 +1,4 @@
-import useIntersectionObserver from '../hooks/useObserver'
+import useIntersectionObserver from '@/hooks/useObserver'
 
 export const BlogNews = () => {
   const AnimatedComponent = useIntersectionObserver({
@@ -39,7 +39,7 @@ export const BlogNews = () => {
                       Detail
                     </p>
                     <a
-                      href="javascript:void(0)"
+                      href="#"
                       className="mt-4 flex cursor-pointer items-center text-white hover:text-gray-200 hover:underline focus:underline focus:outline-none"
                     >
                       <p className="pr-2 text-sm font-medium leading-none">
@@ -81,7 +81,7 @@ export const BlogNews = () => {
                       Detail
                     </p>
                     <a
-                      href="javascript:void(0)"
+                      href="#"
                       className="mt-4 flex cursor-pointer items-center text-white hover:text-gray-200 hover:underline focus:underline focus:outline-none"
                     >
                       <p className="pr-2 text-sm font-medium leading-none">
@@ -122,7 +122,7 @@ export const BlogNews = () => {
                   <h2 className="5 text-xl font-semibold text-white">News</h2>
                   <p className="mt-2 text-base leading-4 text-white">Detail</p>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="mt-4 flex cursor-pointer items-center text-white hover:text-gray-200 hover:underline focus:underline focus:outline-none"
                   >
                     <p className="pr-2 text-sm font-medium leading-none">
@@ -169,7 +169,7 @@ export const BlogNews = () => {
                   <h2 className="5 text-xl font-semibold text-white">News</h2>
                   <p className="mt-2 text-base leading-4 text-white">Detail</p>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="mt-4 flex cursor-pointer items-center text-white hover:text-gray-200 hover:underline focus:underline focus:outline-none"
                   >
                     <p className="pr-2 text-sm font-medium leading-none">
@@ -217,7 +217,7 @@ export const BlogNews = () => {
                       Detail
                     </p>
                     <a
-                      href="javascript:void(0)"
+                      href="#"
                       className="mt-4 flex cursor-pointer items-center text-white hover:text-gray-200 hover:underline focus:underline focus:outline-none"
                     >
                       <p className="pr-2 text-sm font-medium leading-none">
@@ -259,7 +259,7 @@ export const BlogNews = () => {
                       Detail
                     </p>
                     <a
-                      href="javascript:void(0)"
+                      href="#"
                       className="mt-4 flex cursor-pointer items-center text-white hover:text-gray-200 hover:underline focus:underline focus:outline-none"
                     >
                       <p className="pr-2 text-sm font-medium leading-none">

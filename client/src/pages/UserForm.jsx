@@ -1,6 +1,6 @@
-import CareerSearch from '@/components/Search/CareerSearch'
-import { CloseIcon } from '@/components/icons'
-import Container from '@/components/ui/Container'
+import { CareerSearch } from '@/components/Search/CareerSearch'
+import { CloseIcon } from '@/components/icons/CloseIcon'
+import { Container } from '@/components/ui/Container'
 import { useState } from 'react'
 
 const inputCls =
