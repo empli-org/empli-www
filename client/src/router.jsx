@@ -10,6 +10,8 @@ import Register from './pages/Register'
 import Layout from './components/Layout'
 import ErrorPage from './pages/ErrorPage'
 import DetalleOferta from './pages/DetalleOferta'
+import Talents from './pages/Talents'
+import TalentDetail from './pages/TalentDetail'
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: '/offers/:code',
         element: <DetalleOferta />,
+      },
+      {
+        path: '/talents',
+        element: <Talents />,
+      },
+      {
+        path: '/talents/:id',
+        element: <TalentDetail />,
       },
       {
         path: '/companies',

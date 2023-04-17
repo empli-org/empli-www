@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import ComboBox from '@/components/ui/ComboBox'
-import { useGetJobAreasQuery } from '@/redux/features/api/base'
+import { useSearchCareersQuery } from '@/redux/features/api/base'
 
-export default function JobAreaSearch({ onSelect }) {
+export default function CareerSearch({ onSelect, onEnter }) {
   const [query, setQuery] = useState('')
-  const { data, isFetching } = useGetJobAreasQuery(query)
+  const { data, isFetching } = useSearchCareersQuery(query)
 
   return (
     <ComboBox
-      label="Área de trabajo"
-      placeholder="Área de trabajo..."
+      placeholder="Buscar por profesión o habilidad..."
       query={query}
       setQuery={setQuery}
       data={data}
       onSelect={onSelect}
+      onEnter={onEnter}
       isFetching={isFetching}
       itemTitle="name"
     />
