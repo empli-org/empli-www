@@ -8,7 +8,7 @@ import Contacto from './pages/Info/Contacto'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Layout from './components/Layout'
-import ErrorPage from './pages/404'
+import ErrorPage from './pages/ErrorPage'
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -22,6 +22,18 @@ export const router = createBrowserRouter([
       {
         path: '/offers',
         element: <Ofertas />,
+      },
+      {
+        path: '/offers/:code',
+        element: <DetalleOferta />,
+      },
+      {
+        path: '/talents',
+        element: <Talents />,
+      },
+      {
+        path: '/talents/:id',
+        element: <TalentDetail />,
       },
       {
         path: '/companies',

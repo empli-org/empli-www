@@ -1,21 +1,23 @@
 import { Request, Response, query } from "express";
 import db from "../utils/db";
+import { Prisma } from "@prisma/client";
 
 export async function getJobAreas(req: Request, res: Response) {
   try {
     const { key } = req.query;
-    const areas = await db.job.findMany({
+    const areas = await db.jobArea.findMany({
       ...(key && {
         where: {
-          area: {
+          name: {
             contains: key as string,
             mode: "insensitive",
           },
         },
       }),
       select: {
-        area: true,
+        name: true,
       },
+      distinct: ["name"],
       take: 6,
     });
 
@@ -44,16 +46,21 @@ export async function getJobLocations(req: Request, res: Response) {
       select: {
         location: {
           select: {
-            id: true,
             country: true,
             city: true,
           },
         },
       },
+      distinct: ["locationId"],
       take: 6,
     });
 
-    return res.json(locations);
+    return res.json(
+      locations.map((l) => ({
+        city: l.location.city,
+        country: l.location.country,
+      }))
+    );
   } catch {
     return res
       .status(500)
@@ -66,23 +73,8 @@ export async function getAllJobs(req: Request, res: Response) {
     const { key, page, location, area } = req.query;
     const currentPage = Math.max(Number(page) || 1, 1);
     const peerPage = 10;
-    const jobs = await db.job.findMany({
-      where: {
-        ...(key && { title: { contains: key as string, mode: "insensitive" } }),
-        ...(location && {
-          location: {
-            OR: [
-              { city: { contains: location as string, mode: "insensitive" } },
-              {
-                country: { contains: location as string, mode: "insensitive" },
-              },
-            ],
-          },
-        }),
-        ...(area && {
-          area: { contains: area as string, mode: "insensitive" },
-        }),
-      },
+    const countOptions: Prisma.JobCountArgs = {};
+    const options: Prisma.JobFindManyArgs = {
       select: {
         code: true,
         title: true,
@@ -104,9 +96,32 @@ export async function getAllJobs(req: Request, res: Response) {
       },
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
-    });
+    };
+    options.where = {
+      ...(key && { title: { contains: key as string, mode: "insensitive" } }),
+      ...(location && {
+        location: {
+          OR: [
+            { city: { contains: location as string, mode: "insensitive" } },
+            {
+              country: { contains: location as string, mode: "insensitive" },
+            },
+          ],
+        },
+      }),
+      ...(area && {
+        area: { contains: area as string, mode: "insensitive" },
+      }),
+    };
+    countOptions.where = options.where;
 
-    return res.json(jobs);
+    const jobs = await db.job.findMany(options);
+    const count = await db.job.count(countOptions);
+
+    return res.json({
+      data: jobs,
+      count,
+    });
   } catch {
     return res
       .status(500)
@@ -159,7 +174,14 @@ export async function searchJobsByKey(req: Request, res: Response) {
       take: 6,
     });
 
-    return res.json(jobs);
+    return res.json(
+      jobs.map((job) => ({
+        code: job.code,
+        title: job.title,
+        area: job.area,
+        company: job.company.name,
+      }))
+    );
   } catch {
     return res
       .status(500)
