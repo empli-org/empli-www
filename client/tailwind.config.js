@@ -32,6 +32,7 @@ export default {
         all: '444px',
         100: '410px',
         contact: '68vh',
+        left: '750px',
       },
       screens: {
         xs: '420px',
