@@ -1,5 +1,6 @@
 // import { BlogNews } from '@/components/BlogNews/BlogNews'
 import Container from '@/components/ui/Container'
+import { Link } from 'react-router-dom'
 
 export default function LandingPage() {
   return (
@@ -22,8 +23,20 @@ export default function LandingPage() {
             red, contamos con una gran cantidad de <br></br>empresas que buscan
             personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
-          <div className=" p2 m-6 w-3/4 rounded-s-2xl shadow-lg shadow-gray-900">
+          <div className="flex items-center gap-4 py-6">
             {/* <BlogNews /> */}
+            <Link
+              to="/offers"
+              className="rounded-lg bg-slate-800 px-6 py-4 text-white"
+            >
+              Ver Ofertas
+            </Link>
+            <Link
+              className="rounded-lg bg-slate-800 px-6 py-4 text-white"
+              to="/talents"
+            >
+              Ver Profesionales
+            </Link>
           </div>
         </div>
       </div>

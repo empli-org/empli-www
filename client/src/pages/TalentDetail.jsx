@@ -1,12 +1,13 @@
 import Container from '@/components/ui/Container'
 import { useGetTalentByIdQuery } from '@/redux/features/api/base'
 import clsx from 'clsx'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function TalentDetail() {
   const { id } = useParams()
   const { data, isLoading, isFetching } = useGetTalentByIdQuery(id)
   const loading = isLoading || isFetching
+  const navigate = useNavigate()
 
   if (loading) return <p>Loading...</p>
 
@@ -15,7 +16,16 @@ export default function TalentDetail() {
   return (
     <div>
       <Container>
-        <div className="py-16">
+        <div className="pt-6">
+          <button
+            className="rounded-lg bg-slate-800 px-4 py-3 text-sm text-white"
+            onClick={() => navigate(-1)}
+          >
+            Atrás
+          </button>
+        </div>
+
+        <div className="py-8">
           {data.image ? (
             <div
               className={clsx(
