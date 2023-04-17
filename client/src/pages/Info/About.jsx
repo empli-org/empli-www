@@ -18,7 +18,7 @@ import five from '../assets/numbers/5.svg'
 import dot from '../assets/dot.svg'
 import Footer from '../footer/Footer'
 
-const About = () => {
+export const About = () => {
   // const AnimatedComponent = useIntersectionObserver({
   //   threshold: 0.5,
   //   rootMargin: '0px',

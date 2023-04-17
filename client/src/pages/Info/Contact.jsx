@@ -12,7 +12,7 @@ import fb from '../assets/fb.svg'
 import lk from '../assets/lk.svg'
 import ig from '../assets/ig.svg'
 
-const Contact = () => {
+export const Contact = () => {
   const AnimatedComponent = useIntersectionObserver({
     threshold: 0.5,
     rootMargin: '0px',
