@@ -6,6 +6,9 @@ export default function DetalleOferta() {
   const { code } = useParams()
   const { data: detail, isLoading } = useGetJobByCodeQuery(code)
   if (isLoading) return <p>Loading...</p>
+
+  if (!detail) return new Response('', { status: 404 })
+
   const body = marked(detail?.body)
   return (
     <div className="mx-auto max-w-screen-xl">
