@@ -9,7 +9,7 @@ import { CloseIcon } from '@/components/icons'
 
 export default function Talents() {
   const [page, setPage] = useState(1)
-  const [key, setKey] = useState('infr')
+  const [key, setKey] = useState('')
   const { data, isLoading, isFetching } = useGetAllTalentsQuery({ page, key })
   const talents = data?.data
   const countTalents = data?.count
