@@ -1,6 +1,5 @@
-import { BlogNews } from '@/components/BlogNews/BlogNews'
-import Container from '@/components/ui/Container'
-export default function LandingPage() {
+import { Container, BlogNews } from 'components'
+export const Landing = () => {
   return (
     <Container>
       <div className="mx-auto max-w-screen-lg py-12">

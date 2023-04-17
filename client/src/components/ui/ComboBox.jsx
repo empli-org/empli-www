@@ -15,7 +15,7 @@ import { useId, useState } from 'react'
   itemSubtitle: optional key for object type item
 */
 
-export default function ComboBox({
+export const ComboBox = ({
   placeholder,
   label,
   onEnter,
@@ -26,7 +26,7 @@ export default function ComboBox({
   isFetching,
   itemTitle = 'title',
   itemSubtitle,
-}) {
+}) => {
   const id = useId()
   const [selectedJob, setSelectedJob] = useState(null)
 

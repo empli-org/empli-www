@@ -1,4 +1,4 @@
-import { IconStar } from '../CardProfile/IconsProfile'
+import { IconStar } from 'components'
 export const Tags = ({ skills }) => {
   return (
     <>
