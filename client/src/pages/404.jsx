@@ -2,7 +2,7 @@
 import { PageNOtFound } from '@/components/PageNotFound/PageNotFound'
 import { useRouteError } from 'react-router-dom'
 
-export default function ErrorPage() {
+export default function Error404() {
   const error = useRouteError()
   console.error(error)
 

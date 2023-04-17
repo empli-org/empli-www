@@ -9,6 +9,6 @@ export const store = configureStore({
     roles: roleSliceReducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(baseApi.middleware),
+    getDefaultMiddleware().concat(apiSlice.middleware),
 })
 setupListeners(store.dispatch)

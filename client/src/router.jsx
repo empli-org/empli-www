@@ -8,12 +8,15 @@ import Contacto from './pages/Info/Contacto'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Layout from './components/Layout'
-import ErrorPage from './pages/ErrorPage'
+import Error404 from './pages/404'
+import DetalleOferta from './pages/DetalleOferta'
+import Talents from './pages/Community/Talents/Talents'
+import TalentDetail from './pages/Community/Talents/TalentDetail'
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error404 />,
     children: [
       {
         path: '/',
