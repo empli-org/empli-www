@@ -17,7 +17,7 @@ export const CardBox = ({ data }) => {
   }, [])
 
   return (
-    <div className="m-5 mx-auto flex w-3/4 flex-col rounded-3xl bg-gray-900 p-10">
+    <div className="m-5 flex w-full flex-col rounded-3xl bg-gray-900 p-10">
       <div className="m-5 flex flex-col items-end justify-end p-5 text-white">
         <div className="text-2xl font-bold">
           <h1>Top Profesionales</h1>

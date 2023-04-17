@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { Layout } from './components/Layout'
-
+import { Layout } from '@/components/Layout'
 import {
   Landing,
   TalentDetail,
@@ -15,6 +14,7 @@ import {
   Error404,
   Offers,
 } from 'pages'
+import UserProfileForm from './pages/UserForm'
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -64,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />,
+      },
+      {
+        path: '/user/profile',
+        element: <UserProfileForm />,
       },
     ],
   },
