@@ -99,6 +99,10 @@ export const router = createBrowserRouter([
         path: '/auth/register',
         element: <Register />,
       },
+      {
+        path: '/user/profile',
+        element: <UserProfileForm />,
+      },
     ],
   },
   {
