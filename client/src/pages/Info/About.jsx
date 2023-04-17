@@ -1,50 +1,29 @@
 import React from 'react'
-// @ts-ignore
-import obs from '../assets/obs.svg'
-// @ts-ignore
-import obs2 from '../assets/obs2.svg'
-// import useIntersectionObserver from '../components/hooks/useObserver'
-// @ts-ignore
-import one from '../assets/numbers/1.svg'
-// @ts-ignore
-import two from '../assets/numbers/2.svg'
-// @ts-ignore
-import three from '../assets/numbers/3.svg'
-// @ts-ignore
-import four from '../assets/numbers/4.svg'
-// @ts-ignore
-import five from '../assets/numbers/5.svg'
-// @ts-ignore
-import dot from '../assets/dot.svg'
-import Footer from '../footer/Footer'
+import obs from '@/assets/obs.svg'
+import obs2 from '@/assets/obs2.svg'
+import one from '@/assets/numbers/1.svg'
+import two from '@/assets/numbers/2.svg'
+import three from '@/assets/numbers/3.svg'
+import four from '@/assets/numbers/4.svg'
+import five from '@/assets/numbers/5.svg'
+import dot from '@/assets/dot.svg'
 
 export const About = () => {
-  // const AnimatedComponent = useIntersectionObserver({
-  //   threshold: 0.5,
-  //   rootMargin: '0px',
-  //   animationDuration: 0.5,
-  //   staggerChildren: 0.1,
-  //   easing: 'easeInOut',
-  //   direction: 'up',
-  //   // @ts-ignore
-  //   y: 50,
-  //   fade: true,
-  // })
   return (
     <div className="w-screen">
       <div className="bg-white-font">
-        <div className="h-50 w-auto flex items-center justify-center bg-contact-img bg-cover p-2">
+        <div className="h-50 flex w-auto items-center justify-center bg-contact-img bg-cover p-2">
           <h1 className="font-amenable text-6xl font-bold text-blue-font">
             Nosotros
           </h1>
         </div>
-        <div className="w-full flex pl-56 mt-24">
-          <div className="flex w-1/2 m-7 items-center">
+        <div className="mt-24 flex w-full pl-56">
+          <div className="m-7 flex w-1/2 items-center">
             <div className="flex flex-col">
-              <h1 className="text-4xl text-blue-font font-amenable text-center">
+              <h1 className="text-center font-amenable text-4xl text-blue-font">
                 ¿Quiénes somos?
               </h1>
-              <div className="w-56 border-t-4 border-bg-green my-6 rounded-2xl"></div>
+              <div className="my-6 w-56 rounded-2xl border-t-4 border-bg-green"></div>
               <p className="font-quicksand-light text-lg font-medium">
                 Somos una empresa de gestión humana con la finalidad de ayudar a
                 que las empresas puedan tomar mejores decisiones en todo lo
@@ -61,14 +40,14 @@ export const About = () => {
             <img src={obs} alt="obs" />
           </div>
         </div>
-        <div className="w-full flex mt-44">
-          <div className="flex w-1/2 ml-left items-center">
+        <div className="mt-44 flex w-full">
+          <div className="ml-left flex w-1/2 items-center">
             <img src={obs2} alt="obs2" />
             <div className="m-5">
-              <h1 className="text-4xl text-blue-font font-amenable text-center">
+              <h1 className="text-center font-amenable text-4xl text-blue-font">
                 ¿Qué buscamos?
               </h1>
-              <div className="w-56 border-t-4 border-bg-green my-6 rounded-2xl"></div>
+              <div className="my-6 w-56 rounded-2xl border-t-4 border-bg-green"></div>
               <p className="font-quicksand-light text-lg font-medium">
                 Somos una empresa que busca conectar a los mejores profesionales
                 del sector de la construcción con las entidades públicas y
@@ -80,41 +59,41 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue-font w-full h-auto flex">
-        <div className="w-full flex pl-100">
-          <div className="p-5 flex flex-col">
-            <h1 className="text-5xl text-white-font font-amenable text-center">
+      <div className="flex h-auto w-full bg-blue-font">
+        <div className="flex w-full pl-100">
+          <div className="flex flex-col p-5">
+            <h1 className="text-center font-amenable text-5xl text-white-font">
               ¿Qué ofrecemos?
             </h1>
-            <div className="w-56 border-t-4 border-bg-green my-6 rounded-2xl"></div>
+            <div className="my-6 w-56 rounded-2xl border-t-4 border-bg-green"></div>
             <div className="flex flex-col gap-4">
               <div>
-                <img src={one} alt="one" className="w-12 h-12 inline" />
-                <p className="font-quicksand-light text-2xl text-white-font p-3 inline">
+                <img src={one} alt="one" className="inline h-12 w-12" />
+                <p className="inline p-3 font-quicksand-light text-2xl text-white-font">
                   Profesionales con experiencia verificada al 100%
                 </p>
               </div>
               <div>
-                <img src={two} alt="two" className="w-12 h-12 inline" />
-                <p className="font-quicksand-light text-2xl text-white-font p-3 inline">
+                <img src={two} alt="two" className="inline h-12 w-12" />
+                <p className="inline p-3 font-quicksand-light text-2xl text-white-font">
                   Expertos en la atracción de talentos
                 </p>
               </div>
               <div>
-                <img src={three} alt="three" className="w-12 h-12 inline" />
-                <p className="font-quicksand-light text-2xl text-white-font p-3 inline">
+                <img src={three} alt="three" className="inline h-12 w-12" />
+                <p className="inline p-3 font-quicksand-light text-2xl text-white-font">
                   Extensa cartera de profesionales
                 </p>
               </div>
               <div>
-                <img src={four} alt="four" className="w-12 h-12 inline" />
-                <p className="font-quicksand-light text-2xl text-white-font p-3 inline">
+                <img src={four} alt="four" className="inline h-12 w-12" />
+                <p className="inline p-3 font-quicksand-light text-2xl text-white-font">
                   Brindamos profesionales competentes
                 </p>
               </div>
               <div>
-                <img src={five} alt="five" className="w-12 h-12 inline" />
-                <p className="font-quicksand-light text-2xl text-white-font p-3 inline">
+                <img src={five} alt="five" className="inline h-12 w-12" />
+                <p className="inline p-3 font-quicksand-light text-2xl text-white-font">
                   Procesos culminados en tiempo record
                 </p>
               </div>
@@ -122,53 +101,52 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white-font w-full h-auto flex">
-        <div className="p-5 w-9/12 flex flex-col items-end">
-          <h1 className="text-5xl text-blue-font font-amenable">
+      <div className="flex h-auto w-full bg-white-font">
+        <div className="flex w-9/12 flex-col items-end p-5">
+          <h1 className="font-amenable text-5xl text-blue-font">
             Nuestros valores:
           </h1>
-          <div className="w-56 border-t-4 border-bg-green my-6 rounded-2xl"></div>
+          <div className="my-6 w-56 rounded-2xl border-t-4 border-bg-green"></div>
           <div className="flex flex-col justify-center">
             <div>
-              <img src={dot} alt="one" className="w-12 h-12 inline" />
-              <p className="font-quicksand-light text-3xl text-blue-font p-3 inline font-bold">
+              <img src={dot} alt="one" className="inline h-12 w-12" />
+              <p className="inline p-3 font-quicksand-light text-3xl font-bold text-blue-font">
                 Pasión
               </p>
             </div>
             <div>
-              <img src={dot} alt="two" className="w-12 h-12 inline" />
-              <p className="font-quicksand-light text-3xl text-blue-font p-3 inline font-bold">
+              <img src={dot} alt="two" className="inline h-12 w-12" />
+              <p className="inline p-3 font-quicksand-light text-3xl font-bold text-blue-font">
                 Compromiso
               </p>
             </div>
             <div>
-              <img src={dot} alt="three" className="w-12 h-12 inline" />
-              <p className="font-quicksand-light text-3xl text-blue-font p-3 inline font-bold">
+              <img src={dot} alt="three" className="inline h-12 w-12" />
+              <p className="inline p-3 font-quicksand-light text-3xl font-bold text-blue-font">
                 Honestidad
               </p>
             </div>
             <div>
-              <img src={dot} alt="four" className="w-12 h-12 inline" />
-              <p className="font-quicksand-light text-3xl text-blue-font p-3 inline font-bold">
+              <img src={dot} alt="four" className="inline h-12 w-12" />
+              <p className="inline p-3 font-quicksand-light text-3xl font-bold text-blue-font">
                 Confidencialidad
               </p>
             </div>
             <div>
-              <img src={dot} alt="five" className="w-12 h-12 inline" />
-              <p className="font-quicksand-light text-3xl text-blue-font p-3 inline font-bold">
+              <img src={dot} alt="five" className="inline h-12 w-12" />
+              <p className="inline p-3 font-quicksand-light text-3xl font-bold text-blue-font">
                 Lealtad
               </p>
             </div>
             <div>
-              <img src={dot} alt="five" className="w-12 h-12 inline" />
-              <p className="font-quicksand-light text-3xl text-blue-font p-3 inline font-bold">
+              <img src={dot} alt="five" className="inline h-12 w-12" />
+              <p className="inline p-3 font-quicksand-light text-3xl font-bold text-blue-font">
                 Transparencia
               </p>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
