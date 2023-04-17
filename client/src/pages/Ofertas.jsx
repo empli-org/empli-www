@@ -9,6 +9,7 @@ import JobCard from '@/components/ui/cards/JobCard'
 import { useGetJobsQuery } from '@/redux/features/api/base'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const queryStringFromObj = obj =>
   Object.keys(obj)
@@ -26,6 +27,7 @@ const Ofertas = () => {
   const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
   const totalPages = Math.ceil(countJobs / 10)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setPage(1)
@@ -46,7 +48,7 @@ const Ofertas = () => {
         <header className="flex items-center justify-between py-4">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 rounded-lg bg-slate-100 px-2 py-4 sm:p-8">
             <div className="flex w-full items-center justify-between gap-4">
-              <JobSearch />
+              <JobSearch onSelect={item => navigate(`/offers/${item.code}`)} />
               <motion.button
                 initial={false}
                 className="relative rounded-lg bg-slate-200 p-4"
