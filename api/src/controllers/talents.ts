@@ -83,29 +83,29 @@ export async function getAllTalents(req: Request, res: Response) {
           },
         },
       },
-      ...(key && {
-        where: {
-          OR: [
-            {
-              career: {
-                name: { contains: key as string, mode: "insensitive" },
-              },
-            },
-            {
-              skills: {
-                some: {
-                  name: { contains: key as string, mode: "insensitive" },
-                },
-              },
-            },
-          ],
-        },
-      }),
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
     };
+    options.where = {
+      ...(key && {
+        OR: [
+          {
+            career: {
+              name: { contains: key as string, mode: "insensitive" },
+            },
+          },
+          {
+            skills: {
+              some: {
+                name: { contains: key as string, mode: "insensitive" },
+              },
+            },
+          },
+        ],
+      }),
+    };
 
-    const talents = await db.talent.findMany();
+    const talents = await db.talent.findMany(options);
     const countOptions: Prisma.TalentCountArgs = {};
     countOptions.where = options.where;
     const count = await db.talent.count(countOptions);
