@@ -5,7 +5,7 @@ import { BsHouseDoor } from 'react-icons/bs'
 import { CiLocationOn } from 'react-icons/ci'
 import './search.css'
 
-const Search = () => {
+export const Search = () => {
   return (
     <div className="searchDiv bg-greyIsh rounded- [10px] grid gap-10 p-[3rem]">
       <form action="">

@@ -1,6 +1,6 @@
-import useIntersectionObserver from '../hooks/useObserver'
+import useIntersectionObserver from '../../hooks/useObserver'
 
-export const PageNOtFound = () => {
+export const PageNotFound = () => {
   const AnimatedComponent = useIntersectionObserver({
     threshold: 0.5,
     rootMargin: '0px',

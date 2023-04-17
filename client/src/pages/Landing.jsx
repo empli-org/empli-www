@@ -1,8 +1,5 @@
-import { BlogNews } from '@/components/BlogNews/BlogNews'
-import Container from '@/components/ui/Container'
-import Footer from './footer/Footer'
-
-export default function LandingPage() {
+import { Container, BlogNews } from 'components'
+export const Landing = () => {
   return (
     <Container>
       <div className="mx-auto max-w-screen-lg py-12">
@@ -27,7 +24,6 @@ export default function LandingPage() {
             <BlogNews />
           </div>
         </div>
-        <Footer />
       </div>
     </Container>
   )
