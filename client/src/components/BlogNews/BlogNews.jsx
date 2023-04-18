@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// @ts-ignore
 import axios from 'axios'
 import Publicacion from './Publicacion'
 import DetallePublicacion from './DetallePublicacion'
