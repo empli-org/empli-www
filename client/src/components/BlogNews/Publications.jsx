@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Publicaciones = ({ publicaciones }) => {
+export const Publications = ({ publicaciones }) => {
   return (
     <div>
       <h1>Publicaciones</h1>
@@ -14,5 +14,3 @@ const Publicaciones = ({ publicaciones }) => {
     </div>
   )
 }
-
-export default Publicaciones

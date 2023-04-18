@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Publicacion from './Publicacion'
-import DetallePublicacion from './DetallePublicacion'
+import { DetailPublication, Publication } from 'components'
 import { useGoUp } from '@/hooks/useGoUp'
 
 // En este componente estamos usando axios unicamente a modo de probar el funcionamiento con la api en uso.
@@ -55,7 +54,7 @@ export const BlogNews = () => {
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {publicaciones.map((publicacion, index) => (
-              <Publicacion
+              <Publication
                 key={index}
                 publicacion={publicacion}
                 onSeleccionarPublicacion={handleSeleccionarPublicacion}
@@ -65,7 +64,7 @@ export const BlogNews = () => {
         </>
       ) : (
         <div>
-          <DetallePublicacion setOnOff={setOnOff} publicacion={newSelect} />
+          <DetailPublication setOnOff={setOnOff} publicacion={newSelect} />
         </div>
       )}
       {/* en este boton utilizamos el hook que devuelve al usuario a la parte superior de la pagina. Los estilos y la logica del boton se encuentra dentro del hook useGoUp dentro de la carpeta hooks. En teoria el boton cuando el scroll desciende */}

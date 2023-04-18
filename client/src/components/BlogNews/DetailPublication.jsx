@@ -3,8 +3,8 @@ import { FaLinkedin, FaArrowLeft } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-// este componente unicamente se encarga de renderizar el detalle de la noticia
-const DetallePublicacion = ({ publicacion, setOnOff }) => {
+// this component is just to render publications detail
+export const DetailPublication = ({ publicacion, setOnOff }) => {
   const compartirEnLinkedIn = () => {
     // lógica para compartir en LinkedIn
   }
@@ -16,7 +16,7 @@ const DetallePublicacion = ({ publicacion, setOnOff }) => {
     >
       <div className="p-4">
         <div>
-          {/* aqui recibimos la funcion setOnOff del componente padre y cuando le hacen click el estado onOff que se encuentra en BlogNews se vuelve false, lo que permite que la noticia seleccionada se renderice junto con el resto de las noticias */}
+          {/* here received function setOnOff from the component father and when user click on the button state onOff change false */}
           <button onClick={() => setOnOff(false)}>
             <FaArrowLeft />
           </button>
@@ -36,5 +36,3 @@ const DetallePublicacion = ({ publicacion, setOnOff }) => {
     </motion.div>
   )
 }
-
-export default DetallePublicacion

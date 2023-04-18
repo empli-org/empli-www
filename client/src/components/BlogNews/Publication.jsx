@@ -1,8 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-// La funcionalidad de este componente radica unicamente en recibir las publicaciones del componente padre y renderizar
-const Publicacion = ({ publicacion, onSeleccionarPublicacion }) => {
+// This component is for received for the publications from father component and render
+export const Publication = ({ publicacion, onSeleccionarPublicacion }) => {
   return (
     <motion.div
       className="cursor-pointer overflow-hidden rounded-lg bg-white shadow-lg"
@@ -17,5 +17,3 @@ const Publicacion = ({ publicacion, onSeleccionarPublicacion }) => {
     </motion.div>
   )
 }
-
-export default Publicacion
