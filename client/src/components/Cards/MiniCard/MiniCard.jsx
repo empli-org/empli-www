@@ -12,7 +12,7 @@ export const MiniCard = ({
   description,
   rol,
 }) => {
-  // esta variable sera renderizada unicamente si se recibe por props amount y time. 
+  // esta variable sera renderizada unicamente si se recibe por props amount y time.
   // de igual modo se hace con la variable btn. de esta forma hacemos que el componente sea dinamico y reutilizable
   const price = (
     <div className="flex w-full justify-between">
