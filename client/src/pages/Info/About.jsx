@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // @ts-ignore
 import React from 'react'
 // @ts-ignore
@@ -15,6 +16,16 @@ import four from '@/assets/numbers/4.svg'
 // @ts-ignore
 import five from '@/assets/numbers/5.svg'
 // @ts-ignore
+=======
+import React from 'react'
+import obs from '@/assets/obs.svg'
+import obs2 from '@/assets/obs2.svg'
+import one from '@/assets/numbers/1.svg'
+import two from '@/assets/numbers/2.svg'
+import three from '@/assets/numbers/3.svg'
+import four from '@/assets/numbers/4.svg'
+import five from '@/assets/numbers/5.svg'
+>>>>>>> 59fa61afd75cad18f631b2f43b40ed1c57a813aa
 import dot from '@/assets/dot.svg'
 
 export const About = () => {
