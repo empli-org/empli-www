@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useGetJobsQuery } from 'redux/features/api/base'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
