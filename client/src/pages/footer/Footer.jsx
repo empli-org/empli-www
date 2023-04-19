@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-blue-950 text-white">
       <div className="w-1/5"></div>
-      <ul className="flex flex-wrap flex-nowrap items-center gap-9 space-y-0  ">
+      <ul className="flex flex-wrap items-center gap-9 space-y-0  ">
         <li>
           <a href="/ofertas">Ofertas</a>
         </li>

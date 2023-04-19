@@ -15,7 +15,7 @@ import { useId, useState } from 'react'
   itemSubtitle: optional key for object type item
 */
 
-export default function ComboBox({
+export const ComboBox = ({
   placeholder,
   label,
   onEnter,
@@ -26,7 +26,7 @@ export default function ComboBox({
   isFetching,
   itemTitle = 'title',
   itemSubtitle,
-}) {
+}) => {
   const id = useId()
   const [selectedJob, setSelectedJob] = useState(null)
 
@@ -34,7 +34,9 @@ export default function ComboBox({
     id,
     onSelectedItemChange: ({ selectedItem }) => {
       setSelectedJob(selectedItem)
-      if (onSelect && typeof onSelect === 'function') onSelect(selectedItem)
+      if (onSelect && typeof onSelect === 'function') {
+        onSelect(selectedItem)
+      }
       // router.push(`/jobs/${selectedItem?.code}`)
     },
     items: query === '' ? [] : data || [],
@@ -64,7 +66,7 @@ export default function ComboBox({
             id,
             value: query,
             className: clsx(
-              'w-full px-4 py-3 text-lg outline-none focus:ring-2',
+              'w-full px-4 py-3 border border-slate-200 text-lg outline-none focus:ring-2',
               {
                 'rounded-t-lg rounded-b-0': displayMenu,
                 'rounded-lg': !displayMenu,
@@ -79,7 +81,10 @@ export default function ComboBox({
                 !selectedJob &&
                 cb.highlightedIndex < 0
               ) {
-                if (onEnter && typeof onEnter === 'function') onEnter()
+                if (onEnter && typeof onEnter === 'function') {
+                  onEnter(query)
+                  setQuery('')
+                }
                 // Navigate to advanced ssearch
                 /*
                 router.push(

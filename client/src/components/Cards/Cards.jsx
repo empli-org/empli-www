@@ -1,28 +1,20 @@
-import React from 'react'
+// @ts-nocheck
 //importamos el icono de react-icons==>
 import { BiTimeFive } from 'react-icons/bi'
-//importamos la imagen===>
 
-// @ts-ignore
-import logoCompañia from '../Cards/img/logoConstruccion.png'
-// @ts-ignore
-import logoConstruccion from '../Cards/img/logo2.png'
-// @ts-ignore
-import logo3 from '../Cards/img/logo3.png'
-// @ts-ignore
-import logo4 from '../Cards/img/logo4.png'
-// @ts-ignore
-import logo5 from '../Cards/img/logo5.png'
-// @ts-ignore
-import logo6 from '../Cards/img/logo6.png'
-// @ts-ignore
-import logo7 from '../Cards/img/logo7.png'
-// @ts-ignore
-import logo8 from '../Cards/img/logo8.png'
+import logoCompañia from 'assets/img/logoConstruccion.png'
+import logoConstruccion from 'assets/img/logo2.png'
+import logo3 from 'assets/img/logo3.png'
+import logo4 from 'assets/img/logo4.png'
+import logo5 from 'assets/img/logo5.png'
+import logo6 from 'assets/img/logo6.png'
+import logo7 from 'assets/img/logo7.png'
+import logo8 from 'assets/img/logo8.png'
+
 //para todos los trabajos vamos a utilizar un método de matriz de alto orden llamado Map
 //en este caso listaremos todos los trabajos en una matriz llamada data
 
-const Data = [
+const data = [
   {
     id: 1,
     image: logoCompañia,
@@ -37,7 +29,7 @@ const Data = [
     image: logoConstruccion,
     title: 'Ingeniero',
     time: '12Hrs',
-    location: 'Colombia',
+    location: 'Peru',
     desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Constructora Cop.',
   },
@@ -46,7 +38,7 @@ const Data = [
     image: logo3,
     title: 'Albañil',
     time: '24Hrs',
-    location: 'Argentina',
+    location: 'Peru',
     desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Citmat Cop.',
   },
@@ -55,7 +47,7 @@ const Data = [
     image: logo4,
     title: 'Maestro de Obra',
     time: '7Hrs',
-    location: 'Lima-Peru',
+    location: 'Peru',
     desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Soluciones C.O.',
   },
@@ -64,7 +56,7 @@ const Data = [
     image: logo5,
     title: 'Ingeniero Civil',
     time: '10Hrs',
-    location: 'Venezuela',
+    location: 'Peru',
     desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Obras Sil.',
   },
@@ -73,7 +65,7 @@ const Data = [
     image: logo6,
     title: 'Arquitecto',
     time: '2Hrs',
-    location: 'Mexico',
+    location: 'Peru',
     desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Corporacion A.S.',
   },
@@ -82,7 +74,7 @@ const Data = [
     image: logo7,
     title: 'Ayudante de Obra',
     time: '4Hrs',
-    location: 'Argentina',
+    location: 'Peru',
     desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Contrucciones C.A',
   },
@@ -99,16 +91,16 @@ const Data = [
 
 //esta es una sola empresa, veamos como mapearla
 
-const Cards = () => {
+export const Cards = () => {
   return (
     <div>
       <div className="jobContainer flex flex-wrap items-center justify-center gap-10 py-10">
-        {Data.map(({ id, image, title, time, location, desc, company }) => {
+        {data.map(({ id, image, title, time, location, desc, company }) => {
           return (
             //esto devolverá una sola publicación de trabajo basada en la identificación
             <div
               key={id}
-              className="group/item singleJob [10px] shadow-greyIsh-400/700 group w-[250px] rounded rounded bg-white p-[20px] shadow-lg hover:bg-emerald-500 hover:shadow-lg"
+              className="group/item singleJob [10px] shadow-greyIsh-400/700 group w-[250px] rounded bg-white p-[20px] shadow-lg hover:bg-emerald-500 hover:shadow-lg"
             >
               <span className="flex items-center justify-between gap-4">
                 <h1 className="text-textColor group-hover text-bg-neutral-950 text-[16px] font-semibold">

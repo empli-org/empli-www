@@ -45,6 +45,7 @@ export const apiSlice = createApi({
   tagTypes: ['Jobs', 'Categories', 'Talents', 'Careers'],
   endpoints: builder => ({
     //* Endpoints Jobs
+
     getJobs: builder.query({
       query: () => ({
         url: endpoints.jobs,

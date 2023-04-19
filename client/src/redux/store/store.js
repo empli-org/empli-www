@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { jobsApi } from '../features/api/jobs'
+import roleSliceReducer from '../features/slices/roleSlice'
+import { baseApi } from '../features/api/base'
 
 export const store = configureStore({
   reducer: {
-    [jobsApi.reducerPath]: jobsApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
+    roles: roleSliceReducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(jobsApi.middleware),
+    getDefaultMiddleware().concat(baseApi.middleware),
 })
 setupListeners(store.dispatch)

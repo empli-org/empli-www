@@ -3,7 +3,6 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      // eslint-disable-next-line prettier/prettier
       amenable: ['Amenable', 'ui-sans-serif'],
       'quicksand-light': ['Quicksand', 'ui-sans-serif'],
     },
@@ -22,9 +21,15 @@ export default {
         'bg-lk': '#0a66c2',
         'color-google': '#F06464',
         'bg-green': '#70b39b',
+        // Brand colors with names
+        'hint-of-red': '#F6F2EC',
+        fog: '#e0dadf',
+        sail: '#9fcee7',
+        'gulf-stream': '#70b39b',
+        lochinvar: '#53917b',
+        'blue-whale': '#1c2441',
       },
       spacing: {
-        // eslint-disable-next-line prettier/prettier
         login: '93vh',
         negative: '-15px',
         15: '60px',
@@ -32,11 +37,12 @@ export default {
         all: '444px',
         100: '410px',
         contact: '68vh',
+        left: '750px',
       },
       screens: {
         xs: '420px',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
