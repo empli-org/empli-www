@@ -65,6 +65,7 @@ export const BlogNews = () => {
       ) : (
         <div>
           <DetailPublication setOnOff={setOnOff} publicacion={newSelect} />
+        </div>
       )}
       {/* en este boton utilizamos el hook que devuelve al usuario a la parte superior de la pagina. Los estilos y la logica del boton se encuentra dentro del hook useGoUp dentro de la carpeta hooks. En teoria el boton cuando el scroll desciende */}
       {buttonGoUp}
