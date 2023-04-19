@@ -47,8 +47,8 @@ export const Register = () => {
     animationDuration: 0.5,
     staggerChildren: 0.1,
     easing: 'easeInOut',
-    direction: 'up',
-    y: 50,
+    direction: 'right',
+    x: 50,
     fade: true,
   })
 
