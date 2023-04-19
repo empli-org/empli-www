@@ -39,6 +39,7 @@ export const Register = () => {
   const onSubmit = data => {
     console.log(data)
   }
+
   return (
     <div className="bg-white-font">
       <div className="container mx-auto flex h-login items-center justify-center">

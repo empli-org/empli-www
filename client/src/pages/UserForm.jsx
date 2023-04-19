@@ -2,6 +2,8 @@ import { CareerSearch } from '@/components/Search/CareerSearch'
 import { CloseIcon } from '@/components/icons/CloseIcon'
 import { Container } from '@/components/ui/Container'
 import { useState } from 'react'
+import { Image } from 'cloudinary-react'
+import { useUpload } from '@/hooks/upload'
 
 const inputCls =
   'rounded-md border border-slate-200 p-3 outline-none focus:ring-2'
@@ -25,6 +27,8 @@ export default function UserProfileForm() {
             className="mx-auto max-w-2xl rounded-lg bg-white px-8 py-12 shadow-lg"
           >
             <h1 className="mb-4 text-xl font-bold">Perfil público</h1>
+
+            <ProfileImageForm />
 
             <InfoForm />
 
@@ -106,6 +110,35 @@ function AddInputDynamic() {
         ))}
       </div>
     </>
+  )
+}
+
+function ProfileImageForm() {
+  const [file, setFile] = useState(null)
+  const { loading, data } = useUpload(file)
+  const image = data?.public_id || null
+
+  const handleChange = e => {
+    const file = e.target.files[0]
+    setFile(file)
+  }
+
+  return (
+    <div>
+      {!loading && image ? (
+        <div className="aspect-s w-24 overflow-hidden rounded-lg">
+          <Image cloudName="dvzhqzjkm" publicId={image} />
+        </div>
+      ) : (
+        <div className="aspect-square w-24 rounded-lg bg-slate-200" />
+      )}
+      <input
+        accept="image/*"
+        type="file"
+        name="image"
+        onChange={handleChange}
+      />
+    </div>
   )
 }
 

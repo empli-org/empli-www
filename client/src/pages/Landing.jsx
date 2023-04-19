@@ -1,9 +1,9 @@
 import { MiniCard, CardBox, Container } from '@/components'
 import { Link } from 'react-router-dom'
-
 export const Landing = () => {
   // Data sirve unicamente para probar que las cards,
   // porque lo que se quiere es que la informacion que utilizan las cards vengan por props
+
   const data = [
     {
       title: 'Incoingroup',
