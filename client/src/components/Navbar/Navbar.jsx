@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { MenuItem } from './MenuItem'
 import { CommunityItems, CompanyItems, TalentItems } from './NavbarItems'
 import MobileMenu from './MobileMenu'
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 export const Navbar = () => {
   return (
@@ -40,15 +41,29 @@ export const Navbar = () => {
               </ul>
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
-              <Link className="p-3" to="/login">
-                Ingresar
-              </Link>
-              <Link
-                className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
-                to="/register"
-              >
-                Crear Cuenta
-              </Link>
+              <SignedOut>
+                <button
+                  className="p-3"
+                  onClick={() =>
+                    (window.location.href =
+                      'https://delicate-cod-86.accounts.dev/sign-in')
+                  }
+                >
+                  Ingresar
+                </button>
+                <button
+                  className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
+                  onClick={() =>
+                    (window.location.href =
+                      'https://delicate-cod-86.accounts.dev/sign-up')
+                  }
+                >
+                  Crear cuenta
+                </button>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </div>
             <div className="flex text-sm lg:hidden">
               <MobileMenu />

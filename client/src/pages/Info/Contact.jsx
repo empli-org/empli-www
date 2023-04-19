@@ -13,6 +13,7 @@ import fb from '@/assets/fb.svg'
 import lk from '@/assets/lk.svg'
 // @ts-ignore
 import ig from '@/assets/ig.svg'
+import { useUser } from '@clerk/clerk-react'
 
 export const Contact = () => {
   const AnimatedComponent = useIntersectionObserver({
@@ -52,6 +53,9 @@ export const Contact = () => {
   const onSubmit = data => {
     console.log(data)
   }
+
+  const { user } = useUser()
+  console.log(user)
   return (
     <AnimatedComponent>
       <div className="w-screen">

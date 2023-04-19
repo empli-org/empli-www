@@ -8,7 +8,7 @@ export const Error404 = () => {
 
   return (
     <div id="error-page">
-      <PageNOtFound />
+      <PageNotFound />
     </div>
   )
 }
