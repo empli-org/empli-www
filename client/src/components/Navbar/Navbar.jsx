@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-// import { MenuIcon } from './icons'
 import EmpliLogo from '@/components/ui/brand/EmpliLogo'
 import { Container } from '@/components/ui/Container'
 import { MenuItem } from './MenuItem'
 import { CommunityItems, CompanyItems, TalentItems } from './NavbarItems'
+import MobileMenu from './MobileMenu'
 
 export const Navbar = () => {
   return (
@@ -39,7 +39,7 @@ export const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <div className="flex gap-4 text-sm">
+            <div className="hidden gap-4 text-sm lg:flex">
               <Link className="p-3" to="/login">
                 Ingresar
               </Link>
@@ -50,9 +50,14 @@ export const Navbar = () => {
                 Crear Cuenta
               </Link>
             </div>
+            <div className="flex text-sm lg:hidden">
+              <MobileMenu />
+            </div>
           </div>
         </nav>
       </Container>
     </header>
   )
 }
+
+export default Navbar
