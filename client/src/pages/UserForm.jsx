@@ -3,6 +3,7 @@ import { CloseIcon } from '@/components/icons/CloseIcon'
 import { Container } from '@/components/ui/Container'
 import { useState } from 'react'
 import { Image } from 'cloudinary-react'
+import { useUpload } from '@/hooks/upload'
 
 const inputCls =
   'rounded-md border border-slate-200 p-3 outline-none focus:ring-2'
@@ -112,30 +113,14 @@ function AddInputDynamic() {
   )
 }
 
-const CLOUD_PRESET = import.meta.env.VITE_CLOUD_PRESET
-const CLOUD_URL = import.meta.env.VITE_CLOUD_URL
-
 function ProfileImageForm() {
-  const [loading, setLoading] = useState(false)
-  const [image, setImage] = useState('')
+  const [file, setFile] = useState(null)
+  const { loading, data } = useUpload(file)
+  const image = data?.public_id || null
+
   const handleChange = e => {
     const file = e.target.files[0]
-    setImage(file)
-    const data = new FormData()
-    data.append('file', file)
-    data.append('upload_preset', CLOUD_PRESET)
-    setLoading(true)
-    fetch(CLOUD_URL, {
-      method: 'post',
-      body: data,
-    })
-      .then(res => res.json())
-      .then(data => {
-        setImage(data.public_id)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    setFile(file)
   }
 
   return (
@@ -147,7 +132,12 @@ function ProfileImageForm() {
       ) : (
         <div className="aspect-square w-24 rounded-lg bg-slate-200" />
       )}
-      <input type="file" name="image" onChange={handleChange} />
+      <input
+        accept="image/*"
+        type="file"
+        name="image"
+        onChange={handleChange}
+      />
     </div>
   )
 }
