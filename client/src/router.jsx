@@ -16,6 +16,8 @@ import {
   Offers,
 } from 'pages'
 import UserProfileForm from './pages/UserForm'
+import PricingPage from './pages/Info/Pricing'
+import Media from './pages/Community/Media'
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -25,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Landing />,
+      },
+      {
+        path: '/pricing',
+        element: <PricingPage />,
       },
       {
         path: '/offers',
@@ -70,6 +76,7 @@ export const router = createBrowserRouter([
         path: '/user/profile',
         element: <UserProfileForm />,
       },
+      { path: '/media', element: <Media /> },
     ],
   },
 ])

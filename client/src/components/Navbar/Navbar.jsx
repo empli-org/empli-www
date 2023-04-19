@@ -1,55 +1,63 @@
 import { Link } from 'react-router-dom'
-// import { MenuIcon } from './icons'
-// @ts-ignore
-import empliLogo from '/empli-logo.png'
-
-const NAV_LINKS = [
-  { to: '/offers', label: 'Ofertas' },
-  { to: '/talents', label: 'Profesionales' },
-  { to: '/companies', label: 'Empresas' },
-  { to: '/news', label: 'Noticias' },
-  { to: '/about', label: 'Nosotros' },
-  { to: '/contact', label: 'Contacto' },
-]
+import EmpliLogo from '@/components/ui/brand/EmpliLogo'
+import { Container } from '@/components/ui/Container'
+import { MenuItem } from './MenuItem'
+import { CommunityItems, CompanyItems, TalentItems } from './NavbarItems'
+import MobileMenu from './MobileMenu'
 
 export const Navbar = () => {
   return (
-    <nav className="flex h-16 w-full items-center justify-between space-x-4 px-4 text-black shadow-sm">
-      <Link to="/">
-        <img src={empliLogo} alt="logo" className="w-16" />
-      </Link>
-
-      <div className="hidden space-x-6 md:flex">
-        {NAV_LINKS.map(l => (
-          <Link key={l.to} to={l.to} className="hover:underline">
-            {l.label}
-          </Link>
-        ))}
-      </div>
-
-      <div className="hidden space-x-4 pr-8 md:flex">
-        <Link to="/login" className="link-barra">
-          Login
-        </Link>
-        <span>|</span>
-        <Link to="/register" className="link-barra">
-          Crear Cuenta
-        </Link>
-      </div>
-
-      {/* <MobileMenu /> */}
-    </nav>
+    <header className="w-full bg-hint-of-red">
+      <Container>
+        <nav className="flex w-full items-center justify-between shadow-sm">
+          <div className="flex w-full items-center justify-between py-6">
+            <div className="flex items-center gap-16">
+              <Link to="/" className="w-24 text-gulf-stream">
+                <EmpliLogo />
+              </Link>
+              <ul className="hidden items-stretch gap-10 text-sm text-gray-700 lg:flex">
+                <MenuItem label="Empresas">
+                  <MenuItem.Body>
+                    <CompanyItems />
+                  </MenuItem.Body>
+                </MenuItem>
+                <MenuItem label="Profesionales">
+                  <MenuItem.Body>
+                    <TalentItems />
+                  </MenuItem.Body>
+                </MenuItem>
+                <MenuItem label="Comunidad">
+                  <MenuItem.Body>
+                    <CommunityItems />
+                  </MenuItem.Body>
+                </MenuItem>
+                <li className="py-2">
+                  <Link to="/pricing">Precios</Link>
+                </li>
+                <li className="py-2">
+                  <Link to="/contact">Contacto</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="hidden gap-4 text-sm lg:flex">
+              <Link className="p-3" to="/login">
+                Ingresar
+              </Link>
+              <Link
+                className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
+                to="/register"
+              >
+                Crear Cuenta
+              </Link>
+            </div>
+            <div className="flex text-sm lg:hidden">
+              <MobileMenu />
+            </div>
+          </div>
+        </nav>
+      </Container>
+    </header>
   )
 }
-
-// function MobileMenu() {
-//   return (
-//     <div className="block md:hidden">
-//       <button>
-//         <MenuIcon />
-//       </button>
-//     </div>
-//   )
-// }
 
 export default Navbar
