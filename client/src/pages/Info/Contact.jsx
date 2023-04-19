@@ -1,11 +1,17 @@
+// @ts-nocheck
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import useIntersectionObserver from '@/hooks/useObserver'
+// @ts-ignore
 import mail from '@/assets/mail.svg'
+// @ts-ignore
 import phone from '@/assets/phone.svg'
+// @ts-ignore
 import fb from '@/assets/fb.svg'
+// @ts-ignore
 import lk from '@/assets/lk.svg'
+// @ts-ignore
 import ig from '@/assets/ig.svg'
 
 export const Contact = () => {
@@ -16,6 +22,7 @@ export const Contact = () => {
     staggerChildren: 0.1,
     easing: 'easeInOut',
     direction: 'up',
+    // @ts-ignore
     y: 50,
     fade: true,
   })
@@ -202,7 +209,9 @@ export const Contact = () => {
               Descripción
             </label>
             <textarea
+              // @ts-ignore
               cols="100"
+              // @ts-ignore
               rows="5"
               name="description"
               id="description"
