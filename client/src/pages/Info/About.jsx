@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import obs from '@/assets/obs.svg'
 import obs2 from '@/assets/obs2.svg'
