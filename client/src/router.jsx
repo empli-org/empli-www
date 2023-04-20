@@ -20,6 +20,11 @@ import PricingPage from './pages/Info/Pricing'
 import Media from './pages/Community/Media'
 import { AuthLayout } from './pages/Auth/Layout'
 import { Onboarding } from './pages/Account/Onboarding'
+import { Payment } from './pages/Account/Payment'
+import { DashboardLayout } from './pages/Dashboard/Layout'
+import { Dashboard } from './pages/Dashboard/Dashboard'
+import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
+import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +100,28 @@ export const router = createBrowserRouter([
       {
         path: '/account/onboarding',
         element: <Onboarding />,
+      },
+      {
+        path: '/account/payment',
+        element: <Payment />,
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <Dashboard />,
+      },
+      {
+        path: '/dashboard/company',
+        element: <CompanyDash />,
+      },
+      {
+        path: '/dashboard/professional',
+        element: <ProfessionalDash />,
       },
     ],
   },
