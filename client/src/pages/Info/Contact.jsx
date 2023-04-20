@@ -1,5 +1,11 @@
-
-import { FiSmartphone, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi'
+// @ts-nocheck
+import {
+  FiSmartphone,
+  FiInstagram,
+  FiLinkedin,
+  FiMail,
+  FiFacebook,
+} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -51,31 +57,42 @@ export const Contact = () => {
                   className="flex items-center justify-center gap-x-1"
                   to=""
                 >
-                  <FiSmartphone /> 0286.9944908 / 04249080683
+                  <FiSmartphone /> 970649294 / 985509343
                 </Link>
               </ul>
               <ul className="flex items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
-                  to="mailto:santykpo11@gmail.com"
+                  to="mailto:gerencia@empli.org"
                 >
-                  <FiMail /> empleos@empli.org
+                  <FiMail /> gerencia@empli.org
                 </Link>
               </ul>
               <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to="https://www.linkedin.com/company/empli/"
+                  target="_blank"
                 >
-                  <FiLinkedin /> linkedin
+                  <FiLinkedin /> Linkedin
                 </Link>
               </ul>
               <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to="https://www.instagram.com/empli_org/"
+                  target="_blank"
                 >
-                  <FiInstagram /> instagram
+                  <FiInstagram /> Instagram
+                </Link>
+              </ul>
+              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+                <Link
+                  className="flex items-center justify-center gap-x-1"
+                  to="https://www.facebook.com/Empli.org"
+                  target="_blank"
+                >
+                  <FiFacebook /> Facebook
                 </Link>
               </ul>
             </li>
@@ -115,7 +132,9 @@ export const Contact = () => {
                   {...register('name')}
                 />
                 {errors.name?.message && (
-                  <p className="w-100 text-red-600">{errors.name.message}</p>
+                  <p className="w-100 text-red-600 inline">
+                    {errors.name.message}
+                  </p>
                 )}
                 <label
                   htmlFor="name"
@@ -155,7 +174,9 @@ export const Contact = () => {
                   {...register('asunto')}
                 />
                 {errors.asunto?.message && (
-                  <p className="w-100 text-red-600">{errors.asunto.message}</p>
+                  <p className="w-100 text-red-600 inline">
+                    {errors.asunto.message}
+                  </p>
                 )}
                 <label
                   htmlFor="asunto"
@@ -196,7 +217,9 @@ export const Contact = () => {
                 />
                 {errors.email?.message && (
                   // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">{errors.email.message}</p>
+                  <p className="w-100 text-red-600 inline">
+                    {errors.email.message}
+                  </p>
                 )}
                 <label
                   htmlFor="email"
@@ -236,7 +259,7 @@ export const Contact = () => {
                   {...register('email')}
                 />
                 {errors.category?.message && (
-                  <p className="w-100 text-red-600">
+                  <p className="w-100 text-red-600 inline">
                     {errors.category.message}
                   </p>
                 )}
