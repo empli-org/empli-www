@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createBrowserRouter } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
 import {
@@ -17,6 +18,8 @@ import {
 import UserProfileForm from './pages/UserForm'
 import PricingPage from './pages/Info/Pricing'
 import Media from './pages/Community/Media'
+import { AuthLayout } from './pages/Auth/Layout'
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -52,7 +55,7 @@ export const router = createBrowserRouter([
         element: <Companies />,
       },
       {
-        path: '/news',
+        path: '/ews',
         element: <News />,
       },
       {
@@ -64,18 +67,24 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: '/login',
-        element: <Login />,
-      },
-      {
-        path: '/register',
-        element: <Register />,
-      },
-      {
         path: '/user/profile',
         element: <UserProfileForm />,
       },
       { path: '/media', element: <Media /> },
+    ],
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: '/auth/login',
+        element: <Login />,
+      },
+      {
+        path: '/auth/register',
+        element: <Register />,
+      },
     ],
   },
 ])

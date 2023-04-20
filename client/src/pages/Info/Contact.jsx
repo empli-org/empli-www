@@ -1,8 +1,10 @@
+
 import { FiSmartphone, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useUser } from '@clerk/clerk-react'
 
 export const Contact = () => {
   //Validado de los diferentes campos y sus requerimientos
@@ -31,6 +33,8 @@ export const Contact = () => {
     console.log(data)
   }
 
+  const { user } = useUser()
+  console.log(user)
   return (
     <div className="m-5">
       <div className="m-1 rounded-2xl bg-hint-of-red p-1 shadow-sm shadow-black">

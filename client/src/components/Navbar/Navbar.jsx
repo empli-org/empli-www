@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { MenuItem } from './MenuItem'
 import { CommunityItems, CompanyItems, TalentItems } from './NavbarItems'
 import MobileMenu from './MobileMenu'
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 export const Navbar = () => {
   return (
@@ -40,15 +41,20 @@ export const Navbar = () => {
               </ul>
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
-              <Link className="p-3" to="/login">
-                Ingresar
-              </Link>
-              <Link
-                className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
-                to="/register"
-              >
-                Crear Cuenta
-              </Link>
+              <SignedOut>
+                <Link className="py-3" to="/auth/login">
+                  Ingresar
+                </Link>
+                <Link
+                  to="/auth/register"
+                  className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
+                >
+                  Crear cuenta
+                </Link>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </div>
             <div className="flex text-sm lg:hidden">
               <MobileMenu />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// @ts-ignore
 import axios from 'axios'
 import { DetailPublication, Publication } from 'components'
 import { useGoUp } from '@/hooks/useGoUp'
