@@ -9,8 +9,8 @@ import {
   News,
   About,
   Contact,
-  // Login,
-  // Register,
+  Login,
+  Register,
   Talents,
   Error404,
   Offers,
@@ -18,6 +18,7 @@ import {
 import UserProfileForm from './pages/UserForm'
 import PricingPage from './pages/Info/Pricing'
 import Media from './pages/Community/Media'
+import { AuthLayout } from './pages/Auth/Layout'
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
         element: <Companies />,
       },
       {
-        path: '/news',
+        path: '/ews',
         element: <News />,
       },
       {
@@ -70,6 +71,20 @@ export const router = createBrowserRouter([
         element: <UserProfileForm />,
       },
       { path: '/media', element: <Media /> },
+    ],
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: '/auth/login',
+        element: <Login />,
+      },
+      {
+        path: '/auth/register',
+        element: <Register />,
+      },
     ],
   },
 ])

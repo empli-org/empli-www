@@ -7,10 +7,21 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store/store'
 import { ClerkProvider } from '@clerk/clerk-react'
 
-const clerkPubKey = 'pk_test_ZGVsaWNhdGUtY29kLTg2LmNsZXJrLmFjY291bnRzLmRldiQ'
+const CLERK_PUB_KEY = import.meta.env.VITE_CLERK_PUB_KEY
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ClerkProvider publishableKey={clerkPubKey}>
+  <ClerkProvider
+    publishableKey={CLERK_PUB_KEY}
+    appearance={{
+      layout: {
+        logoImageUrl: '/empli-logo.png',
+      },
+      variables: {
+        colorPrimary: '#1c2441',
+        colorBackground: '#fbfbfb',
+      },
+    }}
+  >
     <React.StrictMode>
       <Provider store={store}>
         <RouterProvider router={router} />
