@@ -1,25 +1,10 @@
+import { FiSmartphone, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import useIntersectionObserver from '@/hooks/useObserver'
-import mail from '@/assets/mail.svg'
-import phone from '@/assets/phone.svg'
-import fb from '@/assets/fb.svg'
-import lk from '@/assets/lk.svg'
-import ig from '@/assets/ig.svg'
 
 export const Contact = () => {
-  const AnimatedComponent = useIntersectionObserver({
-    threshold: 0.5,
-    rootMargin: '0px',
-    animationDuration: 0.5,
-    staggerChildren: 0.1,
-    easing: 'easeInOut',
-    direction: 'up',
-    y: 50,
-    fade: true,
-  })
-
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
     name: yup.string().required('Ingrese nombre'),
@@ -45,185 +30,250 @@ export const Contact = () => {
   const onSubmit = data => {
     console.log(data)
   }
+
   return (
-    <AnimatedComponent>
-      <div className="w-screen">
-        <div className="h-50 flex items-center justify-center bg-contact-img bg-cover p-2">
-          <h1 className="font-amenable text-6xl font-bold text-blue-font">
-            Contáctenos
-          </h1>
-        </div>
-        <div className="flex h-56 w-full items-center justify-evenly">
-          <a href="mailto:santykpo11@gmail.com" className="hover:scale-110">
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={mail} alt="mail" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">
-                gerencia@empli.com
-              </p>
+    <div className="m-5">
+      <div className="m-1 rounded-2xl bg-hint-of-red p-1 shadow-sm shadow-black">
+        <div className="gap-x-1 md:justify-between lg:flex lg:items-center">
+          <div className="flex flex-col items-center p-2 md:w-full lg:w-6/12">
+            <div>
+              <h1 className="mb-2 text-4xl font-bold text-gulf-stream">
+                Contacto
+              </h1>
             </div>
-          </a>
-          <a href="tel:+51970649294" className="hover:scale-110">
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={phone} alt="phone" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">
-                970649294 / 985509343
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://www.instagram.com/empli_org/"
-            target="_blank"
-            className="hover:scale-110"
-            rel="noreferrer"
-          >
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={ig} alt="ig" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">
-                Instagram
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/empli/"
-            target="_blank"
-            className="hover:scale-110"
-            rel="noreferrer"
-          >
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={lk} alt="lk" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">Linkedin</p>
-            </div>
-          </a>
-          <a
-            href="https://www.facebook.com/Empli.org"
-            target="_blank"
-            className="hover:scale-110"
-            rel="noreferrer"
-          >
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={fb} alt="fb" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">Facebook</p>
-            </div>
-          </a>
-        </div>
-        <h1 className="mb-negative text-center font-amenable text-5xl font-bold text-blue-font">
-          Formulario de contacto
-        </h1>
-        <div className="flex h-contact w-screen items-center justify-center">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14 shadow-lg shadow-gray-900"
-          >
-            <div className="ml-32 flex w-full">
-              <div className="h-full w-full">
-                <label
-                  htmlFor="name"
-                  className="block font-quicksand-light text-lg font-semibold"
+            <li className="flex w-full list-none flex-col items-center gap-y-1 text-white">
+              <ul className="flex items-center justify-center gap-x-1 break-words rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+                <Link
+                  className="flex items-center justify-center gap-x-1"
+                  to=""
                 >
-                  Nombre Completo
-                </label>
+                  <FiSmartphone /> 0286.9944908 / 04249080683
+                </Link>
+              </ul>
+              <ul className="flex items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+                <Link
+                  className="flex items-center justify-center gap-x-1"
+                  to="mailto:santykpo11@gmail.com"
+                >
+                  <FiMail /> empleos@empli.org
+                </Link>
+              </ul>
+              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+                <Link
+                  className="flex items-center justify-center gap-x-1"
+                  to="https://www.linkedin.com/company/empli/"
+                >
+                  <FiLinkedin /> linkedin
+                </Link>
+              </ul>
+              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+                <Link
+                  className="flex items-center justify-center gap-x-1"
+                  to="https://www.instagram.com/empli_org/"
+                >
+                  <FiInstagram /> instagram
+                </Link>
+              </ul>
+            </li>
+          </div>
+          <div className="flex flex-col items-center justify-center md:w-full lg:w-6/12">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="m-2 flex w-9/12 flex-col items-center justify-center gap-y-1 p-1"
+            >
+              <div className="relative">
                 <input
+                  className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-gulf-stream
+                    pb-1
+                    pl-3
+                    pr-20
+                    pt-7
+                    text-white
+                    shadow-sm
+                    shadow-black
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
                   type="text"
                   id="name"
-                  className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                  placeholder=" "
                   {...register('name')}
                 />
                 {errors.name?.message && (
-                  // eslint-disable-next-line prettier/prettier
                   <p className="w-100 text-red-600">{errors.name.message}</p>
                 )}
-              </div>
-              <div className="h-full w-full">
                 <label
-                  htmlFor="asunto"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  htmlFor="name"
+                  className="text-md scale-80 absolute bottom-2 left-3 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-100 peer-focus:text-white"
                 >
-                  Asunto
+                  Nombre Completo
                 </label>
+              </div>
+              <div className="relative">
                 <input
+                  className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-gulf-stream
+                    pb-1
+                    pl-3
+                    pr-20
+                    pt-7
+                    text-white
+                    shadow-sm
+                    shadow-black
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
                   type="text"
                   name="asunto"
                   id="asunto"
-                  className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                  placeholder=" "
                   {...register('asunto')}
                 />
                 {errors.asunto?.message && (
-                  // eslint-disable-next-line prettier/prettier
                   <p className="w-100 text-red-600">{errors.asunto.message}</p>
                 )}
-              </div>
-            </div>
-            <div className="ml-32 flex w-full">
-              <div className="h-full w-full">
                 <label
-                  htmlFor="email"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  htmlFor="asunto"
+                  className="text-md scale-80 absolute bottom-2 left-3 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-100 peer-focus:text-white"
                 >
-                  Email
+                  Asunto
                 </label>
+              </div>
+              <div className="relative">
                 <input
+                  className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-gulf-stream
+                    pb-1
+                    pl-3
+                    pr-20
+                    pt-7
+                    text-white
+                    shadow-sm
+                    shadow-black
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
                   type="text"
                   name="email"
                   id="email"
-                  className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                  placeholder=" "
                   {...register('email')}
                 />
                 {errors.email?.message && (
                   // eslint-disable-next-line prettier/prettier
                   <p className="w-100 text-red-600">{errors.email.message}</p>
                 )}
-              </div>
-              <div className="h-full w-full">
                 <label
-                  htmlFor="category"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  htmlFor="email"
+                  className="text-md scale-80 absolute bottom-2 left-3 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-100 peer-focus:text-white"
                 >
-                  Categoría
+                  Email
                 </label>
+              </div>
+              <div className="relative">
                 <input
+                  className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-gulf-stream
+                    pb-1
+                    pl-3
+                    pr-20
+                    pt-7
+                    text-white
+                    shadow-sm
+                    shadow-black
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
                   type="text"
                   name="category"
                   id="category"
-                  className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('category')}
+                  placeholder=" "
+                  {...register('email')}
                 />
                 {errors.category?.message && (
-                  // eslint-disable-next-line prettier/prettier
                   <p className="w-100 text-red-600">
                     {errors.category.message}
                   </p>
                 )}
+                <label
+                  htmlFor="category"
+                  className="text-md scale-80 absolute bottom-2 left-3 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-100 peer-focus:text-white"
+                >
+                  Categoria
+                </label>
               </div>
-            </div>
-            <label
-              htmlFor="description"
-              className="flex items-start justify-start font-quicksand-light text-lg font-semibold"
-            >
-              Descripción
-            </label>
-            <textarea
-              cols="100"
-              rows="5"
-              name="description"
-              id="description"
-              className="resize-none rounded-lg border-2 border-black p-1"
-              {...register('description')}
-            />
-            {errors.description?.message && (
-              // eslint-disable-next-line prettier/prettier
-              <p className="w-100 text-red-600">{errors.description.message}</p>
-            )}
-            <button
-              type="submit"
-              className="mt-8 h-12 w-2/6 rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
-            >
-              Enviar
-            </button>
-          </form>
+              <div>
+                <label
+                  htmlFor="description"
+                  className="flex items-start justify-start font-quicksand-light text-lg font-bold text-blue-whale"
+                >
+                  Descripción
+                </label>
+                <textarea
+                  cols="100"
+                  rows="5"
+                  name="description"
+                  id="description"
+                  className="flex w-full resize-none rounded-lg border-2 border-black p-1"
+                  {...register('description')}
+                />
+                {errors.description?.message && (
+                  <p className="w-100 text-red-600">
+                    {errors.description.message}
+                  </p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="md-bg-gulf-sream rounded-full bg-blue-whale text-white shadow-sm shadow-black md:m-2 md:w-1/4 md:p-2 lg:m-1 lg:w-1/4 lg:p-1"
+              >
+                Enviar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </AnimatedComponent>
+    </div>
   )
 }
-
-export default Contact

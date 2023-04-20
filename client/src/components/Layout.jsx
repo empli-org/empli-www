@@ -9,7 +9,7 @@ export const Layout = () => {
       <div>
         <Navbar />
       </div>
-      <main className="h-full flex-1 bg-slate-100 pb-16">
+      <main className="h-full flex-1 bg-slate-100">
         <Outlet />
       </main>
       <div>
