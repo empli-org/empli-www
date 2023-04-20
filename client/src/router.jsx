@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserRouter } from 'react-router-dom'
+import { Outlet, createBrowserRouter } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
 import {
   Landing,
@@ -19,6 +19,7 @@ import UserProfileForm from './pages/UserForm'
 import PricingPage from './pages/Info/Pricing'
 import Media from './pages/Community/Media'
 import { AuthLayout } from './pages/Auth/Layout'
+import { Onboarding } from './pages/Account/Onboarding'
 
 export const router = createBrowserRouter([
   {
@@ -84,6 +85,16 @@ export const router = createBrowserRouter([
       {
         path: '/auth/register',
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: '/account',
+    element: <Outlet />,
+    children: [
+      {
+        path: '/account/onboarding',
+        element: <Onboarding />,
       },
     ],
   },
