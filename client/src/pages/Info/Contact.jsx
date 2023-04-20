@@ -52,7 +52,7 @@ export const Contact = () => {
               </h1>
             </div>
             <li className="flex w-full list-none flex-col items-center gap-y-1 text-white">
-              <ul className="flex items-center justify-center gap-x-1 break-words rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+              <ul className="flex items-center justify-center gap-x-1 break-words rounded-lg hover:bg-sail bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to=""
@@ -60,7 +60,7 @@ export const Contact = () => {
                   <FiSmartphone /> 970649294 / 985509343
                 </Link>
               </ul>
-              <ul className="flex items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+              <ul className="flex items-center justify-center gap-x-1 rounded-lg hover:bg-sail bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to="mailto:gerencia@empli.org"
@@ -68,7 +68,7 @@ export const Contact = () => {
                   <FiMail /> gerencia@empli.org
                 </Link>
               </ul>
-              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg hover:bg-sail bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to="https://www.linkedin.com/company/empli/"
@@ -77,7 +77,7 @@ export const Contact = () => {
                   <FiLinkedin /> Linkedin
                 </Link>
               </ul>
-              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg hover:bg-sail bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to="https://www.instagram.com/empli_org/"
@@ -86,7 +86,7 @@ export const Contact = () => {
                   <FiInstagram /> Instagram
                 </Link>
               </ul>
-              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
+              <ul className="flex w-7/12 items-center justify-center gap-x-1 rounded-lg hover:bg-sail bg-blue-whale p-2 shadow-sm shadow-black md:w-8/12 lg:w-7/12">
                 <Link
                   className="flex items-center justify-center gap-x-1"
                   to="https://www.facebook.com/Empli.org"
