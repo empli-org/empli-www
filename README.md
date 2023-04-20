@@ -23,7 +23,8 @@ Work in progress.
 <!-- CONTRIBUTING -->
 ## Contributing
 
-* Ronald J Echeverry - [Linkedin](https://www.linkedin.com/in/ronaldjdev/)
+* Ronald J Echeverry - [Linkedin](https://www.linkedin.com/in/ronaldjdev/) [Github](https://github.com/ronaldjdev)
+* Francisco A. Myers - [Linkedin](https://www.linkedin.com/in/francisco-myers-148a7919a/) [Github](https://github.com/Solideomyers)
 
 
 Project Link: [https://github.com/empli-org/empli-www](https://github.com/empli-org/empli-www)
