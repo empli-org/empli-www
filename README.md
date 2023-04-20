@@ -11,8 +11,8 @@ Work in progress.
 * [![HTMLl5][html5]][html-url][![CSS3][css3]][css-url][![Javascript][javascript]][js-url][![Typescript][typescript]][typescript-url]
 * [![Express][Express.js]][express-url][![Webpack][Webpack.js]][Webpack-url][![Node][Node.js]][Node-url][![NPM][npm]][npm-url]
 * [![React][React.js]][React-url][![Redux][Redux-query]][Redux-url][![Tailwind][Tailwind-css]][Tailwind-url]
-* [![Prisma][Prisma-orm]][Prisma-url]
-* [![Render][Render]][Render-url][![Vercel][Vercel]][Vercel-url]
+* [![Postgresql][pgsql]][pgsql-url][![Prisma][Prisma-orm]][Prisma-url]
+* [![Railway][Railway]][Railway-url]
 * [![Figma][Figma-des]][Figma-url][![Trello][trello]][trello-url]
 * [![Git][git]][git-url][![Github][github]][github-url]
 
@@ -23,8 +23,8 @@ Work in progress.
 <!-- CONTRIBUTING -->
 ## Contributing
 
-* Ronald J Echeverry - [Linkedin](https://www.linkedin.com/in/ronaldjdev/) [Github](https://github.com/ronaldjdev)
-* Francisco A. Myers - [Linkedin](https://www.linkedin.com/in/francisco-myers-148a7919a/) [Github](https://github.com/Solideomyers)
+* Ronald J Echeverry - [![Linkedin]](https://www.linkedin.com/in/ronaldjdev/) [![Github]](https://github.com/ronaldjdev)
+* Francisco A. Myers - [![Linkedin]](https://www.linkedin.com/in/francisco-myers-148a7919a/) [![Github]](https://github.com/Solideomyers)
 
 
 Project Link: [https://github.com/empli-org/empli-www](https://github.com/empli-org/empli-www)
@@ -56,8 +56,8 @@ Project Link: [https://github.com/empli-org/empli-www](https://github.com/empli-
 [Webpack-url]: https://webpack.js.org/
 [Render]: https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white
 [Render-url]: https://render.com/
-[Vercel]: https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white
-[Vercel-url]: https://vercel.com/
+[Railway]: https://img.shields.io/badge/railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white
+[Railway-url]: https://railway.app/
 [html5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
 [html-url]: https://es.wikipedia.org/wiki/HTML5
 [css3]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
@@ -72,3 +72,6 @@ Project Link: [https://github.com/empli-org/empli-www](https://github.com/empli-
 [git-url]: https://git-scm.com/
 [github]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
 [github-url]: https://github.com/
+[pgsql]: https://img.shields.io/badge/Postgresql-4169E1?style=for-the-badge&logo=Postgresql&logoColor=white
+[pgsql-url]: http://postgresql.org/
+[Linkedin]: https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
