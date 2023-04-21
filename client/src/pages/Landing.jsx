@@ -177,7 +177,7 @@ export const Landing = () => {
           />
         </div>
       </div>
-      <div className="w-full h-auto flex flex-col">
+      <div className="w-full h-auto flex flex-col shadow-xl">
         <div className="w-3/5 flex p-4">
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-9.png?w=773&ssl=1"
