@@ -55,7 +55,7 @@ export default function PricingPage() {
               key={ind}
               className="relative flex flex-col rounded-lg border  border-slate-200 bg-white p-8 shadow-lg"
             >
-              <h3 className="rounded-lg bg-black text-lg font-semibold leading-5 text-white text-center">
+              <h3 className="rounded-lg bg-black text-center text-lg font-semibold leading-5 text-white">
                 {data.titulo}
               </h3>
               {data.popular && (

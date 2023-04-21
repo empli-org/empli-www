@@ -38,26 +38,34 @@ export const MiniCard = ({
   )
 
   return (
-    <div className="grid-cols-2-auto m-2 grid h-auto w-64 transform grid-flow-col overflow-hidden rounded-lg bg-blue-200 p-2 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <div className="flex h-auto w-fit flex-col items-center p-2 md:p-2 lg:p-2">
+    <div className="grid-cols-2-auto backdrop-grayscale-20 m-2 grid h-72 w-64 transform grid-flow-col overflow-hidden rounded-lg bg-white p-3 shadow-xl backdrop-blur-2xl backdrop-filter transition-transform duration-300 hover:-translate-y-1 hover:bg-blue-whale hover:text-white hover:shadow-lg">
+      <div className="group m-2 flex h-auto w-fit flex-col items-center p-2 md:p-2 lg:p-2">
         <div className="mb-2 flex h-auto w-fit justify-center">
           <div className="flex w-2/6">
             <img
-              className="mr-2 w-15 overflow-hidden rounded-lg shadow-xl h-15"
+              className="mr-2 h-15 w-15 overflow-hidden rounded-lg shadow-sm shadow-blue-whale"
               src={logo}
               alt="logo"
             />
           </div>
           <div className=" w-3/4">
-            <h3 className="break-words text-2xl font-bold text-gray-900">
+            <h3 className="break-words text-2xl font-bold text-gray-900 group-hover:text-white">
               {title}
             </h3>
-            {subtitle && <h2>{subtitle}</h2>}
+            {subtitle && (
+              <h2 className="group-hover:text-white ">{subtitle}</h2>
+            )}
           </div>
         </div>
         <div className="mb-4">
-          {rol && <h4 className="text-2xl font-bold text-gray-900">{rol}</h4>}
-          <p className="text-ellipsis text-gray-700">{description}</p>
+          {rol && (
+            <h4 className="text-2xl font-bold text-gray-900 group-hover:text-white ">
+              {rol}
+            </h4>
+          )}
+          <p className="text-ellipsis text-gray-700 group-hover:text-white ">
+            {description}
+          </p>
         </div>
         {amount ? price : btn}
       </div>

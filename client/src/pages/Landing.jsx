@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { MiniCard, CardBox, Container } from '@/components'
+import { MiniCard, CardBox, Container, CardLarge } from '@/components'
 import { Link } from 'react-router-dom'
 import ob from '../assets/Landing/ob.svg'
 import circle from '../assets/Landing/circle.svg'
@@ -116,7 +116,7 @@ export const Landing = () => {
         />
         <img src={circle} alt="circle" className="absolute z-0 h-all w-all" />
       </div>
-      <div className="mx-auto mt-6 py-16">
+      <div className="mx-auto mt-6 max-w-screen-lg p-12">
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">
             Encuentra{' '}
@@ -143,8 +143,9 @@ export const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="h-auto w-full">
-        <h1 className="p-5 text-center text-2xl text-blue-whale">
+      <CardLarge />
+      <div className="h-auto w-full shadow-2xl">
+        <h1 className="p-5 text-center font-amenable text-4xl text-blue-whale">
           Hemos reclutado a los profesionales de grandes proyectos
           <br /> en entidades importantes.{' '}
         </h1>
@@ -171,7 +172,7 @@ export const Landing = () => {
           />
         </div>
       </div>
-      <div className="flex h-auto w-full flex-col">
+      <div className="flex h-auto w-full flex-col shadow-xl">
         <div className="flex w-3/5 p-4">
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-9.png?w=773&ssl=1"
@@ -179,11 +180,11 @@ export const Landing = () => {
             className="h-80 w-auto"
           />
           <div className="m-4 flex flex-col justify-evenly">
-            <h1 className="text-2xl font-bold">
+            <h1 className="font-amenable text-2xl font-bold">
               ¿Buscas una forma fácil de encontrar trabajo en tu campo?
             </h1>{' '}
             <br />
-            <p className="text-lg text-slate-600">
+            <p className="font-quicksand-light text-lg font-semibold">
               Nuestra plataforma de trabajo conecta a profesionales como tú con
               una amplia variedad de oportunidades laborales. Simplemente crea
               tu perfil, comparte tus habilidades y experiencia, y comienza a
@@ -196,12 +197,12 @@ export const Landing = () => {
         <div className="flex w-full justify-end">
           <div className="flex w-8/12 p-4">
             <div className="m-4 flex flex-col justify-evenly">
-              <h1 className="text-2xl font-bold">
+              <h1 className="font-amenable text-2xl font-bold">
                 ¿Buscas a los mejores profesionales para tus proyectos y
                 trabajos?
               </h1>{' '}
               <br />
-              <p className="text-lg text-slate-600">
+              <p className="font-quicksand-light text-lg font-semibold">
                 Nuestra plataforma de trabajo te permite publicar ofertas de
                 trabajo de manera fácil y conveniente, lo que te permite llegar
                 a una amplia audiencia de candidatos calificados. Utiliza
@@ -225,7 +226,7 @@ export const Landing = () => {
         className="absolute ml-28 mt-9 h-40 w-60"
       />
       <CardBox data={data} />
-      <div className="flex h-auto flex-wrap justify-center rounded-lg bg-slate-200 px-2 py-6 shadow-sm">
+      <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -249,7 +250,7 @@ export const Landing = () => {
         )}
         <div className="flex w-full justify-center">
           <Link to="/talents" className="h-15 w-28">
-            <p className="mt-5 w-auto text-center text-xl font-bold text-blue-whale">
+            <p className="mt-5 w-auto text-center font-quicksand-light text-xl font-bold text-blue-whale">
               Ver más
             </p>
           </Link>

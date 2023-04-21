@@ -31,12 +31,12 @@ export const CardBox = ({ data }) => {
       </div>
       <div className="scrollbar-hide flex w-full overflow-x-scroll p-5">
         {gruposDeDiez[0].map((obj, index) => (
-          <div key={index} className="flex-shrink-0">
+          <div key={index} className="h-50 flex flex-auto">
             <MiniCard
               subtitle={obj.subtitle}
-              amount={null}
+              amount={obj.amount}
               rol={obj.rol}
-              time={null}
+              time={obj.time}
               title={obj.title}
               description={obj.descripcion}
               logo={obj.logo}
