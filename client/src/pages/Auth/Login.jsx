@@ -1,9 +1,13 @@
 import { SignIn } from '@clerk/clerk-react'
 
-export function Login() {
+export const Login = () => {
   return (
     <>
-      <SignIn signUpUrl="/auth/register" />
+      <SignIn
+        signUpUrl="/auth/register"
+        afterSignInUrl="/account/onboarding"
+        afterSignUpUrl="/account/onboarding"
+      />
     </>
   )
 }
