@@ -55,12 +55,13 @@ export const Contact = () => {
 
   const form = useRef()
 
-  const sendEmail = () => {
+  //formData para enviar los datos del formulario y formRef para obtener la referencia del formulario
+  const sendFormData = (formData, formRef) => {
     emailjs
       .sendForm(
         'service_kbbovze',
         'template_xacnqka',
-        form.current,
+        formRef.current,
         'NSBq0dEL_bYCIyvJs',
       )
       .then(
@@ -75,7 +76,7 @@ export const Contact = () => {
 
   const onSubmit = data => {
     console.log(data)
-    sendEmail()
+    sendFormData(data, form)
   }
 
   const { user } = useUser()
