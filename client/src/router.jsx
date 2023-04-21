@@ -26,6 +26,7 @@ import { Dashboard } from './pages/Dashboard/Dashboard'
 import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
 import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
 import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
+import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
 
 export const router = createBrowserRouter([
   {
@@ -118,7 +119,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/company/talents',
-        element: <h1>Marketplace de profesionales</h1>,
+        element: <MarketProfessionals />,
       },
       {
         path: '/dashboard/company/offers',

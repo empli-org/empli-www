@@ -43,7 +43,7 @@ export const DashProfessionalOffers = () => {
     <div>
       <Container>
         <div className="py-4">
-          <h1 className="text-center text-xl font-bold md:text-3xl">
+          <h1 className="text-center text-xl font-bold md:text-2xl">
             Explore las mejores ofertas laborales
           </h1>
         </div>
