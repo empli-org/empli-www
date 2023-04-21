@@ -4,23 +4,20 @@ import * as yup from 'yup'
 import { useUser } from '@clerk/clerk-react'
 import { LateralBar } from '../../components/LateralBar/LateralBar'
 
-import { useRef } from 'react'
-import emailjs from '@emailjs/browser'
-
 export const Contact = () => {
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
-    user_name: yup.string().required('Ingrese nombre'),
-    user_email: yup
+    name: yup.string().required('Ingrese nombre'),
+    email: yup
       .string()
       .required('Ingrese email')
       .matches(
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
         'Ingrese un mail válido',
       ),
-    user_asunto: yup.string().required('Ingrese asunto'),
-    category: yup.string().required('Ingrese categoria'),
-    message: yup.string().required('Ingrese descripcion'),
+    asunto: yup.string().required('Ingrese asunto'),
+    category: yup.string().required('Ingrese categoría'),
+    description: yup.string().required('Ingrese descripción'),
   })
 
   //Controlador del formulario
@@ -30,34 +27,12 @@ export const Contact = () => {
     handleSubmit,
   } = useForm({ resolver: yupResolver(schema) })
 
-  const form = useRef()
-
-  const sendEmail = () => {
-    emailjs
-      .sendForm(
-        'service_kbbovze',
-        'template_xacnqka',
-        form.current,
-        'NSBq0dEL_bYCIyvJs',
-      )
-      .then(
-        result => {
-          console.log(result.text)
-        },
-        error => {
-          console.log(error.text)
-        },
-      )
-  }
-
   const onSubmit = data => {
     console.log(data)
-    sendEmail()
   }
 
   const { user } = useUser()
   console.log(user)
-
   return (
     <div className="m-5">
       <div className="m-0 flex justify-center p-0">
@@ -67,118 +42,243 @@ export const Contact = () => {
             <div className="flex w-full justify-center">
               <h1 className="text-2xl font-bold text-gulf-stream">Contacto</h1>
             </div>
-          </a>
-          <a
-            href="https://www.instagram.com/empli_org/"
-            target="_blank"
-            className="hover:scale-110"
-            rel="noreferrer"
-          >
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={ig} alt="ig" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">
-                Instagram
-              </p>
-            </div>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/empli/"
-            target="_blank"
-            className="hover:scale-110"
-            rel="noreferrer"
-          >
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={lk} alt="lk" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">Linkedin</p>
-            </div>
-          </a>
-          <a
-            href="https://www.facebook.com/Empli.org"
-            target="_blank"
-            className="hover:scale-110"
-            rel="noreferrer"
-          >
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={fb} alt="fb" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">Facebook</p>
-            </div>
-          </a>
-        </div>
-        <h1 className="mb-negative text-center font-amenable text-5xl font-bold text-blue-font">
-          Formulario de contacto
-        </h1>
-        <div className="flex h-contact w-screen items-center justify-center">
-          <form
-            ref={form}
-            onSubmit={handleSubmit(onSubmit)}
-            className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14 shadow-lg shadow-gray-900"
-          >
-            <div className="ml-32 flex w-full">
-              <div className="h-full w-full">
-                <label
-                  htmlFor="name"
-                  className="block font-quicksand-light text-lg font-semibold"
-                >
-                  Nombre Completo
-                </label>
-                <input
-                  type="text"
-                  name="user_name"
-                  id="name"
-                  className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('user_name')}
-                />
-                {errors.user_name?.message && (
-                  // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">
-                    {errors.user_name.message}
-                  </p>
-                )}
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="relative z-50 flex w-fit flex-col items-center justify-center gap-y-1 p-4"
+            >
+              <div className="flex w-full items-center justify-between gap-x-1">
+                <div className="w-1/3">
+                  <label
+                    htmlFor="name"
+                    className="text-md scale-80 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-focus:text-white"
+                  >
+                    Nombre
+                  </label>
+                  <input
+                    className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-white
+                    p-3
+                    text-blue-whale
+                    shadow-sm
+                    shadow-black
+                    placeholder:text-white
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
+                    type="text"
+                    id="name"
+                    placeholder="Escribe..."
+                    {...register('name')}
+                  />
+                  {errors.name?.message && (
+                    <p className="w-100 text-red-600">{errors.name.message}</p>
+                  )}
+                </div>
+                <div className="w-1/3">
+                  <label
+                    htmlFor="name"
+                    className="text-md scale-80 z-10 mb-1 origin-[0] transform font-semibold text-blue-whale duration-150 peer-focus:text-white"
+                  >
+                    Segundo Nombre
+                  </label>
+                  <input
+                    className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-white
+                    p-3
+                    text-blue-whale
+                    shadow-sm
+                    shadow-black
+                    placeholder:text-white
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
+                    type="text"
+                    id="name"
+                    placeholder="Escribe..."
+                    {...register('name')}
+                  />
+                  {errors.name?.message && (
+                    <p className="w-100 text-red-600">{errors.name.message}</p>
+                  )}
+                </div>
+                <div className="w-1/3">
+                  <label
+                    htmlFor="name"
+                    className="text-md scale-80 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-focus:text-white"
+                  >
+                    Apellido
+                  </label>
+                  <input
+                    className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-white
+                    p-3
+                    text-blue-whale
+                    shadow-sm
+                    shadow-black
+                    placeholder:text-white
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
+                    type="text"
+                    id="name"
+                    placeholder="Escribe..."
+                    {...register('name')}
+                  />
+                  {errors.name?.message && (
+                    <p className="w-100 text-red-600">{errors.name.message}</p>
+                  )}
+                </div>
               </div>
-              <div className="h-full w-full">
-                <label
-                  htmlFor="asunto"
-                  className="block font-quicksand-light text-lg font-semibold"
-                >
-                  Asunto
-                </label>
-                <input
-                  type="text"
-                  name="user_asunto"
-                  id="asunto"
-                  className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('user_asunto')}
-                />
-                {errors.user_asunto?.message && (
-                  // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">
-                    {errors.user_asunto.message}
-                  </p>
-                )}
-              </div>
-            </div>
-            <div className="ml-32 flex w-full">
-              <div className="h-full w-full">
-                <label
-                  htmlFor="email"
-                  className="block font-quicksand-light text-lg font-semibold"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="user_email"
-                  id="email"
-                  className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('user_email')}
-                  required
-                />
-                {errors.user_email?.message && (
-                  // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">
-                    {errors.user_email.message}
-                  </p>
-                )}
+              <div className="flex w-full items-center justify-between gap-x-1">
+                <div className="w-1/3">
+                  <label
+                    htmlFor="asunto"
+                    className="text-md scale-80 z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-focus:text-white"
+                  >
+                    Asunto
+                  </label>
+                  <input
+                    className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-white
+                    p-3
+                    text-blue-whale
+                    shadow-sm
+                    shadow-black
+                    placeholder:text-white
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
+                    type="text"
+                    name="asunto"
+                    id="asunto"
+                    placeholder="Escribe..."
+                    {...register('asunto')}
+                  />
+                  {errors.asunto?.message && (
+                    <p className="w-100 text-red-600">
+                      {errors.asunto.message}
+                    </p>
+                  )}
+                </div>
+                <div className="w-1/3">
+                  <label
+                    htmlFor="email"
+                    className="text-md z-10 mb-1 origin-[0] -translate-y-3 transform font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-focus:text-white"
+                  >
+                    Email
+                  </label>
+                  <input
+                    className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-white
+                    p-3
+                    text-blue-whale
+                    shadow-sm
+                    shadow-black
+                    placeholder:text-white
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="Escribe..."
+                    {...register('email')}
+                  />
+                  {errors.email?.message && (
+                    // eslint-disable-next-line prettier/prettier
+                    <p className="w-100 text-red-600">{errors.email.message}</p>
+                  )}
+                </div>
+                <div className="w-1/3">
+                  <label
+                    htmlFor="category"
+                    className="text-md z-10 mb-1 origin-[0] font-semibold text-blue-whale duration-150 after:ml-0.5 after:text-red-500 after:content-['*'] peer-focus:text-white"
+                  >
+                    Categoria
+                  </label>
+                  <input
+                    className="
+                    text-md
+                    invalid:border-b-1
+                    peer
+                    block
+                    w-full
+                  appearance-none
+                  rounded-md
+                    bg-white
+                    p-3
+                    text-blue-whale
+                    shadow-sm
+                    shadow-black
+                    placeholder:text-white
+                    focus:bg-blue-whale
+                    focus:text-white
+                    focus:shadow-white
+                    focus:outline-none
+                    focus:ring-0
+                    "
+                    type="text"
+                    name="category"
+                    id="category"
+                    placeholder="Escribe..."
+                    {...register('email')}
+                  />
+                  {errors.category?.message && (
+                    <p className="w-100 text-red-600">
+                      {errors.category.message}
+                    </p>
+                  )}
+                </div>
               </div>
               <div>
                 <label
@@ -201,34 +301,14 @@ export const Contact = () => {
                   </p>
                 )}
               </div>
-            </div>
-            <label
-              htmlFor="description"
-              className="flex items-start justify-start font-quicksand-light text-lg font-semibold"
-            >
-              Descripción
-            </label>
-            <textarea
-              // @ts-ignore
-              cols="100"
-              // @ts-ignore
-              rows="5"
-              name="message"
-              id="message"
-              className="resize-none rounded-lg border-2 border-black p-1"
-              {...register('message')}
-            />
-            {errors.message?.message && (
-              // eslint-disable-next-line prettier/prettier
-              <p className="w-100 text-red-600">{errors.message.message}</p>
-            )}
-            <button
-              type="submit"
-              className="mt-8 h-12 w-2/6 rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
-            >
-              Enviar
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="md-bg-gulf-sream rounded-full bg-blue-whale text-white shadow-sm shadow-black hover:bg-gulf-stream hover:font-semibold hover:text-black hover:opacity-80 md:m-2 md:w-1/4 md:p-2 lg:m-1 lg:w-full lg:p-1"
+              >
+                Enviar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
