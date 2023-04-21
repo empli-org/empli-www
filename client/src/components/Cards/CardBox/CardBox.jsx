@@ -21,7 +21,7 @@ export const CardBox = ({ data }) => {
     <div className="m-5 flex w-full flex-col rounded-3xl bg-gray-900 p-10">
       <div className="m-5 flex flex-col items-end justify-end p-5 text-hint-of-red">
         <div className="text-2xl font-bold">
-          <h1 className="font-amenable text-3xl">Top Profesionales</h1>
+          <h1 className="text-3xl">Top Profesionales</h1>
         </div>
         <div>
           <span className="font-quicksand-light">
@@ -29,7 +29,7 @@ export const CardBox = ({ data }) => {
           </span>
         </div>
       </div>
-      <div className="flex w-full overflow-x-scroll p-5">
+      <div className="scrollbar-hide flex w-full overflow-x-scroll p-5">
         {gruposDeDiez[0].map((obj, index) => (
           <div key={index} className="h-50 flex flex-auto">
             <MiniCard
