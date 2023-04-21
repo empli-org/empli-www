@@ -38,6 +38,8 @@ export default {
         100: '410px',
         contact: '68vh',
         left: '750px',
+        circle: '600px',
+        76: '305px',
       },
       screens: {
         xs: '420px',
