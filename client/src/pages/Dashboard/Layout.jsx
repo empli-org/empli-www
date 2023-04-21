@@ -19,7 +19,7 @@ export const DashboardLayout = () => {
             </Link>
           </div>
           <div className="flex h-full flex-1">
-            <div className="flex w-[22rem] flex-col bg-[#f7f7f7] px-4 py-12">
+            <div className="flex w-[18rem] flex-col bg-[#f7f7f7] px-4 py-12">
               <ul className="flex flex-1 flex-col gap-4">
                 {isCompany ? <CompanyAside /> : <ProfessionalAside />}
                 <li className="mt-auto">
