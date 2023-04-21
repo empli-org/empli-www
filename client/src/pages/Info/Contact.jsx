@@ -15,6 +15,9 @@ import lk from '@/assets/lk.svg'
 import ig from '@/assets/ig.svg'
 import { useUser } from '@clerk/clerk-react'
 
+import { useRef } from 'react'
+import emailjs from '@emailjs/browser'
+
 export const Contact = () => {
   const AnimatedComponent = useIntersectionObserver({
     threshold: 0.5,
@@ -30,17 +33,17 @@ export const Contact = () => {
 
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
-    name: yup.string().required('Ingrese nombre'),
-    email: yup
+    user_name: yup.string().required('Ingrese nombre'),
+    user_email: yup
       .string()
       .required('Ingrese email')
       .matches(
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
         'Ingrese un mail valido',
       ),
-    asunto: yup.string().required('Ingrese asunto'),
+    user_asunto: yup.string().required('Ingrese asunto'),
     category: yup.string().required('Ingrese categoria'),
-    description: yup.string().required('Ingrese descripcion'),
+    message: yup.string().required('Ingrese descripcion'),
   })
 
   //Controlador del formulario
@@ -50,12 +53,34 @@ export const Contact = () => {
     handleSubmit,
   } = useForm({ resolver: yupResolver(schema) })
 
+  const form = useRef()
+
+  const sendEmail = () => {
+    emailjs
+      .sendForm(
+        'service_kbbovze',
+        'template_xacnqka',
+        form.current,
+        'NSBq0dEL_bYCIyvJs',
+      )
+      .then(
+        result => {
+          console.log(result.text)
+        },
+        error => {
+          console.log(error.text)
+        },
+      )
+  }
+
   const onSubmit = data => {
     console.log(data)
+    sendEmail()
   }
 
   const { user } = useUser()
   console.log(user)
+
   return (
     <AnimatedComponent>
       <div className="w-screen">
@@ -122,6 +147,7 @@ export const Contact = () => {
         </h1>
         <div className="flex h-contact w-screen items-center justify-center">
           <form
+            ref={form}
             onSubmit={handleSubmit(onSubmit)}
             className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14 shadow-lg shadow-gray-900"
           >
@@ -135,13 +161,16 @@ export const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="user_name"
                   id="name"
                   className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('name')}
+                  {...register('user_name')}
                 />
-                {errors.name?.message && (
+                {errors.user_name?.message && (
                   // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">{errors.name.message}</p>
+                  <p className="w-100 text-red-600">
+                    {errors.user_name.message}
+                  </p>
                 )}
               </div>
               <div className="h-full w-full">
@@ -153,14 +182,16 @@ export const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  name="asunto"
+                  name="user_asunto"
                   id="asunto"
                   className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('asunto')}
+                  {...register('user_asunto')}
                 />
-                {errors.asunto?.message && (
+                {errors.user_asunto?.message && (
                   // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">{errors.asunto.message}</p>
+                  <p className="w-100 text-red-600">
+                    {errors.user_asunto.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -173,15 +204,18 @@ export const Contact = () => {
                   Email
                 </label>
                 <input
-                  type="text"
-                  name="email"
+                  type="email"
+                  name="user_email"
                   id="email"
                   className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('email')}
+                  {...register('user_email')}
+                  required
                 />
-                {errors.email?.message && (
+                {errors.user_email?.message && (
                   // eslint-disable-next-line prettier/prettier
-                  <p className="w-100 text-red-600">{errors.email.message}</p>
+                  <p className="w-100 text-red-600">
+                    {errors.user_email.message}
+                  </p>
                 )}
               </div>
               <div className="h-full w-full">
@@ -217,14 +251,14 @@ export const Contact = () => {
               cols="100"
               // @ts-ignore
               rows="5"
-              name="description"
-              id="description"
+              name="message"
+              id="message"
               className="resize-none rounded-lg border-2 border-black p-1"
-              {...register('description')}
+              {...register('message')}
             />
-            {errors.description?.message && (
+            {errors.message?.message && (
               // eslint-disable-next-line prettier/prettier
-              <p className="w-100 text-red-600">{errors.description.message}</p>
+              <p className="w-100 text-red-600">{errors.message.message}</p>
             )}
             <button
               type="submit"

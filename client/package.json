@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.15.2",
+    "@emailjs/browser": "^3.11.0",
     "@headlessui/react": "^1.7.14",
     "@hookform/resolvers": "^3.0.1",
     "@reduxjs/toolkit": "^1.9.3",

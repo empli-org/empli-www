@@ -17,6 +17,9 @@ export const Navbar = () => {
                 <EmpliLogo />
               </Link>
               <ul className="hidden items-stretch gap-10 text-sm text-gray-700 lg:flex">
+                <li className="py-2">
+                  <Link to="/info/empresas">Home</Link>
+                </li>
                 <MenuItem label="Empresas">
                   <MenuItem.Body>
                     <CompanyItems />

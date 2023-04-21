@@ -18,6 +18,7 @@ import {
 import UserProfileForm from './pages/UserForm'
 import PricingPage from './pages/Info/Pricing'
 import Media from './pages/Community/Media'
+import HomeEmpresa from './pages/HomeEmpresa'
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Landing />,
+      },
+      {
+        path: '/info/empresas',
+        element: <HomeEmpresa />,
       },
       {
         path: '/pricing',
