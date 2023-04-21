@@ -21,7 +21,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 const HomeEmpresa = () => {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <h1
         className="titulo"
         style={{
@@ -41,9 +41,7 @@ const HomeEmpresa = () => {
         className="titulo-2"
         style={{
           position: 'absolute',
-          bottom: '55%',
-          left: '32%',
-          transform: 'translate(-50%, -50%)',
+          bottom: '25%',
           textAlign: 'center',
           color: 'black',
           zIndex: 2,
