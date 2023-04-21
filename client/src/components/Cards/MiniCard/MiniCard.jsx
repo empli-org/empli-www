@@ -43,7 +43,7 @@ export const MiniCard = ({
         <div className="mb-2 flex h-auto w-fit justify-center">
           <div className="flex w-2/6">
             <img
-              className="mr-2 w-fit overflow-hidden rounded-lg shadow-xl"
+              className="mr-2 w-15 overflow-hidden rounded-lg shadow-xl h-15"
               src={logo}
               alt="logo"
             />

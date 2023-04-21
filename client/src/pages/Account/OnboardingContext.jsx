@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { plansData } from '@/constants/plansData'
 import { accountTypes } from '@/constants/accountTypes'
 
+// @ts-ignore
 export const AppContext = React.createContext()
 
 export function AppContextProvider({ children }) {

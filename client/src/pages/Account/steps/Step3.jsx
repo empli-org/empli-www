@@ -41,6 +41,7 @@ export const Step3 = () => {
           >
             <input
               type="checkbox"
+              // @ts-ignore
               value={p}
               className="h-4 w-4 cursor-pointer rounded-sm bg-white accent-blue-whale shadow"
               onChange={event => handleCheck(event, p)}
