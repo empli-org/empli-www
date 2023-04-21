@@ -120,8 +120,40 @@ export const router = createBrowserRouter([
         element: <CompanyDash />,
       },
       {
+        path: '/dashboard/company/talents',
+        element: <h1>Marketplace de profesionales</h1>,
+      },
+      {
+        path: '/dashboard/company/offers',
+        element: <h1>Ofertas publicadas</h1>,
+      },
+      {
+        path: '/dashboard/company/featured',
+        element: <h1>Perfiles destacados / recomendados</h1>,
+      },
+      {
+        path: '/dashboard/company/settings',
+        element: <h1>Configuración de empresa</h1>,
+      },
+      {
         path: '/dashboard/professional',
         element: <ProfessionalDash />,
+      },
+      {
+        path: '/dashboard/professional/offers',
+        element: <h1>Ofertas</h1>,
+      },
+      {
+        path: '/dashboard/professional/favorites',
+        element: <h1>Favoritos</h1>,
+      },
+      {
+        path: '/dashboard/professional/preferences',
+        element: <h1>Preferencias</h1>,
+      },
+      {
+        path: '/dashboard/professional/profile',
+        element: <h1>Perfil</h1>,
       },
     ],
   },
