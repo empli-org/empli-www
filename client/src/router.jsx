@@ -25,6 +25,8 @@ import { DashboardLayout } from './pages/Dashboard/Layout'
 import { Dashboard } from './pages/Dashboard/Dashboard'
 import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
 import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
+import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
+import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
 
 export const router = createBrowserRouter([
   {
@@ -61,7 +63,7 @@ export const router = createBrowserRouter([
         element: <Companies />,
       },
       {
-        path: '/ews',
+        path: '/news',
         element: <News />,
       },
       {
@@ -71,10 +73,6 @@ export const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
-      },
-      {
-        path: '/user/profile',
-        element: <UserProfileForm />,
       },
       { path: '/media', element: <Media /> },
     ],
@@ -121,7 +119,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/company/talents',
-        element: <h1>Marketplace de profesionales</h1>,
+        element: <MarketProfessionals />,
       },
       {
         path: '/dashboard/company/offers',
@@ -141,19 +139,19 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/offers',
-        element: <h1>Ofertas</h1>,
+        element: <DashProfessionalOffers />,
       },
       {
         path: '/dashboard/professional/favorites',
-        element: <h1>Favoritos</h1>,
+        element: <h1 className="text-xl font-bold">Listado de Favoritos</h1>,
       },
       {
         path: '/dashboard/professional/preferences',
-        element: <h1>Preferencias</h1>,
+        element: <h1 className="text-xl font-bold">Preferencias</h1>,
       },
       {
         path: '/dashboard/professional/profile',
-        element: <h1>Perfil</h1>,
+        element: <UserProfileForm />,
       },
     ],
   },
