@@ -31,12 +31,12 @@ export const CardBox = ({ data }) => {
       </div>
       <div className="flex w-full overflow-x-scroll p-5">
         {gruposDeDiez[0].map((obj, index) => (
-          <div key={index} className="flex-shrink-0">
+          <div key={index} className="h-50 flex flex-auto">
             <MiniCard
               subtitle={obj.subtitle}
-              amount={null}
+              amount={obj.amount}
               rol={obj.rol}
-              time={null}
+              time={obj.time}
               title={obj.title}
               description={obj.descripcion}
               logo={obj.logo}
@@ -44,9 +44,9 @@ export const CardBox = ({ data }) => {
           </div>
         ))}
       </div>
-      <div className="flex justify-end w-full">
-        <Link to="/talents" className="w-28 h-15">
-          <p className="text-hint-of-red font-quicksand-light font-bold text-base text-center mt-5 w-auto rounded-lg bg-slate-800 px-6 py-4">
+      <div className="flex w-full justify-end">
+        <Link to="/talents" className="h-15 w-28">
+          <p className="mt-5 w-auto rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
             Ver más
           </p>
         </Link>

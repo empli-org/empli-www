@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { MiniCard, CardBox, Container } from '@/components'
+import { MiniCard, CardBox, Container, CardLarge } from '@/components'
 import { Link } from 'react-router-dom'
 import ob from '../assets/Landing/ob.svg'
 import circle from '../assets/Landing/circle.svg'
@@ -88,35 +88,35 @@ export const Landing = () => {
 
   return (
     <Container>
-      <div className="w-11/12 flex justify-end">
+      <div className="flex w-11/12 justify-end">
         <img
           src={ob}
           alt="ob"
-          className="w-80 h-all absolute z-10 rounded-br-2xl"
+          className="absolute z-10 h-all w-80 rounded-br-2xl"
         />
         <img
           src={dialogue}
           alt="dialogue"
-          className="w-56 h-72 absolute z-10 mr-56 mt-5"
+          className="absolute z-10 mr-56 mt-5 h-72 w-56"
         />
         <img
           src={text}
           alt="text"
-          className="w-32 h-56 absolute z-20 mr-76 mt-12"
+          className="absolute z-20 mr-76 mt-12 h-56 w-32"
         />
         <img
           src={wave}
           alt="wave"
-          className="w-20 h-auto absolute z-10 mr-80 mt-80"
+          className="absolute z-10 mr-80 mt-80 h-auto w-20"
         />
         <img
           src={wave}
           alt="wave"
-          className="w-20 h-auto absolute z-10 mr-48 mt-14"
+          className="absolute z-10 mr-48 mt-14 h-auto w-20"
         />
-        <img src={circle} alt="circle" className="w-all h-all absolute z-0" />
+        <img src={circle} alt="circle" className="absolute z-0 h-all w-all" />
       </div>
-      <div className="mx-auto max-w-screen-lg p-12 mt-6">
+      <div className="mx-auto mt-6 max-w-screen-lg p-12">
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">
             Encuentra{' '}
@@ -149,47 +149,48 @@ export const Landing = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto shadow-2xl">
-        <h1 className="text-4xl font-amenable text-center text-blue-whale p-5">
+      <CardLarge />
+      <div className="h-auto w-full shadow-2xl">
+        <h1 className="p-5 text-center font-amenable text-4xl text-blue-whale">
           Hemos reclutado a los profesionales de grandes proyectos
           <br /> en entidades importantes.{' '}
         </h1>
-        <div className="flex justify-between my-12 p-5">
+        <div className="my-12 flex justify-between p-5">
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Reconstruccion-con-Cambios.png?resize=1080%2C478&ssl=1"
             alt="logo"
-            className="w-52 h-24"
+            className="h-24 w-52"
           />
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Escuelas-Bicentenario-1.png?resize=1080%2C478&ssl=1"
             alt="logo"
-            className="w-52 h-24"
+            className="h-24 w-52"
           />
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/PMSUT.png?resize=1080%2C478&ssl=1"
             alt="logo"
-            className="w-52 h-24"
+            className="h-24 w-52"
           />
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Las-Bambas.png?resize=1080%2C478&ssl=1"
             alt="logo"
-            className="w-52 h-24"
+            className="h-24 w-52"
           />
         </div>
       </div>
-      <div className="w-full h-auto flex flex-col shadow-xl">
-        <div className="w-3/5 flex p-4">
+      <div className="flex h-auto w-full flex-col shadow-xl">
+        <div className="flex w-3/5 p-4">
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-9.png?w=773&ssl=1"
             alt="logo"
             className="h-80 w-auto"
           />
-          <div className="flex flex-col justify-evenly m-4">
-            <h1 className="text-2xl font-amenable font-bold">
+          <div className="m-4 flex flex-col justify-evenly">
+            <h1 className="font-amenable text-2xl font-bold">
               ¿Buscas una forma fácil de encontrar trabajo en tu campo?
             </h1>{' '}
             <br />
-            <p className="font-quicksand-light font-semibold text-lg">
+            <p className="font-quicksand-light text-lg font-semibold">
               Nuestra plataforma de trabajo conecta a profesionales como tú con
               una amplia variedad de oportunidades laborales. Simplemente crea
               tu perfil, comparte tus habilidades y experiencia, y comienza a
@@ -199,15 +200,15 @@ export const Landing = () => {
             </p>
           </div>
         </div>
-        <div className="w-full flex justify-end">
-          <div className="w-8/12 flex p-4">
-            <div className="flex flex-col justify-evenly m-4">
-              <h1 className="text-2xl font-amenable font-bold">
+        <div className="flex w-full justify-end">
+          <div className="flex w-8/12 p-4">
+            <div className="m-4 flex flex-col justify-evenly">
+              <h1 className="font-amenable text-2xl font-bold">
                 ¿Buscas a los mejores profesionales para tus proyectos y
                 trabajos?
               </h1>{' '}
               <br />
-              <p className="font-quicksand-light font-semibold text-lg">
+              <p className="font-quicksand-light text-lg font-semibold">
                 Nuestra plataforma de trabajo te permite publicar ofertas de
                 trabajo de manera fácil y conveniente, lo que te permite llegar
                 a una amplia audiencia de candidatos calificados. Utiliza
@@ -220,7 +221,7 @@ export const Landing = () => {
             <img
               src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-1-1.png?w=1072&ssl=1"
               alt="logo"
-              className="w-80 h-auto"
+              className="h-auto w-80"
             />
           </div>
         </div>
@@ -228,10 +229,10 @@ export const Landing = () => {
       <img
         src={wavecir}
         alt="wavecir"
-        className="absolute w-60 h-40 ml-28 mt-9"
+        className="absolute ml-28 mt-9 h-40 w-60"
       />
       <CardBox data={data} />
-      <div className="p2 w-11/12 h-auto m-6 flex flex-wrap justify-center rounded-s-2xl shadow-lg">
+      <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -253,9 +254,9 @@ export const Landing = () => {
             )
           },
         )}
-        <div className="flex justify-center w-full">
-          <Link to="/talents" className="w-28 h-15">
-            <p className="text-blue-whale font-quicksand-light font-bold text-xl text-center mt-5 w-auto">
+        <div className="flex w-full justify-center">
+          <Link to="/talents" className="h-15 w-28">
+            <p className="mt-5 w-auto text-center font-quicksand-light text-xl font-bold text-blue-whale">
               Ver más
             </p>
           </Link>
