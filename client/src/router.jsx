@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserRouter } from 'react-router-dom'
+import { Outlet, createBrowserRouter } from 'react-router-dom'
 import { Layout } from '@/components/Layout'
 import {
   Landing,
@@ -19,6 +19,12 @@ import UserProfileForm from './pages/UserForm'
 import PricingPage from './pages/Info/Pricing'
 import Media from './pages/Community/Media'
 import { AuthLayout } from './pages/Auth/Layout'
+import { Onboarding } from './pages/Account/Onboarding'
+import { Payment } from './pages/Account/Payment'
+import { DashboardLayout } from './pages/Dashboard/Layout'
+import { Dashboard } from './pages/Dashboard/Dashboard'
+import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
+import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
 
 export const router = createBrowserRouter([
   {
@@ -84,6 +90,70 @@ export const router = createBrowserRouter([
       {
         path: '/auth/register',
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: '/account',
+    element: <Outlet />,
+    children: [
+      {
+        path: '/account/onboarding',
+        element: <Onboarding />,
+      },
+      {
+        path: '/account/payment',
+        element: <Payment />,
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <Dashboard />,
+      },
+      {
+        path: '/dashboard/company',
+        element: <CompanyDash />,
+      },
+      {
+        path: '/dashboard/company/talents',
+        element: <h1>Marketplace de profesionales</h1>,
+      },
+      {
+        path: '/dashboard/company/offers',
+        element: <h1>Ofertas publicadas</h1>,
+      },
+      {
+        path: '/dashboard/company/featured',
+        element: <h1>Perfiles destacados / recomendados</h1>,
+      },
+      {
+        path: '/dashboard/company/settings',
+        element: <h1>Configuración de empresa</h1>,
+      },
+      {
+        path: '/dashboard/professional',
+        element: <ProfessionalDash />,
+      },
+      {
+        path: '/dashboard/professional/offers',
+        element: <h1>Ofertas</h1>,
+      },
+      {
+        path: '/dashboard/professional/favorites',
+        element: <h1>Favoritos</h1>,
+      },
+      {
+        path: '/dashboard/professional/preferences',
+        element: <h1>Preferencias</h1>,
+      },
+      {
+        path: '/dashboard/professional/profile',
+        element: <h1>Perfil</h1>,
       },
     ],
   },
