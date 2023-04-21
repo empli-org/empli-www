@@ -7,14 +7,14 @@ export const Footer = () => {
   return (
     <footer className="bg-blue-font py-10 text-white-font">
       {/* <Container> */}
-      <div className="flex flex-col items-center justify-evenly h-left lg:flex-row lg:h-auto">
-        <div className="lg:w-24 lg:h-10 w-44 h-20">
+      <div className="flex h-left flex-col items-center justify-evenly lg:h-auto lg:flex-row">
+        <div className="h-20 w-44 lg:h-10 lg:w-24">
           <Link to="/" className="text-bg-green">
             <EmpliLogo />
           </Link>
         </div>
         <div>
-          <ul className="flex flex-col lg:flex-row flex-nowrap items-center gap-3 lg:gap-9 space-y-0 font-amenable text-2xl lg:text-lg">
+          <ul className="flex flex-col flex-nowrap items-center gap-3 space-y-0 font-amenable text-2xl lg:flex-row lg:gap-9 lg:text-lg">
             <li>
               <Link to="/offers">Ofertas</Link>
             </li>

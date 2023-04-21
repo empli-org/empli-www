@@ -44,9 +44,9 @@ export const CardBox = ({ data }) => {
           </div>
         ))}
       </div>
-      <div className="flex justify-end w-full">
-        <Link to="/talents" className="w-28 h-15">
-          <p className="text-hint-of-red font-quicksand-light font-bold text-base text-center mt-5 w-auto rounded-lg bg-slate-800 px-6 py-4">
+      <div className="flex w-full justify-end">
+        <Link to="/talents" className="h-15 w-28">
+          <p className="mt-5 w-auto rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
             Ver más
           </p>
         </Link>
