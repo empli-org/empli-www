@@ -1,4 +1,3 @@
-
 import { FiSmartphone, FiInstagram, FiLinkedin, FiMail } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
