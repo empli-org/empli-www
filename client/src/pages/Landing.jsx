@@ -1,5 +1,12 @@
+// @ts-nocheck
 import { MiniCard, CardBox, Container } from '@/components'
 import { Link } from 'react-router-dom'
+import ob from '../assets/Landing/ob.svg'
+import circle from '../assets/Landing/circle.svg'
+import dialogue from '../assets/Landing/dialogue.svg'
+import text from '../assets/Landing/text.svg'
+import wave from '../assets/Landing/wave.svg'
+import wavecir from '../assets/Landing/wavecir.svg'
 export const Landing = () => {
   // Data sirve unicamente para probar que las cards,
   // porque lo que se quiere es que la informacion que utilizan las cards vengan por props
@@ -15,82 +22,101 @@ export const Landing = () => {
       logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      title: 'Open',
+      subtitle: 'Mendoza, ARG',
+      rol: 'Albañil',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      title: 'Historical',
+      subtitle: 'Chaco, ARG',
+      rol: 'Ingeniero',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/02/posedepie15-scaled.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'Nosy',
+      subtitle: 'Santa Cruz, ARG',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 1,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/02/apoyado6-2-scaled.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      title: 'Helpfull',
+      subtitle: 'Salta, ARG',
+      rol: 'Obrero',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://imagenesparaperfildewasap.com/wp-content/uploads/imagenes-de-hombres-para-descargar.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'Immediate',
+      subtitle: 'Catamarca, ARG',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://imagenesparaperfildewasap.com/wp-content/uploads/imagenes-de-hombres-serios.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
-      description: 'obtener la oportunidad de trabajar con una gran empresa',
-      amount: 1,
-      time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
-    },
-    {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'American',
+      subtitle: 'La Pampa, ARG',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://imagenesparaperfildewasap.com/wp-content/uploads/imagenes-de-hombres-sexys.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'Bitter',
+      subtitle: 'Cordoba, ARG',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/02/sentado10-scaled.jpg',
     },
   ]
 
   return (
     <Container>
-      <div className="mx-auto max-w-screen-lg py-12">
+      <div className="w-11/12 flex justify-end">
+        <img
+          src={ob}
+          alt="ob"
+          className="w-80 h-all absolute z-10 rounded-br-2xl"
+        />
+        <img
+          src={dialogue}
+          alt="dialogue"
+          className="w-56 h-72 absolute z-10 mr-56 mt-5"
+        />
+        <img
+          src={text}
+          alt="text"
+          className="w-32 h-56 absolute z-20 mr-76 mt-12"
+        />
+        <img
+          src={wave}
+          alt="wave"
+          className="w-20 h-auto absolute z-10 mr-80 mt-80"
+        />
+        <img
+          src={wave}
+          alt="wave"
+          className="w-20 h-auto absolute z-10 mr-48 mt-14"
+        />
+        <img src={circle} alt="circle" className="w-all h-all absolute z-0" />
+      </div>
+      <div className="mx-auto max-w-screen-lg p-12 mt-6">
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">
             Encuentra{' '}
@@ -103,9 +129,9 @@ export const Landing = () => {
         </div>
         <div className="mt-14">
           <h2 className="mt-5 text-xl">
-            Encontrar trabajo puede ser un proceso difícil. En <br></br>nuestra
-            red, contamos con una gran cantidad de <br></br>empresas que buscan
-            personas talentosas como <br></br>tú para unirse a su equipo.{' '}
+            Encontrar trabajo puede ser un proceso difícil. En <br></br>
+            nuestra red, contamos con una gran cantidad de <br></br>empresas que
+            buscan personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
           <div className="flex items-center gap-4 py-6">
             <Link
@@ -123,8 +149,89 @@ export const Landing = () => {
           </div>
         </div>
       </div>
+      <div className="w-full h-auto shadow-2xl">
+        <h1 className="text-4xl font-amenable text-center text-blue-whale p-5">
+          Hemos reclutado a los profesionales de grandes proyectos
+          <br /> en entidades importantes.{' '}
+        </h1>
+        <div className="flex justify-between my-12 p-5">
+          <img
+            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Reconstruccion-con-Cambios.png?resize=1080%2C478&ssl=1"
+            alt="logo"
+            className="w-52 h-24"
+          />
+          <img
+            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Escuelas-Bicentenario-1.png?resize=1080%2C478&ssl=1"
+            alt="logo"
+            className="w-52 h-24"
+          />
+          <img
+            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/PMSUT.png?resize=1080%2C478&ssl=1"
+            alt="logo"
+            className="w-52 h-24"
+          />
+          <img
+            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Las-Bambas.png?resize=1080%2C478&ssl=1"
+            alt="logo"
+            className="w-52 h-24"
+          />
+        </div>
+      </div>
+      <div className="w-full h-auto flex flex-col shadow-xl">
+        <div className="w-3/5 flex p-4">
+          <img
+            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-9.png?w=773&ssl=1"
+            alt="logo"
+            className="h-80 w-auto"
+          />
+          <div className="flex flex-col justify-evenly m-4">
+            <h1 className="text-2xl font-amenable font-bold">
+              ¿Buscas una forma fácil de encontrar trabajo en tu campo?
+            </h1>{' '}
+            <br />
+            <p className="font-quicksand-light font-semibold text-lg">
+              Nuestra plataforma de trabajo conecta a profesionales como tú con
+              una amplia variedad de oportunidades laborales. Simplemente crea
+              tu perfil, comparte tus habilidades y experiencia, y comienza a
+              postularte a los trabajos que más te interesen. Recibe alertas de
+              trabajos relevantes y solicitudes de trabajo y compara las ofertas
+              de trabajo en un solo lugar.
+            </p>
+          </div>
+        </div>
+        <div className="w-full flex justify-end">
+          <div className="w-8/12 flex p-4">
+            <div className="flex flex-col justify-evenly m-4">
+              <h1 className="text-2xl font-amenable font-bold">
+                ¿Buscas a los mejores profesionales para tus proyectos y
+                trabajos?
+              </h1>{' '}
+              <br />
+              <p className="font-quicksand-light font-semibold text-lg">
+                Nuestra plataforma de trabajo te permite publicar ofertas de
+                trabajo de manera fácil y conveniente, lo que te permite llegar
+                a una amplia audiencia de candidatos calificados. Utiliza
+                nuestras herramientas para evaluar y comparar a los candidatos y
+                encontrar al mejor talento para tus necesidades empresariales.
+                Con nuestra plataforma, encontrar el talento adecuado nunca ha
+                sido más fácil.
+              </p>
+            </div>
+            <img
+              src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-1-1.png?w=1072&ssl=1"
+              alt="logo"
+              className="w-80 h-auto"
+            />
+          </div>
+        </div>
+      </div>
+      <img
+        src={wavecir}
+        alt="wavecir"
+        className="absolute w-60 h-40 ml-28 mt-9"
+      />
       <CardBox data={data} />
-      <div className="p2 w-11-12 m-6 flex flex-wrap justify-between rounded-s-2xl shadow-lg">
+      <div className="p2 w-11/12 h-auto m-6 flex flex-wrap justify-center rounded-s-2xl shadow-lg">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -146,6 +253,13 @@ export const Landing = () => {
             )
           },
         )}
+        <div className="flex justify-center w-full">
+          <Link to="/talents" className="w-28 h-15">
+            <p className="text-blue-whale font-quicksand-light font-bold text-xl text-center mt-5 w-auto">
+              Ver más
+            </p>
+          </Link>
+        </div>
       </div>
     </Container>
   )
