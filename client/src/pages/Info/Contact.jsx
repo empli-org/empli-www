@@ -13,11 +13,11 @@ export const Contact = () => {
       .required('Ingrese email')
       .matches(
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-        'Ingrese un mail valido',
+        'Ingrese un mail válido',
       ),
     asunto: yup.string().required('Ingrese asunto'),
-    category: yup.string().required('Ingrese categoria'),
-    description: yup.string().required('Ingrese descripcion'),
+    category: yup.string().required('Ingrese categoría'),
+    description: yup.string().required('Ingrese descripción'),
   })
 
   //Controlador del formulario
