@@ -1,36 +1,13 @@
-// @ts-nocheck
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import useIntersectionObserver from '@/hooks/useObserver'
-// @ts-ignore
-import mail from '@/assets/mail.svg'
-// @ts-ignore
-import phone from '@/assets/phone.svg'
-// @ts-ignore
-import fb from '@/assets/fb.svg'
-// @ts-ignore
-import lk from '@/assets/lk.svg'
-// @ts-ignore
-import ig from '@/assets/ig.svg'
 import { useUser } from '@clerk/clerk-react'
+import { LateralBar } from '../../components/LateralBar/LateralBar'
 
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 export const Contact = () => {
-  const AnimatedComponent = useIntersectionObserver({
-    threshold: 0.5,
-    rootMargin: '0px',
-    animationDuration: 0.5,
-    staggerChildren: 0.1,
-    easing: 'easeInOut',
-    direction: 'up',
-    // @ts-ignore
-    y: 50,
-    fade: true,
-  })
-
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
     user_name: yup.string().required('Ingrese nombre'),
@@ -39,7 +16,7 @@ export const Contact = () => {
       .required('Ingrese email')
       .matches(
         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-        'Ingrese un mail valido',
+        'Ingrese un mail válido',
       ),
     user_asunto: yup.string().required('Ingrese asunto'),
     category: yup.string().required('Ingrese categoria'),
@@ -83,28 +60,13 @@ export const Contact = () => {
   console.log(user)
 
   return (
-    <AnimatedComponent>
-      <div className="w-screen">
-        <div className="h-50 flex items-center justify-center bg-contact-img bg-cover p-2">
-          <h1 className="font-amenable text-6xl font-bold text-blue-font">
-            Contáctenos
-          </h1>
-        </div>
-        <div className="flex h-56 w-full items-center justify-evenly">
-          <a href="mailto:santykpo11@gmail.com" className="hover:scale-110">
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={mail} alt="mail" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">
-                gerencia@empli.com
-              </p>
-            </div>
-          </a>
-          <a href="tel:+51970649294" className="hover:scale-110">
-            <div className="flex flex-col items-center justify-center gap-3">
-              <img src={phone} alt="phone" className="h-14 w-14" />
-              <p className="font-quicksand-light text-xl font-bold">
-                970649294 / 985509343
-              </p>
+    <div className="m-5">
+      <div className="m-0 flex justify-center p-0">
+        <div className="w-2/4 md:justify-center lg:flex lg:items-stretch">
+          <LateralBar />
+          <div className="relative z-40 flex w-3/4 flex-col items-center justify-center rounded-2xl bg-hint-of-red shadow-sm shadow-black">
+            <div className="flex w-full justify-center">
+              <h1 className="text-2xl font-bold text-gulf-stream">Contacto</h1>
             </div>
           </a>
           <a
@@ -219,24 +181,24 @@ export const Contact = () => {
                   </p>
                 )}
               </div>
-              <div className="h-full w-full">
+              <div>
                 <label
-                  htmlFor="category"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  htmlFor="description"
+                  className="flex items-start justify-start font-quicksand-light text-lg font-bold text-blue-whale"
                 >
-                  Categoría
+                  Descripción
                 </label>
-                <input
-                  type="text"
-                  name="category"
-                  id="category"
-                  className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
-                  {...register('category')}
+                <textarea
+                  cols="100"
+                  rows="5"
+                  name="description"
+                  id="description"
+                  className="flex w-full resize-none rounded-lg p-1"
+                  {...register('description')}
                 />
-                {errors.category?.message && (
-                  // eslint-disable-next-line prettier/prettier
+                {errors.description?.message && (
                   <p className="w-100 text-red-600">
-                    {errors.category.message}
+                    {errors.description.message}
                   </p>
                 )}
               </div>
@@ -270,8 +232,6 @@ export const Contact = () => {
           </form>
         </div>
       </div>
-    </AnimatedComponent>
+    </div>
   )
 }
-
-export default Contact

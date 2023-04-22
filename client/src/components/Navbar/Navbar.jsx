@@ -45,24 +45,15 @@ export const Navbar = () => {
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
               <SignedOut>
-                <button
-                  className="p-3"
-                  onClick={() =>
-                    (window.location.href =
-                      'https://delicate-cod-86.accounts.dev/sign-in')
-                  }
-                >
+                <Link className="py-3" to="/auth/login">
                   Ingresar
-                </button>
-                <button
+                </Link>
+                <Link
+                  to="/auth/register"
                   className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
-                  onClick={() =>
-                    (window.location.href =
-                      'https://delicate-cod-86.accounts.dev/sign-up')
-                  }
                 >
                   Crear cuenta
-                </button>
+                </Link>
               </SignedOut>
               <SignedIn>
                 <UserButton />
