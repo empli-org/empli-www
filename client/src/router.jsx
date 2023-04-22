@@ -16,7 +16,7 @@ import {
   Offers,
 } from 'pages'
 import UserProfileForm from './pages/UserForm'
-import PricingPage from './pages/Info/Pricing'
+import PricingPage from './pages/Info/pricing/Pricing'
 import Media from './pages/Community/Media'
 import HomeEmpresa from './pages/HomeEmpresa'
 import { AuthLayout } from './pages/Auth/Layout'
