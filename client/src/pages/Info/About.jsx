@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from 'react'
+import React, { useEffect } from 'react'
 import obs from '@/assets/contact/obs.svg'
 import obs2 from '@/assets/contact/obs2.svg'
 import one from '@/assets/numbers/1.svg'
@@ -9,8 +9,13 @@ import four from '@/assets/numbers/4.svg'
 import five from '@/assets/numbers/5.svg'
 import dot from '@/assets/dot.svg'
 import { Link } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export const About = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1500 })
+  }, [])
   return (
     <div className="w-screen h-auto">
       <div className="bg-white-font">
@@ -19,7 +24,7 @@ export const About = () => {
             Nosotros
           </h1>
         </div>
-        <div className="mt-24 flex w-full pl-56">
+        <div className="mt-24 flex w-full pl-56" data-aos="fade-right">
           <div className="m-7 flex w-1/2 items-center">
             <div className="flex flex-col">
               <h1 className="text-center font-amenable text-4xl text-blue-font">
@@ -42,7 +47,10 @@ export const About = () => {
             <img src={obs} alt="obs" className="ml-5" />
           </div>
         </div>
-        <div className="mt-36 mb-14 flex w-11/12 justify-end">
+        <div
+          className="mt-44 mb-14 flex w-11/12 justify-end"
+          data-aos="fade-left"
+        >
           <div className="flex w-2/3 items-center">
             <img src={obs2} alt="obs2" />
             <div className="m-5">
@@ -61,7 +69,7 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto w-full bg-blue-font">
+      <div className="flex h-auto w-full bg-blue-font" data-aos="fade-down">
         <div className="flex w-full pl-100">
           <div className="flex flex-col p-5">
             <h1 className="text-center font-amenable text-5xl text-white-font">
@@ -103,7 +111,7 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto w-full bg-white-font">
+      <div className="flex h-auto w-full bg-white-font" data-aos="fade-up">
         <div className="flex w-9/12 flex-col items-end p-5">
           <h1 className="font-amenable text-5xl text-blue-font">
             Nuestros valores:
@@ -149,7 +157,10 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-circle flex justify-center items-center bg-blue-whale">
+      <div
+        className="w-full h-circle flex justify-center items-center bg-blue-whale"
+        data-aos="zoom-in"
+      >
         <img
           src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-2-1.png?w=1014&ssl=1"
           alt="logo"

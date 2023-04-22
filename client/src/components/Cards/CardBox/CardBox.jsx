@@ -38,7 +38,7 @@ export const CardBox = ({ data }) => {
       <AliceCarousel
         items={items}
         autoPlay
-        autoPlayInterval={2000}
+        autoPlayInterval={1000}
         infinite
         autoWidth
         swipeExtraPadding={2}
@@ -51,7 +51,7 @@ export const CardBox = ({ data }) => {
       />
       <div className="flex w-full justify-end">
         <Link to="/talents" className="h-15 w-28">
-          <p className="mr-2 mt-1 w-auto rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
+          <p className="mr-2 mt-1 w-28 rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
             Ver más
           </p>
         </Link>
