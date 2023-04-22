@@ -1,5 +1,5 @@
 import { useGetAllTalentsQuery } from 'redux/features/api/base'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Container,
   CareerSearch,
@@ -17,6 +17,10 @@ export const MarketProfessionals = () => {
   const countTalents = data?.count
   const totalPages = Math.ceil(countTalents / 10)
   const loading = isLoading || isFetching
+
+  useEffect(() => {
+    setPage(1)
+  }, [key])
 
   return (
     <div>
