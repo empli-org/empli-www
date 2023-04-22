@@ -14,7 +14,7 @@ import 'aos/dist/aos.css'
 
 export const About = () => {
   useEffect(() => {
-    AOS.init({ duration: 1500 })
+    AOS.init({ duration: 2000 })
   }, [])
   return (
     <div className="w-screen h-auto">
@@ -111,7 +111,7 @@ export const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-auto w-full bg-white-font" data-aos="fade-up">
+      <div className="flex h-auto w-full bg-white-font" data-aos="zoom-in">
         <div className="flex w-9/12 flex-col items-end p-5">
           <h1 className="font-amenable text-5xl text-blue-font">
             Nuestros valores:
