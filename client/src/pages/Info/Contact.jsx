@@ -7,6 +7,11 @@ import { useUser } from '@clerk/clerk-react'
 
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import mail from '@/assets/Contact/mail.svg'
+import phone from '@/assets/Contact/phone.svg'
+import ig from '@/assets/Contact/ig.svg'
+import fb from '@/assets/Contact/fb.svg'
+import lk from '@/assets/Contact/lk.svg'
 
 export const Contact = () => {
   const AnimatedComponent = useIntersectionObserver({
@@ -47,6 +52,7 @@ export const Contact = () => {
 
   //formData para enviar los datos del formulario y formRef para obtener la referencia del formulario
   const sendFormData = (formData, formRef) => {
+    // eslint-disable-next-line import/no-named-as-default-member
     emailjs
       .sendForm(
         'service_kbbovze',
@@ -83,7 +89,7 @@ export const Contact = () => {
         <div className="flex h-56 w-full items-center justify-evenly">
           <a href="mailto:santykpo11@gmail.com" className="hover:scale-110">
             <div className="flex flex-col items-center justify-center gap-3">
-              {/* <img src={mail} alt="mail" className="h-14 w-14" /> */}
+              <img src={mail} alt="mail" className="h-14 w-14" />
               <p className="font-quicksand-light text-xl font-bold">
                 gerencia@empli.com
               </p>
@@ -91,7 +97,7 @@ export const Contact = () => {
           </a>
           <a href="tel:+51970649294" className="hover:scale-110">
             <div className="flex flex-col items-center justify-center gap-3">
-              {/* <img src={phone} alt="phone" className="h-14 w-14" /> */}
+              <img src={phone} alt="phone" className="h-14 w-14" />
               <p className="font-quicksand-light text-xl font-bold">
                 970649294 / 985509343
               </p>
@@ -104,7 +110,7 @@ export const Contact = () => {
             rel="noreferrer"
           >
             <div className="flex flex-col items-center justify-center gap-3">
-              {/* <img src={ig} alt="ig" className="h-14 w-14" /> */}
+              <img src={ig} alt="ig" className="h-14 w-14" />
               <p className="font-quicksand-light text-xl font-bold">
                 Instagram
               </p>
@@ -117,7 +123,7 @@ export const Contact = () => {
             rel="noreferrer"
           >
             <div className="flex flex-col items-center justify-center gap-3">
-              {/* <img src={lk} alt="lk" className="h-14 w-14" /> */}
+              <img src={lk} alt="lk" className="h-14 w-14" />
               <p className="font-quicksand-light text-xl font-bold">Linkedin</p>
             </div>
           </a>
@@ -128,7 +134,7 @@ export const Contact = () => {
             rel="noreferrer"
           >
             <div className="flex flex-col items-center justify-center gap-3">
-              {/* <img src={fb} alt="fb" className="h-14 w-14" /> */}
+              <img src={fb} alt="fb" className="h-14 w-14" />
               <p className="font-quicksand-light text-xl font-bold">Facebook</p>
             </div>
           </a>

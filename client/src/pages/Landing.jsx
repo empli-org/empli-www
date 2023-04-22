@@ -153,7 +153,7 @@ export const Landing = () => {
         </div>
       </div>
       <CardLarge />
-      <div className="h-auto w-full shadow-2xl">
+      <div className="h-auto w-full shadow-2xl mt-10">
         <h1 className="p-5 text-center font-amenable text-4xl text-blue-whale">
           Hemos reclutado a los profesionales de grandes proyectos
           <br /> en entidades importantes.{' '}

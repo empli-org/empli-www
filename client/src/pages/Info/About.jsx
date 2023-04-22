@@ -1,17 +1,18 @@
 // @ts-nocheck
 import React from 'react'
-import obs from '@/assets/obs.svg'
-import obs2 from '@/assets/obs2.svg'
+import obs from '@/assets/contact/obs.svg'
+import obs2 from '@/assets/contact/obs2.svg'
 import one from '@/assets/numbers/1.svg'
 import two from '@/assets/numbers/2.svg'
 import three from '@/assets/numbers/3.svg'
 import four from '@/assets/numbers/4.svg'
 import five from '@/assets/numbers/5.svg'
 import dot from '@/assets/dot.svg'
+import { Link } from 'react-router-dom'
 
 export const About = () => {
   return (
-    <div className="w-screen">
+    <div className="w-screen h-auto">
       <div className="bg-white-font">
         <div className="h-50 flex w-auto items-center justify-center bg-contact-img bg-cover p-2">
           <h1 className="font-amenable text-6xl font-bold text-blue-font">
@@ -38,11 +39,11 @@ export const About = () => {
                 trabajdores.
               </p>
             </div>
-            <img src={obs} alt="obs" />
+            <img src={obs} alt="obs" className="ml-5" />
           </div>
         </div>
-        <div className="mt-44 flex w-full">
-          <div className="ml-left flex w-1/2 items-center">
+        <div className="mt-36 mb-14 flex w-11/12 justify-end">
+          <div className="flex w-2/3 items-center">
             <img src={obs2} alt="obs2" />
             <div className="m-5">
               <h1 className="text-center font-amenable text-4xl text-blue-font">
@@ -145,6 +146,36 @@ export const About = () => {
                 Transparencia
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-full h-circle flex justify-center items-center bg-blue-whale">
+        <img
+          src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-2-1.png?w=1014&ssl=1"
+          alt="logo"
+          className="h-100 mr-9"
+        />
+        <div className="w-2/5 flex flex-col justify-center">
+          <h1 className="font-amenable text-5xl text-hint-of-red">
+            ¿Listo para que trabajemos juntos?
+          </h1>
+          <div className="my-6 w-56 rounded-2xl border-t-4 border-bg-green"></div>
+
+          <br />
+          <br />
+          <p className="font-quicksand-light text-2xl font-medium text-hint-of-red">
+            Con nuestra plataforma de trabajo, conectamos a profesionales y
+            empresas para encontrar el talento adecuado y las oportunidades
+            laborales perfectas. <br /> Crea tu perfil y comienza a postularte o
+            publicar ofertas de trabajo hoy mismo.
+          </p>
+          <div className="mt-4 flex items-center gap-4 py-6 justify-center">
+            <Link
+              to="/auth/register"
+              className="rounded-lg bg-gulf-stream px-6 py-4 text-hint-of-red font-amenable"
+            >
+              Comenzar
+            </Link>
           </div>
         </div>
       </div>
