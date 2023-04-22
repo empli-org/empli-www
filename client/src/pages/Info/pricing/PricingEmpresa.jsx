@@ -9,7 +9,10 @@ export const PricingEmpresa = () => {
           return (
             <div
               key={ind}
-              className="relative flex flex-col rounded-lg border-slate-200 bg-white p-8 shadow-xl hover:shadow-xl hover:shadow-blue-100"
+              className= {`relative flex flex-col rounded-lg border-slate-200 bg-white p-8 shadow-xl hover:shadow-xl hover:shadow-blue-100 
+              ${
+                data.popular? 'lg:row-span-3' : ''
+              }`}
             >
               <h3 className="rounded-lg bg-black text-center text-lg font-semibold leading-5 text-white">
                 {data.titulo}
