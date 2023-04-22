@@ -2,7 +2,7 @@
 import { CareerSearch } from '@/components/Search/CareerSearch'
 import { CloseIcon } from '@/components/icons/CloseIcon'
 import { Container } from '@/components/ui/Container'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import { useUpload } from '@/hooks/upload'
 
@@ -65,6 +65,10 @@ export default function UserProfileForm() {
             <h1 className="my-4 text-xl font-bold">Contacto</h1>
 
             <ContactInfo />
+
+            <h1 className="my-4 text-xl font-bold">Curriculum Vitae</h1>
+
+            <CVForm />
 
             <div className="py-4">
               <button
@@ -252,5 +256,32 @@ function ContactInfo() {
         />
       </div>
     </>
+  )
+}
+
+function CVForm() {
+  const [file, setFile] = useState(null)
+  const { loading, data, error } = useUpload(file)
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
+  const handleChange = e => {
+    const file = e.target.files[0]
+    setFile(file)
+  }
+
+  return (
+    <div>
+      {loading ? (
+        <p>Cargando...</p>
+      ) : data && !loading && !error ? (
+        <p>CV Actualizado</p>
+      ) : (
+        <p>Sube tu cv</p>
+      )}
+      <input accept=".pdf" type="file" name="cv" onChange={handleChange} />
+    </div>
   )
 }

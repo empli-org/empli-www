@@ -11,15 +11,15 @@ export const DashboardLayout = () => {
     <>
       <SignedIn>
         <div className="flex min-h-screen flex-col">
-          <div className="w-full bg-hint-of-red px-4 py-6">
+          <div className="fixed top-0 z-[999] w-full bg-hint-of-red px-4 py-6">
             <Link to="/dashboard" className="h-24 w-24">
               <div className="w-24 text-blue-whale">
                 <EmpliLogo />
               </div>
             </Link>
           </div>
-          <div className="flex h-full flex-1">
-            <div className="flex w-[22rem] flex-col bg-[#f7f7f7] px-4 py-12">
+          <div className="relative flex h-full flex-1">
+            <div className="fixed inset-y-0 flex w-[18rem] flex-col bg-[#f7f7f7] px-4 py-12 pt-32">
               <ul className="flex flex-1 flex-col gap-4">
                 {isCompany ? <CompanyAside /> : <ProfessionalAside />}
                 <li className="mt-auto">
@@ -27,8 +27,10 @@ export const DashboardLayout = () => {
                 </li>
               </ul>
             </div>
-            <div className="w-full flex-1 bg-white px-8 py-12">
-              <Outlet />
+            <div className="ml-[18rem] w-full flex-1 bg-white px-8 py-12">
+              <div className="mt-16">
+                <Outlet />
+              </div>
             </div>
           </div>
         </div>
