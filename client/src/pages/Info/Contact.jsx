@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import useIntersectionObserver from '@/hooks/useObserver'
-import { useUser } from '@clerk/clerk-react'
-
 import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import mail from '@/assets/Contact/mail.svg'
@@ -75,9 +73,6 @@ export const Contact = () => {
     sendFormData(data, form)
   }
 
-  const { user } = useUser()
-  console.log(user)
-
   return (
     <AnimatedComponent>
       <div className="w-screen">
@@ -147,6 +142,7 @@ export const Contact = () => {
             ref={form}
             onSubmit={handleSubmit(onSubmit)}
             className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14 shadow-lg shadow-gray-900"
+            noValidate="noValidate"
           >
             <div className="ml-32 flex w-full">
               <div className="h-full w-full">
