@@ -9,13 +9,16 @@ export const PricingEmpresa = () => {
           return (
             <div
               key={ind}
-              className="relative flex flex-col rounded-lg border  border-slate-200 bg-white p-8 shadow-lg"
+              className= {`relative flex flex-col rounded-lg border-slate-200 bg-white p-8 shadow-xl hover:shadow-xl hover:shadow-blue-100 
+              ${
+                data.popular? 'lg:row-span-3' : ''
+              }`}
             >
               <h3 className="rounded-lg bg-black text-center text-lg font-semibold leading-5 text-white">
                 {data.titulo}
               </h3>
               {data.popular && (
-                <p className="absolute  -top-3 rounded-full bg-cyan-400 px-3 py-0.5 text-sm font-semibold tracking-wide text-white shadow-md">
+                <p className="absolute  -top-3 rounded-full bg-green-500 px-3 py-0.5 text-sm font-semibold tracking-wide text-white shadow-md">
                   Más popular
                 </p>
               )}
@@ -45,12 +48,12 @@ export const PricingEmpresa = () => {
                   className={`mt-6  rounded-lg px-6 py-1.5 text-sm font-semibold leading-4 
               ${
                 data.popular
-                  ? 'bg-cyan-500 text-white shadow-md hover:bg-cyan-600'
-                  : 'bg-cyan-50 text-cyan-700 hover:bg-cyan-100'
+                  ? 'bg-green-500 text-white shadow-md hover:bg-green-600'
+                  : 'bg-green-50 text-green-700 hover:bg-green-500 hover:text-white'
               }`}
                 >
                   {' '}
-                  ADQUIRIR{' '}
+                  COMPRAR{' '}
                 </button>
               </div>
             </div>

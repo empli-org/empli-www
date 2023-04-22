@@ -20,16 +20,16 @@ export default function PricingPage() {
       </div>
       <div className="m-5 flex justify-center">
         <button
-          className={`m-5 rounded-md bg-blue-whale p-3 text-white ${
-            selected === 'empresa' ? 'bg-blue-500' : ''
+          className={`m-5 rounded-md bg-blue-500 p-3 text-white ${
+            selected === 'empresa' ? ' bg-blue-whale ' : ''
           }`}
           onClick={handleEmpresaClick}
         >
           EMPRESA
         </button>
         <button
-          className={`m-5 rounded-md bg-blue-whale p-3 text-white ${
-            selected === 'profesional' ? 'bg-blue-500' : ''
+          className={`m-5 rounded-md bg-blue-500 p-3 text-white ${
+            selected === 'profesional' ? 'bg-blue-whale ' : ''
           }`}
           onClick={handleProfesionalClick}
         >
