@@ -1,5 +1,5 @@
 import React from 'react'
-import  {dataEmpresa}  from './data'
+import { dataEmpresa } from './data'
 
 export const PricingEmpresa = () => {
   return (
@@ -60,4 +60,3 @@ export const PricingEmpresa = () => {
     </>
   )
 }
-
