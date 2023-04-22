@@ -28,6 +28,7 @@ import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
 import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
 import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
 import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
+import InfoProfessionals from './pages/Info/InfoProfessionals'
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: '/info/empresas',
         element: <HomeEmpresa />,
+      },
+      {
+        path: '/info/professionals',
+        element: <InfoProfessionals />,
       },
       {
         path: '/pricing',

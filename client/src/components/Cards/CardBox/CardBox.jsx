@@ -1,9 +1,9 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
-import { MiniCard } from 'components'
+import { CardPro } from '../CardPro/CardPro'
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
 import { Link } from 'react-router-dom'
 
-//We can received data from props or bring from global state
 export const CardBox = ({ data }) => {
   const gruposDeDiez = data.reduce((accumulator, obj, index) => {
     const indexGroup = Math.floor(index / 10)
@@ -17,9 +17,15 @@ export const CardBox = ({ data }) => {
     return accumulator
   }, [])
 
+  const items = gruposDeDiez[0].map((obj, index) => (
+    <div key={index} className="h-50 z-10 flex w-64 flex-auto">
+      <CardPro rol={obj.rol} name={obj.name} logo={obj.logo} />
+    </div>
+  ))
+
   return (
-    <div className="m-5 flex w-full flex-col rounded-3xl bg-gray-900 p-10">
-      <div className="m-5 flex flex-col items-end justify-end p-5 text-hint-of-red">
+    <div className="m-5 flex h-4/6 w-10/12 flex-col rounded-3xl bg-gray-900 p-2">
+      <div className="m-5 flex flex-col items-end justify-end p-2 text-hint-of-red">
         <div className="text-2xl font-bold">
           <h1 className="text-3xl">Top Profesionales</h1>
         </div>
@@ -29,24 +35,23 @@ export const CardBox = ({ data }) => {
           </span>
         </div>
       </div>
-      <div className="scrollbar-hide flex w-full overflow-x-scroll p-5">
-        {gruposDeDiez[0].map((obj, index) => (
-          <div key={index} className="h-50 flex flex-auto">
-            <MiniCard
-              subtitle={obj.subtitle}
-              amount={obj.amount}
-              rol={obj.rol}
-              time={obj.time}
-              title={obj.title}
-              description={obj.descripcion}
-              logo={obj.logo}
-            />
-          </div>
-        ))}
-      </div>
+      <AliceCarousel
+        items={items}
+        autoPlay
+        autoPlayInterval={2000}
+        infinite
+        autoWidth
+        swipeExtraPadding={2}
+        disableButtonsControls
+        disableDotsControls
+        mouseTracking
+        responsive={{
+          820: { items: 4 },
+        }}
+      />
       <div className="flex w-full justify-end">
         <Link to="/talents" className="h-15 w-28">
-          <p className="mt-5 w-auto rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
+          <p className="mr-2 mt-1 w-auto rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
             Ver más
           </p>
         </Link>
@@ -54,5 +59,3 @@ export const CardBox = ({ data }) => {
     </div>
   )
 }
-
-export default CardBox

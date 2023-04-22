@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import EmpliLogo from '@/components/ui/brand/EmpliLogo'
 import { Container } from '@/components/ui/Container'
 import { MenuItem } from './MenuItem'
-import { CommunityItems, CompanyItems, TalentItems } from './NavbarItems'
+import { CommunityItems, ContactItems } from './NavbarItems'
 import MobileMenu from './MobileMenu'
-import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 export const Navbar = () => {
   return (
@@ -18,18 +18,11 @@ export const Navbar = () => {
               </Link>
               <ul className="hidden items-stretch gap-10 text-sm text-gray-700 lg:flex">
                 <li className="py-2">
-                  <Link to="/info/empresas">Home</Link>
+                  <Link to="/info/empresas">Empresas</Link>
                 </li>
-                <MenuItem label="Empresas">
-                  <MenuItem.Body>
-                    <CompanyItems />
-                  </MenuItem.Body>
-                </MenuItem>
-                <MenuItem label="Profesionales">
-                  <MenuItem.Body>
-                    <TalentItems />
-                  </MenuItem.Body>
-                </MenuItem>
+                <li className="py-2">
+                  <Link to="/info/professionals">Profesionales</Link>
+                </li>
                 <MenuItem label="Comunidad">
                   <MenuItem.Body>
                     <CommunityItems />
@@ -38,9 +31,11 @@ export const Navbar = () => {
                 <li className="py-2">
                   <Link to="/pricing">Precios</Link>
                 </li>
-                <li className="py-2">
-                  <Link to="/contact">Contacto</Link>
-                </li>
+                <MenuItem label="Contacto">
+                  <MenuItem.Body>
+                    <ContactItems />
+                  </MenuItem.Body>
+                </MenuItem>
               </ul>
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
@@ -56,7 +51,12 @@ export const Navbar = () => {
                 </Link>
               </SignedOut>
               <SignedIn>
-                <UserButton />
+                <Link
+                  to="/dashboard"
+                  className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
+                >
+                  Mi cuenta
+                </Link>
               </SignedIn>
             </div>
             <div className="flex text-sm lg:hidden">

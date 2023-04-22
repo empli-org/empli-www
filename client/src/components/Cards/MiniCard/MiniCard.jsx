@@ -15,7 +15,7 @@ export const MiniCard = ({
   // esta variable sera renderizada unicamente si se recibe por props amount y time.
   // de igual modo se hace con la variable btn. de esta forma hacemos que el componente sea dinamico y reutilizable
   const price = (
-    <div className="flex w-full justify-between">
+    <div className="mx-1 flex w-full justify-center gap-x-24 mt-2">
       <div>
         <span className="font-bold">${amount}K/</span>
         <span>mes</span>
@@ -38,37 +38,28 @@ export const MiniCard = ({
   )
 
   return (
-    <div className="grid-cols-2-auto backdrop-grayscale-20 m-2 grid h-72 w-64 transform grid-flow-col overflow-hidden rounded-lg bg-white p-3 shadow-xl backdrop-blur-2xl backdrop-filter transition-transform duration-300 hover:-translate-y-1 hover:bg-blue-whale hover:text-white hover:shadow-lg">
-      <div className="group m-2 flex h-auto w-fit flex-col items-center p-2 md:p-2 lg:p-2">
-        <div className="mb-2 flex h-auto w-fit justify-center">
-          <div className="flex w-2/6">
+    <div className="grid-cols-2-auto m-1 grid h-72 w-64 transform grid-flow-col overflow-hidden rounded-lg p-1 shadow-xl transition-transform duration-300 hover:-translate-y-4 hover:shadow-lg">
+      <div className="backdrop-blur-4xl m-1 flex h-auto w-fit flex-col items-center gap-y-2 rounded-2xl bg-white bg-opacity-90 p-3 backdrop-filter md:p-2 lg:p-1 ">
+        <div className="mt-2 flex h-24  w-full">
+          <div className="flex h-24 w-28">
             <img
-              // className="mr-2 h-15 w-15 overflow-hidden rounded-lg shadow-xl"
-              className="mr-2 h-15 w-15 overflow-hidden rounded-lg shadow-sm shadow-blue-whale"
+              className="mr-2 w-full overflow-hidden rounded-lg"
               src={logo}
               alt="logo"
             />
           </div>
-          <div className=" w-3/4">
-            <h3 className="break-words text-2xl font-bold text-gray-900 group-hover:text-white">
+          <div className="w-full">
+            <h3 className="break-words text-xl font-bold text-gray-900">
               {title}
             </h3>
-            {subtitle && (
-              <h2 className="group-hover:text-white ">{subtitle}</h2>
-            )}
+            {subtitle && <h2>{subtitle}</h2>}
           </div>
         </div>
-        <div className="mb-4">
-          {rol && (
-            <h4 className="text-2xl font-bold text-gray-900 group-hover:text-white ">
-              {rol}
-            </h4>
-          )}
-          <p className="text-ellipsis text-gray-700 group-hover:text-white ">
-            {description}
-          </p>
+        <div className="my-4">
+          {rol && <h4 className="text-2xl font-bold text-gray-900">{rol}</h4>}
+          <p className="w-fit text-ellipsis text-gray-700">{description}</p>
+          {amount ? price : btn}
         </div>
-        {amount ? price : btn}
       </div>
     </div>
   )
