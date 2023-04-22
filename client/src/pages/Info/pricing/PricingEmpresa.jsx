@@ -1,55 +1,11 @@
-export default function PricingPage() {
-  const data = [
-    {
-      titulo: 'Plan Básico',
-      precio: 9.99,
-      caracteristicas: [
-        'Perfil personalizado',
-        'Acceso a la bolsa de trabajo',
-        'Hasta 5 postulaciones mensuales',
-        'Soporte por correo electrónico',
-      ],
-      popular: false,
+import React from 'react'
+import  {dataEmpresa}  from './data'
 
-      descripcion:
-        'Ideal para profesionales que buscan oportunidades de trabajo y desean postularse a pocos trabajos al mes.',
-    },
-    {
-      titulo: 'Plan Estándar',
-      precio: 19.99,
-      caracteristicas: [
-        'Perfil personalizado',
-        'Acceso a la bolsa de trabajo',
-        'Hasta 15 postulaciones mensuales',
-        'Soporte por correo electrónico y chat',
-      ],
-      popular: true,
-      descripcion:
-        'Perfecto para profesionales que buscan más oportunidades de trabajo y desean postularse a varios trabajos al mes.',
-    },
-    {
-      titulo: 'Plan Premium',
-      precio: 29.99,
-      caracteristicas: [
-        'Perfil personalizado con destacado',
-        'Acceso a la bolsa de trabajo',
-        'Hasta 50 postulaciones mensuales',
-        'Soporte por correo electrónico, chat y teléfono',
-      ],
-      popular: false,
-
-      descripcion:
-        'El plan más completo para profesionales que buscan una mayor exposición y más oportunidades de trabajo, y desean postularse a varios trabajos al mes.',
-    },
-  ]
-
+export const PricingEmpresa = () => {
   return (
     <>
-      <div className="flex justify-center pt-7">
-        <h1>Elige tu plan de subscripción</h1>
-      </div>
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-7 sm:px-6 lg:grid-cols-3 lg:gap-8 lg:px-8">
-        {data.map((data, ind) => {
+        {dataEmpresa.map((data, ind) => {
           return (
             <div
               key={ind}
@@ -87,11 +43,11 @@ export default function PricingPage() {
               <div className="flex justify-center">
                 <button
                   className={`mt-6  rounded-lg px-6 py-1.5 text-sm font-semibold leading-4 
-                  ${
-                    data.popular
-                      ? 'bg-cyan-500 text-white shadow-md hover:bg-cyan-600'
-                      : 'bg-cyan-50 text-cyan-700 hover:bg-cyan-100'
-                  }`}
+              ${
+                data.popular
+                  ? 'bg-cyan-500 text-white shadow-md hover:bg-cyan-600'
+                  : 'bg-cyan-50 text-cyan-700 hover:bg-cyan-100'
+              }`}
                 >
                   {' '}
                   ADQUIRIR{' '}
@@ -104,3 +60,4 @@ export default function PricingPage() {
     </>
   )
 }
+
