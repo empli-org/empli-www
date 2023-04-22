@@ -7,6 +7,7 @@ import dialogue from '../assets/Landing/dialogue.svg'
 import text from '../assets/Landing/text.svg'
 import wave from '../assets/Landing/wave.svg'
 import wavecir from '../assets/Landing/wavecir.svg'
+
 export const Landing = () => {
   // Data sirve unicamente para probar que las cards,
   // porque lo que se quiere es que la informacion que utilizan las cards vengan por props
@@ -14,15 +15,17 @@ export const Landing = () => {
   const data = [
     {
       title: 'Incoingroup',
+      name: 'Carlos J. Gonzalez',
       subtitle: 'Buenos Aires, ARG',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 1,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg',
     },
     {
       title: 'Open',
+      name: 'Carlos J. Gonzalez',
       subtitle: 'Mendoza, ARG',
       rol: 'Albañil',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
@@ -32,6 +35,7 @@ export const Landing = () => {
     },
     {
       title: 'Historical',
+      name: 'Carlos J. Gonzalez',
       subtitle: 'Chaco, ARG',
       rol: 'Ingeniero',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
@@ -42,6 +46,7 @@ export const Landing = () => {
     {
       title: 'Nosy',
       subtitle: 'Santa Cruz, ARG',
+      name: 'Carlos J. Gonzalez',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 1,
@@ -50,6 +55,7 @@ export const Landing = () => {
     },
     {
       title: 'Helpfull',
+      name: 'Carlos J. Gonzalez',
       subtitle: 'Salta, ARG',
       rol: 'Obrero',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
@@ -61,6 +67,7 @@ export const Landing = () => {
       title: 'Immediate',
       subtitle: 'Catamarca, ARG',
       rol: 'Arquitecto',
+      name: 'Carlos J. Gonzalez',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
@@ -70,6 +77,7 @@ export const Landing = () => {
       title: 'American',
       subtitle: 'La Pampa, ARG',
       rol: 'Arquitecto',
+      name: 'Carlos J. Gonzalez',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
@@ -79,6 +87,7 @@ export const Landing = () => {
       title: 'Bitter',
       subtitle: 'Cordoba, ARG',
       rol: 'Arquitecto',
+      name: 'Carlos J. Gonzalez',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
@@ -223,9 +232,11 @@ export const Landing = () => {
       <img
         src={wavecir}
         alt="wavecir"
-        className="absolute ml-28 mt-9 h-40 w-60"
+        className="absolute ml-28 mt-9 h-40 w-60 animate-pulse duration-500"
       />
-      <CardBox data={data} />
+      <div className="z-0 flex w-full justify-center">
+        <CardBox data={data} />
+      </div>
       <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
         {data.map(
           (
