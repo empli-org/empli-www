@@ -116,7 +116,6 @@ export const Landing = () => {
         />
         <img src={circle} alt="circle" className="absolute z-0 h-all w-all" />
       </div>
-      <div className="mx-auto max-w-screen-lg p-12 mt-6">
       <div className="mx-auto mt-6 max-w-screen-lg p-12">
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">
@@ -144,14 +143,9 @@ export const Landing = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="w-full h-auto shadow-2xl">
-        <h1 className="text-4xl font-amenable text-center text-blue-whale p-5">
-=======
       <CardLarge />
       <div className="h-auto w-full shadow-2xl">
         <h1 className="p-5 text-center font-amenable text-4xl text-blue-whale">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
           Hemos reclutado a los profesionales de grandes proyectos
           <br /> en entidades importantes.{' '}
         </h1>
@@ -178,33 +172,19 @@ export const Landing = () => {
           />
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="w-full h-auto flex flex-col shadow-xl">
-        <div className="w-3/5 flex p-4">
-=======
       <div className="flex h-auto w-full flex-col shadow-xl">
         <div className="flex w-3/5 p-4">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
           <img
             src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-9.png?w=773&ssl=1"
             alt="logo"
             className="h-80 w-auto"
           />
-<<<<<<< HEAD
-          <div className="flex flex-col justify-evenly m-4">
-            <h1 className="text-2xl font-amenable font-bold">
-              ¿Buscas una forma fácil de encontrar trabajo en tu campo?
-            </h1>{' '}
-            <br />
-            <p className="font-quicksand-light font-semibold text-lg">
-=======
           <div className="m-4 flex flex-col justify-evenly">
             <h1 className="font-amenable text-2xl font-bold">
               ¿Buscas una forma fácil de encontrar trabajo en tu campo?
             </h1>{' '}
             <br />
             <p className="font-quicksand-light text-lg font-semibold">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
               Nuestra plataforma de trabajo conecta a profesionales como tú con
               una amplia variedad de oportunidades laborales. Simplemente crea
               tu perfil, comparte tus habilidades y experiencia, y comienza a
@@ -214,26 +194,15 @@ export const Landing = () => {
             </p>
           </div>
         </div>
-<<<<<<< HEAD
-        <div className="w-full flex justify-end">
-          <div className="w-8/12 flex p-4">
-            <div className="flex flex-col justify-evenly m-4">
-              <h1 className="text-2xl font-amenable font-bold">
-=======
         <div className="flex w-full justify-end">
           <div className="flex w-8/12 p-4">
             <div className="m-4 flex flex-col justify-evenly">
               <h1 className="font-amenable text-2xl font-bold">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
                 ¿Buscas a los mejores profesionales para tus proyectos y
                 trabajos?
               </h1>{' '}
               <br />
-<<<<<<< HEAD
-              <p className="font-quicksand-light font-semibold text-lg">
-=======
               <p className="font-quicksand-light text-lg font-semibold">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
                 Nuestra plataforma de trabajo te permite publicar ofertas de
                 trabajo de manera fácil y conveniente, lo que te permite llegar
                 a una amplia audiencia de candidatos calificados. Utiliza
@@ -257,11 +226,7 @@ export const Landing = () => {
         className="absolute ml-28 mt-9 h-40 w-60"
       />
       <CardBox data={data} />
-<<<<<<< HEAD
-      <div className="p2 w-11/12 h-auto m-6 flex flex-wrap justify-center rounded-s-2xl shadow-lg">
-=======
       <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -283,15 +248,9 @@ export const Landing = () => {
             )
           },
         )}
-<<<<<<< HEAD
-        <div className="flex justify-center w-full">
-          <Link to="/talents" className="w-28 h-15">
-            <p className="text-blue-whale font-quicksand-light font-bold text-xl text-center mt-5 w-auto">
-=======
         <div className="flex w-full justify-center">
           <Link to="/talents" className="h-15 w-28">
             <p className="mt-5 w-auto text-center font-quicksand-light text-xl font-bold text-blue-whale">
->>>>>>> 9ac8b07d0b50e7e91156c6b8f94be1bac934ad09
               Ver más
             </p>
           </Link>
