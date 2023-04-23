@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useGetJobsQuery } from 'redux/features/api/base'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
@@ -44,7 +45,7 @@ export const DashProfessionalOffers = () => {
       <Container>
         <div className="py-4">
           <h1 className="text-center text-xl font-bold md:text-2xl">
-            Explore las mejores ofertas laborales
+            HOLAAAAAAAAAAA
           </h1>
         </div>
         <header className="flex items-center justify-between py-4">
@@ -128,7 +129,7 @@ export const DashProfessionalOffers = () => {
         <div className="flex flex-col items-center justify-center gap-4 py-4">
           <ul className="scrollbar-hide flex items-center overflow-x-auto">
             <li className="cursor-pointer whitespace-nowrap rounded-lg bg-slate-200 p-2 px-4">
-              Todos
+              Hola
             </li>
             <li className="cursor-pointer whitespace-nowrap rounded-lg px-4 py-2 text-slate-600">
               Populares
