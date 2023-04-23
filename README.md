@@ -25,6 +25,7 @@ Work in progress.
 
 * Ronald J Echeverry - [![Linkedin]](https://www.linkedin.com/in/ronaldjdev/) [![Github]](https://github.com/ronaldjdev)
 * Francisco A. Myers - [![Linkedin]](https://www.linkedin.com/in/francisco-myers-148a7919a/) [![Github]](https://github.com/Solideomyers)
+* Santiago T. Jurado Pastrana - [![Linkedin]](https://www.linkedin.com/in/santiago-jurado-288200249/) [![Github]](https://github.com/santij25)
 
 
 Project Link: [https://github.com/empli-org/empli-www](https://github.com/empli-org/empli-www)
