@@ -1,5 +1,5 @@
 // @ts-ignore
-import nuevo from '../assets/img/empresa9.jpeg'
+import nuevo from '../assets/img/fondo6.jpg'
 // @ts-ignore
 import lupa from '../assets/img/lupa.webp'
 // @ts-ignore
@@ -23,7 +23,7 @@ const HomeEmpresa = () => {
   return (
     <div>
       <h1
-        className="titulo"
+        className="titulo  flex bg-cover"
         style={{
           position: 'absolute',
 
@@ -35,13 +35,13 @@ const HomeEmpresa = () => {
           zIndex: 2,
         }}
       >
-        ¿Necesitas el mejor talento para tus proyectos de construcción?
+        ¿Necesitas el mejor talento para tus Proyectos de Construcción?
       </h1>
       <h2
-        className="titulo-2"
+        className="titulo-2 "
         style={{
           position: 'absolute',
-          bottom: '55%',
+          bottom: '48%',
           left: '32%',
           transform: 'translate(-50%, -50%)',
           textAlign: 'center',
@@ -49,8 +49,8 @@ const HomeEmpresa = () => {
           zIndex: 2,
         }}
       >
-        En EMPLI conseguirás todas las ofertas laborales disponibles para tu
-        Empresa.
+        En EMPLI conseguirás todas las ofertas laborales disponibles <br></br>{' '}
+        para tu Empresa.
       </h2>
 
       <button
@@ -58,7 +58,7 @@ const HomeEmpresa = () => {
         style={{
           position: 'absolute',
           top: '52%',
-          left: '50%',
+          left: '49.7%',
           transform: 'translate(-50%, -50%)',
           textAlign: 'center',
           color: 'white',
@@ -232,6 +232,8 @@ const HomeEmpresa = () => {
           <section className="redes-sociales">
             <div>
               <a
+                target="_blank"
+                rel="noreferrer"
                 className="enlace"
                 href="https://m.facebook.com/Empli.org"
                 title="Seguir en Facebook"
@@ -242,6 +244,8 @@ const HomeEmpresa = () => {
             <div>
               <a
                 className="enlace"
+                target="_blank"
+                rel="noreferrer"
                 href="https://www.instagram.com/empli_org"
                 title="Seguir en Instagram"
               >
@@ -251,6 +255,8 @@ const HomeEmpresa = () => {
             <div>
               <a
                 className="enlace"
+                target="_blank"
+                rel="noreferrer"
                 href="https://pe.linkedin.com/company/empli?trk=public_profile_topcard-current-company"
                 title="Seguir en LinkedIn"
               >
