@@ -7,6 +7,12 @@ import dialogue from '../assets/Landing/dialogue.svg'
 import text from '../assets/Landing/text.svg'
 import wave from '../assets/Landing/wave.svg'
 import wavecir from '../assets/Landing/wavecir.svg'
+import lupa from '@/assets/img/lupa.webp'
+import pj from '@/assets/img/persona2.png'
+import empresa1 from '@/assets/img/empresa.webp'
+import empresa2 from '@/assets/img/empresa2.webp'
+import empresa3 from '@/assets/img/empresa3.webp'
+import empresa4 from '@/assets/img/empresa4.webp'
 
 export const Landing = () => {
   // Data sirve unicamente para probar que las cards,
@@ -159,35 +165,15 @@ export const Landing = () => {
           <br /> en entidades importantes.{' '}
         </h1>
         <div className="my-12 flex justify-between p-5">
-          <img
-            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Reconstruccion-con-Cambios.png?resize=1080%2C478&ssl=1"
-            alt="logo"
-            className="h-24 w-52"
-          />
-          <img
-            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Escuelas-Bicentenario-1.png?resize=1080%2C478&ssl=1"
-            alt="logo"
-            className="h-24 w-52"
-          />
-          <img
-            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/PMSUT.png?resize=1080%2C478&ssl=1"
-            alt="logo"
-            className="h-24 w-52"
-          />
-          <img
-            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Las-Bambas.png?resize=1080%2C478&ssl=1"
-            alt="logo"
-            className="h-24 w-52"
-          />
+          <img src={empresa1} alt="logo" className="h-24 w-52" />
+          <img src={empresa2} alt="logo" className="h-24 w-52" />
+          <img src={empresa3} alt="logo" className="h-24 w-52" />
+          <img src={empresa4} alt="logo" className="h-24 w-52" />
         </div>
       </div>
       <div className="flex h-auto w-full flex-col shadow-xl">
         <div className="flex w-3/5 p-4">
-          <img
-            src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-9.png?w=773&ssl=1"
-            alt="logo"
-            className="h-80 w-auto"
-          />
+          <img src={pj} alt="logo" className="h-80 w-auto" />
           <div className="m-4 flex flex-col justify-evenly">
             <h1 className="font-amenable text-2xl font-bold">
               ¿Buscas una forma fácil de encontrar trabajo en tu campo?
@@ -221,11 +207,7 @@ export const Landing = () => {
                 sido más fácil.
               </p>
             </div>
-            <img
-              src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-1-1.png?w=1072&ssl=1"
-              alt="logo"
-              className="h-auto w-80"
-            />
+            <img src={lupa} alt="logo" className="h-auto w-80" />
           </div>
         </div>
       </div>
