@@ -10,6 +10,7 @@ export default {
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
         'contact-img': "url('/src/assets/bg-cont.svg')",
+        oficina: "url('/src/assets/img/oficina.jpg')",
       },
       gridTemplateColumns: {
         listing: 'repeat(auto-fill, minmax(375px, 1fr))',
