@@ -22,15 +22,15 @@ export default function InfoProfessionals() {
           Descubre nuevas oportunidades laborales
         </h1>
       </div>
-      <div className="flex justify-evenly items-center w-full bg-blue-whale">
+      <div className="flex justify-evenly items-center w-full bg-hint-of-red">
         <div className="flex flex-col w-1/3 my-32" data-aos="fade-right">
-          <h1 className="font-amenable text-3xl text-center text-hint-of-red">
+          <h1 className="font-amenable text-3xl text-center font-bold text-blue-whale">
             ¿Te gustaría encontrar nuevas oportunidades laborales en la
             construcción?
           </h1>
           <div className="my-6 w-56 rounded-2xl border-t-4 border-bg-green"></div>
           <br />
-          <p className="font-quicksand-light text-2xl text-hint-of-red">
+          <p className="font-quicksand-light font-semibold text-2xl text-blue-whale">
             Si es así, ¡estás en el lugar correcto! Únete a nuestra comunidad de
             talentos y descubre nuevas oportunidades de trabajo, mejora tus
             habilidades laborales y amplía tu red de contactos en el sector de
