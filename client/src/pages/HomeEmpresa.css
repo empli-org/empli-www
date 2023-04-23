@@ -3,21 +3,21 @@
   margin-bottom: 500px;
   border-radius: 12px;
   font-weight: bold;
-  background: #fafafa10;
-  backdrop-filter: blur(0.1rem);
+  /* background: #fafafa10;
+  backdrop-filter: blur(0.1rem); */
   left: 500px;
 }
 
 .empresa {
-  filter: blur(8px);
+  filter: blur(2px);
   /* filter: brightness(0.7); */
 }
 
 .titulo-2 {
   font-size: 25px;
   font-weight: bold;
-  background: #fafafa10;
-  backdrop-filter: blur(0.1rem);
+  /* background: #fafafa10;
+  backdrop-filter: blur(0.1rem); */
   margin-left: 378px;
   border-radius: 5px;
 }
