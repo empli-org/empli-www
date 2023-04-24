@@ -42,11 +42,6 @@ export const DashProfessionalOffers = () => {
   return (
     <div>
       <Container>
-        <div className="py-4">
-          <h1 className="text-center text-xl font-bold md:text-2xl">
-            Explore las mejores ofertas laborales
-          </h1>
-        </div>
         <header className="flex items-center justify-between py-4">
           <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 rounded-lg bg-slate-100 px-2 py-4 sm:p-8">
             <div className="flex w-full items-center justify-between gap-4">
