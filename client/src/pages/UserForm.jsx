@@ -308,7 +308,6 @@ function ContactInfo() {
     </>
   )
 }
-
 function CVForm() {
   const [file, setFile] = useState(null)
   const { loading, data, error } = useUpload(file)
