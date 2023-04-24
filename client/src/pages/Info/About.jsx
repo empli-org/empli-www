@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useEffect } from 'react'
-import obs from '@/assets/contact/obs.svg'
-import obs2 from '@/assets/contact/obs2.svg'
+import obs from '@/assets/Contact/obs.svg'
+import obs2 from '@/assets/Contact/obs2.svg'
 import one from '@/assets/numbers/1.svg'
 import two from '@/assets/numbers/2.svg'
 import three from '@/assets/numbers/3.svg'
