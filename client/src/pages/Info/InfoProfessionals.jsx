@@ -47,7 +47,7 @@ export default function InfoProfessionals() {
           data-aos="fade-right"
         />
         <div
-          className="w-1/2 my-28 border-double border-8 border-gulf-stream p-20 shadow-2xl shadow-gulf-stream"
+          className="w-1/2 my-28 border-double border-8 border-yellow-border p-20 shadow-2xl shadow-yellow-border"
           data-aos="zoom-in"
         >
           <p className="font-quicksand-light text-3xl text-blue-whale font-semibold">
