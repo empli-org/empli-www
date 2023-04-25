@@ -5,14 +5,22 @@ import { motion } from 'framer-motion'
 export const Publication = ({ publicacion, onSeleccionarPublicacion }) => {
   return (
     <motion.div
-      className="cursor-pointer overflow-hidden rounded-lg bg-white shadow-lg"
+      className="group w-full cursor-pointer rounded-2xl p-4 hover:overflow-hidden"
       whileHover={{ scale: 1.05 }}
       onClick={() => onSeleccionarPublicacion(publicacion)}
     >
-      <div className="p-4">
-        <img src={publicacion.url} alt={publicacion.author} />
-        <h2 className="mb-2 text-xl font-bold">{publicacion.titulo}</h2>
-        <p className="text-base text-gray-700">{publicacion.descripcion}</p>
+      <img
+        src={publicacion.url}
+        alt={publicacion.author}
+        className="rounded-2xl group-hover:bg-hint-of-red group-hover:shadow-lg group-hover:shadow-black"
+      />
+      <div className="backdrop-blur-4xl mt-2 rounded-3xl bg-opacity-60 p-4 shadow-2xl backdrop-filter">
+        <h2 className="mb-2 text-xl font-bold text-gray-700 group-hover:text-black">
+          {publicacion.titulo}
+        </h2>
+        <p className="text-base text-transparent group-hover:text-gray-700">
+          {publicacion.descripcion}
+        </p>
       </div>
     </motion.div>
   )
