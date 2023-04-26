@@ -62,6 +62,7 @@ export async function getAllTalents(req: Request, res: Response) {
         lastname: true,
         image: true,
         verified: true,
+        userEmail: true,
         career: {
           select: {
             name: true,
@@ -162,5 +163,26 @@ export async function getTalentById(req: Request, res: Response) {
     return res
       .status(500)
       .json({ error: true, status: 500, message: "Fail to fetch data" });
+  }
+}
+
+export async function createTalent(req: Request, res: Response) {
+  try {
+    const { name, email, plan } = req.body;
+    const created = await db.talent.create({
+      data: {
+        name,
+        userEmail: email,
+        plan,
+        verified: plan && plan !== "FREE",
+      },
+    });
+    if (!created)
+      return res.status(400).json({ message: "Fail to create talent" });
+    return res.json(created);
+  } catch {
+    return res
+      .status(400)
+      .json({ error: true, status: 400, message: "Fail to create talent" });
   }
 }
