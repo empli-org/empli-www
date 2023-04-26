@@ -11,7 +11,7 @@ export function paymentRoutes() {
 	const router = express.Router();
 	router.route("/").get((_req:Request, res:Response) => {
 		res.json({
-			"/plans": "Listar Planes",
+			"/plan": "Listar Planes",
 			"/plan/link": "genera link de creacion Planes",
 			"/plan/:id": "Info/Edit plan especifico",
 			"/convert": "Traquea la moneda local",

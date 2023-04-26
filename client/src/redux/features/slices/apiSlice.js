@@ -18,6 +18,7 @@ const endpoints = {
   talents: 'talents',
   categories: 'categories',
   careers: 'careers',
+  plan: 'plans',
 }
 
 //* Función para configurar los headers de las peticiones
@@ -195,40 +196,33 @@ export const apiSlice = createApi({
       }),
     }),
 
-    // * Endpoints Payment
+    // * Endpoints Plan
 
-    getPayment: builder.query({
+    getPlan: builder.query({
       query: () => ({
-        url: endpoints.payment,
+        url: endpoints.plan,
         method: 'GET',
         mode: 'cors',
       }),
-      providesTags: ['Payment'],
+      providesTags: ['Plan'],
     }),
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
-    createPayment: builder.mutation({
-      query: newPayment => ({
-        url: `${endpoints.payment}/`,
+    createPlan: builder.mutation({
+      query: newPlan => ({
+        url: `${endpoints.Plan}/link`,
         method: 'POST',
-        body: newPayment,
+        body: newPlan,
         mode: 'cors',
         prepareHeaders: headers => setHeaders(headers),
       }),
     }),
-    updatePayment: builder.mutation({
-      query: updatePayment => ({
-        url: `${endpoints.payment}/${updatePayment.id}/`,
-        method: 'PATCH',
-        body: updatePayment,
+    updatePlan: builder.mutation({
+      query: updatePlan => ({
+        url: `${endpoints.Plan}/${updatePlan.id}/`,
+        method: 'PUT',
+        body: updatePlan,
         mode: 'cors',
         prepareHeaders: headers => setHeaders(headers),
-      }),
-    }),
-    deletePayment: builder.mutation({
-      query: id => ({
-        url: `${endpoints.Payment}/${id}/`,
-        method: 'DELETE',
-        headers: headers => setHeaders(headers),
       }),
     }),
   }),
@@ -250,4 +244,7 @@ export const {
   useCreateCategoriesMutation,
   useDeleteCategoriesMutation,
   useUpdateCategoriesMutation,
+  useGetPlanQuery,
+  useCreatePlanMutation,
+  useUpdatePlanMutation,
 } = apiSlice
