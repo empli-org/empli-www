@@ -140,7 +140,7 @@ export const Contact = () => {
         </a>
       </div>
       <h1
-        className="text-center font-amenable lg:text-5xl sm:text-4xl xs:text-3xl text-2xl font-bold text-blue-font"
+        className="text-center font-amenable mt-8 xs:mt-0 lg:text-5xl sm:text-4xl xs:text-3xl text-2xl font-bold text-blue-font"
         data-aos="zoom-in"
       >
         Formulario de contacto
