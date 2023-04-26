@@ -146,7 +146,6 @@ export const CardLarge = () => {
           {info.companies.length * 20}K
         </h1>
       </div>
-      <CardGlass />
     </div>
   )
 }

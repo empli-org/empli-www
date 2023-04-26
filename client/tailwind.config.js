@@ -2,11 +2,12 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    fontFamily: {
-      amenable: ['Amenable', 'ui-sans-serif'],
-      'quicksand-light': ['Quicksand', 'ui-sans-serif'],
-    },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+        amenable: ['Amenable', 'sans-serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
+      },
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
         'contact-img': "url('/src/assets/bg-cont.svg')",

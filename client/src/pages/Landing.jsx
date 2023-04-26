@@ -1,15 +1,22 @@
 // @ts-nocheck
-import { MiniCard, CardBox, Container, CardLarge } from '@/components'
+import {
+  MiniCard,
+  CardBox,
+  Container,
+  CardLarge,
+  CardGlass,
+  SlideCompanies,
+  InfoCard,
+} from 'components'
 import { Link } from 'react-router-dom'
-import ob from '../assets/Landing/ob.svg'
-import circle from '../assets/Landing/circle.svg'
-import dialogue from '../assets/Landing/dialogue.svg'
-import text from '../assets/Landing/text.svg'
-import wave from '../assets/Landing/wave.svg'
-import wavecir from '../assets/Landing/wavecir.svg'
-import lupa from '@/assets/img/lupa.webp'
-import pj from '@/assets/img/persona2.png'
-import { SlideCompanies } from '@/components/SlideCompanies/SlideCompanies'
+import ob from 'assets/Landing/ob.svg'
+import circle from 'assets/Landing/circle.svg'
+import dialogue from 'assets/Landing/dialogue.svg'
+import text from 'assets/Landing/text.svg'
+import wave from 'assets/Landing/wave.svg'
+import wavecir from 'assets/Landing/wavecir.svg'
+import lupa from 'assets/img/lupa.webp'
+import pj from 'assets/img/persona2.png'
 
 export const Landing = () => {
   // Data sirve unicamente para probar que las cards,
@@ -128,7 +135,8 @@ export const Landing = () => {
         />
         <img src={circle} alt="circle" className="absolute z-0 h-all w-all" />
       </div>
-      <div className="mx-auto mt-6 max-w-screen-lg p-12">
+
+      <div className="mx-auto mt-6 max-w-screen-lg bg-#F3FEFA p-12 relative">
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">
             Encuentra{' '}
@@ -138,6 +146,9 @@ export const Landing = () => {
             <br />
             Oferta de Trabajo
           </h1>
+        </div>
+        <div className="z-10 absolute ">
+          <CardGlass />
         </div>
         <div className="mt-8">
           <h2 className="mt-2 text-lg">
@@ -156,6 +167,7 @@ export const Landing = () => {
         </div>
       </div>
       <CardLarge />
+
       <div className="mt-10 h-auto w-full shadow-sm ">
         <h1 className="bg-opacity-60 p-5 text-center font-amenable text-4xl text-blue-whale backdrop-blur-3xl backdrop-filter">
           Hemos reclutado a los profesionales de grandes proyectos
@@ -163,14 +175,22 @@ export const Landing = () => {
         </h1>
         <SlideCompanies />
       </div>
+
+      <InfoCard
+        image={pj}
+        title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
+        description="Nuestra plataforma de trabajo conecta a profesionales como tú con
+              una amplia variedad de oportunidades laborales. Simplemente crea
+              tu perfil, comparte tus habilidades y experiencia, y comienza a
+              postularte a los trabajos que más te interesen. Recibe alertas de
+              trabajos relevantes y solicitudes de trabajo y compara las ofertas
+              de trabajo en un solo lugar."
+      />
       <div className="flex h-auto w-full flex-col shadow-xl">
         <div className="flex w-3/5 p-4">
           <img src={pj} alt="logo" className="h-80 w-auto" />
           <div className="m-4 flex flex-col justify-evenly">
-            <h1 className="font-amenable text-2xl font-bold">
-              ¿Buscas una forma fácil de encontrar trabajo en tu campo?
-            </h1>{' '}
-            <br />
+            <h1 className="font-amenable text-2xl font-bold"></h1> <br />
             <p className="font-quicksand-light text-lg font-semibold">
               Nuestra plataforma de trabajo conecta a profesionales como tú con
               una amplia variedad de oportunidades laborales. Simplemente crea
@@ -203,14 +223,17 @@ export const Landing = () => {
           </div>
         </div>
       </div>
+
       <img
         src={wavecir}
         alt="wavecir"
         className="absolute ml-28 mt-9 h-40 w-60 animate-pulse duration-500"
       />
+
       <div className="z-0 flex w-full justify-center">
         <CardBox data={data} />
       </div>
+
       <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
         {data.map(
           (

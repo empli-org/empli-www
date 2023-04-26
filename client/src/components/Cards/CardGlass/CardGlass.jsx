@@ -3,16 +3,16 @@ import { FaDraftingCompass } from 'react-icons/fa'
 
 export const CardGlass = () => {
   return (
-    <div className="backdrop-blur-4xl absolute -top-40 right-96 z-50 flex w-4/12 justify-stretch rounded-2xl bg-white bg-opacity-80 px-1 shadow-inner backdrop-filter hover:shadow-inner hover:shadow-gulf-stream">
-      <div className="w-1/5">
+    <div className="backdrop-blur-4xl absolute bottom-20 right-96 z-50 flex w-100 h-20 rounded-2xl bg-white bg-opacity-80 px-1 shadow-inner backdrop-filter hover:shadow-inner hover:shadow-gulf-stream">
+      <div className="w-100 h-100 bg-purple-100">
         <img
-          className="w-full rounded-2xl p-2"
+          className="w-20 h-20 rounded-2xl p-2"
           src="https://th.bing.com/th/id/R.860c18f42440cb416f97fd5a85bc8305?rik=OkJYS3%2fKcz%2fBtw&pid=ImgRaw&r=0"
           alt="logo"
         />
       </div>
 
-      <div className=" flex w-full flex-col justify-center">
+      <div className=" flex w-full  flex-col justify-center">
         <div className="flex items-center justify-start gap-x-10">
           <span className="mb-2 flex text-xs font-bold text-black">
             Carlos J. Gonzalez
