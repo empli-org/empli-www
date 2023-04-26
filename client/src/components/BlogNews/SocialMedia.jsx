@@ -1,3 +1,4 @@
+// @ts-ignore
 import { LinkedInEmbed } from 'react-social-media-embed'
 
 export const SocialMedia = () => {
