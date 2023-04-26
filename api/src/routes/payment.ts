@@ -6,14 +6,15 @@ import {
 	putMpPlanApi,
 } from "../controllers/plans/PlanControllerAPI";
 import { getMoneyData } from "../controllers/ExchangeController";
-import { getMpSubscriptionLinkApi } from "../controllers/subscriptions/SubscriptionControllerAPI";
 
 export function paymentRoutes() {
 	const router = express.Router();
 	router.route("/").get((_req:Request, res:Response) => {
 		res.json({
-			"/subscription": "generar link de suscripcion",
-			"/plans": "generar link de planes",
+			"/plans": "Listar Planes",
+			"/plan/link": "genera link de creacion Planes",
+			"/plan/:id": "Info/Edit plan especifico",
+			"/convert": "Traquea la moneda local",
 		});
 	});
 	/* * * * * * * * * * * *  *
@@ -21,7 +22,6 @@ export function paymentRoutes() {
 	 * * * * * * * * * * * *  */
 
 	// * Por API
-	router.route("/subscription").post(getMpSubscriptionLinkApi);
 
 	/* * * * * * * * * *
 	 * RUTAS DE PLANES *

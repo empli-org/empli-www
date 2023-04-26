@@ -46,9 +46,9 @@ export const getPlanLinkApi = async (pref) => {
 			}));
 		console.log(mp.data);
 		return linkCheckout;
-	} catch (err) {
-		console.log(err);
-		return false;
+	} catch (e) {
+		console.log(e);
+		return e;
 	}
 };
 

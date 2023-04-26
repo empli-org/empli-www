@@ -2,9 +2,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line no-unused-vars
-const headers = {
-  'Content-type': 'application/json;',
-}
+const TOKEN = import.meta.env.VITE_MP_PUB_KEY
+// const headers = {
+//   'Content-type': 'application/json;',
+//   Authorization: `Bearer ${TOKEN}`,
+// }
 
 //* Creamos una instancia de "fetchBaseQuery" con la URL base de la API
 const baseQuery = fetchBaseQuery({
@@ -21,6 +23,7 @@ const endpoints = {
 //* Función para configurar los headers de las peticiones
 const setHeaders = headers => {
   headers['Content-type'] = 'application/json;'
+  headers['Authorization'] = `Bearer ${TOKEN}`
   return headers
 }
 
@@ -187,6 +190,43 @@ export const apiSlice = createApi({
     deleteCareers: builder.mutation({
       query: id => ({
         url: `${endpoints.careers}/${id}/`,
+        method: 'DELETE',
+        headers: headers => setHeaders(headers),
+      }),
+    }),
+
+    // * Endpoints Payment
+
+    getPayment: builder.query({
+      query: () => ({
+        url: endpoints.payment,
+        method: 'GET',
+        mode: 'cors',
+      }),
+      providesTags: ['Payment'],
+    }),
+    // //transformResponse: res => res.sort((a,b) => b.id - a.id)
+    createPayment: builder.mutation({
+      query: newPayment => ({
+        url: `${endpoints.payment}/`,
+        method: 'POST',
+        body: newPayment,
+        mode: 'cors',
+        prepareHeaders: headers => setHeaders(headers),
+      }),
+    }),
+    updatePayment: builder.mutation({
+      query: updatePayment => ({
+        url: `${endpoints.payment}/${updatePayment.id}/`,
+        method: 'PATCH',
+        body: updatePayment,
+        mode: 'cors',
+        prepareHeaders: headers => setHeaders(headers),
+      }),
+    }),
+    deletePayment: builder.mutation({
+      query: id => ({
+        url: `${endpoints.Payment}/${id}/`,
         method: 'DELETE',
         headers: headers => setHeaders(headers),
       }),
