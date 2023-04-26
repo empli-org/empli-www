@@ -15,7 +15,7 @@ export const MiniCard = ({
   // esta variable sera renderizada unicamente si se recibe por props amount y time.
   // de igual modo se hace con la variable btn. de esta forma hacemos que el componente sea dinamico y reutilizable
   const price = (
-    <div className="mx-1 flex w-full justify-center gap-x-24 mt-2">
+    <div className="mx-1 mt-2 flex w-full justify-center gap-x-24">
       <div>
         <span className="font-bold">${amount}K/</span>
         <span>mes</span>

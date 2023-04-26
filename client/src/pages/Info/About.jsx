@@ -17,7 +17,7 @@ export const About = () => {
     AOS.init({ duration: 2000 })
   }, [])
   return (
-    <div className="w-screen h-auto">
+    <div className="h-auto w-screen">
       <div className="bg-white-font">
         <div className="h-50 flex w-auto items-center justify-center bg-contact-img bg-cover p-2">
           <h1 className="font-amenable text-6xl font-bold text-blue-font">
@@ -164,9 +164,9 @@ export const About = () => {
         <img
           src="https://i0.wp.com/empli.org/wp-content/uploads/2022/09/Recurso-2-1.png?w=1014&ssl=1"
           alt="logo"
-          className="h-100 mr-9"
+          className="mr-9 h-100"
         />
-        <div className="w-2/5 flex flex-col justify-center">
+        <div className="flex w-2/5 flex-col justify-center">
           <h1 className="font-amenable text-5xl text-hint-of-red">
             ¿Listo para que trabajemos juntos?
           </h1>
@@ -180,10 +180,10 @@ export const About = () => {
             laborales perfectas. <br /> Crea tu perfil y comienza a postularte o
             publicar ofertas de trabajo hoy mismo.
           </p>
-          <div className="mt-4 flex items-center gap-4 py-6 justify-center">
+          <div className="mt-4 flex items-center justify-center gap-4 py-6">
             <Link
               to="/auth/register"
-              className="rounded-lg bg-gulf-stream px-6 py-4 text-hint-of-red font-amenable"
+              className="rounded-lg bg-gulf-stream px-6 py-4 font-amenable text-hint-of-red"
             >
               Comenzar
             </Link>

@@ -9,10 +9,7 @@ import wave from '../assets/Landing/wave.svg'
 import wavecir from '../assets/Landing/wavecir.svg'
 import lupa from '@/assets/img/lupa.webp'
 import pj from '@/assets/img/persona2.png'
-import empresa1 from '@/assets/img/empresa.webp'
-import empresa2 from '@/assets/img/empresa2.webp'
-import empresa3 from '@/assets/img/empresa3.webp'
-import empresa4 from '@/assets/img/empresa4.webp'
+import { SlideCompanies } from '@/components/SlideCompanies/SlideCompanies'
 
 export const Landing = () => {
   // Data sirve unicamente para probar que las cards,
@@ -159,17 +156,12 @@ export const Landing = () => {
         </div>
       </div>
       <CardLarge />
-      <div className="h-auto w-full shadow-2xl mt-10">
-        <h1 className="p-5 text-center font-amenable text-4xl text-blue-whale">
+      <div className="mt-10 h-auto w-full shadow-sm ">
+        <h1 className="bg-opacity-60 p-5 text-center font-amenable text-4xl text-blue-whale backdrop-blur-3xl backdrop-filter">
           Hemos reclutado a los profesionales de grandes proyectos
           <br /> en entidades importantes.{' '}
         </h1>
-        <div className="my-12 flex justify-between p-5">
-          <img src={empresa1} alt="logo" className="h-24 w-52" />
-          <img src={empresa2} alt="logo" className="h-24 w-52" />
-          <img src={empresa3} alt="logo" className="h-24 w-52" />
-          <img src={empresa4} alt="logo" className="h-24 w-52" />
-        </div>
+        <SlideCompanies />
       </div>
       <div className="flex h-auto w-full flex-col shadow-xl">
         <div className="flex w-3/5 p-4">

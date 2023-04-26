@@ -15,7 +15,6 @@ import {
   Error404,
   Offers,
 } from 'pages'
-import UserProfileForm from './pages/UserForm'
 import PricingPage from './pages/Info/pricing/Pricing'
 import Media from './pages/Community/Media'
 import HomeEmpresa from './pages/HomeEmpresa'
@@ -29,6 +28,7 @@ import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDas
 import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
 import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
 import InfoProfessionals from './pages/Info/InfoProfessionals'
+import UserProfile from './pages/UserForm'
 
 export const router = createBrowserRouter([
   {
@@ -152,16 +152,12 @@ export const router = createBrowserRouter([
         element: <DashProfessionalOffers />,
       },
       {
-        path: '/dashboard/professional/favorites',
+        path: '/dashboard/professional/saved',
         element: <h1 className="text-xl font-bold">Listado de Favoritos</h1>,
       },
       {
-        path: '/dashboard/professional/preferences',
-        element: <h1 className="text-xl font-bold">Preferencias</h1>,
-      },
-      {
         path: '/dashboard/professional/profile',
-        element: <UserProfileForm />,
+        element: <UserProfile />,
       },
     ],
   },

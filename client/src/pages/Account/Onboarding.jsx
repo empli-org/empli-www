@@ -11,14 +11,12 @@ import { Step4 } from './steps/Step4'
 import { Step6 } from './steps/Step6'
 
 export const Onboarding = () => {
-  const { selectedPlan, activeStep, setActiveStep, direction } =
-    useContext(AppContext)
+  const { selectedPlan, activeStep, direction } = useContext(AppContext)
 
   if (activeStep === 5) {
     if (selectedPlan.name === 'Premium') {
       return <Navigate to="/account/payment" />
     }
-    setActiveStep(6)
   }
 
   return (
@@ -39,7 +37,7 @@ export const Onboarding = () => {
                 {activeStep === 2 && <Step2 />}
                 {activeStep === 3 && <Step3 />}
                 {activeStep === 4 && <Step4 />}
-                {activeStep === 6 && <Step6 />}
+                {(activeStep === 5 || activeStep === 6) && <Step6 />}
               </motion.div>
             </AnimatePresence>
           </div>

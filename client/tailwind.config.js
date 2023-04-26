@@ -46,6 +46,9 @@ export default {
       screens: {
         xs: '420px',
       },
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
