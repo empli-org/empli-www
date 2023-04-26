@@ -34,9 +34,11 @@ export const DashboardLayout = () => {
       <SignedIn>
         <div className="font-sans flex min-h-screen w-full bg-gray-50 text-gray-900">
           <aside className="fixed h-screen w-64 border-r border-gray-200 px-10 py-6">
-            <div className="w-24 text-blue-whale/50">
-              <EmpliLogo />
-            </div>
+            <Link to="/">
+              <div className="w-24 text-blue-whale/50">
+                <EmpliLogo />
+              </div>
+            </Link>
             <div className="flex h-full flex-col justify-between py-20">
               {itemsSide.map((group, idx) => (
                 <ul key={idx} className="flex flex-col gap-y-6">
