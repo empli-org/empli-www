@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useEffect } from 'react'
-import obs from '@/assets/Contact/obs.svg'
-import obs2 from '@/assets/Contact/obs2.svg'
+import obs from '@/assets/contact/obs.svg'
+import obs2 from '@/assets/contact/obs2.svg'
 import one from '@/assets/numbers/1.svg'
 import two from '@/assets/numbers/2.svg'
 import three from '@/assets/numbers/3.svg'
@@ -48,7 +48,7 @@ export const About = () => {
           </div>
         </div>
         <div
-          className="mb-14 mt-44 flex w-11/12 justify-end"
+          className="mt-44 mb-14 flex w-11/12 justify-end"
           data-aos="fade-left"
         >
           <div className="flex w-2/3 items-center">
@@ -158,7 +158,7 @@ export const About = () => {
         </div>
       </div>
       <div
-        className="flex h-circle w-full items-center justify-center bg-blue-whale"
+        className="w-full h-circle flex justify-center items-center bg-blue-whale"
         data-aos="zoom-in"
       >
         <img

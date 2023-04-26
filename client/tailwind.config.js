@@ -23,6 +23,7 @@ export default {
         'bg-lk': '#0a66c2',
         'color-google': '#F06464',
         'bg-green': '#70b39b',
+        'yellow-border': '#FFD15D',
         // Brand colors with names
         'hint-of-red': '#F6F2EC',
         fog: '#e0dadf',

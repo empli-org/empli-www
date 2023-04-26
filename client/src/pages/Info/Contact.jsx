@@ -11,11 +11,16 @@ import fb from '@/assets/Contact/fb.svg'
 import lk from '@/assets/Contact/lk.svg'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export const Contact = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 })
   }, [])
+
+  //sweetalert
+  const MySwal = withReactContent(Swal)
 
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
@@ -62,8 +67,9 @@ export const Contact = () => {
   }
 
   const onSubmit = data => {
-    console.log(data)
     sendFormData(data, form)
+    MySwal.fire('Listo!', 'Ya te contactaremos via email', 'success')
+    document.getElementById('form').reset()
   }
 
   return (
@@ -139,6 +145,7 @@ export const Contact = () => {
       >
         <form
           ref={form}
+          id="form"
           onSubmit={handleSubmit(onSubmit)}
           className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14 shadow-lg shadow-gray-900"
           noValidate="noValidate"
