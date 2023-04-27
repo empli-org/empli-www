@@ -175,53 +175,30 @@ export const Landing = () => {
         </h1>
         <SlideCompanies />
       </div>
-
-      <InfoCard
-        image={pj}
-        title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
-        description="Nuestra plataforma de trabajo conecta a profesionales como tú con
+      <div className="m-4">
+        <InfoCard
+          image={pj}
+          title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
+          description="Nuestra plataforma de trabajo conecta a profesionales como tú con
               una amplia variedad de oportunidades laborales. Simplemente crea
               tu perfil, comparte tus habilidades y experiencia, y comienza a
               postularte a los trabajos que más te interesen. Recibe alertas de
               trabajos relevantes y solicitudes de trabajo y compara las ofertas
               de trabajo en un solo lugar."
-      />
-      <div className="flex h-auto w-full flex-col shadow-xl">
-        <div className="flex w-3/5 p-4">
-          <img src={pj} alt="logo" className="h-80 w-auto" />
-          <div className="m-4 flex flex-col justify-evenly">
-            <h1 className="font-amenable text-2xl font-bold"></h1> <br />
-            <p className="font-quicksand-light text-lg font-semibold">
-              Nuestra plataforma de trabajo conecta a profesionales como tú con
-              una amplia variedad de oportunidades laborales. Simplemente crea
-              tu perfil, comparte tus habilidades y experiencia, y comienza a
-              postularte a los trabajos que más te interesen. Recibe alertas de
-              trabajos relevantes y solicitudes de trabajo y compara las ofertas
-              de trabajo en un solo lugar.
-            </p>
-          </div>
-        </div>
-        <div className="flex w-full justify-end">
-          <div className="flex w-8/12 p-4">
-            <div className="m-4 flex flex-col justify-evenly">
-              <h1 className="font-amenable text-2xl font-bold">
-                ¿Buscas a los mejores profesionales para tus proyectos y
-                trabajos?
-              </h1>{' '}
-              <br />
-              <p className="font-quicksand-light text-lg font-semibold">
-                Nuestra plataforma de trabajo te permite publicar ofertas de
-                trabajo de manera fácil y conveniente, lo que te permite llegar
-                a una amplia audiencia de candidatos calificados. Utiliza
-                nuestras herramientas para evaluar y comparar a los candidatos y
-                encontrar al mejor talento para tus necesidades empresariales.
-                Con nuestra plataforma, encontrar el talento adecuado nunca ha
-                sido más fácil.
-              </p>
-            </div>
-            <img src={lupa} alt="logo" className="h-auto w-80" />
-          </div>
-        </div>
+        />
+        <InfoCard
+          image={lupa}
+          title="¿Buscas a los mejores profesionales para tus proyectos y
+        trabajos?"
+          description="Nuestra plataforma de trabajo te permite publicar ofertas de
+        trabajo de manera fácil y conveniente, lo que te permite llegar
+        a una amplia audiencia de candidatos calificados. Utiliza
+        nuestras herramientas para evaluar y comparar a los candidatos y
+        encontrar al mejor talento para tus necesidades empresariales.
+        Con nuestra plataforma, encontrar el talento adecuado nunca ha
+        sido más fácil."
+          imageOnRight={true}
+        />
       </div>
 
       <img

@@ -1,8 +1,7 @@
-import React from 'react'
-import { CardPro } from '../CardPro/CardPro'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import { Link } from 'react-router-dom'
+import { Button, CardPro } from 'components'
 
 export const CardBox = ({ data }) => {
   const gruposDeDiez = data.reduce((accumulator, obj, index) => {
@@ -49,12 +48,8 @@ export const CardBox = ({ data }) => {
           820: { items: 4 },
         }}
       />
-      <div className="flex w-full justify-end">
-        <Link to="/talents" className="h-15 w-28">
-          <p className="mr-2 mt-1 w-28 rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
-            Ver más
-          </p>
-        </Link>
+      <div className="flex w-full p-2 justify-end">
+        <Button link="/talents" title="ver mas" />
       </div>
     </div>
   )

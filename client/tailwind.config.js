@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
         amenable: ['Amenable', 'sans-serif'],
         quicksand: ['Quicksand', 'sans-serif'],
+        // sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
