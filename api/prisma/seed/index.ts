@@ -15,20 +15,6 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("Seeding database");
 
-  /*
-  console.time("Clear database");
-  await prisma.project.deleteMany({ where: {} });
-  await prisma.talent.deleteMany({ where: {} });
-  await prisma.location.deleteMany({ where: {} });
-  await prisma.category.deleteMany({ where: {} });
-  await prisma.company.deleteMany({ where: {} });
-  await prisma.skill.deleteMany({ where: {} });
-  await prisma.career.deleteMany({ where: {} });
-  await prisma.job.deleteMany({ where: {} });
-  await prisma.jobArea.deleteMany({ where: {} });
-  console.timeEnd("Clear database");
-  */
-
   console.time("Inserting categories");
   const categories = await Promise.all(
     createCategory(5).map((c) => prisma.category.create({ data: c }))
