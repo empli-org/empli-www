@@ -75,27 +75,27 @@ export const Contact = () => {
   return (
     <div className="w-screen">
       <div className="h-50 flex items-center justify-center bg-contact-img bg-cover p-2">
-        <h1 className="font-amenable text-6xl font-bold text-blue-font">
+        <h1 className="font-amenable sm:text-6xl text-5xl font-bold text-blue-font">
           Contáctenos
         </h1>
       </div>
       <div
-        className="flex h-56 w-full items-center justify-evenly"
+        className="flex flex-wrap h-56 w-full items-center justify-around"
         data-aos="flip-up"
       >
         <a href="mailto:santykpo11@gmail.com" className="hover:scale-110">
-          <div className="flex flex-col items-center justify-center gap-3">
-            <img src={mail} alt="mail" className="h-14 w-14" />
-            <p className="font-quicksand-light text-xl font-bold">
+          <div className="flex flex-col items-center justify-center gap-3 p-3">
+            <img src={mail} alt="mail" className="md:h-14 sm:h-10 h-7" />
+            <p className="font-quicksand-light font-bold lg:text-xl">
               gerencia@empli.com
             </p>
           </div>
         </a>
         <a href="tel:+51970649294" className="hover:scale-110">
-          <div className="flex flex-col items-center justify-center gap-3">
-            <img src={phone} alt="phone" className="h-14 w-14" />
-            <p className="font-quicksand-light text-xl font-bold">
-              970649294 / 985509343
+          <div className="flex flex-col items-center justify-center gap-3 p-3">
+            <img src={phone} alt="phone" className="md:h-14 sm:h-10 h-7" />
+            <p className="font-quicksand-light font-bold lg:text-xl">
+              970649294
             </p>
           </div>
         </a>
@@ -105,9 +105,11 @@ export const Contact = () => {
           className="hover:scale-110"
           rel="noreferrer"
         >
-          <div className="flex flex-col items-center justify-center gap-3">
-            <img src={ig} alt="ig" className="h-14 w-14" />
-            <p className="font-quicksand-light text-xl font-bold">Instagram</p>
+          <div className="flex flex-col items-center justify-center gap-3 p-3">
+            <img src={ig} alt="ig" className="md:h-14 sm:h-12 h-7" />
+            <p className="font-quicksand-light font-bold lg:text-xl">
+              Instagram
+            </p>
           </div>
         </a>
         <a
@@ -116,9 +118,11 @@ export const Contact = () => {
           className="hover:scale-110"
           rel="noreferrer"
         >
-          <div className="flex flex-col items-center justify-center gap-3">
-            <img src={lk} alt="lk" className="h-14 w-14" />
-            <p className="font-quicksand-light text-xl font-bold">Linkedin</p>
+          <div className="flex flex-col items-center justify-center gap-3 p-3">
+            <img src={lk} alt="lk" className="md:h-14 sm:h-10 h-7" />
+            <p className="font-quicksand-light font-bold lg:text-xl">
+              Linkedin
+            </p>
           </div>
         </a>
         <a
@@ -127,111 +131,123 @@ export const Contact = () => {
           className="hover:scale-110"
           rel="noreferrer"
         >
-          <div className="flex flex-col items-center justify-center gap-3">
-            <img src={fb} alt="fb" className="h-14 w-14" />
-            <p className="font-quicksand-light text-xl font-bold">Facebook</p>
+          <div className="flex flex-col items-center justify-center gap-3 p-3">
+            <img src={fb} alt="fb" className="md:h-14 sm:h-10 h-7" />
+            <p className="font-quicksand-light font-bold lg:text-xl">
+              Facebook
+            </p>
           </div>
         </a>
       </div>
       <h1
-        className="mb-negative text-center font-amenable text-5xl font-bold text-blue-font"
+        className="text-center font-amenable mt-8 xs:mt-0 lg:text-5xl sm:text-4xl xs:text-3xl text-2xl font-bold text-blue-font"
         data-aos="zoom-in"
       >
         Formulario de contacto
       </h1>
-      <div
-        className="flex h-contact w-screen items-center justify-center"
-        data-aos="zoom-in"
+      <form
+        ref={form}
+        id="form"
+        onSubmit={handleSubmit(onSubmit)}
+        className="lg:px-32 sm:px-20 p-5"
+        noValidate="noValidate"
       >
-        <form
-          ref={form}
-          id="form"
-          onSubmit={handleSubmit(onSubmit)}
-          className="mt-7 flex h-full w-4/6 flex-col items-center justify-evenly gap-4 rounded-3xl bg-white-font p-14 shadow-lg shadow-gray-900"
-          noValidate="noValidate"
+        <div
+          className="flex flex-col w-full items-center justify-center bg-white-font shadow-lg shadow-gray-900 p-10 rounded-3xl"
+          data-aos="zoom-in"
         >
-          <div className="ml-32 flex w-full">
-            <div className="h-full w-full">
-              <label
-                htmlFor="name"
-                className="block font-quicksand-light text-lg font-semibold"
-              >
-                Nombre Completo
-              </label>
+          <div className="flex flex-col lg:flex-row justify-center w-full">
+            <div className="flex flex-col items-center h-full w-full">
+              <div className="w-full md:w-3/5">
+                <label
+                  htmlFor="name"
+                  className="block font-quicksand-light text-lg font-semibold"
+                >
+                  Nombre Completo
+                </label>
+              </div>
               <input
                 type="text"
                 name="user_name"
                 id="name"
-                className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="block w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
                 {...register('user_name')}
               />
               {errors.user_name?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="w-100 text-red-600">{errors.user_name.message}</p>
+                <p className="w-auto text-red-600">
+                  {errors.user_name.message}
+                </p>
               )}
             </div>
-            <div className="h-full w-full">
-              <label
-                htmlFor="asunto"
-                className="block font-quicksand-light text-lg font-semibold"
-              >
-                Asunto
-              </label>
+            <div className="flex flex-col items-center h-full w-full">
+              <div className="w-full md:w-3/5">
+                <label
+                  htmlFor="asunto"
+                  className="block font-quicksand-light text-lg font-semibold"
+                >
+                  Asunto
+                </label>
+              </div>
               <input
                 type="text"
                 name="user_asunto"
                 id="asunto"
-                className="block w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="block w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
                 {...register('user_asunto')}
               />
               {errors.user_asunto?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="w-100 text-red-600">
+                <p className="w-auto text-red-600">
                   {errors.user_asunto.message}
                 </p>
               )}
             </div>
           </div>
-          <div className="ml-32 flex w-full">
-            <div className="h-full w-full">
-              <label
-                htmlFor="email"
-                className="block font-quicksand-light text-lg font-semibold"
-              >
-                Email
-              </label>
+          <div className="flex flex-col lg:flex-row justify-center w-full">
+            <div className="flex flex-col items-center h-full w-full">
+              <div className="w-full md:w-3/5">
+                <label
+                  htmlFor="email"
+                  className="block font-quicksand-light text-lg font-semibold"
+                >
+                  Email
+                </label>
+              </div>
               <input
                 type="email"
                 name="user_email"
                 id="email"
-                className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
                 {...register('user_email')}
                 required
               />
               {errors.user_email?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="w-100 text-red-600">
+                <p className="w-auto text-red-600">
                   {errors.user_email.message}
                 </p>
               )}
             </div>
-            <div className="h-full w-full">
-              <label
-                htmlFor="category"
-                className="block font-quicksand-light text-lg font-semibold"
-              >
-                Categoría
-              </label>
+            <div className="flex flex-col items-center h-full w-full">
+              <div className="w-full md:w-3/5">
+                <label
+                  htmlFor="category"
+                  className="block font-quicksand-light text-lg font-semibold"
+                >
+                  Categoría
+                </label>
+              </div>
               <input
                 type="text"
                 name="category"
                 id="category"
-                className="w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
                 {...register('category')}
               />
               {errors.category?.message && (
                 // eslint-disable-next-line prettier/prettier
-                <p className="w-100 text-red-600">{errors.category.message}</p>
+                <p className="w-auto text-red-600">{errors.category.message}</p>
               )}
             </div>
           </div>
@@ -243,17 +259,17 @@ export const Contact = () => {
           </label>
           <textarea
             // @ts-ignore
-            cols="100"
+            // cols="100"
             // @ts-ignore
-            rows="5"
+            // rows="5"
             name="message"
             id="message"
-            className="resize-none rounded-lg border-2 border-black p-1"
+            className="resize-none rounded-lg border-2 border-black p-1 lg:w-4/5 md:w-3/5 w-full h-60"
             {...register('message')}
           />
           {errors.message?.message && (
             // eslint-disable-next-line prettier/prettier
-            <p className="w-100 text-red-600">{errors.message.message}</p>
+            <p className="w-auto text-red-600">{errors.message.message}</p>
           )}
           <button
             type="submit"
@@ -261,8 +277,8 @@ export const Contact = () => {
           >
             Enviar
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }
