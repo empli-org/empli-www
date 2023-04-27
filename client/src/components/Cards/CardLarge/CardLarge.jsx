@@ -113,8 +113,8 @@ export const CardLarge = () => {
   }
 
   return (
-    <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-hint-of-red p-10 shadow-2xl md:flex-row md:items-center md:justify-center">
-      <div className="flex w-1/3 flex-col items-center text-center  transition duration-300 hover:scale-125 md:text-left">
+    <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
+      <div className="flex w-1/3 flex-col items-center text-center transition  duration-300 hover:scale-125 md:text-left">
         <h1 className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">
           Profesionales
         </h1>

@@ -48,23 +48,23 @@ export const PageNotFound = () => {
         </div>
         <div className="group relative flex w-1/2 flex-col justify-around bg-sail lg:h-full lg:items-center">
           <div className="mt-2 flex w-full justify-between">
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
             <RxGear className="p-2 text-9xl" />
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
             <RxGear className="p-2 text-9xl opacity-40" />
             <RxGear className="p-2 text-6xl opacity-10" />
           </div>
           <div className="mt-2 flex w-full gap-x-8">
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
             <RxGear className="animate-pulse p-2 text-9xl opacity-40" />
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
             <RxGear className="p-2 text-9xl opacity-40" />
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
           </div>
           <div className="mt-2 flex w-full justify-between">
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
             <RxGear className="animate-pulse p-2 text-9xl opacity-40" />
-            <RxGear className="group-hover:animate-spin-slow p-2 text-6xl opacity-10" />
+            <RxGear className="p-2 text-6xl opacity-10 group-hover:animate-spin-slow" />
             <RxGear className="p-2 text-9xl" />
             <RxGear className="p-2 text-6xl opacity-10" />
           </div>

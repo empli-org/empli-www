@@ -75,17 +75,17 @@ export const Contact = () => {
   return (
     <div className="w-screen">
       <div className="h-50 flex items-center justify-center bg-contact-img bg-cover p-2">
-        <h1 className="font-amenable sm:text-6xl text-5xl font-bold text-blue-font">
+        <h1 className="font-amenable text-5xl font-bold text-blue-font sm:text-6xl">
           Contáctenos
         </h1>
       </div>
       <div
-        className="flex flex-wrap h-56 w-full items-center justify-around"
+        className="flex h-56 w-full flex-wrap items-center justify-around"
         data-aos="flip-up"
       >
         <a href="mailto:santykpo11@gmail.com" className="hover:scale-110">
           <div className="flex flex-col items-center justify-center gap-3 p-3">
-            <img src={mail} alt="mail" className="md:h-14 sm:h-10 h-7" />
+            <img src={mail} alt="mail" className="h-7 sm:h-10 md:h-14" />
             <p className="font-quicksand-light font-bold lg:text-xl">
               gerencia@empli.com
             </p>
@@ -93,7 +93,7 @@ export const Contact = () => {
         </a>
         <a href="tel:+51970649294" className="hover:scale-110">
           <div className="flex flex-col items-center justify-center gap-3 p-3">
-            <img src={phone} alt="phone" className="md:h-14 sm:h-10 h-7" />
+            <img src={phone} alt="phone" className="h-7 sm:h-10 md:h-14" />
             <p className="font-quicksand-light font-bold lg:text-xl">
               970649294
             </p>
@@ -106,7 +106,7 @@ export const Contact = () => {
           rel="noreferrer"
         >
           <div className="flex flex-col items-center justify-center gap-3 p-3">
-            <img src={ig} alt="ig" className="md:h-14 sm:h-12 h-7" />
+            <img src={ig} alt="ig" className="h-7 sm:h-12 md:h-14" />
             <p className="font-quicksand-light font-bold lg:text-xl">
               Instagram
             </p>
@@ -119,7 +119,7 @@ export const Contact = () => {
           rel="noreferrer"
         >
           <div className="flex flex-col items-center justify-center gap-3 p-3">
-            <img src={lk} alt="lk" className="md:h-14 sm:h-10 h-7" />
+            <img src={lk} alt="lk" className="h-7 sm:h-10 md:h-14" />
             <p className="font-quicksand-light font-bold lg:text-xl">
               Linkedin
             </p>
@@ -132,7 +132,7 @@ export const Contact = () => {
           rel="noreferrer"
         >
           <div className="flex flex-col items-center justify-center gap-3 p-3">
-            <img src={fb} alt="fb" className="md:h-14 sm:h-10 h-7" />
+            <img src={fb} alt="fb" className="h-7 sm:h-10 md:h-14" />
             <p className="font-quicksand-light font-bold lg:text-xl">
               Facebook
             </p>
@@ -140,7 +140,7 @@ export const Contact = () => {
         </a>
       </div>
       <h1
-        className="text-center font-amenable mt-8 xs:mt-0 lg:text-5xl sm:text-4xl xs:text-3xl text-2xl font-bold text-blue-font"
+        className="mt-8 text-center font-amenable text-2xl font-bold text-blue-font xs:mt-0 xs:text-3xl sm:text-4xl lg:text-5xl"
         data-aos="zoom-in"
       >
         Formulario de contacto
@@ -149,15 +149,15 @@ export const Contact = () => {
         ref={form}
         id="form"
         onSubmit={handleSubmit(onSubmit)}
-        className="lg:px-32 sm:px-20 p-5"
+        className="p-5 sm:px-20 lg:px-32"
         noValidate="noValidate"
       >
         <div
-          className="flex flex-col w-full items-center justify-center bg-white-font shadow-lg shadow-gray-900 p-10 rounded-3xl"
+          className="flex w-full flex-col items-center justify-center rounded-3xl bg-white-font p-10 shadow-lg shadow-gray-900"
           data-aos="zoom-in"
         >
-          <div className="flex flex-col lg:flex-row justify-center w-full">
-            <div className="flex flex-col items-center h-full w-full">
+          <div className="flex w-full flex-col justify-center lg:flex-row">
+            <div className="flex h-full w-full flex-col items-center">
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="name"
@@ -170,7 +170,7 @@ export const Contact = () => {
                 type="text"
                 name="user_name"
                 id="name"
-                className="block w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="block w-full rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring md:w-3/5"
                 {...register('user_name')}
               />
               {errors.user_name?.message && (
@@ -180,7 +180,7 @@ export const Contact = () => {
                 </p>
               )}
             </div>
-            <div className="flex flex-col items-center h-full w-full">
+            <div className="flex h-full w-full flex-col items-center">
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="asunto"
@@ -193,7 +193,7 @@ export const Contact = () => {
                 type="text"
                 name="user_asunto"
                 id="asunto"
-                className="block w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="block w-full rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring md:w-3/5"
                 {...register('user_asunto')}
               />
               {errors.user_asunto?.message && (
@@ -204,8 +204,8 @@ export const Contact = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row justify-center w-full">
-            <div className="flex flex-col items-center h-full w-full">
+          <div className="flex w-full flex-col justify-center lg:flex-row">
+            <div className="flex h-full w-full flex-col items-center">
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="email"
@@ -218,7 +218,7 @@ export const Contact = () => {
                 type="email"
                 name="user_email"
                 id="email"
-                className="w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="w-full rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring md:w-3/5"
                 {...register('user_email')}
                 required
               />
@@ -229,7 +229,7 @@ export const Contact = () => {
                 </p>
               )}
             </div>
-            <div className="flex flex-col items-center h-full w-full">
+            <div className="flex h-full w-full flex-col items-center">
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="category"
@@ -242,7 +242,7 @@ export const Contact = () => {
                 type="text"
                 name="category"
                 id="category"
-                className="w-full md:w-3/5 rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring"
+                className="w-full rounded-lg border-2 border-black p-1 focus:border-gray-900 focus:outline-none focus:ring md:w-3/5"
                 {...register('category')}
               />
               {errors.category?.message && (
@@ -264,7 +264,7 @@ export const Contact = () => {
             // rows="5"
             name="message"
             id="message"
-            className="resize-none rounded-lg border-2 border-black p-1 lg:w-4/5 md:w-3/5 w-full h-60"
+            className="h-60 w-full resize-none rounded-lg border-2 border-black p-1 md:w-3/5 lg:w-4/5"
             {...register('message')}
           />
           {errors.message?.message && (
