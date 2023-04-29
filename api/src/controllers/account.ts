@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import db from "../utils/db";
+import { Company, Talent } from "@prisma/client";
 
 export async function verifyAccount(req: Request, res: Response) {
   const { email } = req.body;
@@ -54,4 +55,35 @@ export async function verifyAccount(req: Request, res: Response) {
   return res.status(400).json({
     sucess: false,
   });
+}
+
+export async function createAccount(req: Request, res: Response) {
+  try {
+    const { name, plan, email, type } = req.body;
+    if (!email) return res.status(400).json({ message: "Email is required" });
+    let created: Talent | Company | null = null;
+    if (type === "professional") {
+      created = await db.talent.create({
+        data: {
+          userEmail: email,
+          name,
+          plan,
+        },
+      });
+    } else {
+      created = await db.company.create({
+        data: {
+          userEmail: email,
+          name,
+          plan,
+        },
+      });
+    }
+    if (!created) {
+      return res.status(400).json({ message: "Fail to create account" });
+    }
+    return res.json(created);
+  } catch {
+    return res.status(500).json({ message: "Fail to create account" });
+  }
 }
