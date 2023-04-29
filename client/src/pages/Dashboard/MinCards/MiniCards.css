@@ -1,0 +1,26 @@
+.MiniCards {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.MiniCards img {
+  max-width: 100%;
+}
+
+.MiniCards h2 {
+  margin-top: 0;
+}
+
+.MiniCards a {
+  display: block;
+  margin-top: 1rem;
+}
+
+.MiniCards span {
+  display: block;
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}

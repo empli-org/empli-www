@@ -30,6 +30,8 @@ import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessiona
 import InfoProfessionals from './pages/Info/InfoProfessionals'
 import UserProfile from './pages/UserForm'
 
+// import { Admin } from './pages/Dashboard/Administrator/Admin'
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -80,6 +82,7 @@ export const router = createBrowserRouter([
         path: '/about',
         element: <About />,
       },
+
       {
         path: '/contact',
         element: <Contact />,
@@ -159,6 +162,10 @@ export const router = createBrowserRouter([
         path: '/dashboard/professional/profile',
         element: <UserProfile />,
       },
+      // {
+      //   path: '/dashboard/admin',
+      //   element: <Admin />,
+      // },
     ],
   },
 ])

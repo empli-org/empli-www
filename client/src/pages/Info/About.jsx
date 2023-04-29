@@ -48,7 +48,7 @@ export const About = () => {
           </div>
         </div>
         <div
-          className="mt-44 mb-14 flex w-11/12 justify-end"
+          className="mb-14 mt-44 flex w-11/12 justify-end"
           data-aos="fade-left"
         >
           <div className="flex w-2/3 items-center">
@@ -158,7 +158,7 @@ export const About = () => {
         </div>
       </div>
       <div
-        className="w-full h-circle flex justify-center items-center bg-blue-whale"
+        className="flex h-circle w-full items-center justify-center bg-blue-whale"
         data-aos="zoom-in"
       >
         <img
