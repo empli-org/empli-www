@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import EmpliLogo from '@/components/ui/brand/EmpliLogo'
-import { Container } from '@/components/ui/Container'
+import { Container, EmpliLogo } from 'components'
 import { MenuItem } from './MenuItem'
 import { CommunityItems, ContactItems } from './NavbarItems'
 import MobileMenu from './MobileMenu'
@@ -68,5 +67,3 @@ export const Navbar = () => {
     </header>
   )
 }
-
-export default Navbar

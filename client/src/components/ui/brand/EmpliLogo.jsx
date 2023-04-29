@@ -43,7 +43,7 @@ function Logo() {
   )
 }
 
-export default function EmpliLogo() {
+export function EmpliLogo() {
   return <Logo />
 }
 

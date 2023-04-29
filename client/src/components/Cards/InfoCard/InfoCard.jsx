@@ -4,9 +4,10 @@ export const InfoCard = ({
   title,
   description,
   imageOnRight = false,
+  background,
 }) => {
   return (
-    <div className="flex flex-col md:flex-row ">
+    <div className={`flex flex-col md:flex-row bg-${background}-200`}>
       <div
         className={`w-full md:w-1/2 relative ${
           !imageOnRight
@@ -28,10 +29,10 @@ export const InfoCard = ({
             : 'order-last md:order-first'
         } flex flex-col justify-center items-center`}
       >
-        <h3 className="amenable text-2xl font-bold text-center mb-10">
+        <h3 className="font-amenable text-2xl font-bold text-center mb-10">
           {title}
         </h3>
-        <p className="text-justify quicksand">{description}</p>
+        <p className="text-justify font-quicksand">{description}</p>
       </div>
     </div>
   )

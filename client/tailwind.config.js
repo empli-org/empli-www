@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        amenable: ['Amenable', 'sans-serif'],
-        quicksand: ['Quicksand', 'sans-serif'],
+        'amenable': ['Amenable', 'sans-serif'],
+        'quicksand': ['Quicksand', 'sans-serif'],
         // sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
       },
       backgroundImage: {

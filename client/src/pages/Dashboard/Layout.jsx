@@ -1,4 +1,4 @@
-import EmpliLogo from '@/components/ui/brand/EmpliLogo'
+import { EmpliLogo } from 'components'
 import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
 import {
   Link,

@@ -1,7 +1,7 @@
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import { Link } from 'react-router-dom'
 import { Button, CardPro } from 'components'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 export const CardBox = ({ data }) => {
   const gruposDeDiez = data.reduce((accumulator, obj, index) => {
@@ -29,7 +29,7 @@ export const CardBox = ({ data }) => {
           <h1 className="text-3xl">Top Profesionales</h1>
         </div>
         <div>
-          <span className="font-quicksand-light">
+          <span className="font-quicksand font-light">
             Más de <b>+200</b> ofertas por día
           </span>
         </div>
@@ -37,17 +37,25 @@ export const CardBox = ({ data }) => {
       <AliceCarousel
         items={items}
         autoPlay
+        disableDotsControls
         autoPlayInterval={1000}
         infinite
         autoWidth
         swipeExtraPadding={2}
-        disableButtonsControls
-        disableDotsControls
+        renderPrevButton={() => {
+          // @ts-ignore
+          return <Button title={<FaArrowLeft />} />
+        }}
+        renderNextButton={() => {
+          // @ts-ignore
+          return <Button title={<FaArrowRight />} />
+        }}
         mouseTracking
         responsive={{
           820: { items: 4 },
         }}
       />
+
       <div className="flex w-full p-2 justify-end">
         <Button link="/talents" title="ver mas" />
       </div>

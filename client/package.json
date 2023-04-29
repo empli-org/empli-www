@@ -11,7 +11,7 @@
     "format": "npm run prettier -- --write",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ignore-path .gitignore --ext js,jsx,ts,tsx .",
     "validate": "run-s lint build",
-    "indexer":"node node_modules/react-component-indexer/src/export.js"
+    "indexer": "node node_modules/react-component-indexer/src/export.js"
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.15.2",
@@ -29,7 +29,7 @@
     "marked": "^4.3.0",
     "react": "^18.2.0",
     "react-alice-carousel": "^2.7.1",
-    "react-component-indexer": "^1.0.2",
+    "react-component-indexer": "^1.0.3",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",

@@ -47,8 +47,8 @@ dependencies:
     specifier: ^2.7.1
     version: 2.7.1(react@18.2.0)
   react-component-indexer:
-    specifier: ^1.0.2
-    version: 1.0.2(vite@4.2.0)
+    specifier: ^1.0.3
+    version: 1.0.3(vite@4.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -2815,8 +2815,8 @@ packages:
       vanilla-swipe: 2.4.1
     dev: false
 
-  /react-component-indexer@1.0.2(vite@4.2.0):
-    resolution: {integrity: sha512-YgqS5OEg7uGqyojP8ceawy7J+n6/t0vulYhcDrrjbSvrNSgbdE/AroSp4bd/1ePnZ6VihueeEl7QRRa71IGstA==}
+  /react-component-indexer@1.0.3(vite@4.2.0):
+    resolution: {integrity: sha512-QEMGBlGkWZK9SsVyafCgRqOjmgCSSSYoMF+tdFhmBgIj5y1AS8O5qpfa7PhyQNGTealwYDFPhG92Iv4Ph9jwLQ==}
     dependencies:
       fs: 0.0.1-security
       path: 0.12.7
