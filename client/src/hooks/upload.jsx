@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react'
 
 const CLOUD_PRESET = import.meta.env.VITE_CLOUD_PRESET
