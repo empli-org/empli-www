@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useCreateAccountMutation } from '@/redux/features/api/base'
+import { AppContext } from '../OnboardingContext'
+import { useClerk } from '@clerk/clerk-react'
 
 const childVariants = {
   hidden: {
@@ -14,6 +17,24 @@ const childVariants = {
   },
 }
 export const Step6 = () => {
+  const [createAccount, { isSuccess, isLoading, error }] =
+    useCreateAccountMutation()
+  const { accountType, selectedPlan } = useContext(AppContext)
+  const { user } = useClerk()
+
+  useEffect(() => {
+    if (!isSuccess && !isLoading && !error) {
+      const body = {
+        name: 'test name',
+        plan: selectedPlan.name.toUpperCase(),
+        email: user.emailAddresses[0].emailAddress,
+        type: accountType.name.toLowerCase(),
+      }
+      console.log(body)
+      createAccount(body)
+    }
+  }, [isLoading, error])
+
   return (
     <div className="rounded-lg bg-white px-8 py-12 shadow-lg">
       <div className="flex flex-col items-center justify-center gap-3">
@@ -28,12 +49,18 @@ export const Step6 = () => {
           nuestra plataforma. Si necesitas soporte, estamos disponibles para que
           nos contactes mediante <b>support@empli.com</b>.
         </motion.p>
-        <Link
-          to="/dashboard"
-          className="mt-4 rounded-md bg-blue-whale px-6 py-3 text-white"
-        >
-          Mi cuenta
-        </Link>
+        {isLoading ? (
+          <p>Estamos creando tu cuenta...</p>
+        ) : error ? (
+          <>{JSON.stringify(error)}</>
+        ) : (
+          <Link
+            to="/dashboard"
+            className="mt-4 rounded-md bg-blue-whale px-6 py-3 text-white"
+          >
+            Mi cuenta
+          </Link>
+        )}
       </div>
     </div>
   )
