@@ -188,3 +188,61 @@ export async function searchJobsByKey(req: Request, res: Response) {
       .json({ status: 500, error: true, message: "Failt to fetch data" });
   }
 }
+
+export async function createJob(req: Request, res: Response) {
+  try {
+    const {
+      code,
+      title,
+      description,
+      body,
+      minRate,
+      maxRate,
+      companyId,
+      locationId,
+    } = req.body;
+    const created = await db.job.create({
+      data: {
+        code,
+        title,
+        description,
+        body,
+        minRate,
+        maxRate,
+        company: { connect: { id: companyId } },
+        location: { connect: { id: locationId } },
+      },
+    });
+    if (!created) {
+      return res.json({ message: "Fail to create job" });
+    }
+    return res.json(created);
+  } catch {
+    return res.status(500).json({ message: "Fail to create job" });
+  }
+}
+
+export async function publishJob(req: Request, res: Response) {
+  try {
+    const { code } = req.body;
+    const job = await db.job.findUnique({
+      where: { code },
+      select: {
+        published: true,
+      },
+    });
+
+    if (!job) {
+      return res
+        .status(404)
+        .json({ message: "Not found job with provided id" });
+    }
+    await db.job.update({
+      where: { code },
+      data: { published: !job.published },
+    });
+    return res.json({ success: true, message: "job updated" });
+  } catch {
+    return res.status(500).json({ message: "Fail to update job" });
+  }
+}
