@@ -1,116 +1,35 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
 import { CardGlass } from '../CardGlass/CardGlass'
+import {
+  useGetJobsQuery,
+  useGetAllTalentsQuery,
+} from '@/redux/features/api/base'
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
-  const info = {
-    proffesionals: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
-    offers: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
-    companies: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
-  }
+  const { data: offers } = useGetJobsQuery({})
+  const { data: talents } = useGetAllTalentsQuery({})
+
+  // total talents in the aplication. it is array
+  const countTalents = talents?.data?.length
+  // console.log(countTalents)
+
+  // total companies in the aplication. This is an object
+  const uniqueCompany = offers?.data?.reduce((acu, curr) => {
+    const name = curr.company.name
+    if (!acu[name]) {
+      acu[name] = true
+    }
+    return acu
+  }, {})
+  const countCompany = Object.keys(uniqueCompany).length
+  // console.log(countCompany)
+
+  // total offers in the aplication. it is array
+  const countOffers = offers?.data?.length
+  // console.log(countOffers)
 
   return (
     <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
@@ -123,7 +42,7 @@ export const CardLarge = () => {
            y la cantidad de objetos dentro de ese array seria el numero de professionales registrados en la plataforma.
            Pero esto puede ser modificado segun venga la informacion */}
           <PlusIcons className="text-sm" />
-          {info.proffesionals.length * 20}K
+          {countTalents}K
         </h1>
       </div>
       <div className="mt-6 flex w-1/3 flex-col items-center border-l-2 border-r-2 border-black border-opacity-60 text-center md:mt-0 md:text-left">
@@ -133,7 +52,7 @@ export const CardLarge = () => {
           </h2>
           <h1 className="flex items-center justify-center text-3xl font-bold">
             <PlusIcons className="text-sm" />
-            {info.offers.length * 20}K
+            {countOffers}K
           </h1>
         </div>
       </div>
@@ -143,7 +62,7 @@ export const CardLarge = () => {
         </h2>
         <h1 className="flex items-center justify-center text-3xl font-bold">
           <PlusIcons className="text-sm" />
-          {info.companies.length * 20}K
+          {countCompany}K
         </h1>
       </div>
       <CardGlass />
