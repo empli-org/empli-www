@@ -6,6 +6,7 @@ import {
   CardLarge,
   SlideCompanies,
   InfoCard,
+  Button,
 } from 'components'
 import { Link } from 'react-router-dom'
 import ob from 'assets/Landing/ob.svg'
@@ -107,33 +108,38 @@ export const Landing = () => {
         <img
           src={ob}
           alt="ob"
-          className="absolute z-10 h-all w-80 rounded-br-2xl"
+          className="absolute z-10 hidden sm:hidden md:block xl:block h-all w-80 rounded-br-2xl"
         />
         <img
           src={dialogue}
           alt="dialogue"
-          className="absolute z-10 mr-56 mt-5 h-72 w-56"
+          className="absolute z-10 hidden sm:hidden md:block xl:block mr-56 mt-5 h-72 w-56"
         />
         <img
           src={text}
           alt="text"
-          className="absolute z-20 mr-76 mt-12 h-56 w-32"
+          className="absolute z-20 hidden sm:hidden md:block xl:block mr-76 mt-12 h-56 w-32"
         />
         <img
           src={wave}
           alt="wave"
-          className="absolute z-10 mr-80 mt-80 h-auto w-20"
+          className="absolute z-10 hidden sm:hidden md:block xl:block mr-80 mt-80 h-auto w-20"
         />
         <img
           src={wave}
           alt="wave"
-          className="absolute z-10 mr-48 mt-14 h-auto w-20"
+          className="absolute z-10 hidden sm:hidden md:block xl:block mr-48 mt-14 h-auto w-20"
         />
-        <img src={circle} alt="circle" className="absolute z-0 h-all w-all" />
+        <img
+          src={circle}
+          alt="circle"
+          className="absolute z-0 hidden sm:hidden md:block xl:block h-all w-all"
+        />
       </div>
-      <div className="mx-auto mt-6 max-w-screen-lg p-12">
+
+      <div className="mx-auto mt-6 max-w-screen-lg p-4 sm:p-12">
         <div className="flex flex-col">
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-3xl sm:text-5xl font-amenable">
             Encuentra{' '}
             <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-gulf-stream">
               <span className="relative ">La Mejor</span>
@@ -142,22 +148,23 @@ export const Landing = () => {
             Oferta de Trabajo
           </h1>
         </div>
-        <div className="mt-8">
-          <h2 className="mt-2 text-lg">
+        <div className="mt-4 sm:mt-8">
+          <h2 className="mt-2 text-base sm:text-lg font-quicksand">
             Encontrar trabajo puede ser un proceso difícil. En <br></br>
             nuestra red, contamos con una gran cantidad de <br></br>empresas que
             buscan personas talentosas como <br></br>tú para unirse a su equipo.{' '}
           </h2>
-          <div className="mt-4 flex items-center gap-4 py-6">
+          <div className="mt-4 sm:mt-8 flex items-center gap-4 py-4">
             <Link
-              to="/auth/register"
-              className="rounded-lg bg-slate-800 px-6 py-4 text-white"
+              className="rounded-lg bg-slate-800 px-4 sm:px-6 py-3 sm:py-4 text-white"
             >
               Comenzar
             </Link>
+            <Button link="/auth/register" title="Comenzar"/>
           </div>
         </div>
       </div>
+
       <CardLarge />
       <div className="mt-10 h-auto w-full shadow-sm ">
         <SlideCompanies />

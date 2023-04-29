@@ -1,3 +1,7 @@
-export const SliceTop = () => {
-  return <>name</>
+export const SlideTop = () => {
+  return (
+    <>
+      <h1>name</h1>
+    </>
+  )
 }
