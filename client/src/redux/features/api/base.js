@@ -34,6 +34,20 @@ export const baseApi = createApi({
     getTalentById: builder.query({
       query: id => `/talents/${id}`,
     }),
+    createAccount: builder.mutation({
+      query: body => ({
+        url: '/account/create',
+        method: 'POST',
+        body,
+      }),
+    }),
+    verifyAccount: builder.mutation({
+      query: body => ({
+        url: '/account/verify',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 })
 
@@ -48,4 +62,6 @@ export const {
   useGetAllTalentsQuery,
   useLazyGetAllTalentsQuery,
   useGetTalentByIdQuery,
+  useCreateAccountMutation,
+  useVerifyAccountMutation,
 } = baseApi

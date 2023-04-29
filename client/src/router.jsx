@@ -30,6 +30,7 @@ import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessiona
 import InfoProfessionals from './pages/Info/InfoProfessionals'
 import UserProfile from './pages/UserForm'
 import FormOffer from './components/Forms/FormOffer'
+import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
 
 export const router = createBrowserRouter([
   {
@@ -160,6 +161,18 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/professional/profile',
         element: <UserProfile />,
+      },
+      {
+        path: '/dashboard/admin',
+        element: <AdminDash />,
+      },
+      {
+        path: '/dashboard/admin/media',
+        element: <h1>Acá van noticias y multimedia</h1>,
+      },
+      {
+        path: '/dashboard/admin/accounts',
+        element: <h1>Acá va el manejo de cuentas de usuarios</h1>,
       },
     ],
   },
