@@ -68,6 +68,7 @@ export async function createAccount(req: Request, res: Response) {
           userEmail: email,
           name,
           plan,
+          verified: plan !== "FREE",
         },
       });
     } else {
@@ -83,7 +84,20 @@ export async function createAccount(req: Request, res: Response) {
       return res.status(400).json({ message: "Fail to create account" });
     }
     return res.json(created);
+  } catch (e) {
+    return res
+      .status(500)
+      .json({ message: "Fail to create account", error: e });
+  }
+}
+
+export async function deleteAccount(req: Request, res: Response) {
+  try {
+    const { email } = req.body;
+    await db.talent.delete({ where: { userEmail: email } });
+    await db.company.delete({ where: { userEmail: email } });
+    return res.json({ message: "ok" });
   } catch {
-    return res.status(500).json({ message: "Fail to create account" });
+    return res.json({ message: "Fail to delete" });
   }
 }

@@ -1,6 +1,24 @@
 import { Request, Response } from "express";
 import db from "../utils/db";
 
+export async function createAdmin(req: Request, res: Response) {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ message: "Email is required" });
+    const created = await db.admin.create({
+      data: {
+        userEmail: email,
+      },
+    });
+    if (!created) {
+      return res.status(400).json({ message: "Fail to create admin" });
+    }
+    return res.json(created);
+  } catch {
+    return res.status(500).json({ message: "Fail to create admin" });
+  }
+}
+
 export async function pauseCompany(req: Request, res: Response) {
   const { companyId } = req.params;
   const company = await db.company.findUnique({
