@@ -29,6 +29,7 @@ import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
 import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
 import InfoProfessionals from './pages/Info/InfoProfessionals'
 import UserProfile from './pages/UserForm'
+import FormOffer from './components/Forms/FormOffer'
 
 export const router = createBrowserRouter([
   {
@@ -85,6 +86,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
+      { path: '/formoffer', element: <FormOffer /> },
     ],
   },
   {

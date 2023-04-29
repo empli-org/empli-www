@@ -232,7 +232,7 @@ export default function FormBlog() {
             <div className="w-full flex justify-center items-center">
               <button
                 type="submit"
-                className="my-8 h-12 w-2/6 rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
+                className="my-8 h-12 w-2/6 font-amenable rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
               >
                 Publicar
               </button>
