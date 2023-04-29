@@ -9,7 +9,7 @@ module.exports = {
   quoteProps: "as-needed",
   semi: false,
   singleQuote: true,
-  tabWidth: 4,
+  tabWidth: 2,
   trailingComma: "all",
   useTabs: false,
 };

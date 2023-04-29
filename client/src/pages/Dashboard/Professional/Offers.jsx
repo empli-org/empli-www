@@ -24,7 +24,10 @@ export const DashProfessionalOffers = () => {
   const hasFilters = Object.values(filters).some(Boolean)
   const queryString = queryStringFromObj(filters)
   const [page, setPage] = useState(1)
-  const { data, isLoading, isFetching } = useGetJobsQuery({ queryString, page })
+  const { data, isLoading, isFetching } = useGetJobsQuery({
+    queryString,
+    page,
+  })
   const jobs = data?.data
   const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
@@ -69,7 +72,10 @@ export const DashProfessionalOffers = () => {
                     open: { opacity: 1, height: 'auto' },
                     collapsed: { opacity: 0, height: 0 },
                   }}
-                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 0.6,
+                    ease: 'easeInOut',
+                  }}
                 >
                   <div className="flex w-full flex-col gap-2 py-4 md:flex-row md:gap-4">
                     <div className="w-full">
@@ -84,7 +90,10 @@ export const DashProfessionalOffers = () => {
                             <span>{filters.location}</span>
                             <button
                               onClick={() =>
-                                setFilters({ ...filters, location: null })
+                                setFilters({
+                                  ...filters,
+                                  location: null,
+                                })
                               }
                             >
                               <CloseIcon className="h-4 w-4" />
@@ -105,7 +114,10 @@ export const DashProfessionalOffers = () => {
                             <span>{filters.area}</span>
                             <button
                               onClick={() =>
-                                setFilters({ ...filters, area: null })
+                                setFilters({
+                                  ...filters,
+                                  area: null,
+                                })
                               }
                             >
                               <CloseIcon className="h-4 w-4" />

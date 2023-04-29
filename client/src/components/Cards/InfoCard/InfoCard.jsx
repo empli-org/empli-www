@@ -12,7 +12,7 @@ export const InfoCard = ({
         className={`w-full md:w-1/2 relative ${
           !imageOnRight
             ? 'order-last md:order-first'
-            : 'order-first md:order-last'
+            : 'order-last md:order-last'
         }`}
       >
         <img
@@ -26,7 +26,7 @@ export const InfoCard = ({
         className={`w-full md:w-1/2 p-4 ${
           !imageOnRight
             ? 'order-first md:order-last'
-            : 'order-last md:order-first'
+            : 'order-first md:order-first'
         } flex flex-col justify-center items-center`}
       >
         <h3 className="font-amenable text-2xl font-bold text-center mb-10">

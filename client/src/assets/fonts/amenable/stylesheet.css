@@ -1,54 +1,53 @@
 @font-face {
-    font-family: 'Amenable';
-    src: url('AmenableThin.woff') format('woff'),
+  font-family: 'Amenable';
+  src: url('AmenableThin.woff') format('woff'),
     url('AmenableThin.woff2') format('woff2');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Amenable';
-    src: url('AmenableBold.woff') format('woff'),
+  font-family: 'Amenable';
+  src: url('AmenableBold.woff') format('woff'),
     url('AmenableBold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Amenable';
-    src: url('AmenableRegular.woff') format('woff'),
+  font-family: 'Amenable';
+  src: url('AmenableRegular.woff') format('woff'),
     url('AmenableRegular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Amenable';
-    src: url('AmenableRegular.woff') format('woff'),
+  font-family: 'Amenable';
+  src: url('AmenableRegular.woff') format('woff'),
     url('AmenableRegular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Amenable';
-    src: url('AmenableBold.woff') format('woff'),
+  font-family: 'Amenable';
+  src: url('AmenableBold.woff') format('woff'),
     url('AmenableBold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Amenable';
-    src: url('AmenableThin.woff') format('woff'),
+  font-family: 'Amenable';
+  src: url('AmenableThin.woff') format('woff'),
     url('AmenableThin.woff2') format('woff2');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
-
