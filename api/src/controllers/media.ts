@@ -50,3 +50,24 @@ export async function getMediaById(req: Request, res: Response) {
 
   return res.json(result);
 }
+
+export async function createMedia(req: Request, res: Response) {
+  try {
+    const { title, description, image, url, published, premium } = req.body;
+
+    const created = await db.media.create({
+      data: {
+        title,
+        description,
+        image,
+        url,
+        published,
+        premium,
+      },
+    });
+
+    return res.json(created);
+  } catch {
+    return res.status(500).json({ message: "Failed to create media" });
+  }
+}

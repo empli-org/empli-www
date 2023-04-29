@@ -8,6 +8,13 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model Admin {
+  id        String   @id @default(cuid())
+  userEmail String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Talent {
   id             String          @id @default(cuid())
   name           String
@@ -22,15 +29,20 @@ model Talent {
   updatedAt      DateTime        @updatedAt
   careerId       String?
   firstname      String?
+  paused         Boolean         @default(false)
   contactInfo    ContactInfo?
   experienceInfo ExperienceInfo?
+  postulations   Postulation[]
   skills         Skill[]
   career         Career?         @relation(fields: [careerId], references: [id])
+  favedBy        Company[]       @relation("CompanyToTalent")
+  saved          Job[]           @relation("JobToTalent")
 }
 
 model ExperienceInfo {
   id         String      @id @default(cuid())
   talentId   String      @unique
+  time       Float?
   talent     Talent      @relation(fields: [talentId], references: [id], onDelete: Cascade)
   projects   Project[]
   references Reference[]
@@ -107,10 +119,12 @@ model Company {
   categoryId  String?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+  paused      Boolean      @default(false)
   category    Category?    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   contactInfo ContactInfo?
   jobs        Job[]
   references  Reference[]
+  favorites   Talent[]     @relation("CompanyToTalent")
 }
 
 model Category {
@@ -120,22 +134,25 @@ model Category {
 }
 
 model Job {
-  id          String    @id @default(cuid())
-  code        String    @unique
-  title       String
-  description String?
-  area        String?
-  type        String?
-  body        String?
-  requiredExp Int?
-  minRate     Float?
-  maxRate     Float?
-  companyId   String
-  locationId  String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  location    Location? @relation(fields: [locationId], references: [id])
+  id           String        @id @default(cuid())
+  code         String        @unique
+  title        String
+  description  String?
+  area         String?
+  body         String?
+  requiredExp  Int?
+  minRate      Float?
+  maxRate      Float?
+  companyId    String
+  locationId   String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  published    Boolean       @default(true)
+  type         JobType?      @default(FULLTIME)
+  company      Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  location     Location?     @relation(fields: [locationId], references: [id])
+  postulations Postulation[]
+  savedBy      Talent[]      @relation("JobToTalent")
 }
 
 model Reference {
@@ -181,8 +198,31 @@ model Media {
   updatedAt   DateTime @updatedAt
 }
 
+model Postulation {
+  id        String   @id @default(cuid())
+  talentId  String?
+  jobId     String?
+  status    Status   @default(PENDING)
+  feedback  String?
+  cretedAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  job       Job?     @relation(fields: [jobId], references: [id])
+  talent    Talent?  @relation(fields: [talentId], references: [id])
+}
+
+enum JobType {
+  FULLTIME
+  PARTIME
+}
+
 enum Plan {
   FREE
   PREMIUM
   ADVANCED
+}
+
+enum Status {
+  PENDING
+  REJECTED
+  ACCEPTED
 }

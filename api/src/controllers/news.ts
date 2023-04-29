@@ -50,3 +50,25 @@ export async function getNewsById(req: Request, res: Response) {
 
   return res.json(result);
 }
+
+export async function createNews(req: Request, res: Response) {
+  try {
+    const { title, description, image, category, body, premium, published } =
+      req.body;
+    const created = await db.post.create({
+      data: {
+        title,
+        description,
+        image,
+        category,
+        body,
+        premium,
+        published,
+      },
+    });
+
+    return res.json(created);
+  } catch {
+    return res.status(500).json({ message: "Fail to create news" });
+  }
+}

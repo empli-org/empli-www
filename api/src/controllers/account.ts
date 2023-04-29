@@ -5,6 +5,19 @@ export async function verifyAccount(req: Request, res: Response) {
   const { email } = req.body;
   if (!email) return res.status(400).json({ message: "El email es necesario" });
 
+  const adminAccount = await db.admin.findUnique({
+    where: {
+      userEmail: email,
+    },
+  });
+  if (adminAccount) {
+    return res.json({
+      success: true,
+      type: "admin",
+      account: adminAccount,
+    });
+  }
+
   const talentAccount = await db.talent.findUnique({
     where: { userEmail: email },
     include: {
