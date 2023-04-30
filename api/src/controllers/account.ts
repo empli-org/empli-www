@@ -52,7 +52,7 @@ export async function verifyAccount(req: Request, res: Response) {
       account: companyAccount,
     });
 
-  return res.status(400).json({
+  return res.json({
     sucess: false,
   });
 }
@@ -94,10 +94,12 @@ export async function createAccount(req: Request, res: Response) {
 export async function deleteAccount(req: Request, res: Response) {
   try {
     const { email } = req.body;
-    await db.talent.delete({ where: { userEmail: email } });
-    await db.company.delete({ where: { userEmail: email } });
+    const deleted = await db.talent.delete({ where: { userEmail: email } });
+    // await db.company.delete({ where: { userEmail: email } });
+    if (!deleted) return res.status(400).json({ message: "not found account" });
+
     return res.json({ message: "ok" });
-  } catch {
-    return res.json({ message: "Fail to delete" });
+  } catch (e) {
+    return res.json({ message: "Fail to delete", error: e });
   }
 }
