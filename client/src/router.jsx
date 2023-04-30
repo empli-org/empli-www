@@ -32,6 +32,8 @@ import UserProfile from './pages/UserForm'
 import FormOffer from './components/Forms/FormOffer'
 import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
 
+// import { Admin } from './pages/Dashboard/Administrator/Admin'
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -82,6 +84,7 @@ export const router = createBrowserRouter([
         path: '/about',
         element: <About />,
       },
+
       {
         path: '/contact',
         element: <Contact />,
