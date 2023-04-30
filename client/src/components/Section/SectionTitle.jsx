@@ -14,8 +14,10 @@ export const SectionTitle = ({
           className={`flex flex-col p-2           
 				${!imageOnRight ? 'order-last md:order-first' : 'order-last md:order-last'}`}
         >
-          <div className={`text-2xl mb-5 text-${textColor} font-bold`}>
-            <h1 className={`text-3xl text-${textColor}`}>{title}</h1>
+          <div className={`text-2xl mb-5 text-${textColor}`}>
+            <h1 className={`text-3xl font-amenable text-${textColor}`}>
+              {title}
+            </h1>
           </div>
           <div>
             <span className={`font-quicksand text-${textColor}`}>
@@ -28,7 +30,7 @@ export const SectionTitle = ({
             !imageOnRight
               ? 'order-first md:order-last'
               : 'order-first md:order-first'
-          }`}
+          } ${'hidden md:block'}`} /* La clase hidden oculta el componente en pantallas menores a md (768px) */
         >
           <WaveCir color={imgColor} />
         </div>

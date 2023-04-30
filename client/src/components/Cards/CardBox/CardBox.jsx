@@ -56,7 +56,7 @@ export const CardBox = ({ data }) => {
         }}
       />
 
-      <div className="flex w-full p-2 justify-end absolute bottom-2 right-2 ">
+      <div className="flex p-2 justify-end absolute bottom-2 right-2 ">
         <Button link="/talents" title="ver mas" />
       </div>
     </div>

@@ -1,13 +1,13 @@
 // @ts-nocheck
 // @ts-ignore
-import ob1 from '../../assets/ob-1.jpg'
-import ob2 from '../../assets/ob-2.jpg'
-import ob3 from '../../assets/ob-3.jpg'
+import ob1 from 'assets/ob-1.jpg'
+import ob2 from 'assets/ob-2.jpg'
+import ob3 from 'assets/ob-3.jpg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 /* eslint-disable jsx-a11y/label-has-associated-control */
-export const Login = () => {
+export const LoginBack = () => {
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
     user: yup

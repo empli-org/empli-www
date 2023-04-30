@@ -33,7 +33,7 @@ export default {
         'gulf-stream': '#70b39b',
         lochinvar: '#53917b',
         'blue-whale': '#1c2441',
-        'prussian-blue': '#1E293B',
+        'prussian-blue': '#1C2441',
       },
       spacing: {
         login: '93vh',

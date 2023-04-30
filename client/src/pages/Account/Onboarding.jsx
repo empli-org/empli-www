@@ -3,12 +3,7 @@ import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useContext, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
-import { AppContext } from './OnboardingContext'
-import { Step1 } from './steps/Step1'
-import { Step2 } from './steps/Step2'
-import { Step3 } from './steps/Step3'
-import { Step4 } from './steps/Step4'
-import { Step6 } from './steps/Step6'
+import { AppContext, Step1, Step2, Step3, Step4, Step6 } from 'pages'
 import { useVerifyAccountMutation } from '@/redux/features/api/base'
 
 export const Onboarding = () => {
