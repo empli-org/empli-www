@@ -6,7 +6,7 @@ export const Button = ({ title, link, color = 'white', background }) => {
       <button
         className={`border py-2 px-4 rounded-3xl text-${color} bg-${background} tracking-widest font-quicksand font-ligth 
         uppercase font-bold text-xs border-${color} hover:bg-prussian-blue hover:text-white hover:font-bold 
-      transition duration-300 ease-in-out w-full md:w-auto mx-auto md:mx-0`}
+      transition duration-300 ease-in-out  mx-auto md:mx-0`}
       >
         {title}
       </button>

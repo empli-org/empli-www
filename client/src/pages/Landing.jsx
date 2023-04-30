@@ -8,9 +8,9 @@ import {
   InfoCard,
   TextHero,
   ImageHero,
+  SectionTitle,
 } from 'components'
 import { Link } from 'react-router-dom'
-import wavecir from 'assets/Landing/wavecir.svg'
 import lupa from 'assets/img/lupa.webp'
 import pj from 'assets/img/persona2.png'
 
@@ -137,15 +137,17 @@ export const Landing = () => {
         imageOnRight={true}
         background="gray"
       />
-      <img
-        src={wavecir}
-        alt="wavecir"
-        className="absolute ml-28 mt-9 h-40 w-60 animate-pulse duration-500"
-      />
-      <div className="z-0 flex w-full justify-center">
+
+      <div className="max-w-screen-xl justify-center rounded-3xl shadow-lg">
         <CardBox data={data} />
       </div>
-      <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
+      <SectionTitle
+        textColor="prussian-blue"
+        title="Nuevas Ofertas"
+        subtitle="Mas de +200 ofertas laborales por dia"
+        imgColor="#53917b"
+      />
+      <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },

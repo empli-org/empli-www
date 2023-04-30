@@ -1,6 +1,7 @@
+// @ts-nocheck
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import { Button, CardPro } from 'components'
+import { Button, CardPro, SectionTitle } from 'components'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 export const CardBox = ({ data }) => {
@@ -23,16 +24,15 @@ export const CardBox = ({ data }) => {
   ))
 
   return (
-    <div className="m-5 flex h-4/6 w-10/12 flex-col rounded-3xl bg-gray-900 p-2">
-      <div className="m-5 flex flex-col items-end justify-end p-2 text-hint-of-red">
-        <div className="text-2xl font-bold">
-          <h1 className="text-3xl">Top Profesionales</h1>
-        </div>
-        <div>
-          <span className="font-quicksand font-light">
-            Más de <b>+200</b> ofertas por día
-          </span>
-        </div>
+    <div className="flex h-4/6 w-full flex-col rounded-3xl bg-gray-900 p-2 relative">
+      <div className="mx-10">
+        <SectionTitle
+          imageOnRight={true}
+          title="Top Talents"
+          subtitle="Mas de 200 ofertas profesionales por dia"
+          imgColor="#F6F2EC"
+          textColor="hint-of-red"
+        />
       </div>
       <AliceCarousel
         items={items}
@@ -56,7 +56,7 @@ export const CardBox = ({ data }) => {
         }}
       />
 
-      <div className="flex w-full p-2 justify-end">
+      <div className="flex w-full p-2 justify-end absolute bottom-2 right-2 ">
         <Button link="/talents" title="ver mas" />
       </div>
     </div>
