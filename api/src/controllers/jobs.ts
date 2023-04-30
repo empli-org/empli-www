@@ -93,6 +93,7 @@ export async function getAllJobs(req: Request, res: Response) {
             country: true,
           },
         },
+        createdAt: true,
       },
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
