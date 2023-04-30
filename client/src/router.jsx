@@ -31,6 +31,7 @@ import InfoProfessionals from './pages/Info/InfoProfessionals'
 import UserProfile from './pages/UserForm'
 import FormOffer from './components/Forms/FormOffer'
 import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
+import { SavedOffers } from './pages/Dashboard/Professional/Saved'
 
 // import { Admin } from './pages/Dashboard/Administrator/Admin'
 
@@ -159,7 +160,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/saved',
-        element: <h1 className="text-xl font-bold">Listado de Favoritos</h1>,
+        element: <SavedOffers />,
       },
       {
         path: '/dashboard/professional/profile',

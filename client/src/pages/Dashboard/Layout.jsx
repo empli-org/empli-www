@@ -8,6 +8,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom'
+import { useAccountContext } from '../Account/AccountContext'
 
 const professionalItems = [
   { name: 'Inicio', icon: <RectangleGroupIcon />, to: 'professional' },
@@ -92,11 +93,7 @@ export const DashboardLayout = () => {
             </div>
           </aside>
           <div className="ml-64 flex-1 pb-8">
-            {isCompany ? (
-              <CompanyHeader />
-            ) : (
-              <ProfessionalHeader name="Aldo R. Robles" verified={true} />
-            )}
+            {isCompany ? <CompanyHeader /> : <ProfessionalHeader />}
             <Outlet />
           </div>
         </div>
@@ -108,7 +105,10 @@ export const DashboardLayout = () => {
   )
 }
 
-function ProfessionalHeader({ name, verified }) {
+function ProfessionalHeader() {
+  const { account } = useAccountContext()
+  const { name, verified } = account
+
   return (
     <div className="flex items-center justify-between border-b px-10 py-7">
       <div>
