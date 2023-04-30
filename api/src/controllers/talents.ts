@@ -225,7 +225,30 @@ export async function getSavedOffers(req: Request, res: Response) {
   const offers = await db.talent.findUnique({
     where: { id },
     select: {
-      saved: true,
+      saved: {
+        select: {
+          id: true,
+          code: true,
+          title: true,
+          area: true,
+          type: true,
+          minRate: true,
+          maxRate: true,
+          image: true,
+          company: {
+            select: {
+              name: true,
+            },
+          },
+          location: {
+            select: {
+              city: true,
+              country: true,
+            },
+          },
+          createdAt: true,
+        },
+      },
     },
   });
   return res.json(offers);
