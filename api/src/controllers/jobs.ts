@@ -31,18 +31,18 @@ export async function getJobAreas(req: Request, res: Response) {
 
 export async function getJobLocations(req: Request, res: Response) {
   try {
-    const { key } = req.query;
+    const { key, sort } = req.query;
     const locations = await db.job.findMany({
-      ...(key && {
-        where: {
+      where: {
+        ...(key && {
           location: {
             OR: [
               { city: { contains: key as string, mode: "insensitive" } },
               { country: { contains: key as string, mode: "insensitive" } },
             ],
           },
-        },
-      }),
+        }),
+      },
       select: {
         location: {
           select: {
@@ -53,6 +53,7 @@ export async function getJobLocations(req: Request, res: Response) {
       },
       distinct: ["locationId"],
       take: 6,
+      ...(sort && { orderBy: { createdAt: sort === "desc" ? "desc" : "asc" } }),
     });
 
     return res.json(

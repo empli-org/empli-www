@@ -59,7 +59,7 @@ export async function verifyAccount(req: Request, res: Response) {
 
 export async function createAccount(req: Request, res: Response) {
   try {
-    const { name, plan, email, type } = req.body;
+    const { name, plan, email, type, image } = req.body;
     if (!email) return res.status(400).json({ message: "Email is required" });
     let created: Talent | Company | null = null;
     if (type === "professional") {
@@ -69,6 +69,7 @@ export async function createAccount(req: Request, res: Response) {
           name,
           plan,
           verified: plan !== "FREE",
+          image,
         },
       });
     } else {

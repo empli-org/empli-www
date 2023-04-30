@@ -222,10 +222,25 @@ export async function saveOffer(req: Request, res: Response) {
 
 export async function getSavedOffers(req: Request, res: Response) {
   const { id } = req.params;
+  const { sort, location } = req.query;
   const offers = await db.talent.findUnique({
     where: { id },
     select: {
       saved: {
+        orderBy: {
+          ...(sort && { createdAt: sort === "asc" ? "asc" : "desc" }),
+        },
+        where: {
+          location: {
+            OR: [
+              { city: { contains: location as string, mode: "insensitive" } },
+              {
+                country: { contains: location as string, mode: "insensitive" },
+              },
+            ],
+          },
+        },
+
         select: {
           id: true,
           code: true,
