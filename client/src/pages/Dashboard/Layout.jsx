@@ -1,3 +1,4 @@
+import { VerifiedIcon } from '@/components/icons/VerifiedIcon'
 import EmpliLogo from '@/components/ui/brand/EmpliLogo'
 import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
 import {
@@ -91,7 +92,11 @@ export const DashboardLayout = () => {
             </div>
           </aside>
           <div className="ml-64 flex-1 pb-8">
-            {isCompany ? <CompanyHeader /> : <ProfessionalHeader />}
+            {isCompany ? (
+              <CompanyHeader />
+            ) : (
+              <ProfessionalHeader name="Aldo R. Robles" verified={true} />
+            )}
             <Outlet />
           </div>
         </div>
@@ -103,12 +108,13 @@ export const DashboardLayout = () => {
   )
 }
 
-function ProfessionalHeader() {
+function ProfessionalHeader({ name, verified }) {
   return (
     <div className="flex items-center justify-between border-b px-10 py-7">
       <div>
-        <h1 className="text-2xl font-semibold leading-relaxed text-gray-800">
-          Nombre profesional
+        <h1 className="flex items-center gap-2 text-2xl font-semibold leading-relaxed text-gray-800">
+          <span>{name}</span>
+          <VerifiedIcon verified={verified} />
         </h1>
         <p className="text-sm font-medium text-gray-500">
           Encuentra la oferta de trabajo ideal para tu perfil

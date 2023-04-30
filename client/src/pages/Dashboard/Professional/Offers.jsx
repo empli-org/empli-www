@@ -9,10 +9,10 @@ import {
   LocationSearch,
   JobsFallback,
   Container,
-  JobCard,
   CloseIcon,
   FilterIcon,
 } from 'components'
+import { JobCard } from '@/components/ui/cards/JobCard_v2'
 const queryStringFromObj = obj =>
   Object.keys(obj)
     .map(key => obj[key] && key + '=' + obj[key])
@@ -120,19 +120,6 @@ export const DashProfessionalOffers = () => {
             </AnimatePresence>
           </div>
         </header>
-        <div className="flex flex-col items-center justify-center gap-4 py-4">
-          <ul className="scrollbar-hide flex items-center overflow-x-auto">
-            <li className="cursor-pointer whitespace-nowrap rounded-lg bg-slate-200 p-2 px-4">
-              Todos
-            </li>
-            <li className="cursor-pointer whitespace-nowrap rounded-lg px-4 py-2 text-slate-600">
-              Populares
-            </li>
-            <li className="cursor-pointer whitespace-nowrap rounded-lg px-4 py-2 text-slate-600">
-              Recomendados
-            </li>
-          </ul>
-        </div>
 
         {jobsLoading && <JobsFallback />}
 
