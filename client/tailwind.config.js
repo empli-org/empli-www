@@ -24,6 +24,8 @@ export default {
         'color-google': '#F06464',
         'bg-green': '#70b39b',
         'yellow-border': '#FFD15D',
+        opacity: 'rgba(28, 36, 65, 0.1)',
+        'opacity-hint': 'rgba(28, 36, 65, 0.6)',
         // Brand colors with names
         'hint-of-red': '#F6F2EC',
         fog: '#e0dadf',

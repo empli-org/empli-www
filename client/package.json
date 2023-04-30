@@ -30,6 +30,7 @@
     "react": "^18.2.0",
     "react-alice-carousel": "^2.7.1",
     "react-component-indexer": "^1.0.3",
+    "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",

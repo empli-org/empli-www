@@ -22,12 +22,21 @@ const companyItems = [
   { name: 'Configuración', icon: '', to: 'company/settings' },
 ]
 
+const adminItems = [
+  { name: 'Inicio', icon: '', to: 'admin' },
+  { name: 'Media', icon: '', to: 'admin/media' },
+  { name: 'Cuentas', icon: '', to: 'admin/accounts' },
+]
+
 export const DashboardLayout = () => {
   const { pathname } = useLocation()
   const { signOut } = useClerk()
   const navigate = useNavigate()
   const isCompany = pathname.split('/').includes('company')
-  const itemsSide = [isCompany ? companyItems : professionalItems]
+  const isAdmin = pathname.split('/').includes('admin')
+  const itemsSide = [
+    isCompany ? companyItems : isAdmin ? adminItems : professionalItems,
+  ]
 
   return (
     <>

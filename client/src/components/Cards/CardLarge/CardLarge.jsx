@@ -1,117 +1,36 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
+import { CardGlass } from '../CardGlass/CardGlass'
+import {
+  useGetJobsQuery,
+  useGetAllTalentsQuery,
+} from '@/redux/features/api/base'
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
-  const info = {
-    proffesionals: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
-    offers: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
-    companies: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
-  }
-  const Marked = ({ data, title, isBorder=false }) => {
+  const { data: offers } = useGetJobsQuery({})
+  const { data: talents } = useGetAllTalentsQuery({})
 
+  // total talents in the aplication. it is array
+  const countTalents = talents?.data?.length
+  // console.log(countTalents)
+
+  // total companies in the aplication. This is an object
+  const uniqueCompany = offers?.data?.reduce((acu, curr) => {
+    const name = curr.company.name
+    if (!acu[name]) {
+      acu[name] = true
+    }
+    return acu
+  }, {})
+  const countCompany = Object.keys(uniqueCompany).length
+  // console.log(countCompany)
+
+  // total offers in the aplication. it is array
+  const countOffers = offers?.data?.length
+  // console.log(countOffers)
+  const Marked = ({ data, title, isBorder=false }) => {
     return (
       <div className={`flex w-1/3 flex-col items-center text-center transition ${isBorder ? 'border-l-2 border-r-2 border-gray':'' } duration-300 hover:scale-125 md:text-left`}>
         <h1 className="mb-3 text-xs font-quicksand font-bold text-center uppercase tracking-wider text-gray-400">
