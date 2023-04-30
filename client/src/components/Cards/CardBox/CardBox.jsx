@@ -3,6 +3,7 @@ import { CardPro } from '../CardPro/CardPro'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import { Link } from 'react-router-dom'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 export const CardBox = ({ data }) => {
   const gruposDeDiez = data.reduce((accumulator, obj, index) => {
@@ -38,12 +39,25 @@ export const CardBox = ({ data }) => {
       <AliceCarousel
         items={items}
         autoPlay
+        disableDotsControls
         autoPlayInterval={1000}
         infinite
         autoWidth
         swipeExtraPadding={2}
-        disableButtonsControls
-        disableDotsControls
+        renderPrevButton={() => {
+          return (
+            <button className="backdrop-blur-4xl bg-opacity m-1 rounded-2xl bg-black p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
+              <FaArrowLeft />
+            </button>
+          )
+        }}
+        renderNextButton={() => {
+          return (
+            <button className="backdrop-blur-4xl bg-opacity m-1 rounded-2xl bg-black p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
+              <FaArrowRight />
+            </button>
+          )
+        }}
         mouseTracking
         responsive={{
           820: { items: 4 },
