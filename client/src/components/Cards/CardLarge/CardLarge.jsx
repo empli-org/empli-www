@@ -24,15 +24,16 @@ export const CardLarge = () => {
     }
     return acu
   }, {})
+
   const countCompany = Object.keys(uniqueCompany).length
   // console.log(countCompany)
 
   // total offers in the aplication. it is array
   const countOffers = offers?.data?.length
   // console.log(countOffers)
-  const Marked = ({ data, title, isBorder=false }) => {
+  const Marked = ({ data, title, isBorder = false }) => {
     return (
-      <div className={`flex w-1/3 flex-col items-center text-center transition ${isBorder ? 'border-l-2 border-r-2 border-gray':'' } duration-300 hover:scale-125 md:text-left`}>
+      <div className={`flex w-1/3 flex-col items-center text-center transition ${isBorder ? 'border-l-2 border-r-2 border-gray' : ''} duration-300 hover:scale-125 md:text-left`}>
         <h1 className="mb-3 text-xs font-quicksand font-bold text-center uppercase tracking-wider text-gray-400">
           {title}
         </h1>
@@ -41,18 +42,18 @@ export const CardLarge = () => {
            y la cantidad de objetos dentro de ese array seria el numero de professionales registrados en la plataforma.
            Pero esto puede ser modificado segun venga la informacion */}
           <PlusIcons className="text-sm" />
-          {data.length * 20}
+          {data}
         </h1>
       </div>
     )
   }
   return (
     <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
-      <Marked data={info.proffesionals} title="Profesionales"/>
+      <Marked data={countTalents} title="Profesionales" />
 
-      <Marked data={info.offers} title="Ofertas" isBorder={true} />
+      <Marked data={countOffers} title="Ofertas" isBorder={true} />
 
-      <Marked data={info.companies} title="Empresas"/>
+      <Marked data={countCompany} title="Empresas" />
     </div>
   )
 }

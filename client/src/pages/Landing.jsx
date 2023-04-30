@@ -108,9 +108,11 @@ export const Landing = () => {
       </div>
       {/* COUNTER BAR*/}
       <CardLarge />
+      {/* SLIDE COMPANIES */}
       <div className="mt-10 h-auto w-full shadow-sm ">
         <SlideCompanies />
       </div>
+
       <InfoCard
         image={pj}
         title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
@@ -135,7 +137,6 @@ export const Landing = () => {
         imageOnRight={true}
         background="gray"
       />
-
       <img
         src={wavecir}
         alt="wavecir"
