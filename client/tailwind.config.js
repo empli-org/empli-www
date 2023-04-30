@@ -2,11 +2,12 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    fontFamily: {
-      amenable: ['Amenable', 'ui-sans-serif'],
-      'quicksand-light': ['Quicksand', 'ui-sans-serif'],
-    },
     extend: {
+      fontFamily: {
+        amenable: ['Amenable', 'sans-serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
+        // sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+      },
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
         'contact-img': "url('/src/assets/bg-cont.svg')",
@@ -32,6 +33,7 @@ export default {
         'gulf-stream': '#70b39b',
         lochinvar: '#53917b',
         'blue-whale': '#1c2441',
+        'prussian-blue': '#1E293B',
       },
       spacing: {
         login: '93vh',

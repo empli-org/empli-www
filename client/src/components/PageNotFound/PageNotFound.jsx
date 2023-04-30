@@ -1,6 +1,6 @@
-import useIntersectionObserver from '../../hooks/useObserver'
-import empli from '../../assets/emplitos-24.svg'
-import { InfoCard } from '@/pages/InfoCard'
+import useIntersectionObserver from 'hooks/useObserver'
+import empli from 'assets/emplitos-24.svg'
+import { InfoCard } from 'components'
 
 export const PageNotFound = () => {
   const AnimatedComponent = useIntersectionObserver({

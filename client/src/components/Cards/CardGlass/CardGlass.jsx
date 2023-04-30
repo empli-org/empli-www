@@ -12,7 +12,7 @@ export const CardGlass = () => {
         />
       </div>
 
-      <div className=" flex w-full flex-col justify-center">
+      <div className=" flex w-full  flex-col justify-center">
         <div className="flex items-center justify-start gap-x-10">
           <span className="mb-2 flex text-xs font-bold text-black">
             Carlos J. Gonzalez

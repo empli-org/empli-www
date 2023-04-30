@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { Outlet } from 'react-router-dom'
-import { Navbar } from '@/components/Navbar/Navbar'
-import Footer from './footer/Footer'
+import { Navbar, Footer } from 'components'
 import { useGoUp } from '@/hooks/useGoUp'
 
 export const Layout = () => {
@@ -21,5 +20,3 @@ export const Layout = () => {
     </div>
   )
 }
-
-export default Layout

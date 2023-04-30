@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       },
       variables: {
         colorPrimary: '#1c2441',
-        colorBackground: '#fbfbfb',
+        colorBackground: '#e4e4e4',
       },
     }}
   >
