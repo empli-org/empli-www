@@ -1,12 +1,9 @@
 // @ts-nocheck
-import { CareerSearch } from '@/components/Search/CareerSearch'
-import { CloseIcon } from '@/components/icons/CloseIcon'
-import { Container } from '@/components/ui/Container'
+import { CareerSearch, CloseIcon, Container, CardProfile } from 'components'
 import { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import { useUpload } from '@/hooks/upload'
 import { useSearchParams } from 'react-router-dom'
-import { CardProfile } from '@/components'
 import { Switch } from '@headlessui/react'
 
 export default function UserProfile() {

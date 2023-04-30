@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
-import { CardGlass } from '../CardGlass/CardGlass'
 import {
   useGetJobsQuery,
   useGetAllTalentsQuery,
@@ -9,15 +8,15 @@ import {
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
-  const { data: offers } = useGetJobsQuery({})
-  const { data: talents } = useGetAllTalentsQuery({})
+  const { data: offersData=[] } = useGetJobsQuery()
+  const { data: talentsData=[] } = useGetAllTalentsQuery()
 
-  // total talents in the aplication. it is array
-  const countTalents = talents?.data?.length
+  // total talentsData in the aplication. it is array
+  const countTalents = talentsData && talentsData.length
   // console.log(countTalents)
 
   // total companies in the aplication. This is an object
-  const uniqueCompany = offers?.data?.reduce((acu, curr) => {
+  const uniqueCompany = offersData && offersData.reduce((acu, curr) => {
     const name = curr.company.name
     if (!acu[name]) {
       acu[name] = true
@@ -28,8 +27,8 @@ export const CardLarge = () => {
   const countCompany = Object.keys(uniqueCompany).length
   // console.log(countCompany)
 
-  // total offers in the aplication. it is array
-  const countOffers = offers?.data?.length
+  // total offersData in the aplication. it is array
+  const countOffers = offersData && offersData.length
   // console.log(countOffers)
   const Marked = ({ data, title, isBorder = false }) => {
     return (
