@@ -13,16 +13,15 @@ import {
   FilterIcon,
 } from 'components'
 import { JobCard } from '@/components/ui/cards/JobCard_v2'
-const queryStringFromObj = obj =>
-  Object.keys(obj)
-    .map(key => obj[key] && key + '=' + obj[key])
-    .join('&')
+import { SelectBox } from '@/components/ui/Select'
+import { dateSortOptions, queryStringFromObj } from '@/utils/data'
 
 export const DashProfessionalOffers = () => {
   const [filterOpen, setFilterOpen] = useState(false)
+  const [dateSort, setDateSort] = useState(dateSortOptions[0])
   const [filters, setFilters] = useState({})
   const hasFilters = Object.values(filters).some(Boolean)
-  const queryString = queryStringFromObj(filters)
+  const queryString = queryStringFromObj(filters) + `&sort=${dateSort.value}`
   const [page, setPage] = useState(1)
   const { data, isLoading, isFetching } = useGetJobsQuery({ queryString, page })
   const jobs = data?.data
@@ -120,6 +119,15 @@ export const DashProfessionalOffers = () => {
             </AnimatePresence>
           </div>
         </header>
+
+        <div>
+          <SelectBox
+            options={dateSortOptions}
+            selected={dateSort}
+            setSelected={setDateSort}
+            label="Fecha de publicación"
+          />
+        </div>
 
         {jobsLoading && <JobsFallback />}
 
