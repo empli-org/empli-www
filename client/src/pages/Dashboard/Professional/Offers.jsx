@@ -114,13 +114,22 @@ export const DashProfessionalOffers = () => {
                       )}
                     </div>
                   </div>
+                  <div className="py-2">
+                    <button
+                      onClick={() => setFilters({})}
+                      disabled={!hasFilters}
+                      className="rounded-md bg-blue-whale px-4 py-3 text-white disabled:bg-slate-400"
+                    >
+                      Limpiar todo
+                    </button>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         </header>
 
-        <div>
+        <div className="max-w-md py-4">
           <SelectBox
             options={dateSortOptions}
             selected={dateSort}
