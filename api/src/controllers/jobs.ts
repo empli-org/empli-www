@@ -76,6 +76,7 @@ export async function getAllJobs(req: Request, res: Response) {
     const countOptions: Prisma.JobCountArgs = {};
     const options: Prisma.JobFindManyArgs = {
       select: {
+        id: true,
         code: true,
         title: true,
         area: true,
