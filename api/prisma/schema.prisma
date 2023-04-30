@@ -149,6 +149,7 @@ model Job {
   updatedAt    DateTime      @updatedAt
   published    Boolean       @default(true)
   type         JobType?      @default(FULLTIME)
+  image        String?
   company      Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
   location     Location?     @relation(fields: [locationId], references: [id])
   postulations Postulation[]

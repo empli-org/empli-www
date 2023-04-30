@@ -82,6 +82,7 @@ export async function getAllJobs(req: Request, res: Response) {
         type: true,
         minRate: true,
         maxRate: true,
+        image: true,
         company: {
           select: {
             name: true,
