@@ -96,6 +96,11 @@ export async function getAllJobs(req: Request, res: Response) {
           },
         },
         createdAt: true,
+        savedBy: {
+          select: {
+            id: true,
+          },
+        },
       },
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
