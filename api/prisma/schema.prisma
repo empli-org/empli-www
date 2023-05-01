@@ -17,8 +17,7 @@ model Admin {
 
 model Talent {
   id             String          @id @default(cuid())
-  name           String
-  lastname       String?
+  name           String?
   age            Int?
   image          String?
   plan           Plan?           @default(FREE)
@@ -30,6 +29,7 @@ model Talent {
   careerId       String?
   firstname      String?
   paused         Boolean         @default(false)
+  firstName      String?
   contactInfo    ContactInfo?
   experienceInfo ExperienceInfo?
   postulations   Postulation[]

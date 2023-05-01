@@ -59,7 +59,6 @@ export async function getAllTalents(req: Request, res: Response) {
       select: {
         id: true,
         name: true,
-        lastname: true,
         image: true,
         verified: true,
         userEmail: true,
