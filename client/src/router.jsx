@@ -31,8 +31,26 @@ import {
   // FormOffer,
   AdminDash,
 } from 'pages'
-import { FormOffer } from './components'
-import { DashProfessionalOffers } from '@/pages/Dashboard/Professional/Offers'
+// import PricingPage from './pages/Info/pricing/Pricing'
+// import Media from './pages/Community/Media'
+// import HomeEmpresa from './pages/HomeEmpresa'
+// import { AuthLayout } from './pages/Auth/Layout'
+// import { Onboarding } from './pages/Account/Onboarding'
+// import { Payment } from './pages/Account/Payment'
+// import { DashboardLayout } from './pages/Dashboard/Layout'
+// import { Dashboard } from './pages/Dashboard/Dashboard'
+// import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
+// import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
+import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
+// import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
+// import InfoProfessionals from './pages/Info/InfoProfessionals'
+import FormOffer from './components/Forms/FormOffer'
+// import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
+import { SavedOffers } from './pages/Dashboard/Professional/Saved'
+// import UserProfile from './pages/Dashboard/Professional/Profile'
+
+// import { Admin } from './pages/Dashboard/Administrator/Admin'
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -83,6 +101,7 @@ export const router = createBrowserRouter([
         path: '/about',
         element: <About />,
       },
+
       {
         path: '/contact',
         element: <Contact />,
@@ -157,7 +176,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/saved',
-        element: <h1 className="text-xl font-bold">Listado de Favoritos</h1>,
+        element: <SavedOffers />,
       },
       {
         path: '/dashboard/professional/profile',

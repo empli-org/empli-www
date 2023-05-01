@@ -34,6 +34,9 @@ export const Footer = () => {
             <li>
               <Link to="/contact">Contacto</Link>
             </li>
+            <li>
+              <Link to="/perfil">perfil</Link>
+            </li>
           </ul>
         </div>
         <div className="flex flex-col items-start">

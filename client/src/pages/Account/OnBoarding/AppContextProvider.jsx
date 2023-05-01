@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import { plansData } from '@/constants/plansData';
-import { accountTypes } from '@/constants/accountTypes';
-import { AppContext } from "./AppContext";
-
+import React, { useState } from 'react'
+import { plansData } from '@/constants/plansData'
+import { accountTypes } from '@/constants/accountTypes'
+import { AppContext } from './AppContext'
 
 export function AppContextProvider({ children }) {
-  const [accountType, setAccountType] = useState(accountTypes[0]);
-  const [selectedPlan, setSelectedPlan] = useState(plansData[0]);
-  const [billing, setBilling] = useState('monthly');
-  const [selectedPreferences, setSelectedPreferences] = useState([]);
+  const [accountType, setAccountType] = useState(accountTypes[0])
+  const [selectedPlan, setSelectedPlan] = useState(plansData[0])
+  const [billing, setBilling] = useState('monthly')
+  const [selectedPreferences, setSelectedPreferences] = useState([])
+  const [ready, setReady] = useState(false)
 
-  const [activeStep, setActiveStep] = useState(1);
-  const [direction, setDirection] = useState(0);
+  const [activeStep, setActiveStep] = useState(1)
+  const [direction, setDirection] = useState(0)
 
   const CalcTotalAmount = () => {
-    let totalAmount = billing === 'monthly'
-      ? selectedPlan.monthlyPrice
-      : selectedPlan.yearlyPrice;
-    return totalAmount;
-  };
+    let totalAmount =
+      billing === 'monthly'
+        ? selectedPlan.monthlyPrice
+        : selectedPlan.yearlyPrice
+    return totalAmount
+  }
 
   return (
     <AppContext.Provider
@@ -36,9 +37,11 @@ export function AppContextProvider({ children }) {
         CalcTotalAmount,
         direction,
         setDirection,
+        ready,
+        setReady,
       }}
     >
       {children}
     </AppContext.Provider>
-  );
+  )
 }

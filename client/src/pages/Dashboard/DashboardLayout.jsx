@@ -1,4 +1,4 @@
-import { EmpliLogo } from 'components'
+import { VerifiedIcon } from '@/components/icons/VerifiedIcon'
 import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
 import {
   Link,
@@ -7,6 +7,8 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom'
+import { useAccountContext } from '../Account/AccountContext'
+import { EmpliLogo } from '@/components'
 
 const professionalItems = [
   { name: 'Inicio', icon: <RectangleGroupIcon />, to: 'professional' },
@@ -41,7 +43,7 @@ export const DashboardLayout = () => {
   return (
     <>
       <SignedIn>
-        <div className="font-sans flex min-h-screen w-full bg-gray-50 text-gray-900">
+        <div className="flex min-h-screen w-full bg-gray-50 font-sans text-gray-900">
           <aside className="fixed h-screen w-64 border-r border-gray-200 px-10 py-6">
             <Link to="/">
               <div className="w-24 text-blue-whale/50">
@@ -104,11 +106,14 @@ export const DashboardLayout = () => {
 }
 
 function ProfessionalHeader() {
+  const { account } = useAccountContext()
+
   return (
     <div className="flex items-center justify-between border-b px-10 py-7">
       <div>
-        <h1 className="text-2xl font-semibold leading-relaxed text-gray-800">
-          Nombre profesional
+        <h1 className="flex items-center gap-2 text-2xl font-semibold leading-relaxed text-gray-800">
+          <span>{account?.name}</span>
+          <VerifiedIcon verified={account?.verified} />
         </h1>
         <p className="text-sm font-medium text-gray-500">
           Encuentra la oferta de trabajo ideal para tu perfil
