@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AppContext } from './OnboardingContext'
+import { AppContext } from "./OnBoarding/AppContext"
 import { Container } from '@/components'
 
 export const Payment = () => {

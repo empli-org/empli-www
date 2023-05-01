@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Outlet, createBrowserRouter } from 'react-router-dom'
-import { Layout } from '@/components/Layout'
+import { Layout } from 'components'
 import {
   Landing,
   TalentDetail,

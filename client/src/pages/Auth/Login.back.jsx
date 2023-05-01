@@ -1,8 +1,8 @@
 // @ts-nocheck
 // @ts-ignore
-import ob1 from 'assets/ob-1.jpg'
-import ob2 from 'assets/ob-2.jpg'
-import ob3 from 'assets/ob-3.jpg'
+// import ob1 from 'assets/ob-1.jpg'
+// import ob2 from 'assets/ob-2.jpg'
+// import ob3 from 'assets/ob-3.jpg'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -53,7 +53,7 @@ export const LoginBack = () => {
             </h6>
             <div className="flex items-center justify-center gap-4">
               <div className="flex">
-                <img src={ob3} alt="ob" className="h-15 w-15 rounded-full" />
+                {/* <img src={ob3} alt="ob" className="h-15 w-15 rounded-full" />
                 <img
                   src={ob1}
                   alt="ob"
@@ -63,7 +63,7 @@ export const LoginBack = () => {
                   src={ob2}
                   alt="ob"
                   className="ml-negative h-15 w-15 rounded-full"
-                />
+                /> */}
               </div>
               <div>
                 <h6 className="font-quicksand-light text-xl text-white-font">

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useCreateAccountMutation } from '@/redux/features/api/base'
-import { AppContext } from '../OnboardingContext'
+import { AppContext } from "../OnBoarding/AppContext"
 import { useClerk } from '@clerk/clerk-react'
 
 const childVariants = {
