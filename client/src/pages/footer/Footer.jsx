@@ -1,7 +1,3 @@
-import React from 'react'
-
-import './Footer.css'
-
 const Footer = () => {
   return (
     <footer className="bg-blue-950 text-white">

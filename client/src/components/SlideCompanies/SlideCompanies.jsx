@@ -1,3 +1,4 @@
+// @ts-nocheck
 import AliceCarousel from 'react-alice-carousel'
 import empresa1 from 'assets/img/empresa.webp'
 import empresa2 from 'assets/img/empresa2.webp'
@@ -17,9 +18,9 @@ export const SlideCompanies = () => {
   return (
     <div className=" flex flex-col">
       <div className="my-10">
-        <h1 className="bg-opacity-60 p-5 text-center tracking-widest font-amenable text-4xl text-blue-whale backdrop-blur-3xl backdrop-filter">
-          Hemos reclutado a los profesionales de grandes proyectos
-          <br /> en entidades importantes.{' '}
+        <h1 className="bg-opacity-60 p-5 text-center tracking-widest uppercase font-amenable text-4xl text-blue-whale backdrop-blur-3xl backdrop-filter">
+          Hemos reclutado a profesionales que han trabajado en grandes proyectos
+          para importantes entidades.
         </h1>
       </div>
       <div>

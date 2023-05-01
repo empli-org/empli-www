@@ -5,7 +5,7 @@ import {
   useCreateAccountMutation,
   useVerifyAccountMutation,
 } from '@/redux/features/api/base'
-import { AppContext } from '../OnboardingContext'
+import { AppContext } from 'pages'
 import { useClerk } from '@clerk/clerk-react'
 import { useAccountContext } from '../AccountContext'
 

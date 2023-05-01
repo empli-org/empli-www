@@ -8,9 +8,10 @@ import {
   InfoCard,
   TextHero,
   ImageHero,
+  SectionTitle,
+  Button,
+  SectionQuote,
 } from 'components'
-import { Link } from 'react-router-dom'
-import wavecir from 'assets/Landing/wavecir.svg'
 import lupa from 'assets/img/lupa.webp'
 import pj from 'assets/img/persona2.png'
 
@@ -137,15 +138,17 @@ export const Landing = () => {
         imageOnRight={true}
         background="gray"
       />
-      <img
-        src={wavecir}
-        alt="wavecir"
-        className="absolute ml-28 mt-9 h-40 w-60 animate-pulse duration-500"
-      />
-      <div className="z-0 flex w-full justify-center">
+
+      <div className="max-w-screen-xl justify-center rounded-3xl shadow-lg">
         <CardBox data={data} />
       </div>
-      <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
+      <SectionTitle
+        textColor="prussian-blue"
+        title="Nuevas Ofertas"
+        subtitle="Mas de +200 ofertas laborales por dia"
+        imgColor="#53917b"
+      />
+      <div className="mx-auto flex h-auto max-w-screen-xl flex-wrap justify-center">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -167,13 +170,19 @@ export const Landing = () => {
             )
           },
         )}
-        <div className="flex w-full justify-center">
-          <Link to="/talents" className="h-15 w-28">
-            <p className="mt-5 w-auto text-center font-quicksand-light text-xl font-bold text-blue-whale">
-              Ver más
-            </p>
-          </Link>
+        <div className="flex w-full m-10 justify-center">
+          <Button link="/talents" title="Ver mas" color="black" />
         </div>
+      </div>
+      <div>
+        
+      </div>
+
+      <div className="bg-[#f5e4cb] w-full flexc p-10">
+        <SectionQuote
+          text="Haz que tu proyecto sea un éxito al conectarte con los profesionales independientes más valiosos en Empli."
+          size="9xl"
+        />
       </div>
     </Container>
   )

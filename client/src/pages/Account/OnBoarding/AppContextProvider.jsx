@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { plansData } from '@/constants/plansData'
 import { accountTypes } from '@/constants/accountTypes'
-
-// @ts-ignore
-export const AppContext = React.createContext()
+import { AppContext } from './AppContext'
 
 export function AppContextProvider({ children }) {
   const [accountType, setAccountType] = useState(accountTypes[0])
