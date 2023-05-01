@@ -32,12 +32,7 @@ export const Step1 = () => {
                   {p.icon && p.icon}
                   <div className="ml-4 flex flex-col">
                     <h3>
-                      {/* {p.name === 'Professional' ? 'Profesional' : 'Empresa'} */}
-                      {p.name === 'Professional'
-                        ? 'Profesional'
-                        : p.name === 'Empresa'
-                        ? 'Empresa'
-                        : 'Administrador'}
+                      {p.name === 'Professional' ? 'Profesional' : 'Empresa'}
                     </h3>
                   </div>
                 </div>
