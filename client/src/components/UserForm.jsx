@@ -5,12 +5,14 @@ import { Container } from '@/components/ui/Container'
 import { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import { useUpload } from '@/hooks/upload'
+import { useAccountContext } from '@/pages/Account/AccountContext'
 
 const inputCls =
   'rounded-md border border-slate-200 p-3 outline-none focus:ring-2'
 
 export const UserProfileForm = () => {
   const [skills, setSkills] = useState([])
+  const { account } = useAccountContext()
 
   const addSkill = item => {
     const found = skills.find(i => i.name === item.name)
@@ -28,9 +30,13 @@ export const UserProfileForm = () => {
           >
             <h1 className="mb-4 text-xl font-bold">Perfil público</h1>
 
-            <ProfileImageForm />
+            <ProfileImageForm image={account.image} />
 
-            <InfoForm />
+            <InfoForm
+              name={account.name}
+              career={account.career}
+              tuitionNumber={account.tuitionNumber}
+            />
 
             <h1 className="my-4 text-xl font-bold">Habilidades</h1>
 
@@ -117,7 +123,7 @@ function AddInputDynamic() {
   )
 }
 
-function ProfileImageForm() {
+function ProfileImageForm({ image: savedImage }) {
   const [file, setFile] = useState(null)
   const { loading, data } = useUpload(file)
   const image = data?.public_id || null
@@ -133,6 +139,8 @@ function ProfileImageForm() {
         <div className="aspect-s w-24 overflow-hidden rounded-lg">
           <Image cloudName="dvzhqzjkm" publicId={image} />
         </div>
+      ) : savedImage ? (
+        <img src={savedImage} className="w-24 rounded-lg" alt="profile" />
       ) : (
         <div className="aspect-square w-24 rounded-lg bg-slate-200" />
       )}
@@ -146,7 +154,7 @@ function ProfileImageForm() {
   )
 }
 
-function InfoForm() {
+function InfoForm({ name, career, tuitionNumber }) {
   return (
     <div>
       <div className="flex flex-col gap-2">
@@ -157,26 +165,7 @@ function InfoForm() {
           placeholder="Nombre"
           id="name"
           name="name"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="lastname">Apellido</label>
-        <input
-          className={inputCls}
-          type="text"
-          placeholder="Apellido"
-          id="lastname"
-          name="lastname"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="age">Edad</label>
-        <input
-          className={inputCls}
-          type="text"
-          placeholder="Edad"
-          id="age"
-          name="age"
+          defaultValue={name}
         />
       </div>
 
@@ -188,6 +177,7 @@ function InfoForm() {
           placeholder="Carrera"
           id="career"
           name="career"
+          defaultValue={career?.name}
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -198,6 +188,7 @@ function InfoForm() {
           placeholder="Numero colegiatura"
           id="tuition"
           name="tuition"
+          defaultValue={tuitionNumber}
         />
       </div>
     </div>
