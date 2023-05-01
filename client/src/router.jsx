@@ -27,9 +27,9 @@ import {
   // DashProfessionalOffers,
   MarketProfessionals,
   InfoProfessionals,
-  UserProfile,
   // FormOffer,
   AdminDash,
+  DashUserProfile,
 } from 'pages'
 // import PricingPage from './pages/Info/pricing/Pricing'
 // import Media from './pages/Community/Media'
@@ -180,7 +180,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/profile',
-        element: <UserProfile />,
+        element: <DashUserProfile />,
       },
       {
         path: '/dashboard/admin',

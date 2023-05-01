@@ -1,4 +1,5 @@
 export const protectEmail = user_email => {
+  if (!user_email) return ''
   var avg, splitted, part1, part2
   splitted = user_email.split('@')
   part1 = splitted[0]
