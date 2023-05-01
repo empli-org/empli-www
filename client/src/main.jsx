@@ -25,14 +25,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       },
     }}
   >
-    <React.StrictMode>
-      <AccountContextProvider>
-        <AppContextProvider>
-          <Provider store={store}>
-            <RouterProvider router={router} />
-          </Provider>
-        </AppContextProvider>
-      </AccountContextProvider>
-    </React.StrictMode>
+    <AccountContextProvider>
+      <AppContextProvider>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+      </AppContextProvider>
+    </AccountContextProvider>
   </ClerkProvider>,
 )

@@ -10,6 +10,7 @@ export function AppContextProvider({ children }) {
   const [selectedPlan, setSelectedPlan] = useState(plansData[0])
   const [billing, setBilling] = useState('monthly')
   const [selectedPreferences, setSelectedPreferences] = useState([])
+  const [ready, setReady] = useState(false)
 
   const [activeStep, setActiveStep] = useState(1)
   const [direction, setDirection] = useState(0)
@@ -38,6 +39,8 @@ export function AppContextProvider({ children }) {
         CalcTotalAmount,
         direction,
         setDirection,
+        ready,
+        setReady,
       }}
     >
       {children}
