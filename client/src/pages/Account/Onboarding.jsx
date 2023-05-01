@@ -10,20 +10,26 @@ import { Step3 } from './steps/Step3'
 import { Step4 } from './steps/Step4'
 import { Step6 } from './steps/Step6'
 import { useVerifyAccountMutation } from '@/redux/features/api/base'
+import { useAccountContext } from './AccountContext'
 
 export const Onboarding = () => {
   const [verifyUser, { isLoading, isSuccess, error, data }] =
     useVerifyAccountMutation()
+  const { setAccount, setAccountType } = useAccountContext()
   const { user, loaded } = useClerk()
   const { selectedPlan, activeStep, direction } = useContext(AppContext)
 
   useEffect(() => {
     if (loaded) {
-      if ((!isLoading && !isSuccess, !error)) {
-        verifyUser({ email: user.emailAddresses[0].emailAddress })
+      if (!isLoading && !isSuccess && !error) {
+        verifyUser({ email: user.primaryEmailAddress.emailAddress })
       }
     }
-  }, [loaded, isLoading, isSuccess, error])
+    if (data) {
+      setAccount(data.account)
+      setAccountType(data.type)
+    }
+  }, [loaded, isLoading, isSuccess, error, data])
 
   if (isSuccess && data.success) {
     return <Navigate to={`/dashboard/${data.type}`} />

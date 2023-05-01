@@ -25,9 +25,10 @@ export const Step6 = () => {
   useEffect(() => {
     if (!isSuccess && !isLoading && !error) {
       const body = {
-        name: 'test name',
+        name: user.fullName,
         plan: selectedPlan.name.toUpperCase(),
-        email: user.emailAddresses[0].emailAddress,
+        email: user.primaryEmailAddress.emailAddress,
+        image: user.profileImageUrl,
         type: accountType.name.toLowerCase(),
       }
       console.log(body)

@@ -28,9 +28,10 @@ import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDas
 import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
 import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
 import InfoProfessionals from './pages/Info/InfoProfessionals'
-import UserProfile from './pages/UserForm'
 import FormOffer from './components/Forms/FormOffer'
 import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
+import { SavedOffers } from './pages/Dashboard/Professional/Saved'
+import UserProfile from './pages/Dashboard/Professional/Profile'
 
 // import { Admin } from './pages/Dashboard/Administrator/Admin'
 
@@ -159,7 +160,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/saved',
-        element: <h1 className="text-xl font-bold">Listado de Favoritos</h1>,
+        element: <SavedOffers />,
       },
       {
         path: '/dashboard/professional/profile',
