@@ -10,7 +10,8 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|css|ts|tsx)\"",
     "format": "npm run prettier -- --write",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ignore-path .gitignore --ext js,jsx,ts,tsx .",
-    "validate": "run-s lint build"
+    "validate": "run-s lint build",
+    "indexer": "node node_modules/react-component-indexer/src/export.js"
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.15.2",
@@ -31,6 +32,7 @@
     "react-admin": "^4.9.4",
     "react-admin-lb4": "^1.0.3",
     "react-alice-carousel": "^2.7.1",
+    "react-component-indexer": "^1.0.3",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",

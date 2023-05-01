@@ -1,8 +1,6 @@
-import React from 'react'
-import { CardPro } from '../CardPro/CardPro'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import { Link } from 'react-router-dom'
+import { Button, CardPro } from 'components'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 export const CardBox = ({ data }) => {
@@ -31,7 +29,7 @@ export const CardBox = ({ data }) => {
           <h1 className="text-3xl">Top Profesionales</h1>
         </div>
         <div>
-          <span className="font-quicksand-light">
+          <span className="font-quicksand font-light">
             Más de <b>+200</b> ofertas por día
           </span>
         </div>
@@ -45,30 +43,21 @@ export const CardBox = ({ data }) => {
         autoWidth
         swipeExtraPadding={2}
         renderPrevButton={() => {
-          return (
-            <button className="backdrop-blur-4xl bg-opacity m-1 rounded-2xl bg-black p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
-              <FaArrowLeft />
-            </button>
-          )
+          // @ts-ignore
+          return <Button title={<FaArrowLeft />} />
         }}
         renderNextButton={() => {
-          return (
-            <button className="backdrop-blur-4xl bg-opacity m-1 rounded-2xl bg-black p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
-              <FaArrowRight />
-            </button>
-          )
+          // @ts-ignore
+          return <Button title={<FaArrowRight />} />
         }}
         mouseTracking
         responsive={{
           820: { items: 4 },
         }}
       />
-      <div className="flex w-full justify-end">
-        <Link to="/talents" className="h-15 w-28">
-          <p className="mr-2 mt-1 w-28 rounded-lg bg-slate-800 px-6 py-4 text-center font-quicksand-light text-base font-bold text-hint-of-red">
-            Ver más
-          </p>
-        </Link>
+
+      <div className="flex w-full p-2 justify-end">
+        <Button link="/talents" title="ver mas" />
       </div>
     </div>
   )

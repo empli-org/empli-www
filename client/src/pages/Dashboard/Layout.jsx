@@ -1,5 +1,4 @@
 import { VerifiedIcon } from '@/components/icons/VerifiedIcon'
-import EmpliLogo from '@/components/ui/brand/EmpliLogo'
 import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
 import {
   Link,
@@ -9,6 +8,7 @@ import {
   useNavigate,
 } from 'react-router-dom'
 import { useAccountContext } from '../Account/AccountContext'
+import { EmpliLogo } from '@/components'
 
 const professionalItems = [
   { name: 'Inicio', icon: <RectangleGroupIcon />, to: 'professional' },
@@ -43,7 +43,7 @@ export const DashboardLayout = () => {
   return (
     <>
       <SignedIn>
-        <div className="font-sans flex min-h-screen w-full bg-gray-50 text-gray-900">
+        <div className="flex min-h-screen w-full bg-gray-50 font-sans text-gray-900">
           <aside className="fixed h-screen w-64 border-r border-gray-200 px-10 py-6">
             <Link to="/">
               <div className="w-24 text-blue-whale/50">

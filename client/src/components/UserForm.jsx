@@ -1,7 +1,5 @@
 // @ts-nocheck
-import { CareerSearch } from '@/components/Search/CareerSearch'
-import { CloseIcon } from '@/components/icons/CloseIcon'
-import { Container } from '@/components/ui/Container'
+import { CareerSearch, CloseIcon, Container } from 'components'
 import { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import { useUpload } from '@/hooks/upload'

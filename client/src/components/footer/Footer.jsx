@@ -1,6 +1,6 @@
 // import { Container } from 'components'
 import { Link } from 'react-router-dom'
-import EmpliLogo from '@/components/ui/brand/EmpliLogo'
+import { EmpliLogo } from 'components'
 import { FiInstagram, FiLinkedin, FiFacebook } from 'react-icons/fi'
 
 export const Footer = () => {
@@ -76,5 +76,3 @@ export const Footer = () => {
     </footer>
   )
 }
-
-export default Footer
