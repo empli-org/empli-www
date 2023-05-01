@@ -230,14 +230,19 @@ export async function getSavedOffers(req: Request, res: Response) {
           ...(sort && { createdAt: sort === "asc" ? "asc" : "desc" }),
         },
         where: {
-          location: {
-            OR: [
-              { city: { contains: location as string, mode: "insensitive" } },
-              {
-                country: { contains: location as string, mode: "insensitive" },
-              },
-            ],
-          },
+          ...(location && {
+            location: {
+              OR: [
+                { city: { contains: location as string, mode: "insensitive" } },
+                {
+                  country: {
+                    contains: location as string,
+                    mode: "insensitive",
+                  },
+                },
+              ],
+            },
+          }),
         },
 
         select: {
