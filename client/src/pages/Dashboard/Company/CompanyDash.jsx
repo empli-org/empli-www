@@ -1,11 +1,8 @@
-import { useAccountContext } from '@/pages/Account/AccountContext'
 import DashCards from '../MinCards/DashCards_v2'
 
 export const CompanyDash = () => {
-  const { account } = useAccountContext()
   return (
     <div className="flex items-center gap-4 p-4">
-      <pre>{JSON.stringify(account, null, 2)}</pre>
       <DashCards
         title="Ofertas publicadas"
         number={25}
