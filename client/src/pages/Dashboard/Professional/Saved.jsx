@@ -8,14 +8,14 @@ import {
   locationFilterOptions,
   queryStringFromObj,
 } from '@/utils/data'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const SavedOffers = () => {
   const [dateSort, setDateSort] = useState(dateSortOptions[0])
   const [locationFilter, setLocationFilter] = useState(locationFilterOptions[0])
   const queryString = queryStringFromObj({
     date: dateSort.value,
-    location: locationFilter.value,
+    location: locationFilter.value === 'all' ? null : locationFilter.value,
   })
   const { account } = useAccountContext()
   const { data, isLoading, isFetching } = useGetSavedOffersQuery({
