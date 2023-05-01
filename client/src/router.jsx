@@ -24,14 +24,15 @@ import {
   Dashboard,
   CompanyDash,
   ProfessionalDash,
-  DashProfessionalOffers,
+  // DashProfessionalOffers,
   MarketProfessionals,
   InfoProfessionals,
   UserProfile,
-  FormOffer,
+  // FormOffer,
   AdminDash,
 } from 'pages'
-
+import { FormOffer } from './components'
+import { DashProfessionalOffers } from '@/pages/Dashboard/Professional/Offers'
 export const router = createBrowserRouter([
   {
     path: '/',
