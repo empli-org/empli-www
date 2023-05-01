@@ -21,8 +21,8 @@ export const Onboarding = () => {
 
   useEffect(() => {
     if (loaded) {
-      if ((!isLoading && !isSuccess, !error)) {
-        verifyUser({ email: user.emailAddresses[0].emailAddress })
+      if (!isLoading && !isSuccess && !error) {
+        verifyUser({ email: user.primaryEmailAddress.emailAddress })
       }
     }
     if (data) {

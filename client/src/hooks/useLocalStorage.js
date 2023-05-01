@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 const getStorageData = (keyName, defaultValue) => {
   const savedItem = localStorage.getItem(keyName)
-  const parsedItem = JSON.parse(savedItem)
+  const parsedItem = savedItem ? JSON.parse(savedItem) : null
   return parsedItem || defaultValue
 }
 

@@ -5,8 +5,8 @@ import React, { useEffect } from 'react'
 export const AccountContext = React.createContext()
 
 export const AccountContextProvider = ({ children }) => {
-  const [accountType, setAccountType] = useLocalStorage(null)
-  const [account, setAccount] = useLocalStorage(null)
+  const [accountType, setAccountType] = useLocalStorage('accountType', null)
+  const [account, setAccount] = useLocalStorage('account', null)
   const { isLoaded, isSignedIn } = useUser()
 
   useEffect(() => {

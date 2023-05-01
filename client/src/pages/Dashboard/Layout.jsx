@@ -107,14 +107,13 @@ export const DashboardLayout = () => {
 
 function ProfessionalHeader() {
   const { account } = useAccountContext()
-  const { name, verified } = account
 
   return (
     <div className="flex items-center justify-between border-b px-10 py-7">
       <div>
         <h1 className="flex items-center gap-2 text-2xl font-semibold leading-relaxed text-gray-800">
-          <span>{name}</span>
-          <VerifiedIcon verified={verified} />
+          <span>{account?.name}</span>
+          <VerifiedIcon verified={account?.verified} />
         </h1>
         <p className="text-sm font-medium text-gray-500">
           Encuentra la oferta de trabajo ideal para tu perfil
