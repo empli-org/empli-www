@@ -1,9 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { useCreateAccountMutation } from '@/redux/features/api/base'
+import {
+  useCreateAccountMutation,
+  useVerifyAccountMutation,
+} from '@/redux/features/api/base'
 import { AppContext } from '../OnboardingContext'
 import { useClerk } from '@clerk/clerk-react'
+import { useAccountContext } from '../AccountContext'
 
 const childVariants = {
   hidden: {
@@ -17,24 +21,38 @@ const childVariants = {
   },
 }
 export const Step6 = () => {
-  const [createAccount, { isSuccess, isLoading, error }] =
-    useCreateAccountMutation()
+  const [createAccount, { isLoading, error }] = useCreateAccountMutation()
   const { accountType, selectedPlan } = useContext(AppContext)
+  const [verifyUser, { data }] = useVerifyAccountMutation()
   const { user } = useClerk()
+  const { setAccount, setAccountType } = useAccountContext()
 
   useEffect(() => {
-    if (!isSuccess && !isLoading && !error) {
-      const body = {
-        name: user.fullName,
-        plan: selectedPlan.name.toUpperCase(),
-        email: user.primaryEmailAddress.emailAddress,
-        image: user.profileImageUrl,
-        type: accountType.name.toLowerCase(),
-      }
-      console.log(body)
+    if (!isLoading && !error)
+      verifyUser({ email: user.primaryEmailAddress.emailAddress })
+
+    if (data) {
+      setAccount(data.account)
+      setAccountType(accountType.name)
+    }
+  }, [data, isLoading])
+
+  useEffect(() => {
+    let ignore = false
+    const body = {
+      name: user.fullName,
+      plan: selectedPlan.name.toUpperCase(),
+      email: user.primaryEmailAddress.emailAddress,
+      image: user.profileImageUrl,
+      type: accountType.name.toLowerCase(),
+    }
+    if (!ignore) {
       createAccount(body)
     }
-  }, [isLoading, error])
+    return () => {
+      ignore = true
+    }
+  }, [])
 
   return (
     <div className="rounded-lg bg-white px-8 py-12 shadow-lg">
