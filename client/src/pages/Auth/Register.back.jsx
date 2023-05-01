@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
-export const Register = () => {
+export const RegisterBack = () => {
   //Validado de los diferentes campos y sus requerimientos
   const schema = yup.object({
     user: yup
@@ -180,4 +180,3 @@ export const Register = () => {
   )
 }
 
-export default Register

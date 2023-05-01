@@ -6,7 +6,7 @@ import { router } from './router'
 import { Provider } from 'react-redux'
 import { store } from './redux/store/store'
 import { ClerkProvider } from '@clerk/clerk-react'
-import { AppContextProvider } from './pages/Account/OnboardingContext'
+import { AppContextProvider } from 'pages'
 import { AccountContextProvider } from './pages/Account/AccountContext'
 
 // @ts-ignore
