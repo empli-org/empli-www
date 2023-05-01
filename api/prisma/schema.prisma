@@ -30,6 +30,7 @@ model Talent {
   firstname      String?
   paused         Boolean         @default(false)
   firstName      String?
+  bio            String?
   contactInfo    ContactInfo?
   experienceInfo ExperienceInfo?
   postulations   Postulation[]
@@ -50,7 +51,7 @@ model ExperienceInfo {
 
 model Career {
   id      String   @id @default(cuid())
-  name    String
+  name    String   @unique
   talents Talent[]
 }
 

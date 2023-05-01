@@ -59,7 +59,8 @@ export async function verifyAccount(req: Request, res: Response) {
 
 export async function createAccount(req: Request, res: Response) {
   try {
-    const { name, plan, email, type, image } = req.body;
+    const { name, plan, email, type, image, career, bio, description } =
+      req.body;
     if (!email) return res.status(400).json({ message: "Email is required" });
     let created: Talent | Company | null = null;
     if (type === "professional") {
@@ -70,6 +71,13 @@ export async function createAccount(req: Request, res: Response) {
           plan,
           verified: plan !== "FREE",
           image,
+          bio,
+          career: {
+            connectOrCreate: {
+              where: { name: career },
+              create: { name: career },
+            },
+          },
         },
       });
     } else {
@@ -78,6 +86,7 @@ export async function createAccount(req: Request, res: Response) {
           userEmail: email,
           name,
           plan,
+          description,
         },
       });
     }
@@ -95,8 +104,8 @@ export async function createAccount(req: Request, res: Response) {
 export async function deleteAccount(req: Request, res: Response) {
   try {
     const { email } = req.body;
-    const deleted = await db.talent.delete({ where: { userEmail: email } });
-    // await db.company.delete({ where: { userEmail: email } });
+    // const deleted = await db.talent.delete({ where: { userEmail: email } });
+    const deleted = await db.company.delete({ where: { userEmail: email } });
     if (!deleted) return res.status(400).json({ message: "not found account" });
 
     return res.json({ message: "ok" });
