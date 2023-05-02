@@ -29,9 +29,10 @@ import {
   AdminDash,
   DashUserProfile,
   CompanyOffers,
-  CreateOffer,SavedProfessionalOffers,
+  CreateOffer,
+  SavedProfessionalOffers,
   DashProfessionalOffers,
-  FavedTalents  
+  FavedTalents,
   // FormOffer,
 } from 'pages'
 import FormOffer from './components/Forms/FormOffer'
