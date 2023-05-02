@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import db from "../utils/db";
+import db from "../../utils/db";
 
 export async function getAllCompanies(req: Request, res: Response) {
 	const { orderBy } = req.query;

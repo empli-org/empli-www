@@ -1,12 +1,6 @@
 import express,{Request,Response} from "express";
-import {
-	getFeedbackSubsPlan,
-	getMpPlanLinkApi,
-	getMpPlansListApi,
-	getMpSubscriptionPlanIdApi,
-	putMpPlanApi,
-} from "../controllers/plans/PlanControllerAPI";
-import { getMoneyData } from "../controllers/ExchangeController";
+import { getFeedbackSubsPlan, getMpPlansListApi,getMpSubscriptionPlanIdApi,putMpPlanApi,getMpPlanLinkApi,getMoneyData } from "../controllers/planControllers/index";
+
 
 export function paymentRoutes() {
 	const router = express.Router();

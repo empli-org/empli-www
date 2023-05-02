@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import roleSliceReducer from '../features/slices/roleSlice'
+import roleSliceReducer from '../features/slices/rol/roleSlice'
 import { baseApi } from '../features/api/base'
 
 export const store = configureStore({

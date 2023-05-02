@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import db from "../utils/db";
+import db from "../../utils/db";
 import { Prisma } from "@prisma/client";
 
 export async function getAllSkills(req: Request, res: Response) {

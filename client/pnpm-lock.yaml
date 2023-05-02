@@ -82,6 +82,9 @@ dependencies:
   react-timeago:
     specifier: ^7.1.0
     version: 7.1.0(react@18.2.0)
+  redux-persist:
+    specifier: ^6.0.0
+    version: 6.0.0(react@18.2.0)(redux@4.2.1)
   sweetalert2:
     specifier: ^11.7.3
     version: 11.7.3
@@ -3705,6 +3708,19 @@ packages:
       slash: 3.0.0
       sucrase: 3.32.0
       tslib: 1.14.1
+    dev: false
+
+  /redux-persist@6.0.0(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      redux: 4.2.1
     dev: false
 
   /redux-thunk@2.4.2(redux@4.2.1):

@@ -3,8 +3,8 @@ import {
   getAllSkills,
   getAllTalents,
   getTalentById,
-} from "../controllers/talents";
-import { getCareers } from "../controllers/talents";
+} from "../controllers/talentsControllers/talents";
+import { getCareers } from "../controllers/talentsControllers/talents";
 
 export function getTalentRoutes() {
   const router = express.Router();
