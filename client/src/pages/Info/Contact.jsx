@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useRef, useEffect } from 'react'
-import emailjs from '@emailjs/browser'
+import { sendForm } from '@emailjs/browser'
 import mail from '@/assets/Contact/mail.svg'
 import phone from '@/assets/Contact/phone.svg'
 import ig from '@/assets/Contact/ig.svg'
@@ -48,22 +48,20 @@ export const Contact = () => {
 
   //formData para enviar los datos del formulario y formRef para obtener la referencia del formulario
   const sendFormData = (formData, formRef) => {
-    // eslint-disable-next-line import/no-named-as-default-member
-    emailjs
-      .sendForm(
-        'service_kbbovze',
-        'template_xacnqka',
-        formRef.current,
-        'NSBq0dEL_bYCIyvJs',
-      )
-      .then(
-        result => {
-          console.log(result.text)
-        },
-        error => {
-          console.log(error.text)
-        },
-      )
+    const pubKey = import.meta.env.VITE_EMAILJS_PUB_KEY
+    sendForm(
+      'service_kbbovze',
+      'template_xacnqka',
+      formRef.current,
+      pubKey,
+    ).then(
+      result => {
+        console.log(result.text)
+      },
+      error => {
+        console.log(error.text)
+      },
+    )
   }
 
   const onSubmit = data => {

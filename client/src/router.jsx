@@ -24,32 +24,23 @@ import {
   Dashboard,
   CompanyDash,
   ProfessionalDash,
-  // DashProfessionalOffers,
   MarketProfessionals,
   InfoProfessionals,
-  // FormOffer,
   AdminDash,
   DashUserProfile,
+  CompanyOffers,
+  CreateOffer,
+  SavedProfessionalOffers,
+  DashProfessionalOffers,
+  FavedTalents,
+  // FormOffer,
 } from 'pages'
-// import PricingPage from './pages/Info/pricing/Pricing'
-// import Media from './pages/Community/Media'
-// import HomeEmpresa from './pages/HomeEmpresa'
-// import { AuthLayout } from './pages/Auth/Layout'
-// import { Onboarding } from './pages/Account/Onboarding'
-// import { Payment } from './pages/Account/Payment'
-// import { DashboardLayout } from './pages/Dashboard/Layout'
-// import { Dashboard } from './pages/Dashboard/Dashboard'
-// import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
-// import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
-import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
-// import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
-// import InfoProfessionals from './pages/Info/InfoProfessionals'
-import FormBlog from './components/Forms/FormBlog'
 // import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
-import { SavedOffers } from './pages/Dashboard/Professional/Saved'
-import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
-import FavedTalents from './pages/Dashboard/Company/Favorites'
-import CreateOffer from './pages/Dashboard/Company/CreateOffer'
+// import { SavedOffers } from './pages/Dashboard/Professional/Saved'
+// import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
+// import FavedTalents from './pages/Dashboard/Company/Favorites'
+// import CreateOffer from './pages/Dashboard/Company/CreateOffer'
+import NewsDetailPage from './pages/Info/NewsDetail'
 // import UserProfile from './pages/Dashboard/Professional/Profile'
 
 // import { Admin } from './pages/Dashboard/Administrator/Admin'
@@ -101,6 +92,10 @@ export const router = createBrowserRouter([
         element: <News />,
       },
       {
+        path: '/news/:id',
+        element: <NewsDetailPage />,
+      },
+      {
         path: '/about',
         element: <About />,
       },
@@ -110,7 +105,6 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
-      { path: '/formoffer', element: <FormBlog /> },
     ],
   },
   {
@@ -179,7 +173,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/saved',
-        element: <SavedOffers />,
+        element: <SavedProfessionalOffers />,
       },
       {
         path: '/dashboard/professional/profile',

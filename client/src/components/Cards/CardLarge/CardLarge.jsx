@@ -1,35 +1,31 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
-// import {
-//   useGetJobsQuery,
-//   useGetAllTalentsQuery,
-// } from '@/redux/features/api/base'
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
-  // const { data: offersData = [] } = useGetJobsQuery()
-  // const { data: talentsData = [] } = useGetAllTalentsQuery()
+  /*
+  const { data: offersData = [] } = useGetJobsQuery()
+  const { data: talentsData = [] } = useGetAllTalentsQuery()
 
   // total talentsData in the aplication. it is array
-  // const countTalents = talentsData && talentsData.length
-  // console.log(countTalents)
+  const countTalents = talentsData && talentsData.length
 
-  //   offersData &&
-  //   offersData.reduce((acu, curr) => {
-  //     const name = curr.company.name
-  //     if (!acu[name]) {
-  //       acu[name] = true
-  //     }
-  //     return acu
-  //   }, {})
+  const uniqueCompany = offersData &&
+    offersData.reduce((acu, curr) => {
+      const name = curr.company.name
+      if (!acu[name]) {
+        acu[name] = true
+      }
+      return acu
+    }, {})
 
-  // const countCompany = Object.keys(uniqueCompany).length
-  // console.log(countCompany)
+  const countCompany = Object.keys(uniqueCompany).length
 
   // total offersData in the aplication. it is array
-  // const countOffers = offersData && offersData.length
-  // console.log(countOffers)
+  const countOffers = offersData && offersData.length
+  console.log(countOffers)
+  */
   const Marked = ({ data, title, isBorder = false }) => {
     return (
       <div
@@ -52,11 +48,11 @@ export const CardLarge = () => {
   }
   return (
     <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
-      <Marked data={'10k'} title="Profesionales" />
+      <Marked data="12k+" title="Profesionales" />
 
-      <Marked data={'3k'} title="Ofertas" isBorder={true} />
+      <Marked data="2k+" title="Ofertas" isBorder={true} />
 
-      <Marked data={'5k'} title="Empresas" />
+      <Marked data="5k+" title="Empresas" />
     </div>
   )
 }
