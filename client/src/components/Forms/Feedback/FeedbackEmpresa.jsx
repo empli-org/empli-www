@@ -42,11 +42,11 @@ export default function FeedbackProf() {
               <input
                 type="radio"
                 value="Muy mala"
-                name="cero"
-                {...register('cero', { required: 'Seleccione una opción' })}
+                name="emp1"
+                {...register('emp1', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cero"
+                htmlFor="emp1"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
                 Muy mala
@@ -56,11 +56,11 @@ export default function FeedbackProf() {
               <input
                 type="radio"
                 value="Mala"
-                name="cero"
-                {...register('cero', { required: 'Seleccione una opción' })}
+                name="emp1"
+                {...register('emp1', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cero"
+                htmlFor="emp1"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
                 Mala
@@ -70,11 +70,11 @@ export default function FeedbackProf() {
               <input
                 type="radio"
                 value="Regular"
-                name="cero"
-                {...register('cero', { required: 'Seleccione una opción' })}
+                name="emp1"
+                {...register('emp1', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cero"
+                htmlFor="emp1"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
                 Regular
@@ -84,11 +84,11 @@ export default function FeedbackProf() {
               <input
                 type="radio"
                 value="Buena"
-                name="cero"
-                {...register('cero', { required: 'Seleccione una opción' })}
+                name="emp1"
+                {...register('emp1', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cero"
+                htmlFor="emp1"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
                 Buena
@@ -98,11 +98,11 @@ export default function FeedbackProf() {
               <input
                 type="radio"
                 value="Muy buena"
-                name="cero"
-                {...register('cero', { required: 'Seleccione una opción' })}
+                name="emp1"
+                {...register('emp1', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cero"
+                htmlFor="emp1"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
                 Muy buena
@@ -112,17 +112,17 @@ export default function FeedbackProf() {
               <input
                 type="radio"
                 value="Excelente"
-                name="cero"
-                {...register('cero', { required: 'Seleccione una opción' })}
+                name="emp1"
+                {...register('emp1', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cero"
+                htmlFor="emp1"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
                 Excelente
               </label>
             </div>
-            {errors.cero && (
+            {errors.emp1 && (
               <span className="font-quicksand font-bold text-red-600">
                 Seleccione una opción
               </span>
@@ -130,120 +130,142 @@ export default function FeedbackProf() {
           </div>
 
           <h1 className="font-amenable text-2xl font-semibold text-center text-blue-whale mt-10">
-            ¿Por qué decidió retirar su postulación para este empleo?
+            ¿Cuáles fueron los principales motivos que llevaron a la empresa a
+            rechazar la postulación?
           </h1>
           <div className="flex flex-col items-start w-full gap-3 mt-7">
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Encontré otra oportunidad laboral que se ajustaba mejor a mis
-                habilidades y experiencia."
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="No se cumplían los requisitos del trabajo."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="uno"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Encontré otra oportunidad laboral que se ajustaba mejor a mis
-                habilidades y experiencia.
+                No se cumplían los requisitos del trabajo.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Cambié de opinión acerca de la empresa o el trabajo después de
-                investigar un poco más."
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="El perfil del candidato no se ajustaba a las necesidades de la empresa."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="dos"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Cambié de opinión acerca de la empresa o el trabajo después de
-                investigar un poco más.
+                El perfil del candidato no se ajustaba a las necesidades de la
+                empresa.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Descubrí que los requisitos del trabajo no se ajustaban a mi."
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="El profesional no tenía suficiente experiencia para el puesto."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="tres"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Descubrí que los requisitos del trabajo no se ajustaban a mi.
+                El profesional no tenía suficiente experiencia para el puesto.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Decidí tomarme un tiempo para considerar otras opciones antes de
-                tomar una decisión final."
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="Hubo otros candidatos que tenían mejores habilidades o experiencia para el trabajo."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cuatro"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Decidí tomarme un tiempo para considerar otras opciones antes de
-                tomar una decisión final.
+                Hubo otros candidatos que tenían mejores habilidades o
+                experiencia para el trabajo.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Tuve un problema técnico o de otra índole que me impidió
-                completar la postulación o continuar con el proceso de
-                selección."
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="La información presentada en el currículum o en la entrevista no fue suficientemente clara o convincente."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="cinco"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Tuve un problema técnico o de otra índole que me impidió
-                completar la postulación o continuar con el proceso de
-                selección.
+                La información presentada en el currículum o en la entrevista no
+                fue suficientemente clara o convincente.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Encontré información que no estaba disponible en el momento de
-                postularme que hizo que retirara mi postulación."
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="No se ajustaba al presupuesto o a la disponibilidad de tiempo de la empresa."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="seis"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Encontré información que no estaba disponible en el momento de
-                postularme que hizo que retirara mi postulación.
+                No se ajustaba al presupuesto o a la disponibilidad de tiempo de
+                la empresa.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Otro motivo"
-                name="uno"
-                {...register('uno', { required: 'Seleccione una opción' })}
+                value="No se pudo verificar la información presentada en el currículum o en la entrevista."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="otro"
+                htmlFor="emp2"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Otro motivo:
+                No se pudo verificar la información presentada en el currículum
+                o en la entrevista.
               </label>
             </div>
-            {errors.uno && (
+            <div className="flex gap-1">
+              <input
+                type="radio"
+                value="No se presentó información de referencia."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
+              />
+              <label
+                htmlFor="emp2"
+                className="font-quicksand text-lg font-semibold text-blue-whale"
+              >
+                No se presentó información de referencia.
+              </label>
+            </div>
+            <div className="flex gap-1">
+              <input
+                type="radio"
+                value="No se puede especificar un motivo en particular."
+                name="emp2"
+                {...register('emp2', { required: 'Seleccione una opción' })}
+              />
+              <label
+                htmlFor="emp2"
+                className="font-quicksand text-lg font-semibold text-blue-whale"
+              >
+                No se puede especificar un motivo en particular.
+              </label>
+            </div>
+            {errors.emp2 && (
               <span className="font-quicksand font-bold text-red-600">
                 Seleccione una opción
               </span>
@@ -257,82 +279,76 @@ export default function FeedbackProf() {
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Sí, definitivamente consideraría volver a postularme en el
-                futuro."
-                name="dos"
-                {...register('dos', { required: 'Seleccione una opción' })}
+                value="Definitivamente sí, ha sido una buena experiencia."
+                name="emp3"
+                {...register('emp3', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="dos"
+                htmlFor="emp3"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Sí, definitivamente consideraría volver a postularme en el
-                futuro.
+                Definitivamente sí, ha sido una buena experiencia.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="Quizás, dependería de los requisitos específicos del trabajo y
-                de las condiciones laborales."
-                name="dos"
-                {...register('dos', { required: 'Seleccione una opción' })}
+                value="Sí, pero con algunas mejoras en la plataforma."
+                name="emp3"
+                {...register('emp3', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="dos"
+                htmlFor="emp3"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                Quizás, dependería de los requisitos específicos del trabajo y
-                de las condiciones laborales.
+                Sí, pero con algunas mejoras en la plataforma.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="No, no volvería a postularme para este empleo o para otros
-                trabajos en su plataforma."
-                name="dos"
-                {...register('dos', { required: 'Seleccione una opción' })}
+                value="No estoy seguro, me gustaría explorar otras opciones antes de tomar una decisión."
+                name="emp3"
+                {...register('emp3', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="dos"
+                htmlFor="emp3"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                No, no volvería a postularme para este empleo o para otros
-                trabajos en su plataforma.
+                No estoy seguro, me gustaría explorar otras opciones antes de
+                tomar una decisión.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="No lo sé, dependería de los cambios o mejoras que se realicen en
-                la plataforma."
-                name="dos"
-                {...register('dos', { required: 'Seleccione una opción' })}
+                value="Probablemente no, no ha cumplido mis expectativas."
+                name="emp3"
+                {...register('emp3', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="dos"
+                htmlFor="emp3"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                No lo sé, dependería de los cambios o mejoras que se realicen en
-                la plataforma.
+                Probablemente no, no ha cumplido mis expectativas.
               </label>
             </div>
             <div className="flex gap-1">
               <input
                 type="radio"
-                value="No estoy seguro/a en este momento."
-                name="dos"
-                {...register('dos', { required: 'Seleccione una opción' })}
+                value="Definitivamente no, he tenido una mala experiencia usando la plataforma."
+                name="emp3"
+                {...register('emp3', { required: 'Seleccione una opción' })}
               />
               <label
-                htmlFor="dos"
+                htmlFor="emp3"
                 className="font-quicksand text-lg font-semibold text-blue-whale"
               >
-                No estoy seguro/a en este momento.
+                Definitivamente no, he tenido una mala experiencia usando la
+                plataforma.
               </label>
             </div>
-            {errors.dos && (
+            {errors.emp3 && (
               <span className="font-quicksand font-bold text-red-600">
                 Seleccione una opción
               </span>
