@@ -1,14 +1,32 @@
 import { useGetPostsQuery } from '@/redux/features/api/base'
-import { BlogNews, Container } from 'components'
+import { BlogNews, CloseIcon, Container } from 'components'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
 export const News = () => {
-  const { data, isLoading, isFetching, isError } = useGetPostsQuery()
+  const [key, setKey] = useState('')
+  const { data, isLoading, isFetching, isError } = useGetPostsQuery(
+    key.length > 0 ? `key=${key}` : '',
+  )
   const news = data?.data
   const loading = isLoading || isFetching
   const hasError = !isLoading && !isFetching && isError
+  const searchRef = useRef(null)
+
+  useEffect(() => {
+    if (searchRef) {
+      if (key.length === 0) {
+        searchRef.current.value = ''
+      }
+    }
+  }, [key])
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    setKey(searchRef.current.value)
+  }
 
   return (
     <Container>
@@ -18,15 +36,28 @@ export const News = () => {
           Encuentra lo último que tenemos para contarte
         </h1>
         <div className="mt-6">
-          <form onSubmit={e => e.preventDefault()}>
+          <form onSubmit={handleSubmit}>
             <div className="relative">
               <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 transform fill-gray-400" />
               <input
+                ref={searchRef}
                 className="min-w-[420px] rounded-md py-4 pl-10 pr-3 outline-none focus:ring-2 focus:ring-gulf-stream"
                 type="search"
                 placeholder="Qué estás buscando?"
+                defaultValue={key}
               />
             </div>
+            {key && (
+              <div className="mt-2 px-2">
+                <button
+                  onClick={() => setKey('')}
+                  className="flex items-center gap-2 rounded-xl bg-slate-200 px-4 py-1"
+                >
+                  <span>{key}</span>
+                  <CloseIcon />
+                </button>
+              </div>
+            )}
           </form>
         </div>
       </div>
