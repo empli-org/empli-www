@@ -40,6 +40,7 @@ import {
 // import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
 // import FavedTalents from './pages/Dashboard/Company/Favorites'
 // import CreateOffer from './pages/Dashboard/Company/CreateOffer'
+import FeedbackProf from './components/Forms/Feedback/FeedbackProf'
 import NewsDetailPage from './pages/Info/NewsDetail'
 // import UserProfile from './pages/Dashboard/Professional/Profile'
 
@@ -105,6 +106,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
+      { path: '/feedback', element: <FeedbackProf /> },
     ],
   },
   {
