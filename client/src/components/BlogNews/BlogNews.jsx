@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 // @ts-ignore
 import axios from 'axios'
 import { DetailPublication, Publication } from 'components'
-import { SocialMedia } from './SocialMedia'
 import { useGoUp } from '@/hooks/useGoUp'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { motion } from 'framer-motion'
@@ -24,7 +23,7 @@ export const BlogNews = () => {
   useEffect(() => {
     const obtenerPublicaciones = async () => {
       const { data } = await axios.get(
-        'https://newsapi.org/v2/everything?q=tesla&from=2023-03-24&sortBy=publishedAt&apiKey=f691099a4c0249b49545c9e6cab2c8d0',
+        'https://newsapi.org/v2/everything?q=tesla&apiKey=f691099a4c0249b49545c9e6cab2c8d0',
       )
       const noticias = data.articles.map(noticia => ({
         tipo: 'imagen',
@@ -71,7 +70,6 @@ export const BlogNews = () => {
       {!onOff ? (
         <div className="flex justify-stretch">
           <div className="flex flex-col">
-            <h1 className=" mb-8 mr-5 text-4xl font-bold">Blog News</h1>
             <div className="grid-  grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {publicaciones
                 ?.slice(
@@ -95,7 +93,6 @@ export const BlogNews = () => {
               setInput={setInput}
             />
           </div>
-          <SocialMedia />
         </div>
       ) : (
         <div>
