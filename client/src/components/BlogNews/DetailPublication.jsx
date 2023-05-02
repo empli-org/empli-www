@@ -5,7 +5,6 @@ import {
   FaFacebook,
   FaInstagram,
 } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 // this component is just to render publications detail
 export const DetailPublication = ({ publicacion, setOnOff }) => {
