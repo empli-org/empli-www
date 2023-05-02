@@ -9,6 +9,7 @@ export async function getAllNews(req: Request, res: Response) {
   const countOptions: Prisma.PostCountArgs = {};
   const options: Prisma.PostFindManyArgs = {
     select: {
+      id: true,
       title: true,
       image: true,
       description: true,
