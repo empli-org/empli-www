@@ -8,11 +8,7 @@ export function sendMailPaymentConfirm(paymentInfo) {
     payment_amount: paymentInfo.payment_amount,
   }
 
-  send(
-    'service_kbbovze',
-    'payment_n9j136m',
-    templateParams,
-  ).then(
+  send('service_kbbovze', 'payment_n9j136m', templateParams).then(
     result => {
       console.log(result.text)
     },

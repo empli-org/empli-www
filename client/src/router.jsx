@@ -35,7 +35,6 @@ import {
   FavedTalents,
   // FormOffer,
 } from 'pages'
-import FormOffer from './components/Forms/FormOffer'
 // import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
 // import { SavedOffers } from './pages/Dashboard/Professional/Saved'
 // import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
@@ -106,7 +105,6 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
-      { path: '/formoffer', element: <FormOffer /> },
     ],
   },
   {

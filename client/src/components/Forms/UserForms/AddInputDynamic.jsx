@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { ProyectForm } from './ProyectForm';
+import { useState } from 'react'
+import { ProyectForm } from './ProyectForm'
 
 export function AddInputDynamic() {
-  const [val, setVal] = useState([]);
+  const [val, setVal] = useState([])
   const handleAdd = () => {
-    setVal([...val, []]);
-  };
+    setVal([...val, []])
+  }
   const handleChange = (e, i) => {
-    const inputData = [...val];
-    inputData[i] = e.target.value;
-    setVal(inputData);
-  };
+    const inputData = [...val]
+    inputData[i] = e.target.value
+    setVal(inputData)
+  }
   return (
     <>
       <button
@@ -26,9 +26,10 @@ export function AddInputDynamic() {
             i={i}
             key={i}
             handleChange={handleChange}
-            removeProject={() => setVal(val.filter((v, idx) => idx !== i))} />
+            removeProject={() => setVal(val.filter((v, idx) => idx !== i))}
+          />
         ))}
       </div>
     </>
-  );
+  )
 }

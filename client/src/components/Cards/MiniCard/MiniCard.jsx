@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ArrowBtnR } from 'components'
-import { BiMap } from "react-icons/bi"
+import { BiMap } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 
 export const MiniCard = ({
@@ -42,7 +42,6 @@ export const MiniCard = ({
       <div className="grid-cols-2-auto m-4 grid h-72 w-64 transform grid-flow-col overflow-hidden rounded-2xl p-1 shadow-xl bg-white transition-transform duration-300 hover:-translate-y-4 hover:shadow-lg">
         <div className="m-1 flex h-auto w-fit flex-col justify-between items-center gap-y-2 rounded-2xl  md:p-2 lg:p-1 ">
           <div className="flex w-full">
-
             <div className="flex h-24 w-24">
               <img
                 className="mr-2 h-24 w-24 object-cover rounded-lg"
@@ -55,25 +54,28 @@ export const MiniCard = ({
               <h3 className="break-words text-xl font-amenable text-blue-whale">
                 {title}
               </h3>
-              {subtitle && 
-              <div className="flex items-center">
-                <BiMap />
-                <h2 className='font-quicksand text-sm'>{subtitle}</h2>
-                </div>}
+              {subtitle && (
+                <div className="flex items-center">
+                  <BiMap />
+                  <h2 className="font-quicksand text-sm">{subtitle}</h2>
+                </div>
+              )}
             </div>
           </div>
 
           <div className="my-2">
-            {rol && <h4 className="text-2xl font-amenable font-light text-blue-whale mb-1">{rol}</h4>}
-            <p className="text-ellipsis font-quicksand text-blue-whale text-justify">{description}</p>
+            {rol && (
+              <h4 className="text-2xl font-amenable font-light text-blue-whale mb-1">
+                {rol}
+              </h4>
+            )}
+            <p className="text-ellipsis font-quicksand text-blue-whale text-justify">
+              {description}
+            </p>
           </div>
-          <div>
-            {amount ? price : btn}
-          </div>
-
+          <div>{amount ? price : btn}</div>
         </div>
       </div>
     </div>
-
   )
 }

@@ -1,8 +1,8 @@
-import { CloseIcon } from 'components';
-import { inputCls } from "./inputCls";
+import { CloseIcon } from 'components'
+import { inputCls } from './inputCls'
 
 export function ProyectForm({ i, removeProject, handleChange }) {
-  const id = `pname-${i}`;
+  const id = `pname-${i}`
   return (
     <div className="relative rounded-lg bg-slate-100 p-6 pt-8">
       <button
@@ -20,8 +20,9 @@ export function ProyectForm({ i, removeProject, handleChange }) {
           type="text"
           placeholder="Nombre del proyecto"
           name={id}
-          id={id} />
+          id={id}
+        />
       </div>
     </div>
-  );
+  )
 }
