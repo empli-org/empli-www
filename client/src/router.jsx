@@ -47,6 +47,9 @@ import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
 import FormOffer from './components/Forms/FormOffer'
 // import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
 import { SavedOffers } from './pages/Dashboard/Professional/Saved'
+import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
+import FavedTalents from './pages/Dashboard/Company/Favorites'
+import CreateOffer from './pages/Dashboard/Company/CreateOffer'
 // import UserProfile from './pages/Dashboard/Professional/Profile'
 
 // import { Admin } from './pages/Dashboard/Administrator/Admin'
@@ -156,15 +159,15 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/company/offers',
-        element: <h1>Ofertas publicadas</h1>,
+        element: <CompanyOffers />,
       },
       {
-        path: '/dashboard/company/featured',
-        element: <h1>Perfiles destacados / recomendados</h1>,
+        path: '/dashboard/company/favorites',
+        element: <FavedTalents />,
       },
       {
-        path: '/dashboard/company/settings',
-        element: <h1>Configuración de empresa</h1>,
+        path: '/dashboard/company/offers/create',
+        element: <CreateOffer />,
       },
       {
         path: '/dashboard/professional',

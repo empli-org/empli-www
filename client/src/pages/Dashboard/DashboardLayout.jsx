@@ -21,7 +21,7 @@ const companyItems = [
   { name: 'Inicio', icon: '', to: 'company' },
   { name: 'Perfiles', icon: '', to: 'company/talents' },
   { name: 'Mis Ofertas', icon: '', to: 'company/offers' },
-  { name: 'Configuración', icon: '', to: 'company/settings' },
+  { name: 'Favoritos', icon: '', to: 'company/favorites' },
 ]
 
 const adminItems = [
@@ -151,12 +151,15 @@ function CompanyHeader({ name, verified }) {
           Te ayudamos a encontrar los mejores profesionales para tu empresa
         </p>
       </div>
-      <button className="inline-flex items-center gap-x-2 rounded-md bg-blue-whale px-6 py-2.5 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-whale focus:ring-offset-1">
+      <Link
+        to="company/offers/create"
+        className="inline-flex items-center gap-x-2 rounded-md bg-blue-whale px-6 py-2.5 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-whale focus:ring-offset-1"
+      >
         <DocumentIcon />
         <span className="text-sm font-semibold tracking-wide">
           Publicar Oferta
         </span>
-      </button>
+      </Link>
     </div>
   )
 }
