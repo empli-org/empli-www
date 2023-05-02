@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
   // directUrl = env("DIRECT_URL")
 }
 
@@ -155,19 +155,18 @@ model Skill {
   talent      Talent? @relation(fields: [talentId], references: [id], onDelete: SetNull)
 }
 
-model Subscription {
-  id         String   @id @default(cuid())
-  subscritor Json[]
-  created_at DateTime @default(now())
-  plan       Plans?   @relation(fields: [planId], references: [id])
-  planId     Int?
+model Payment {
+  id        String @id @default(cuid())
+  paymentId String
+  Plans     Plans? @relation(fields: [plansId], references: [id])
+  plansId   Int?
 }
 
 model Plans {
-  id            Int            @id @default(autoincrement())
-  plan          Json[]
-  created_at    DateTime       @default(now())
-  subscriptions Subscription[]
+  id         Int       @id @default(autoincrement())
+  plan       Json[]
+  created_at DateTime  @default(now())
+  payments   Payment[]
 }
 
 enum Plan {

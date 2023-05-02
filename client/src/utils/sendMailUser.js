@@ -12,7 +12,6 @@ export function sendMailPaymentConfirm(paymentInfo) {
     'service_kbbovze',
     'payment_n9j136m',
     templateParams,
-    'correo_destinatario',
   ).then(
     result => {
       console.log(result.text)
