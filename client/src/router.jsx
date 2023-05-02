@@ -44,7 +44,7 @@ import {
 import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
 // import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
 // import InfoProfessionals from './pages/Info/InfoProfessionals'
-import FormOffer from './components/Forms/FormOffer'
+import FormBlog from './components/Forms/FormBlog'
 // import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
 import { SavedOffers } from './pages/Dashboard/Professional/Saved'
 import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
@@ -110,7 +110,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
-      { path: '/formoffer', element: <FormOffer /> },
+      { path: '/formoffer', element: <FormBlog /> },
     ],
   },
   {
