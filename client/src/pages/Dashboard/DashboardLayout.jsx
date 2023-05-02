@@ -76,7 +76,6 @@ export const DashboardLayout = () => {
                     <span>Ayuda</span>
                   </button>
                 </li>
-
                 <li>
                   <button
                     onClick={() => {
