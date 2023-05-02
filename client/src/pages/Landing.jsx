@@ -1,23 +1,21 @@
 // @ts-nocheck
-import { MiniCard, CardBox, Container, CardLarge } from '@/components'
-import { Link } from 'react-router-dom'
-import ob from '../assets/Landing/ob.svg'
-import circle from '../assets/Landing/circle.svg'
-import dialogue from '../assets/Landing/dialogue.svg'
-import text from '../assets/Landing/text.svg'
-import wave from '../assets/Landing/wave.svg'
-import wavecir from '../assets/Landing/wavecir.svg'
-import lupa from '@/assets/img/lupa.webp'
-import pj from '@/assets/img/persona2.png'
-import empresa1 from '@/assets/img/empresa.webp'
-import empresa2 from '@/assets/img/empresa2.webp'
-import empresa3 from '@/assets/img/empresa3.webp'
-import empresa4 from '@/assets/img/empresa4.webp'
+import {
+  MiniCard,
+  CardBox,
+  Container,
+  CardLarge,
+  SlideCompanies,
+  InfoCard,
+  TextHero,
+  ImageHero,
+  SectionTitle,
+  Button,
+  SectionQuote,
+} from 'components'
+import lupa from 'assets/img/lupa.webp'
+import pj from 'assets/img/persona2.png'
 
 export const Landing = () => {
-  // Data sirve unicamente para probar que las cards,
-  // porque lo que se quiere es que la informacion que utilizan las cards vengan por props
-
   const data = [
     {
       title: 'Incoingroup',
@@ -103,123 +101,54 @@ export const Landing = () => {
 
   return (
     <Container>
-      <div className="flex w-11/12 justify-end">
-        <img
-          src={ob}
-          alt="ob"
-          className="absolute z-10 h-all w-80 rounded-br-2xl"
-        />
-        <img
-          src={dialogue}
-          alt="dialogue"
-          className="absolute z-10 mr-56 mt-5 h-72 w-56"
-        />
-        <img
-          src={text}
-          alt="text"
-          className="absolute z-20 mr-76 mt-12 h-56 w-32"
-        />
-        <img
-          src={wave}
-          alt="wave"
-          className="absolute z-10 mr-80 mt-80 h-auto w-20"
-        />
-        <img
-          src={wave}
-          alt="wave"
-          className="absolute z-10 mr-48 mt-14 h-auto w-20"
-        />
-        <img src={circle} alt="circle" className="absolute z-0 h-all w-all" />
+      {/* -- HERO -- */}
+
+      <div className="flex">
+        <TextHero />
+        <ImageHero />
       </div>
-      <div className="mx-auto mt-6 max-w-screen-lg p-12">
-        <div className="flex flex-col">
-          <h1 className="text-5xl font-bold">
-            Encuentra{' '}
-            <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-gulf-stream">
-              <span className="relative ">La Mejor</span>
-            </span>
-            <br />
-            Oferta de Trabajo
-          </h1>
-        </div>
-        <div className="mt-8">
-          <h2 className="mt-2 text-lg">
-            Encontrar trabajo puede ser un proceso difícil. En <br></br>
-            nuestra red, contamos con una gran cantidad de <br></br>empresas que
-            buscan personas talentosas como <br></br>tú para unirse a su equipo.{' '}
-          </h2>
-          <div className="mt-4 flex items-center gap-4 py-6">
-            <Link
-              to="/auth/register"
-              className="rounded-lg bg-slate-800 px-6 py-4 text-white"
-            >
-              Comenzar
-            </Link>
-          </div>
-        </div>
-      </div>
+      {/* COUNTER BAR*/}
       <CardLarge />
-      <div className="mt-10 h-auto w-full shadow-2xl">
-        <h1 className="p-5 text-center font-amenable text-4xl text-blue-whale">
-          Hemos reclutado a los profesionales de grandes proyectos
-          <br /> en entidades importantes.{' '}
-        </h1>
-        <div className="my-12 flex justify-between p-5">
-          <img src={empresa1} alt="logo" className="h-24 w-52" />
-          <img src={empresa2} alt="logo" className="h-24 w-52" />
-          <img src={empresa3} alt="logo" className="h-24 w-52" />
-          <img src={empresa4} alt="logo" className="h-24 w-52" />
-        </div>
+      {/* SLIDE COMPANIES */}
+      <div className="mt-10 h-auto w-full shadow-sm ">
+        <SlideCompanies />
       </div>
-      <div className="flex h-auto w-full flex-col shadow-xl">
-        <div className="flex w-3/5 p-4">
-          <img src={pj} alt="logo" className="h-80 w-auto" />
-          <div className="m-4 flex flex-col justify-evenly">
-            <h1 className="font-amenable text-2xl font-bold">
-              ¿Buscas una forma fácil de encontrar trabajo en tu campo?
-            </h1>{' '}
-            <br />
-            <p className="font-quicksand-light text-lg font-semibold">
-              Nuestra plataforma de trabajo conecta a profesionales como tú con
+
+      <InfoCard
+        image={pj}
+        title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
+        description="Nuestra plataforma de trabajo conecta a profesionales como tú con
               una amplia variedad de oportunidades laborales. Simplemente crea
               tu perfil, comparte tus habilidades y experiencia, y comienza a
               postularte a los trabajos que más te interesen. Recibe alertas de
               trabajos relevantes y solicitudes de trabajo y compara las ofertas
-              de trabajo en un solo lugar.
-            </p>
-          </div>
-        </div>
-        <div className="flex w-full justify-end">
-          <div className="flex w-8/12 p-4">
-            <div className="m-4 flex flex-col justify-evenly">
-              <h1 className="font-amenable text-2xl font-bold">
-                ¿Buscas a los mejores profesionales para tus proyectos y
-                trabajos?
-              </h1>{' '}
-              <br />
-              <p className="font-quicksand-light text-lg font-semibold">
-                Nuestra plataforma de trabajo te permite publicar ofertas de
+              de trabajo en un solo lugar."
+      />
+      <InfoCard
+        image={lupa}
+        title="¿Buscas a los mejores profesionales para tus proyectos y
+                trabajos?"
+        description="Nuestra plataforma de trabajo te permite publicar ofertas de
                 trabajo de manera fácil y conveniente, lo que te permite llegar
                 a una amplia audiencia de candidatos calificados. Utiliza
                 nuestras herramientas para evaluar y comparar a los candidatos y
                 encontrar al mejor talento para tus necesidades empresariales.
                 Con nuestra plataforma, encontrar el talento adecuado nunca ha
-                sido más fácil.
-              </p>
-            </div>
-            <img src={lupa} alt="logo" className="h-auto w-80" />
-          </div>
-        </div>
-      </div>
-      <img
-        src={wavecir}
-        alt="wavecir"
-        className="absolute ml-28 mt-9 h-40 w-60 animate-pulse duration-500"
+                sido más fácil."
+        imageOnRight={true}
+        background="gray"
       />
-      <div className="z-0 flex w-full justify-center">
+
+      <div className="max-w-screen-xl justify-center rounded-3xl shadow-lg">
         <CardBox data={data} />
       </div>
-      <div className="p2 m-6 flex h-auto w-11/12 flex-wrap justify-center rounded-s-2xl shadow-lg">
+      <SectionTitle
+        textColor="prussian-blue"
+        title="Nuevas Ofertas"
+        subtitle="Mas de +200 ofertas laborales por dia"
+        imgColor="#53917b"
+      />
+      <div className="mx-auto flex h-auto max-w-screen-xl flex-wrap justify-center">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -241,13 +170,19 @@ export const Landing = () => {
             )
           },
         )}
-        <div className="flex w-full justify-center">
-          <Link to="/talents" className="h-15 w-28">
-            <p className="mt-5 w-auto text-center font-quicksand-light text-xl font-bold text-blue-whale">
-              Ver más
-            </p>
-          </Link>
+        <div className="flex w-full m-10 justify-center">
+          <Button link="/talents" title="Ver mas" color="black" />
         </div>
+      </div>
+      <div>
+        
+      </div>
+
+      <div className="bg-[#f5e4cb] w-full flexc p-10">
+        <SectionQuote
+          text="Haz que tu proyecto sea un éxito al conectarte con los profesionales independientes más valiosos en Empli."
+          size="9xl"
+        />
       </div>
     </Container>
   )

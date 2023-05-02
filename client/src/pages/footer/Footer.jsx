@@ -1,7 +1,3 @@
-import React from 'react'
-
-import './Footer.css'
-
 const Footer = () => {
   return (
     <footer className="bg-blue-950 text-white">
@@ -25,6 +21,10 @@ const Footer = () => {
 
         <li>
           <a href="/contacto">Contacto</a>
+        </li>
+
+        <li>
+          <a href="/perfil">perfil</a>
         </li>
       </ul>
     </footer>

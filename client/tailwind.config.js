@@ -2,11 +2,12 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    fontFamily: {
-      amenable: ['Amenable', 'ui-sans-serif'],
-      'quicksand-light': ['Quicksand', 'ui-sans-serif'],
-    },
     extend: {
+      fontFamily: {
+        amenable: ['Amenable', 'sans-serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
+        // sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+      },
       backgroundImage: {
         'login-img': "url('/src/assets/bg.svg')",
         'contact-img': "url('/src/assets/bg-cont.svg')",
@@ -22,6 +23,9 @@ export default {
         'bg-lk': '#0a66c2',
         'color-google': '#F06464',
         'bg-green': '#70b39b',
+        'yellow-border': '#FFD15D',
+        opacity: 'rgba(28, 36, 65, 0.1)',
+        'opacity-hint': 'rgba(28, 36, 65, 0.6)',
         // Brand colors with names
         'hint-of-red': '#F6F2EC',
         fog: '#e0dadf',
@@ -29,6 +33,7 @@ export default {
         'gulf-stream': '#70b39b',
         lochinvar: '#53917b',
         'blue-whale': '#1c2441',
+        'prussian-blue': '#1C2441',
       },
       spacing: {
         login: '93vh',
@@ -44,6 +49,9 @@ export default {
       },
       screens: {
         xs: '420px',
+      },
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
       },
     },
   },

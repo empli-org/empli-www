@@ -30,7 +30,7 @@ const data = [
     title: 'Ingeniero',
     time: '12Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Constructora Cop.',
   },
   {
@@ -39,7 +39,7 @@ const data = [
     title: 'Albañil',
     time: '24Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Citmat Cop.',
   },
   {
@@ -48,7 +48,7 @@ const data = [
     title: 'Maestro de Obra',
     time: '7Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Soluciones C.O.',
   },
   {
@@ -57,7 +57,7 @@ const data = [
     title: 'Ingeniero Civil',
     time: '10Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Obras Sil.',
   },
   {
@@ -66,7 +66,7 @@ const data = [
     title: 'Arquitecto',
     time: '2Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Corporacion A.S.',
   },
   {
@@ -75,7 +75,7 @@ const data = [
     title: 'Ayudante de Obra',
     time: '4Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Contrucciones C.A',
   },
   {
@@ -84,7 +84,7 @@ const data = [
     title: 'Ingeniero Civil',
     time: '1Hrs',
     location: 'Peru',
-    desc: 'Empresa de Construccion, Es una organización que fundamentalmenteposee capacidad administrativa para desarrollar y controlar la       realización de obras.',
+    desc: 'Empresa de Construccion, Es una organización que fundamentalmente posee capacidad administrativa para desarrollar y controlar la       realización de obras.',
     company: 'Civil Cop.',
   },
 ]
@@ -94,38 +94,31 @@ const data = [
 export const Cards = () => {
   return (
     <div>
-      <div className="jobContainer flex flex-wrap items-center justify-center gap-10 py-10">
+      <div className="box-border grid grid-cols-3 gap-6 pb-10 pt-10">
         {data.map(({ id, image, title, time, location, desc, company }) => {
           return (
-            //esto devolverá una sola publicación de trabajo basada en la identificación
             <div
               key={id}
-              className="group/item singleJob [10px] shadow-greyIsh-400/700 group w-[250px] rounded bg-white p-[20px] shadow-lg hover:bg-emerald-500 hover:shadow-lg"
+              className="flex-shrink-0 transform overflow-hidden rounded-lg border border-green-500 bg-white shadow-md transition duration-300 ease-in-out hover:scale-105 hover:border-green-800"
             >
-              <span className="flex items-center justify-between gap-4">
-                <h1 className="text-textColor group-hover text-bg-neutral-950 text-[16px] font-semibold">
-                  {title}
-                </h1>
-                <span className="flex items-center gap-1 text-[#ccc]">
-                  <BiTimeFive /> {time}
-                </span>
-              </span>
-              <h6 className="text-[#ccc]">{location}</h6>
-
-              <p className="mt-[20px] border-t-[2px] pt-[20px] text-[13px] text-[#95959] group-hover:text-white">
-                {desc}
-              </p>
-
-              <div className='"company flex items-center gap-2'>
-                <img src={image} alt="Company logo" className="w-[10%]" />
-                <span className="block py-[1rem] text-[14px] group-hover:text-white">
-                  {company}
-                </span>
+              <img
+                src={image}
+                alt={title}
+                className="h-60 w-full object-cover object-center"
+              />
+              <div className="p-4">
+                <h3 className="font-medium text-gray-900">{title}</h3>
+                <p className="text-gray-500">{company}</p>
+                <p className="text-gray-500">{location}</p>
+                <div className="mt-4 flex items-center">
+                  <BiTimeFive className="text-gray-400" />
+                  <p className="ml-2 text-gray-500">{time}</p>
+                </div>
+                <p className="mt-4 text-gray-500">{desc}</p>
+                <button className="ml-28 mt-4 flex justify-center rounded bg-green-600 px-7 py-2 font-bold text-white hover:bg-green-600  active:bg-green-900">
+                  Aplicar
+                </button>
               </div>
-
-              <button className="border-[2px]rounded-[10px] text-textColor groud-hover:bg-white group-hover/item:text-textColor block w-full p-[10px] text-[14px] font-semibold hover:bg-white ">
-                Aplicar
-              </button>
             </div>
           )
         })}
@@ -133,5 +126,3 @@ export const Cards = () => {
     </div>
   )
 }
-
-export default Cards

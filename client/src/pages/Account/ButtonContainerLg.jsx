@@ -4,6 +4,7 @@ export const ButtonContainerLg = ({
   activeStep,
   setActiveStep,
   setDirection,
+  disabled = false,
 }) => {
   return (
     <div
@@ -24,6 +25,7 @@ export const ButtonContainerLg = ({
       )}
 
       <button
+        disabled={disabled}
         onClick={() => {
           setActiveStep(prev => prev + 1)
           setDirection(1)
@@ -32,7 +34,7 @@ export const ButtonContainerLg = ({
           activeStep === 4
             ? 'bg-primary-Purplish_blue'
             : 'bg-primary-Marine_blue'
-        } rounded bg-blue-whale px-6 py-4 font-medium  text-white transition hover:opacity-80`}
+        } rounded bg-blue-whale px-6 py-4 font-medium  text-white transition hover:opacity-80 disabled:bg-gray-400`}
       >
         {activeStep === 4 || activeStep === 5 ? 'Confirmar' : 'Siguiente'}
       </button>
