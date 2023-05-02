@@ -51,7 +51,7 @@ export async function getCareers(req: Request, res: Response) {
 
 export async function getAllTalents(req: Request, res: Response) {
   try {
-    const { key, page, paused } = req.query;
+    const { key, page, paused, verified, location, exp } = req.query;
     const currentPage = Math.max(Number(page) || 1, 1);
     const peerPage = 10;
 
@@ -85,9 +85,23 @@ export async function getAllTalents(req: Request, res: Response) {
       },
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
+      orderBy: { experienceInfo: { time: exp === "asc" ? "asc" : "desc" } },
     };
     options.where = {
       paused: paused === "true" ? true : false,
+      ...(verified === "true" && { plan: { not: "FREE" } }),
+      ...(location && {
+        contactInfo: {
+          location: {
+            OR: [
+              { city: { contains: location as string, mode: "insensitive" } },
+              {
+                country: { contains: location as string, mode: "insensitive" },
+              },
+            ],
+          },
+        },
+      }),
       ...(key && {
         OR: [
           {
