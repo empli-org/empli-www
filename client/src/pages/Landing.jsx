@@ -174,9 +174,7 @@ export const Landing = () => {
           <Button link="/talents" title="Ver mas" color="black" />
         </div>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
 
       <div className="bg-[#f5e4cb] w-full flexc p-10">
         <SectionQuote

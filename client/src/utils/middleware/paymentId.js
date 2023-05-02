@@ -1,3 +1,1 @@
-export const paymentId = ()=>{
-    
-}
+export const paymentId = () => {}

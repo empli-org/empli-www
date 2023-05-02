@@ -1,4 +1,4 @@
-import { inputCls } from "./inputCls";
+import { inputCls } from './inputCls'
 
 export function InfoForm({ name, career, tuitionNumber }) {
   return (
@@ -11,7 +11,8 @@ export function InfoForm({ name, career, tuitionNumber }) {
           placeholder="Nombre"
           id="name"
           name="name"
-          defaultValue={name} />
+          defaultValue={name}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
@@ -22,7 +23,8 @@ export function InfoForm({ name, career, tuitionNumber }) {
           placeholder="Carrera"
           id="career"
           name="career"
-          defaultValue={career?.name} />
+          defaultValue={career?.name}
+        />
       </div>
       <div className="flex flex-col gap-2">
         <label htmlFor="tuition">Colegiatura</label>
@@ -32,8 +34,9 @@ export function InfoForm({ name, career, tuitionNumber }) {
           placeholder="Numero colegiatura"
           id="tuition"
           name="tuition"
-          defaultValue={tuitionNumber} />
+          defaultValue={tuitionNumber}
+        />
       </div>
     </div>
-  );
+  )
 }
