@@ -1,13 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
-import {
-  useGetJobsQuery,
-  useGetAllTalentsQuery,
-} from '@/redux/features/api/base'
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
+  /*
   const { data: offersData = [] } = useGetJobsQuery()
   const { data: talentsData = [] } = useGetAllTalentsQuery()
 
@@ -28,11 +25,13 @@ export const CardLarge = () => {
   // total offersData in the aplication. it is array
   const countOffers = offersData && offersData.length
   console.log(countOffers)
+  */
   const Marked = ({ data, title, isBorder = false }) => {
     return (
       <div
-        className={`flex w-1/3 flex-col items-center text-center transition ${isBorder ? 'border-gray border-l-2 border-r-2' : ''
-          } duration-300 hover:scale-125 md:text-left`}
+        className={`flex w-1/3 flex-col items-center text-center transition ${
+          isBorder ? 'border-gray border-l-2 border-r-2' : ''
+        } duration-300 hover:scale-125 md:text-left`}
       >
         <h1 className="mb-3 text-center font-quicksand text-xs font-bold uppercase tracking-wider text-gray-400">
           {title}
@@ -49,11 +48,11 @@ export const CardLarge = () => {
   }
   return (
     <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
-      <Marked data={countTalents} title="Profesionales" />
+      <Marked data="12k+" title="Profesionales" />
 
-      <Marked data={countOffers} title="Ofertas" isBorder={true} />
+      <Marked data="2k+" title="Ofertas" isBorder={true} />
 
-      <Marked data={countCompany} title="Empresas" />
+      <Marked data="5k+" title="Empresas" />
     </div>
   )
 }
