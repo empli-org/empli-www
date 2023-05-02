@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store/store'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { AppContextProvider } from './pages/Account/OnboardingContext'
+// import '@tremor/react/dist/esm/tremor.css'
 
 // @ts-ignore
 const CLERK_PUB_KEY = import.meta.env.VITE_CLERK_PUB_KEY

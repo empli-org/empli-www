@@ -1,7 +1,7 @@
 import { TopHeader } from '@/components/Landing/TopHeader'
 import ob from '../assets/Landing/ob.svg'
 import { CardGlass } from 'components/Cards/CardGlass/CardGlass'
-import { CardLarge } from 'components/Cards/CardLarge/CardLarge'
+// import { CardLarge } from 'components/Cards/CardLarge/CardLarge'
 import { SlideCompanies } from 'components/SlideCompanies/SlideCompanies'
 import { InfoCard } from '@/pages/InfoCard'
 import { CardBox } from 'components/Cards/CardBox/CardBox'
@@ -113,7 +113,7 @@ export const Landing = () => {
           </div>
         </div>
         <div className="flex w-full justify-between bg-hint-of-red p-8 sm:hidden md:flex lg:flex">
-          <CardLarge />
+          {/* <CardLarge /> */}
         </div>
         <div className="flex justify-center bg-white">
           <SlideCompanies />

@@ -46,14 +46,14 @@ export const CardBox = ({ data }) => {
         swipeExtraPadding={2}
         renderPrevButton={() => {
           return (
-            <button className="backdrop-blur-4xl bg-opacity m-1 rounded-2xl bg-black p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
+            <button className="backdrop-blur-4xl m-1 rounded-2xl bg-black bg-opacity p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
               <FaArrowLeft />
             </button>
           )
         }}
         renderNextButton={() => {
           return (
-            <button className="backdrop-blur-4xl bg-opacity m-1 rounded-2xl bg-black p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
+            <button className="backdrop-blur-4xl m-1 rounded-2xl bg-black bg-opacity p-4 text-white shadow-sm shadow-white backdrop-filter hover:bg-white hover:text-black hover:shadow-black">
               <FaArrowRight />
             </button>
           )
