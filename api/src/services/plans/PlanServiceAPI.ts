@@ -97,8 +97,8 @@ export const putPlanApi = async (id, pref) => {
 
 // * Plan Detail.
 
-export const getSubscriptionPlan = async (id) => {
-	endpoint = "/preapproval_plan";
+export const getPlanDetail = async (id) => {
+	endpoint = "/preapproval_plan"; 
 	let url = `${baseUrl}${endpoint}/${id}`;
 	const mp = await axios.get(url, header);
 	return mp.data;
@@ -131,6 +131,7 @@ export const feedbackSubsPlan = async (payment_id) => {
 	endpoint = "/preapproval";
 	let url = `${baseUrl}${endpoint}/${payment_id}`;
 	const { data } = await axios.get(url, header);
+	console.log(data)
 
 	let paymentId = await prisma.payment.findMany({
 		where: { paymentId: data.id.toString() },
@@ -140,5 +141,6 @@ export const feedbackSubsPlan = async (payment_id) => {
 		await prisma.payment.create({
 			data: { paymentId: data.id.toString() },
 		});
+		return data
 	}
 };

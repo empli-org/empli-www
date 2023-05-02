@@ -1,10 +1,11 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AppContext } from "./OnBoarding/AppContext"
+import { AppContext } from 'pages'
 import { Container } from '@/components'
 
-export const Payment = () => {
+export const FeedBackPayment = () => {
   const { setActiveStep } = useContext(AppContext)
+
   return (
     <Container>
       <div className="py-12">
