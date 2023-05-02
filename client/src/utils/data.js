@@ -3,6 +3,11 @@ export const dateSortOptions = [
   { label: 'Mas antiguos', value: 'desc' },
 ]
 
+export const experienceSortOptions = [
+  { label: 'Mayor experiencia', value: 'asc' },
+  { label: 'Menor experiencia', value: 'desc' },
+]
+
 export const locationFilterOptions = [
   { label: 'Todos', value: 'all' },
   { label: 'Lima', value: 'lima' },

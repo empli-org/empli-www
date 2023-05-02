@@ -2,9 +2,8 @@ import { VerifiedIcon } from '@/components/icons/VerifiedIcon'
 import { Link } from 'react-router-dom'
 
 export const TalentCard = ({ talent }) => {
-  const { id, name, lastname, image, verified, career, skills, contactInfo } =
+  const { id, name, lastname, image, career, skills, contactInfo, verified } =
     talent
-
   return (
     <div className="group box-border flex w-full items-center gap-2 rounded-md  bg-white p-6 shadow-md transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
       <img
@@ -25,7 +24,13 @@ export const TalentCard = ({ talent }) => {
             <h3 className="flex items-center gap-2 text-sm">
               <span className="text-slate-500">Location</span>
               <span className="font-bold text-slate-700">
-                {contactInfo.location.city} - {contactInfo.location.country}
+                {contactInfo ? (
+                  <>
+                    {contactInfo.location.city} - {contactInfo.location.country}
+                  </>
+                ) : (
+                  <>-</>
+                )}
               </span>
             </h3>
             <h3 className="flex items-center gap-2 text-sm">
