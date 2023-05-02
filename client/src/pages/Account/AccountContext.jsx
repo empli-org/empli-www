@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { useUser } from '@clerk/clerk-react'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 export const AccountContext = React.createContext()
 

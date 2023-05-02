@@ -22,29 +22,38 @@ const childVariants = {
 }
 export const Step6 = () => {
   const [createAccount, { isLoading, error }] = useCreateAccountMutation()
-  const { accountType, selectedPlan } = useContext(AppContext)
-  const [verifyUser, { data }] = useVerifyAccountMutation()
+  const { accountType, selectedPlan, companyInfo, professionalInfo } =
+    useContext(AppContext)
+  const [
+    verifyUser,
+    { data, isLoading: verifying, isSuccess, error: verifyError },
+  ] = useVerifyAccountMutation()
   const { user } = useClerk()
   const { setAccount, setAccountType } = useAccountContext()
 
   useEffect(() => {
-    if (!isLoading && !error)
+    if (!verifying && !isSuccess && !data?.success && !verifyError)
       verifyUser({ email: user.primaryEmailAddress.emailAddress })
 
     if (data) {
       setAccount(data.account)
       setAccountType(accountType.name)
     }
-  }, [data, isLoading])
+  }, [data, isLoading, verifying, verifyError])
 
   useEffect(() => {
     let ignore = false
+    const name =
+      accountType.name === 'Professional' ? user.fullName : companyInfo.name
     const body = {
-      name: user.fullName,
+      name,
       plan: selectedPlan.name.toUpperCase(),
       email: user.primaryEmailAddress.emailAddress,
       image: user.profileImageUrl,
       type: accountType.name.toLowerCase(),
+      ...(accountType.name === 'Professional'
+        ? { career: professionalInfo.career, bio: professionalInfo.bio }
+        : { description: companyInfo.description }),
     }
     if (!ignore) {
       createAccount(body)
@@ -69,7 +78,7 @@ export const Step6 = () => {
           nos contactes mediante <b>support@empli.com</b>.
         </motion.p>
         {isLoading ? (
-          <p>Estamos creando tu cuenta...</p>
+          <p>Estamos creando/verificando tu cuenta...</p>
         ) : error ? (
           <>{JSON.stringify(error)}</>
         ) : (
