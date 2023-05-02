@@ -2,9 +2,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // eslint-disable-next-line no-unused-vars
-const headers = {
-  'Content-type': 'application/json;',
-}
+const TOKEN = import.meta.env.VITE_MP_PUB_KEY
+// const headers = {
+//   'Content-type': 'application/json;',
+//   Authorization: `Bearer ${TOKEN}`,
+// }
 
 //* Creamos una instancia de "fetchBaseQuery" con la URL base de la API
 const baseQuery = fetchBaseQuery({
@@ -16,11 +18,13 @@ const endpoints = {
   talents: 'talents',
   categories: 'categories',
   careers: 'careers',
+  plan: 'plans',
 }
 
 //* Función para configurar los headers de las peticiones
 const setHeaders = headers => {
   headers['Content-type'] = 'application/json;'
+  headers['Authorization'] = `Bearer ${TOKEN}`
   return headers
 }
 
@@ -191,6 +195,36 @@ export const apiSlice = createApi({
         headers: headers => setHeaders(headers),
       }),
     }),
+
+    // * Endpoints Plan
+
+    getPlan: builder.query({
+      query: () => ({
+        url: endpoints.plan,
+        method: 'GET',
+        mode: 'cors',
+      }),
+      providesTags: ['Plan'],
+    }),
+    // //transformResponse: res => res.sort((a,b) => b.id - a.id)
+    createPlan: builder.mutation({
+      query: newPlan => ({
+        url: `${endpoints.Plan}/link`,
+        method: 'POST',
+        body: newPlan,
+        mode: 'cors',
+        prepareHeaders: headers => setHeaders(headers),
+      }),
+    }),
+    updatePlan: builder.mutation({
+      query: updatePlan => ({
+        url: `${endpoints.Plan}/${updatePlan.id}/`,
+        method: 'PUT',
+        body: updatePlan,
+        mode: 'cors',
+        prepareHeaders: headers => setHeaders(headers),
+      }),
+    }),
   }),
 })
 export const {
@@ -210,4 +244,7 @@ export const {
   useCreateCategoriesMutation,
   useDeleteCategoriesMutation,
   useUpdateCategoriesMutation,
+  useGetPlanQuery,
+  useCreatePlanMutation,
+  useUpdatePlanMutation,
 } = apiSlice

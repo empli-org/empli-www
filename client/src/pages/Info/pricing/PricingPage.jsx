@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { PricingEmpresa } from './PricingEmpresa'
-import { PricingProfesional } from './PricingProfesional'
+import { PricingEmpresa, PricingProfesional } from 'pages'
 
 export default function PricingPage() {
   const [selected, setSelected] = useState('empresa')

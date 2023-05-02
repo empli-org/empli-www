@@ -5,63 +5,14 @@ import { Container } from '@/components/ui/Container'
 import { useEffect, useState } from 'react'
 import { Image } from 'cloudinary-react'
 import { useUpload } from '@/hooks/upload'
-import { useSearchParams } from 'react-router-dom'
-import { CardProfile } from '@/components'
-import { Switch } from '@headlessui/react'
-
-export default function UserProfile() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [enabled, setEnabled] = useState(false)
-  const isEdit = searchParams.get('edit') === 'true'
-
-  useEffect(() => {
-    setSearchParams({ edit: enabled })
-  }, [enabled])
-
-  return (
-    <>
-      <div>
-        <div className="flex items-center justify-center py-8">
-          <Switch.Group>
-            <div className="flex items-center gap-4">
-              <Switch.Label className="text-lg font-medium">
-                {enabled ? 'Ver perfil' : 'Editar'}
-              </Switch.Label>
-
-              <Switch
-                checked={enabled}
-                onChange={setEnabled}
-                className={`${enabled ? 'bg-blue-whale' : 'bg-blue-whale'}
-          relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
-              >
-                <span className="sr-only">Editar perfil</span>
-                <span
-                  aria-hidden="true"
-                  className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
-            pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-                />
-              </Switch>
-            </div>
-          </Switch.Group>
-        </div>
-        {isEdit ? (
-          <UserProfileForm />
-        ) : (
-          <div className="flex items-center justify-center py-6">
-            <CardProfile />
-          </div>
-        )}
-      </div>
-    </>
-  )
-}
+import { useAccountContext } from '@/pages/Account/AccountContext'
 
 const inputCls =
   'rounded-md border border-slate-200 p-3 outline-none focus:ring-2'
 
-/* NOTE: esto es solo para la demo */
-function UserProfileForm() {
+export const UserProfileForm = () => {
   const [skills, setSkills] = useState([])
+  const { account } = useAccountContext()
 
   const addSkill = item => {
     const found = skills.find(i => i.name === item.name)
@@ -79,9 +30,13 @@ function UserProfileForm() {
           >
             <h1 className="mb-4 text-xl font-bold">Perfil público</h1>
 
-            <ProfileImageForm />
+            <ProfileImageForm image={account.image} />
 
-            <InfoForm />
+            <InfoForm
+              name={account.name}
+              career={account.career}
+              tuitionNumber={account.tuitionNumber}
+            />
 
             <h1 className="my-4 text-xl font-bold">Habilidades</h1>
 
@@ -168,7 +123,7 @@ function AddInputDynamic() {
   )
 }
 
-function ProfileImageForm() {
+function ProfileImageForm({ image: savedImage }) {
   const [file, setFile] = useState(null)
   const { loading, data } = useUpload(file)
   const image = data?.public_id || null
@@ -184,6 +139,8 @@ function ProfileImageForm() {
         <div className="aspect-s w-24 overflow-hidden rounded-lg">
           <Image cloudName="dvzhqzjkm" publicId={image} />
         </div>
+      ) : savedImage ? (
+        <img src={savedImage} className="w-24 rounded-lg" alt="profile" />
       ) : (
         <div className="aspect-square w-24 rounded-lg bg-slate-200" />
       )}
@@ -197,7 +154,7 @@ function ProfileImageForm() {
   )
 }
 
-function InfoForm() {
+function InfoForm({ name, career, tuitionNumber }) {
   return (
     <div>
       <div className="flex flex-col gap-2">
@@ -208,26 +165,7 @@ function InfoForm() {
           placeholder="Nombre"
           id="name"
           name="name"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="lastname">Apellido</label>
-        <input
-          className={inputCls}
-          type="text"
-          placeholder="Apellido"
-          id="lastname"
-          name="lastname"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="age">Edad</label>
-        <input
-          className={inputCls}
-          type="text"
-          placeholder="Edad"
-          id="age"
-          name="age"
+          defaultValue={name}
         />
       </div>
 
@@ -239,6 +177,7 @@ function InfoForm() {
           placeholder="Carrera"
           id="career"
           name="career"
+          defaultValue={career?.name}
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -249,6 +188,7 @@ function InfoForm() {
           placeholder="Numero colegiatura"
           id="tuition"
           name="tuition"
+          defaultValue={tuitionNumber}
         />
       </div>
     </div>

@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { plansData } from '@/constants/plansData'
 import { accountTypes } from '@/constants/accountTypes'
-
-// @ts-ignore
-export const AppContext = React.createContext()
+import { AppContext } from './AppContext'
 
 export function AppContextProvider({ children }) {
   const [accountType, setAccountType] = useState(accountTypes[0])
   const [selectedPlan, setSelectedPlan] = useState(plansData[0])
   const [billing, setBilling] = useState('monthly')
-  const [selectedPreferences, setSelectedPreferences] = useState([])
+  const [companyInfo, setCompanyInfo] = useState({})
+  const [professionalInfo, setProfessionalInfo] = useState({})
 
   const [activeStep, setActiveStep] = useState(1)
   const [direction, setDirection] = useState(0)
@@ -29,8 +28,6 @@ export function AppContextProvider({ children }) {
         setAccountType,
         selectedPlan,
         setSelectedPlan,
-        selectedPreferences,
-        setSelectedPreferences,
         billing,
         setBilling,
         activeStep,
@@ -38,6 +35,10 @@ export function AppContextProvider({ children }) {
         CalcTotalAmount,
         direction,
         setDirection,
+        companyInfo,
+        setCompanyInfo,
+        professionalInfo,
+        setProfessionalInfo,
       }}
     >
       {children}

@@ -9,22 +9,24 @@ import {
   LocationSearch,
   JobsFallback,
   Container,
-  JobCard,
   CloseIcon,
   FilterIcon,
 } from 'components'
-const queryStringFromObj = obj =>
-  Object.keys(obj)
-    .map(key => obj[key] && key + '=' + obj[key])
-    .join('&')
+import { JobCard } from '@/components/ui/cards/JobCard_v2'
+import { SelectBox } from '@/components/ui/Select'
+import { dateSortOptions, queryStringFromObj } from '@/utils/data'
 
 export const DashProfessionalOffers = () => {
   const [filterOpen, setFilterOpen] = useState(false)
+  const [dateSort, setDateSort] = useState(dateSortOptions[0])
   const [filters, setFilters] = useState({})
   const hasFilters = Object.values(filters).some(Boolean)
-  const queryString = queryStringFromObj(filters)
+  const queryString = queryStringFromObj(filters) + `&sort=${dateSort.value}`
   const [page, setPage] = useState(1)
-  const { data, isLoading, isFetching } = useGetJobsQuery({ queryString, page })
+  const { data, isLoading, isFetching } = useGetJobsQuery({
+    queryString,
+    page,
+  })
   const jobs = data?.data
   const countJobs = data?.count
   const jobsLoading = isLoading || isFetching
@@ -69,7 +71,10 @@ export const DashProfessionalOffers = () => {
                     open: { opacity: 1, height: 'auto' },
                     collapsed: { opacity: 0, height: 0 },
                   }}
-                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 0.6,
+                    ease: 'easeInOut',
+                  }}
                 >
                   <div className="flex w-full flex-col gap-2 py-4 md:flex-row md:gap-4">
                     <div className="w-full">
@@ -84,7 +89,10 @@ export const DashProfessionalOffers = () => {
                             <span>{filters.location}</span>
                             <button
                               onClick={() =>
-                                setFilters({ ...filters, location: null })
+                                setFilters({
+                                  ...filters,
+                                  location: null,
+                                })
                               }
                             >
                               <CloseIcon className="h-4 w-4" />
@@ -105,7 +113,10 @@ export const DashProfessionalOffers = () => {
                             <span>{filters.area}</span>
                             <button
                               onClick={() =>
-                                setFilters({ ...filters, area: null })
+                                setFilters({
+                                  ...filters,
+                                  area: null,
+                                })
                               }
                             >
                               <CloseIcon className="h-4 w-4" />
@@ -115,23 +126,28 @@ export const DashProfessionalOffers = () => {
                       )}
                     </div>
                   </div>
+                  <div className="py-2">
+                    <button
+                      onClick={() => setFilters({})}
+                      disabled={!hasFilters}
+                      className="rounded-md bg-blue-whale px-4 py-3 text-white disabled:bg-slate-400"
+                    >
+                      Limpiar todo
+                    </button>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         </header>
-        <div className="flex flex-col items-center justify-center gap-4 py-4">
-          <ul className="scrollbar-hide flex items-center overflow-x-auto">
-            <li className="cursor-pointer whitespace-nowrap rounded-lg bg-slate-200 p-2 px-4">
-              Todos
-            </li>
-            <li className="cursor-pointer whitespace-nowrap rounded-lg px-4 py-2 text-slate-600">
-              Populares
-            </li>
-            <li className="cursor-pointer whitespace-nowrap rounded-lg px-4 py-2 text-slate-600">
-              Recomendados
-            </li>
-          </ul>
+
+        <div className="max-w-md py-4">
+          <SelectBox
+            options={dateSortOptions}
+            selected={dateSort}
+            setSelected={setDateSort}
+            label="Fecha de publicación"
+          />
         </div>
 
         {jobsLoading && <JobsFallback />}

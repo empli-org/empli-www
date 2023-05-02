@@ -1,7 +1,7 @@
 import { RadioGroup } from '@headlessui/react'
 import { Fragment, useContext } from 'react'
 import { ButtonContainerLg } from '../ButtonContainerLg'
-import { AppContext } from '../OnboardingContext'
+import { AppContext } from '../OnBoarding/AppContext'
 import { accountTypes } from '@/constants/accountTypes'
 
 export const Step1 = () => {

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
-import { ArrowBtnR } from './ArrowBtnR'
+import { ArrowBtnR } from 'components'
+import { BiMap } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 
 export const MiniCard = ({
@@ -17,7 +17,7 @@ export const MiniCard = ({
   const price = (
     <div className="mx-1 mt-2 flex w-full justify-center gap-x-24">
       <div>
-        <span className="font-bold">${amount}K/</span>
+        <span className="font-quicksand font-bold">${amount}K/</span>
         <span>mes</span>
       </div>
       <span>{time}</span>
@@ -38,27 +38,42 @@ export const MiniCard = ({
   )
 
   return (
-    <div className="grid-cols-2-auto m-1 grid h-72 w-64 transform grid-flow-col overflow-hidden rounded-lg p-1 shadow-xl transition-transform duration-300 hover:-translate-y-4 hover:shadow-lg">
-      <div className="backdrop-blur-4xl m-1 flex h-auto w-fit flex-col items-center gap-y-2 rounded-2xl bg-white bg-opacity-90 p-3 backdrop-filter md:p-2 lg:p-1 ">
-        <div className="mt-2 flex h-24  w-full">
-          <div className="flex h-24 w-28">
-            <img
-              className="mr-2 w-full overflow-hidden rounded-lg"
-              src={logo}
-              alt="logo"
-            />
+    <div title="Haz click para ver mas informacion">
+      <div className="grid-cols-2-auto m-4 grid h-72 w-64 transform grid-flow-col overflow-hidden rounded-2xl p-1 shadow-xl bg-white transition-transform duration-300 hover:-translate-y-4 hover:shadow-lg">
+        <div className="m-1 flex h-auto w-fit flex-col justify-between items-center gap-y-2 rounded-2xl  md:p-2 lg:p-1 ">
+          <div className="flex w-full">
+            <div className="flex h-24 w-24">
+              <img
+                className="mr-2 h-24 w-24 object-cover rounded-lg"
+                src={logo}
+                alt="logo"
+              />
+            </div>
+
+            <div className="w-full mx-5">
+              <h3 className="break-words text-xl font-amenable text-blue-whale">
+                {title}
+              </h3>
+              {subtitle && (
+                <div className="flex items-center">
+                  <BiMap />
+                  <h2 className="font-quicksand text-sm">{subtitle}</h2>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="w-full">
-            <h3 className="break-words text-xl font-bold text-gray-900">
-              {title}
-            </h3>
-            {subtitle && <h2>{subtitle}</h2>}
+
+          <div className="my-2">
+            {rol && (
+              <h4 className="text-2xl font-amenable font-light text-blue-whale mb-1">
+                {rol}
+              </h4>
+            )}
+            <p className="text-ellipsis font-quicksand text-blue-whale text-justify">
+              {description}
+            </p>
           </div>
-        </div>
-        <div className="my-4">
-          {rol && <h4 className="text-2xl font-bold text-gray-900">{rol}</h4>}
-          <p className="w-fit text-ellipsis text-gray-700">{description}</p>
-          {amount ? price : btn}
+          <div>{amount ? price : btn}</div>
         </div>
       </div>
     </div>

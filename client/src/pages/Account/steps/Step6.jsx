@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import {
+  useCreateAccountMutation,
+  useVerifyAccountMutation,
+} from '@/redux/features/api/base'
+import { AppContext } from 'pages'
+import { useClerk } from '@clerk/clerk-react'
+import { useAccountContext } from '../AccountContext'
 
 const childVariants = {
   hidden: {
@@ -14,6 +21,48 @@ const childVariants = {
   },
 }
 export const Step6 = () => {
+  const [createAccount, { isLoading, error }] = useCreateAccountMutation()
+  const { accountType, selectedPlan, companyInfo, professionalInfo } =
+    useContext(AppContext)
+  const [
+    verifyUser,
+    { data, isLoading: verifying, isSuccess, error: verifyError },
+  ] = useVerifyAccountMutation()
+  const { user } = useClerk()
+  const { setAccount, setAccountType } = useAccountContext()
+
+  useEffect(() => {
+    if (!verifying && !isSuccess && !data?.success && !verifyError)
+      verifyUser({ email: user.primaryEmailAddress.emailAddress })
+
+    if (data) {
+      setAccount(data.account)
+      setAccountType(accountType.name)
+    }
+  }, [data, isLoading, verifying, verifyError])
+
+  useEffect(() => {
+    let ignore = false
+    const name =
+      accountType.name === 'Professional' ? user.fullName : companyInfo.name
+    const body = {
+      name,
+      plan: selectedPlan.name.toUpperCase(),
+      email: user.primaryEmailAddress.emailAddress,
+      image: user.profileImageUrl,
+      type: accountType.name.toLowerCase(),
+      ...(accountType.name === 'Professional'
+        ? { career: professionalInfo.career, bio: professionalInfo.bio }
+        : { description: companyInfo.description }),
+    }
+    if (!ignore) {
+      createAccount(body)
+    }
+    return () => {
+      ignore = true
+    }
+  }, [])
+
   return (
     <div className="rounded-lg bg-white px-8 py-12 shadow-lg">
       <div className="flex flex-col items-center justify-center gap-3">
@@ -28,12 +77,18 @@ export const Step6 = () => {
           nuestra plataforma. Si necesitas soporte, estamos disponibles para que
           nos contactes mediante <b>support@empli.com</b>.
         </motion.p>
-        <Link
-          to="/dashboard"
-          className="mt-4 rounded-md bg-blue-whale px-6 py-3 text-white"
-        >
-          Mi cuenta
-        </Link>
+        {isLoading ? (
+          <p>Estamos creando/verificando tu cuenta...</p>
+        ) : error ? (
+          <>{JSON.stringify(error)}</>
+        ) : (
+          <Link
+            to="/dashboard"
+            className="mt-4 rounded-md bg-blue-whale px-6 py-3 text-white"
+          >
+            Mi cuenta
+          </Link>
+        )}
       </div>
     </div>
   )
