@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getPlanDetail } from "../../services/plans/PlanServiceAPI";
+import { getPlanDetail } from "../../services/planService/getPlanDetail";
 
 
 
