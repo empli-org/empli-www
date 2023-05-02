@@ -10,7 +10,7 @@ import {
 } from '@/utils/data'
 import { useEffect, useState } from 'react'
 
-export const SavedOffers = () => {
+export const SavedProfessionalOffers = () => {
   const [dateSort, setDateSort] = useState(dateSortOptions[0])
   const [locationFilter, setLocationFilter] = useState(locationFilterOptions[0])
   const queryString = queryStringFromObj({

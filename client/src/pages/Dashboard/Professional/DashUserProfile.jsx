@@ -1,5 +1,5 @@
 import { CardProfile } from '@/components'
-import { UserProfileForm } from '@/components/UserForm'
+import { UserProfileForm } from '@/components/Forms/UserForms/UserProfileForm'
 import { useAccountContext } from '@/pages/Account/AccountContext'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'

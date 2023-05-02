@@ -1,5 +1,6 @@
 import express,{Request,Response} from "express";
 import {
+	getFeedbackSubsPlan,
 	getMpPlanLinkApi,
 	getMpPlansListApi,
 	getMpSubscriptionPlanIdApi,
@@ -31,6 +32,7 @@ export function paymentRoutes() {
 	router.route("/plans").get(getMpPlansListApi);
 	router.route("/plan/link").post(getMpPlanLinkApi);
 	router.route("/plan/:id").get(getMpSubscriptionPlanIdApi);
+	router.route("/plan/subs/:id").get(getFeedbackSubsPlan);
 	router.route("/plan/:id").put(putMpPlanApi);
 
 	// * Track dolar en tiempo real

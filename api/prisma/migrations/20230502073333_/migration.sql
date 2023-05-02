@@ -158,6 +158,24 @@ CREATE TABLE "Skill" (
     CONSTRAINT "Skill_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Payment" (
+    "id" TEXT NOT NULL,
+    "paymentId" TEXT NOT NULL,
+    "plansId" INTEGER,
+
+    CONSTRAINT "Payment_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Plans" (
+    "id" SERIAL NOT NULL,
+    "plan" JSONB[],
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Plans_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Talent_userEmail_key" ON "Talent"("userEmail");
 
@@ -220,3 +238,6 @@ ALTER TABLE "Reference" ADD CONSTRAINT "Reference_experienceId_fkey" FOREIGN KEY
 
 -- AddForeignKey
 ALTER TABLE "Skill" ADD CONSTRAINT "Skill_talentId_fkey" FOREIGN KEY ("talentId") REFERENCES "Talent"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Payment" ADD CONSTRAINT "Payment_plansId_fkey" FOREIGN KEY ("plansId") REFERENCES "Plans"("id") ON DELETE SET NULL ON UPDATE CASCADE;

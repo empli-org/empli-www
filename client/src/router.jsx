@@ -24,26 +24,17 @@ import {
   Dashboard,
   CompanyDash,
   ProfessionalDash,
-  // DashProfessionalOffers,
   MarketProfessionals,
   InfoProfessionals,
-  // FormOffer,
   AdminDash,
   DashUserProfile,
+  CompanyOffers,
+  CreateOffer,
+  SavedProfessionalOffers,
+  DashProfessionalOffers,
+  FavedTalents,
+  // FormOffer,
 } from 'pages'
-// import PricingPage from './pages/Info/pricing/Pricing'
-// import Media from './pages/Community/Media'
-// import HomeEmpresa from './pages/HomeEmpresa'
-// import { AuthLayout } from './pages/Auth/Layout'
-// import { Onboarding } from './pages/Account/Onboarding'
-// import { Payment } from './pages/Account/Payment'
-// import { DashboardLayout } from './pages/Dashboard/Layout'
-// import { Dashboard } from './pages/Dashboard/Dashboard'
-// import { CompanyDash } from './pages/Dashboard/Company/CompanyDash'
-// import { ProfessionalDash } from './pages/Dashboard/Professional/ProfessionalDash'
-import DashProfessionalOffers from './pages/Dashboard/Professional/Offers'
-// import { MarketProfessionals } from './pages/Dashboard/Company/MarketProfessionals'
-// import InfoProfessionals from './pages/Info/InfoProfessionals'
 import FormOffer from './components/Forms/FormOffer'
 // import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
 import { SavedOffers } from './pages/Dashboard/Professional/Saved'
@@ -184,7 +175,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/professional/saved',
-        element: <SavedOffers />,
+        element: <SavedProfessionalOffers />,
       },
       {
         path: '/dashboard/professional/profile',
