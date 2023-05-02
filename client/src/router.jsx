@@ -50,6 +50,7 @@ import { SavedOffers } from './pages/Dashboard/Professional/Saved'
 import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
 import FavedTalents from './pages/Dashboard/Company/Favorites'
 import CreateOffer from './pages/Dashboard/Company/CreateOffer'
+import NewsDetailPage from './pages/Info/NewsDetail'
 // import UserProfile from './pages/Dashboard/Professional/Profile'
 
 // import { Admin } from './pages/Dashboard/Administrator/Admin'
@@ -99,6 +100,10 @@ export const router = createBrowserRouter([
       {
         path: '/news',
         element: <News />,
+      },
+      {
+        path: '/news/:id',
+        element: <NewsDetailPage />,
       },
       {
         path: '/about',

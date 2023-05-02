@@ -5,8 +5,23 @@ const BASE_URL_API = import.meta.env.VITE_API_URL_BASE
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL_API }),
-  tagTypes: ['Saved'],
+  tagTypes: ['Saved', 'Posts'],
   endpoints: builder => ({
+    getPosts: builder.query({
+      query: queryString => `/news?${queryString}`,
+      providesTags: ['Posts'],
+    }),
+    getPostById: builder.query({
+      query: id => `/news/${id}`,
+    }),
+    createPost: builder.mutation({
+      query: body => ({
+        url: '/news',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Posts'],
+    }),
     getJobs: builder.query({
       query: ({ queryString, page }) => `/jobs?page=${page}&${queryString}`,
     }),
@@ -65,6 +80,8 @@ export const baseApi = createApi({
 })
 
 export const {
+  useGetPostsQuery,
+  useGetPostByIdQuery,
   useGetJobsQuery,
   useGetJobByCodeQuery,
   useSearchJobsQuery,

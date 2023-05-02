@@ -5,9 +5,11 @@ import {
   FaFacebook,
   FaInstagram,
 } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 // this component is just to render publications detail
-export const DetailPublication = ({ publicacion, setOnOff }) => {
+export const DetailPublication = ({ publicacion }) => {
+  const navigate = useNavigate()
   const compartirEnLinkedIn = () => {
     // lógica para compartir en LinkedIn
   }
@@ -18,7 +20,7 @@ export const DetailPublication = ({ publicacion, setOnOff }) => {
         <div>
           <button
             className="rounded-lg bg-hint-of-red p-4"
-            onClick={() => setOnOff(false)}
+            onClick={() => navigate(-1)}
           >
             <FaArrowLeft />
           </button>
@@ -42,25 +44,21 @@ export const DetailPublication = ({ publicacion, setOnOff }) => {
           className="w-full bg-cover bg-center"
           style={{
             height: '24rem',
-            backgroundImage: `url(${publicacion.url})`,
+            backgroundImage: `url(${publicacion.image})`,
           }}
         >
           <div className="flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-50">
             <div className="w-[90%] bg-black/30 px-6 py-4 text-center backdrop-blur-sm">
               <h1 className="text-2xl font-semibold uppercase text-white md:text-3xl">
-                Titulo de la noticia
+                {publicacion.title}
               </h1>
-              <h2 className="text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                euismod urna et porttitor imperdiet. Pellentesque molestie
-                tortor dolor. Mauris a cursus felis, in finibus dolor.
-              </h2>
+              <h2 className="text-white">{publicacion.description}</h2>
             </div>
           </div>
         </div>
         <div className="py-4">
           <p className="font-quicksand text-lg text-gray-700">
-            {publicacion.contenido}
+            {publicacion.body}
           </p>
         </div>
 
