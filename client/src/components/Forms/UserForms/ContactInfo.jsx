@@ -1,4 +1,4 @@
-import { inputCls } from "./inputCls";
+import { inputCls } from './inputCls'
 
 export function ContactInfo() {
   return (
@@ -10,7 +10,8 @@ export function ContactInfo() {
           type="text"
           placeholder="Correo"
           id="email"
-          name="email" />
+          name="email"
+        />
       </div>
 
       <div className="flex flex-col gap-2">
@@ -20,8 +21,9 @@ export function ContactInfo() {
           type="text"
           placeholder="website"
           id="website"
-          name="website" />
+          name="website"
+        />
       </div>
     </>
-  );
+  )
 }
