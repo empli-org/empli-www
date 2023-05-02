@@ -7,8 +7,8 @@ export function AppContextProvider({ children }) {
   const [accountType, setAccountType] = useState(accountTypes[0])
   const [selectedPlan, setSelectedPlan] = useState(plansData[0])
   const [billing, setBilling] = useState('monthly')
-  const [selectedPreferences, setSelectedPreferences] = useState([])
-  const [ready, setReady] = useState(false)
+  const [companyInfo, setCompanyInfo] = useState({})
+  const [professionalInfo, setProfessionalInfo] = useState({})
 
   const [activeStep, setActiveStep] = useState(1)
   const [direction, setDirection] = useState(0)
@@ -28,8 +28,6 @@ export function AppContextProvider({ children }) {
         setAccountType,
         selectedPlan,
         setSelectedPlan,
-        selectedPreferences,
-        setSelectedPreferences,
         billing,
         setBilling,
         activeStep,
@@ -37,8 +35,10 @@ export function AppContextProvider({ children }) {
         CalcTotalAmount,
         direction,
         setDirection,
-        ready,
-        setReady,
+        companyInfo,
+        setCompanyInfo,
+        professionalInfo,
+        setProfessionalInfo,
       }}
     >
       {children}

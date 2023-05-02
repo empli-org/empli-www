@@ -29,8 +29,7 @@ export const baseApi = createApi({
       query: key => `/talents/skills${key ? `?key=${key}` : ''}`,
     }),
     getAllTalents: builder.query({
-      query: ({ key, page }) =>
-        `/talents?page=${page}${key ? `&key=${key}` : ''}`,
+      query: ({ queryString }) => `/talents?${queryString}`,
     }),
     getTalentById: builder.query({
       query: id => `/talents/${id}`,
