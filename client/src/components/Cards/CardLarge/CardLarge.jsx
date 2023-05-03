@@ -1,11 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
-import { useGetJobsQuery } from '@/redux/features/api/jobs/jobApi'
+/*
+import { useGetJobsQuecountCompanyry } from '@/redux/features/api/jobs/jobApi'
 import { useGetTalentQuery } from '@/redux/features/api/talent/talentApi'
+*/
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
+  /*
   const { data: offersData = [] } = useGetJobsQuery()
   const { data: talentsData = [] } = useGetTalentQuery()
 
@@ -27,6 +30,7 @@ export const CardLarge = () => {
   // total offersData in the aplication. it is array
   const countOffers = offersData && offersData.length
   console.log(countOffers)
+  */
   const Marked = ({ data, title, isBorder = false }) => {
     return (
       <div
@@ -49,11 +53,11 @@ export const CardLarge = () => {
   }
   return (
     <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
-      <Marked data={countTalents} title="Profesionales" />
+      <Marked data="5k" title="Profesionales" />
 
-      <Marked data={countOffers} title="Ofertas" isBorder={true} />
+      <Marked data="1k" title="Ofertas" isBorder={true} />
 
-      <Marked data={countCompany} title="Empresas" />
+      <Marked data="3k" title="Empresas" />
     </div>
   )
 }

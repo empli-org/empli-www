@@ -35,7 +35,7 @@ export const MarketProfessionals = () => {
     key,
     location: locationFilter.value === 'all' ? null : locationFilter.value,
   })
-  const { data, isLoading, isSuccess } = useGetTalentQuery({
+  const { data, isLoading, isFetching } = useGetTalentQuery({
     page,
     key,
     verified,
@@ -44,7 +44,7 @@ export const MarketProfessionals = () => {
   const talents = data?.data
   const countTalents = data?.count
   const totalPages = Math.ceil(countTalents / 10)
-  const loading = isLoading || isSuccess
+  const loading = isLoading || isFetching
 
   useEffect(() => {
     setPage(1)

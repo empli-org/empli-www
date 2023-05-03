@@ -27,7 +27,7 @@ export const talentApi = createApi({
 
     getTalent: builder.query({
       query: ({ queryString }) => ({
-        url: ` /${all}?${queryString}`,
+        url: `/${all}?${queryString}`,
         method: 'GET',
         mode: 'cors',
       }),

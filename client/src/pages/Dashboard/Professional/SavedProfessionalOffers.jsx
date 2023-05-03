@@ -2,13 +2,13 @@ import { Container, JobsFallback } from '@/components'
 import { SelectBox } from '@/components/ui/Select'
 import { JobCard } from '@/components/ui/cards/JobCard_v2'
 import { useAccountContext } from '@/pages/Account/AccountContext'
-import { useGetSavedOffersQuery } from '@/redux/features/api/base'
+import { useGetSavedOffersQuery } from '@/redux/features/api/talent/talentApi'
 import {
   dateSortOptions,
   locationFilterOptions,
   queryStringFromObj,
 } from '@/utils/data'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export const SavedProfessionalOffers = () => {
   const [dateSort, setDateSort] = useState(dateSortOptions[0])
