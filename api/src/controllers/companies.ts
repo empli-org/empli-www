@@ -126,6 +126,13 @@ export async function createOffer(req: Request, res: Response) {
         },
         company: { connect: { id } },
       },
+    });
+    if (!created) {
+      return res.status(400).json({ message: "Fail to create offer" });
+    }
+
+    const offer = await db.job.findUnique({
+      where: { id: created.id },
       select: {
         id: true,
         code: true,
@@ -155,10 +162,7 @@ export async function createOffer(req: Request, res: Response) {
       },
     });
 
-    if (!created) {
-      return res.status(400).json({ message: "Fail to create offer" });
-    }
-    return res.json(created);
+    return res.json(offer);
   } catch (e) {
     return res.status(500).json({ message: "Fail to create offer", error: e });
   }
