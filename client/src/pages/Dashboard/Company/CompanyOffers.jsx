@@ -1,6 +1,15 @@
-import { Container } from '@/components'
+import { Container, JobsFallback } from '@/components'
+import { useAccountContext } from '@/pages/Account/AccountContext'
+import { useGetCompanyOffersQuery } from '@/redux/features/api/company/companyApi'
 
 export default function CompanyOffers() {
+  const { account } = useAccountContext()
+  const {
+    data: offers,
+    isLoading,
+    isFetching,
+  } = useGetCompanyOffersQuery({ userId: account.id, queryString: '' })
+  const loading = isLoading || isFetching
   return (
     <div>
       <Container>
@@ -21,6 +30,8 @@ export default function CompanyOffers() {
           </div>
         </header>
         <div>
+          {loading && <JobsFallback />}
+          {JSON.stringify(offers)}
           <h1 className="mt-8 text-xl font-medium text-slate-500">
             No tienes publicada ninguna offerta aún
           </h1>

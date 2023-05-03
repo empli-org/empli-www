@@ -38,10 +38,26 @@ export const companyApi = createApi({
       }),
       invalidatesTags: ['Favs'],
     }),
+    createJobOffer: builder.mutation({
+      query: ({ userId, ...body }) => ({
+        url: `/companies/${userId}/offers`,
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Offers'],
+    }),
+    getCompanyOffers: builder.query({
+      query: ({ userId, queryString }) => ({
+        url: `/companies/${userId}/offers?${queryString}`,
+      }),
+      providesTags: ['Offers'],
+    }),
   }),
 })
 
 export const {
+  useCreateJobOfferMutation,
+  useGetCompanyOffersQuery,
   useGetFavsProfilesQuery,
   useLazyGetFavsProfilesQuery,
   useUpdateFavProfileMutation,
