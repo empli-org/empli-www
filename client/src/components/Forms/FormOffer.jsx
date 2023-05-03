@@ -28,12 +28,12 @@ export default function FormOffer() {
         onSubmit={handleSubmit(onSubmit)}
         id="form"
       >
-        <div className="flex m-5 w-full xl:m-0 xl:w-4/5 2xl:w-3/5 flex-col items-center justify-center gap-5 rounded-3xl bg-hint-of-red p-5 shadow-xl">
-          <div className="flex flex-col md:flex-row w-full justify-around gap-4 md:gap-1">
+        <div className="m-5 flex w-full flex-col items-center justify-center gap-5 rounded-3xl bg-hint-of-red p-5 shadow-xl xl:m-0 xl:w-4/5 2xl:w-3/5">
+          <div className="flex w-full flex-col justify-around gap-4 md:flex-row md:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="ID"
-                className="font-quicksand-light w-11/12 lg:w-3/4 font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-3/4"
               >
                 Código único
               </label>
@@ -52,7 +52,7 @@ export default function FormOffer() {
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="titulo"
-                className="font-quicksand-light w-11/12 lg:w-3/4 font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-3/4"
               >
                 Titulo
               </label>
@@ -69,11 +69,11 @@ export default function FormOffer() {
               )}
             </div>
           </div>
-          <div className="flex flex-col gap-5 lg:gap-1 lg:flex-row w-full justify-around">
+          <div className="flex w-full flex-col justify-around gap-5 lg:flex-row lg:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="descripcion"
-                className="font-quicksand-light w-full lg:w-3/4 font-semibold"
+                className="font-quicksand-light w-full font-semibold lg:w-3/4"
               >
                 Descripcion
               </label>
@@ -93,7 +93,7 @@ export default function FormOffer() {
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="experiencia"
-                className="font-quicksand-light w-full lg:w-3/4 font-semibold"
+                className="font-quicksand-light w-full font-semibold lg:w-3/4"
               >
                 Experiencia requerida
               </label>
@@ -111,11 +111,11 @@ export default function FormOffer() {
               )}
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row w-full justify-around gap-4 sm:gap-1">
+          <div className="flex w-full flex-col justify-around gap-4 sm:flex-row sm:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="area"
-                className="font-quicksand-light w-11/12 lg:w-1/2 font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Area de trabajo
               </label>
@@ -144,7 +144,7 @@ export default function FormOffer() {
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="lugar"
-                className="font-quicksand-light w-11/12 lg:w-1/2 font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Lugar de trabajo
               </label>
@@ -171,11 +171,11 @@ export default function FormOffer() {
               )}
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row w-full justify-around gap-4 sm:gap-1">
+          <div className="flex w-full flex-col justify-around gap-4 sm:flex-row sm:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="min"
-                className="font-quicksand-light w-11/12 lg:w-1/2 font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Salario minimo
               </label>
@@ -194,7 +194,7 @@ export default function FormOffer() {
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="max"
-                className="font-quicksand-light w-11/12 lg:w-1/2 font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Salario maximo
               </label>
