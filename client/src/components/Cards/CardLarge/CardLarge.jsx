@@ -13,6 +13,7 @@ export const CardLarge = () => {
 
   // total talentsData in the aplication. it is array
   const countTalents = talentsData && talentsData.length
+  const countTalents = talentsData && talentsData.length
 
   const uniqueCompany = offersData &&
     offersData.reduce((acu, curr) => {
@@ -22,7 +23,16 @@ export const CardLarge = () => {
       }
       return acu
     }, {})
+  const uniqueCompany = offersData &&
+    offersData.reduce((acu, curr) => {
+      const name = curr.company.name
+      if (!acu[name]) {
+        acu[name] = true
+      }
+      return acu
+    }, {})
 
+  const countCompany = Object.keys(uniqueCompany).length
   const countCompany = Object.keys(uniqueCompany).length
 
   // total offersData in the aplication. it is array

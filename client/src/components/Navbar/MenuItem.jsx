@@ -43,7 +43,7 @@ export function MenuItem({ label, children }) {
             onMouseEnter={onMouseEnter.bind(null, open)}
             onMouseLeave={onMouseLeave.bind(null, open)}
           >
-            <span className='uppercase font-bold tracking-widest'>{label}</span>
+            <span className="uppercase font-bold tracking-widest">{label}</span>
           </Popover.Button>
           <Transition
             as={Fragment}

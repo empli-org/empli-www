@@ -1,0 +1,166 @@
+[
+  {
+    "name": "Corporacion S.A",
+    "Role": "Construcción",
+    "departement": "Amazonas",
+    "status": "active",
+    "pause": "pausado"
+  },
+  {
+    "name": "Ingenieria Amazonas",
+    "Role": "Construcción",
+    "departement": "Ancash",
+    "status": "active"
+  },
+  {
+    "name": "Enfoque Construcciones",
+    "Role": "Construcción",
+    "departement": "Cusco",
+    "status": "active"
+  },
+  {
+    "name": "Apex Construcciones",
+    "Role": "Construcción",
+    "departement": "Callao",
+    "status": "active"
+  },
+  {
+    "name": "Eco Hogares",
+    "Role": "Construcción",
+    "departement": "Huancavelica",
+    "status": "inactivo"
+  },
+  {
+    "name": "Angulo Azul",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "inactivo"
+  },
+  {
+    "name": "Construcciones Horizonte",
+    "Role": "Construcción",
+    "departement": "Moquegua",
+    "status": "active"
+  },
+  {
+    "name": "Vigas de Acero",
+    "Role": "Construcción",
+    "departement": "Junin",
+    "status": "active"
+  },
+  {
+    "name": "Torre Fuerte",
+    "Role": "Construcción",
+    "departement": "Ucayali",
+    "status": "inactivo"
+  },
+  {
+    "name": "Creaciones Plus",
+    "Role": "Construcción",
+    "departement": "Piura",
+    "status": "active"
+  },
+  {
+    "name": "Construccion del Este",
+    "Role": "Construcción",
+    "departement": "Tumbes",
+    "status": "inactivo"
+  },
+  {
+    "name": "Construccion Terracota",
+    "Role": "Construcción",
+    "departement": "Piura",
+    "status": "active"
+  },
+  {
+    "name": "innováte",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+
+  {
+    "name": "Planeta Estructuras",
+    "Role": "Construcción",
+    "departement": "Piura",
+    "status": "active"
+  },
+  {
+    "name": "Construfacil",
+    "Role": "Construcción",
+    "departement": "Puno",
+    "status": "inactivo"
+  },
+  {
+    "name": "Entre Paredes",
+    "Role": "Construcción",
+    "departement": "Piura",
+    "status": "active"
+  },
+  {
+    "name": "Constructora Inco",
+    "Role": "Construcción",
+    "departement": "Loreto",
+    "status": "active"
+  },
+  {
+    "name": "Llave Plateada",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+  {
+    "name": "Dimension Superior",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+  {
+    "name": "Constructora Madrid",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+  {
+    "name": "Dream House",
+    "Role": "Construcción",
+    "departement": "Piura",
+    "status": "active"
+  },
+  {
+    "name": "Piedra y Concreto",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+  {
+    "name": "Remodelaciones Patio",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+  {
+    "name": "Maxi Construcciones",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  },
+  {
+    "name": "Corporacion S.A",
+    "Role": "Construcción",
+    "departement": "Huanuco",
+    "status": "inactive"
+  },
+  {
+    "name": "Arte A.G",
+    "Role": "Construcción",
+    "departement": "Ayacucho",
+    "status": "active"
+  },
+  {
+    "name": "Muros Ultra",
+    "Role": "Construcción",
+    "departement": "Lima",
+    "status": "active"
+  }
+]

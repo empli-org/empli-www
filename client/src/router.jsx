@@ -34,10 +34,16 @@ import {
   DashProfessionalOffers,
   FavedTalents,
   // FormOffer,
+  CompanyOffers,
+  CreateOffer,
+  SavedProfessionalOffers,
+  DashProfessionalOffers,
+  FavedTalents,
+  // FormOffer,
 } from 'pages'
 import FormOffer from './components/Forms/FormOffer'
+import NewsDetailPage from './pages/Info/NewsDetail'
 
-// import { Admin } from './pages/Dashboard/Administrator/Admin'
 
 export const router = createBrowserRouter([
   {
@@ -86,6 +92,10 @@ export const router = createBrowserRouter([
         element: <News />,
       },
       {
+        path: '/news/:id',
+        element: <NewsDetailPage />,
+      },
+      {
         path: '/about',
         element: <About />,
       },
@@ -95,7 +105,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
-      { path: '/formoffer', element: <FormOffer /> },
+      { path: '/formjobs', element: <FormOffer /> },
     ],
   },
   {

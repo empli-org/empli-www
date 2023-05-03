@@ -76,7 +76,6 @@ export const DashboardLayout = () => {
                     <span>Ayuda</span>
                   </button>
                 </li>
-
                 <li>
                   <button
                     onClick={() => {
@@ -96,13 +95,13 @@ export const DashboardLayout = () => {
           <div className="ml-64 flex-1 pb-8">
             {isCompany ? (
               <CompanyHeader
-                name={account.name}
-                verified={account.plan !== 'Free'}
+                name={account?.name}
+                verified={account?.plan !== 'Free'}
               />
             ) : (
               <ProfessionalHeader
-                name={account.name}
-                verified={account.verified}
+                name={account?.name}
+                verified={account?.verified}
               />
             )}
             <Outlet />
