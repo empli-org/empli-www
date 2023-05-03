@@ -90,3 +90,78 @@ export async function getFavProfiles(req: Request, res: Response) {
   });
   return res.json(profiles);
 }
+
+export async function createOffer(req: Request, res: Response) {
+  try {
+    const { id } = req.params;
+    const {
+      code,
+      title,
+      description,
+      minRate,
+      maxRate,
+      area,
+      city,
+      body,
+      requiredExp,
+    } = req.body;
+    if (!code || !title || !description) {
+      return res.status(400).json({ message: "Missing fields" });
+    }
+    const created = await db.job.create({
+      data: {
+        code,
+        title,
+        description,
+        body,
+        requiredExp,
+        minRate,
+        maxRate,
+        area,
+        location: {
+          connectOrCreate: {
+            where: { city },
+            create: { city, country: "Perú" },
+          },
+        },
+        company: { connect: { id } },
+      },
+    });
+
+    if (!created) {
+      return res.status(400).json({ message: "Fail to create offer" });
+    }
+    return res.json(created);
+  } catch (e) {
+    return res.status(500).json({ message: "Fail to create offer", error: e });
+  }
+}
+
+export async function deleteOffer(req: Request, res: Response) {
+  try {
+    const { offerId } = req.body;
+    const deleted = await db.job.delete({ where: { id: offerId } });
+
+    if (deleted) return res.json({ message: "Ok" });
+
+    return res.status(400).json({ message: "Cannot delete offer" });
+  } catch {
+    return res.status(500).json({ message: "Fail to delete offer" });
+  }
+}
+
+export async function getCompanyOffers(req: Request, res: Response) {
+  try {
+    const { id } = req.params;
+
+    const offers = await db.job.findMany({
+      where: {
+        companyId: id,
+      },
+    });
+
+    return res.json(offers);
+  } catch {
+    return res.status(500).json({ message: "Fail to conned db" });
+  }
+}

@@ -71,7 +71,7 @@ model Project {
 
 model Location {
   id          String        @id @default(cuid())
-  city        String
+  city        String        @unique
   country     String
   zip         String?
   ContactInfo ContactInfo[]
