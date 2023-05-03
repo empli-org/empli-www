@@ -21,7 +21,7 @@ export const companyApi = createApi({
 
   reducerPath: 'companyApi',
   baseQuery,
-  tagTypes: ['Favs'],
+  tagTypes: ['Favs', 'CompanyOffers', 'Published'],
   endpoints: builder => ({
     // * Endpoints Plan
 
@@ -44,13 +44,21 @@ export const companyApi = createApi({
         method: 'POST',
         body,
       }),
-      invalidatesTags: ['Offers'],
+      invalidatesTags: ['CompanyOffers'],
     }),
     getCompanyOffers: builder.query({
       query: ({ userId, queryString }) => ({
         url: `/companies/${userId}/offers?${queryString}`,
       }),
-      providesTags: ['Offers'],
+      providesTags: ['CompanyOffers', 'Published'],
+    }),
+    publishOffer: builder.mutation({
+      query: ({ userId, ...body }) => ({
+        url: `/companies/${userId}/publish`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['Published'],
     }),
   }),
 })
@@ -61,4 +69,5 @@ export const {
   useGetFavsProfilesQuery,
   useLazyGetFavsProfilesQuery,
   useUpdateFavProfileMutation,
+  usePublishOfferMutation,
 } = companyApi

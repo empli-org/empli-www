@@ -1,4 +1,5 @@
 import { Container, JobsFallback } from '@/components'
+import { JobCard } from '@/components/ui/cards/JobCard_v2'
 import { useAccountContext } from '@/pages/Account/AccountContext'
 import { useGetCompanyOffersQuery } from '@/redux/features/api/company/companyApi'
 
@@ -31,10 +32,19 @@ export default function CompanyOffers() {
         </header>
         <div>
           {loading && <JobsFallback />}
-          {JSON.stringify(offers)}
-          <h1 className="mt-8 text-xl font-medium text-slate-500">
-            No tienes publicada ninguna offerta aún
-          </h1>
+          {!offers || offers?.length === 0 ? (
+            <h1 className="mt-8 text-xl font-medium text-slate-500">
+              No tienes publicada ninguna offerta aún
+            </h1>
+          ) : (
+            <>
+              <section className="grid grid-cols-listing gap-4 py-4">
+                {offers.map(job => (
+                  <JobCard key={job.code} job={job} apply={false} />
+                ))}
+              </section>
+            </>
+          )}
         </div>
       </Container>
     </div>
