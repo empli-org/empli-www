@@ -25,7 +25,7 @@ export const FeedBackPayment = () => {
   return (
     <Container>
       <div className="py-12">
-        <h1 className="text-xl font-amenable font-bold">
+        <h1 className="font-amenable text-xl font-bold">
           Gracias por hacer updgrade en nuestra plataforma
         </h1>
         <div className="py-6">
