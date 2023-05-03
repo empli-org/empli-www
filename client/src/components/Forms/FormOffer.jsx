@@ -42,12 +42,12 @@ export default function FormOffer() {
       code: data.codigo,
       title: data.titulo,
       body: data.cuerpo,
-      requiredExp: data.experiencia,
+      requiredExp: Number(data.experiencia),
       description: data.descripcion,
       city: data.lugar,
       area: data.area,
-      minRate: data.min,
-      maxRate: data.max,
+      minRate: Number(data.min),
+      maxRate: Number(data.max),
     }
     createOffer({ userId: account.id, ...body })
   }
