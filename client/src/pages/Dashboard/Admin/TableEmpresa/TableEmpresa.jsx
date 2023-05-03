@@ -87,8 +87,8 @@ const TableEmpresa = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataE.map(item => (
-            <TableRow key={item.name}>
+          {dataE.map((item, idx) => (
+            <TableRow key={idx}>
               <TableCell>{item.name}</TableCell>
               <TableCell>{item.Role}</TableCell>
               <TableCell>{item.departement}</TableCell>
@@ -100,7 +100,6 @@ const TableEmpresa = () => {
               <TableCell>
                 <Button
                   className="ml-5"
-                  key="secondary"
                   id={`pausar-button-${item}`}
                   onClick={() => handlePause(item)}
                   disabled={pausedItems.includes(item)}
@@ -114,7 +113,6 @@ const TableEmpresa = () => {
                 </Button>
                 <Button
                   className="ml-5 bg-green-500"
-                  key="warning"
                   id={`activar-button-${item}`}
                   onClick={() => handleActivar(item)}
                   style={{
@@ -127,7 +125,6 @@ const TableEmpresa = () => {
                 </Button>
                 <Button
                   className="ml-5"
-                  key="danger"
                   id={`block-button-${item}`}
                   onClick={() => handleBlock(item)}
                   disabled={blockedItems.includes(item)}
@@ -141,7 +138,6 @@ const TableEmpresa = () => {
                 </Button>
                 <Button
                   className="ml-5 bg-red-400"
-                  key="warning"
                   id={`unblock-button-${item}`}
                   onClick={() => handleUnblock(item)}
                   style={{

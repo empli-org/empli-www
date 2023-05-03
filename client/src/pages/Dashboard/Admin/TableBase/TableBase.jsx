@@ -80,15 +80,15 @@ const TableBase = () => {
       <Table className="mt-5">
         <TableHead>
           <TableRow>
-            <TableHeaderCell>Empresa</TableHeaderCell>
-            <TableHeaderCell>Rubro</TableHeaderCell>
-            <TableHeaderCell>Departamento</TableHeaderCell>
-            <TableHeaderCell>Status</TableHeaderCell>
+            <TableHeaderCell key="Empresa">Empresa</TableHeaderCell>
+            <TableHeaderCell key="Rubro">Rubro</TableHeaderCell>
+            <TableHeaderCell key="Departamento">Departamento</TableHeaderCell>
+            <TableHeaderCell key="Status">Status</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(item => (
-            <TableRow key={item.name}>
+          {data.map((item, idx) => (
+            <TableRow key={idx}>
               <TableCell>{item.name}</TableCell>
               <TableCell>{item.Role}</TableCell>
               <TableCell>{item.departement}</TableCell>
@@ -100,7 +100,6 @@ const TableBase = () => {
               <TableCell>
                 <Button
                   className="ml-5"
-                  key="secondary"
                   id={`pausar-button-${item}`}
                   onClick={() => handlePause(item)}
                   disabled={pausedItems.includes(item)}
@@ -114,7 +113,6 @@ const TableBase = () => {
                 </Button>
                 <Button
                   className="ml-5 bg-green-500"
-                  key="warning"
                   id={`activar-button-${item}`}
                   onClick={() => handleActivar(item)}
                   style={{
@@ -127,7 +125,6 @@ const TableBase = () => {
                 </Button>
                 <Button
                   className="ml-5"
-                  key="danger"
                   id={`block-button-${item}`}
                   onClick={() => handleBlock(item)}
                   disabled={blockedItems.includes(item)}
@@ -141,7 +138,6 @@ const TableBase = () => {
                 </Button>
                 <Button
                   className="ml-5 bg-red-400"
-                  key="warning"
                   id={`unblock-button-${item}`}
                   onClick={() => handleUnblock(item)}
                   style={{
