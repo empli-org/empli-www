@@ -24,76 +24,76 @@ export default function FormOffer() {
         onSubmit={handleSubmit(onSubmit)}
         id="form"
       >
-        <div className="flex w-3/5 flex-col items-center justify-center gap-5 rounded-3xl bg-hint-of-red p-5 shadow-xl">
-          <div className="flex w-full justify-around">
+        <div className="m-5 flex w-full flex-col items-center justify-center gap-5 rounded-3xl bg-hint-of-red p-5 shadow-xl xl:m-0 xl:w-4/5 2xl:w-3/5">
+          <div className="flex w-full flex-col justify-around gap-4 md:flex-row md:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="ID"
-                className="w-3/4 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-3/4"
               >
-                ID del trabajo
+                Código único
               </label>
               <input
                 type="text"
                 name="ID"
-                className="w-3/4 rounded-lg border-2 border-blue-whale p-2"
+                className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-3/4"
                 {...register('ID')}
               />
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="titulo"
-                className="w-3/4 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-3/4"
               >
                 Titulo
               </label>
               <input
                 type="text"
                 name="titulo"
-                className="w-3/4 rounded-lg border-2 border-blue-whale p-2"
+                className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-3/4"
                 {...register('titulo')}
               />
             </div>
           </div>
-          <div className="flex w-full justify-around">
+          <div className="flex w-full flex-col justify-around gap-5 lg:flex-row lg:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="descripcion"
-                className="w-3/4 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-full font-semibold lg:w-3/4"
               >
                 Descripcion
               </label>
               <textarea
                 name="descripcion"
-                className="h-24 w-3/4 resize-none rounded-lg border-2 border-blue-whale p-2"
+                className="h-48 w-full resize-none rounded-lg border-2 border-blue-whale p-2 lg:h-24 lg:w-3/4"
                 {...register('descripcion')}
               ></textarea>
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="experiencia"
-                className="w-3/4 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-full font-semibold lg:w-3/4"
               >
                 Experiencia requerida
               </label>
               <textarea
                 name="experiencia"
-                className="h-24 w-3/4 resize-none rounded-lg border-2 border-blue-whale p-2"
+                className="h-48 w-full resize-none rounded-lg border-2 border-blue-whale p-2 lg:h-24 lg:w-3/4"
                 {...register('experiencia')}
               ></textarea>
             </div>
           </div>
-          <div className="flex w-full justify-around">
+          <div className="flex w-full flex-col justify-around gap-4 sm:flex-row sm:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="area"
-                className="w-1/2 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Area de trabajo
               </label>
               <select
                 name="area"
-                className="w-1/2 rounded-lg border-2 border-blue-whale p-2"
+                className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-1/2"
                 {...register('area')}
               >
                 <option value="default" selected disabled>
@@ -111,13 +111,13 @@ export default function FormOffer() {
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="lugar"
-                className="w-1/2 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Lugar de trabajo
               </label>
               <select
                 name="lugar"
-                className="w-1/2 rounded-lg border-2 border-blue-whale p-2"
+                className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-1/2"
                 {...register('lugar')}
               >
                 <option value="default" selected disabled>
@@ -133,32 +133,32 @@ export default function FormOffer() {
               </select>
             </div>
           </div>
-          <div className="flex w-full justify-around">
+          <div className="flex w-full flex-col justify-around gap-4 sm:flex-row sm:gap-1">
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="min"
-                className="w-1/2 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Salario minimo
               </label>
               <input
                 type="number"
                 name="min"
-                className="w-1/2 rounded-lg border-2 border-blue-whale p-2"
+                className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-1/2"
                 {...register('min')}
               />
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="max"
-                className="w-1/2 font-quicksand-light font-semibold"
+                className="font-quicksand-light w-11/12 font-semibold lg:w-1/2"
               >
                 Salario maximo
               </label>
               <input
                 type="number"
                 name="max"
-                className="w-1/2 rounded-lg border-2 border-blue-whale p-2"
+                className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-1/2"
                 {...register('max')}
               />
             </div>
@@ -167,7 +167,7 @@ export default function FormOffer() {
             <div className="flex w-full flex-col items-center justify-center gap-1">
               <label
                 htmlFor="cuerpo"
-                className="w-full text-center font-quicksand-light font-semibold"
+                className="font-quicksand-light w-full text-center font-semibold"
               >
                 Cuerpo
               </label>

@@ -33,7 +33,7 @@ export default function FormBlog() {
     <div className="flex items-center justify-center">
       <form
         action=""
-        className="flex w-3/4 flex-col items-center justify-center"
+        className="m-6 flex w-full flex-col items-center justify-center xl:m-1 xl:w-3/4"
         onSubmit={handleSubmit(onSubmit)}
         id="form"
       >
@@ -119,11 +119,11 @@ export default function FormBlog() {
           </h1>
           <div className="w-full rounded-3xl bg-hint-of-red shadow-xl">
             <div className="flex w-full flex-col items-center justify-around gap-5 p-10">
-              <div className="flex w-full justify-around gap-4">
+              <div className="flex w-full flex-col justify-around gap-4 md:w-3/4 lg:w-full lg:flex-row">
                 <div className="w-full">
                   <label
                     htmlFor="title"
-                    className="block font-quicksand-light font-medium"
+                    className="font-quicksand-light block font-medium"
                   >
                     Titulo
                   </label>
@@ -138,7 +138,7 @@ export default function FormBlog() {
                   <div className="w-full">
                     <label
                       htmlFor="archivo"
-                      className="block font-quicksand-light font-medium"
+                      className="font-quicksand-light block font-medium"
                     >
                       Archivo
                     </label>
@@ -153,7 +153,7 @@ export default function FormBlog() {
                   <div className="w-full">
                     <label
                       htmlFor="link"
-                      className="block font-quicksand-light font-medium"
+                      className="font-quicksand-light block font-medium"
                     >
                       Link
                     </label>
@@ -170,14 +170,14 @@ export default function FormBlog() {
                 <div className="flex w-full flex-col items-center justify-center">
                   <label
                     htmlFor="descripcion"
-                    className="block font-quicksand-light font-medium"
+                    className="font-quicksand-light block font-medium"
                   >
                     Descripcion
                   </label>
                   <textarea
                     name="descripcion"
                     id=""
-                    className="h-40 w-3/4 resize-none rounded-xl border-2 border-opacity-hint p-2 font-quicksand-light"
+                    className="font-quicksand-light h-40 w-full resize-none rounded-xl border-2 border-opacity-hint p-2 md:w-3/4"
                     {...register('descripcion')}
                   ></textarea>
                 </div>
@@ -186,20 +186,20 @@ export default function FormBlog() {
                 <div className="flex w-full flex-col items-center justify-center">
                   <label
                     htmlFor="cuerpo"
-                    className="block font-quicksand-light font-medium"
+                    className="font-quicksand-light block font-medium"
                   >
                     Cuerpo
                   </label>
                   <textarea
                     name="cuerpo"
                     id=""
-                    className="h-40 w-3/4 resize-none rounded-xl border-2 border-opacity-hint p-2 font-quicksand-light"
+                    className="font-quicksand-light h-40 w-full resize-none rounded-xl border-2 border-opacity-hint p-2 md:w-3/4"
                     {...register('cuerpo')}
                   ></textarea>
                 </div>
               </div>
-              <div className="mt-5 flex w-1/2 justify-around gap-4">
-                <div className="relative rounded-lg border-2 border-opacity bg-blue-whale px-2 py-3 font-quicksand-light font-semibold text-hint-of-red">
+              <div className="mt-5 flex w-3/4 flex-col justify-around gap-4 sm:w-1/2 sm:flex-row">
+                <div className="font-quicksand-light relative rounded-lg border-2 border-opacity bg-blue-whale px-2 py-3 font-semibold text-hint-of-red">
                   <input
                     type="checkbox"
                     name="premium"
@@ -213,7 +213,7 @@ export default function FormBlog() {
                     Premium
                   </label>
                 </div>
-                <div className="relative rounded-lg border-2 border-opacity bg-blue-whale px-2 py-3 font-quicksand-light font-semibold text-hint-of-red">
+                <div className="font-quicksand-light relative rounded-lg border-2 border-opacity bg-blue-whale px-2 py-3 font-semibold text-hint-of-red">
                   <input
                     type="checkbox"
                     name="publicado"

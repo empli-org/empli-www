@@ -5,7 +5,23 @@ const BASE_URL_API = import.meta.env.VITE_API_URL_BASE
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL_API }),
+  tagTypes: ['Favs', 'Saved', 'Posts'],
   endpoints: builder => ({
+    getPosts: builder.query({
+      query: queryString => `/news?${queryString}`,
+      providesTags: ['Posts'],
+    }),
+    getPostById: builder.query({
+      query: id => `/news/${id}`,
+    }),
+    createPost: builder.mutation({
+      query: body => ({
+        url: '/news',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Posts'],
+    }),
     getJobs: builder.query({
       query: ({ queryString, page }) => `/jobs?page=${page}&${queryString}`,
     }),
@@ -28,8 +44,7 @@ export const baseApi = createApi({
       query: key => `/talents/skills${key ? `?key=${key}` : ''}`,
     }),
     getAllTalents: builder.query({
-      query: ({ key, page }) =>
-        `/talents?page=${page}${key ? `&key=${key}` : ''}`,
+      query: ({ queryString }) => `/talents?${queryString}`,
     }),
     getTalentById: builder.query({
       query: id => `/talents/${id}`,
@@ -48,10 +63,41 @@ export const baseApi = createApi({
         body,
       }),
     }),
+    getSavedOffers: builder.query({
+      query: ({ userId, queryString }) =>
+        `/talents/${userId}/saved${queryString ? `?${queryString}` : ''}`,
+      providesTags: ['Saved'],
+    }),
+    saveOffer: builder.mutation({
+      query: ({ userId, ...body }) => ({
+        url: `/talents/${userId}/saved`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['Saved'],
+    }),
+    getFavsProfiles: builder.query({
+      query: ({ userId, queryString }) =>
+        `/companies/${userId}/favs?${queryString}`,
+      providesTags: ['Favs'],
+    }),
+    favProfile: builder.mutation({
+      query: ({ userId, ...body }) => ({
+        url: `/companies/${userId}/favs`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['Favs'],
+    }),
   }),
 })
 
 export const {
+  useGetFavsProfilesQuery,
+  useFavProfileMutation,
+  useGetPostsQuery,
+  useGetPostByIdQuery,
+  useCreatePostMutation,
   useGetJobsQuery,
   useGetJobByCodeQuery,
   useSearchJobsQuery,
@@ -64,4 +110,6 @@ export const {
   useGetTalentByIdQuery,
   useCreateAccountMutation,
   useVerifyAccountMutation,
+  useGetSavedOffersQuery,
+  useSaveOfferMutation,
 } = baseApi

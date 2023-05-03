@@ -1,15 +1,19 @@
-import { TopHeader } from '@/components/Landing/TopHeader'
-import ob from '../assets/Landing/ob.svg'
-import { CardGlass } from 'components/Cards/CardGlass/CardGlass'
-// import { CardLarge } from 'components/Cards/CardLarge/CardLarge'
-import { SlideCompanies } from 'components/SlideCompanies/SlideCompanies'
-import { InfoCard } from '@/pages/InfoCard'
-import { CardBox } from 'components/Cards/CardBox/CardBox'
-import { Link } from 'react-router-dom'
-import { MiniCard } from 'components/Cards/MiniCard/MiniCard'
-import { TopLeft } from '@/components/Landing/TopLeft'
-import pj from '../assets/img/persona2.png'
-import persona from '../assets/img/lupa.webp'
+// @ts-nocheck
+import {
+  MiniCard,
+  CardBox,
+  Container,
+  CardLarge,
+  SlideCompanies,
+  InfoCard,
+  TextHero,
+  ImageHero,
+  SectionTitle,
+  Button,
+  SectionQuote,
+} from 'components'
+import lupa from 'assets/img/lupa.webp'
+import pj from 'assets/img/persona2.png'
 
 export const Landing = () => {
   const data = [
@@ -96,86 +100,88 @@ export const Landing = () => {
   ]
 
   return (
-    <div>
-      <div className="flex flex-col">
-        <div className="justify-strech flex w-full bg-white pr-32">
-          <div className="relative sm:m-2 sm:w-10/12 sm:rounded-2xl sm:bg-hint-of-red sm:shadow-sm sm:shadow-black md:m-2 md:w-10/12 md:rounded-2xl md:bg-hint-of-red md:shadow-sm md:shadow-black lg:w-6/12">
-            <TopHeader />
-            <CardGlass />
-          </div>
-          <div className="w-6/12 xs:hidden sm:hidden md:hidden lg:flex">
-            <TopLeft
-              image={ob}
-              title="Permítenos encontrar el trabajo de tus sueños."
-              description={null}
-              imageOnRight={true}
-            />
-          </div>
-        </div>
-        <div className="flex w-full justify-between bg-hint-of-red p-8 sm:hidden md:flex lg:flex">
-          {/* <CardLarge /> */}
-        </div>
-        <div className="flex justify-center bg-white">
-          <SlideCompanies />
-        </div>
-        <div className="flex w-full justify-between bg-hint-of-red p-4">
-          <InfoCard
-            image={pj}
-            imageOnRight={false}
-            title={'¿Buscas una forma fácil de encontrar trabajo en tu campo?'}
-            description={
-              'Nuestra plataforma de trabajo conecta a profesionales como tú con una amplia variedad de oportunidades laborales. Simplemente crea tu perfil, comparte tus habilidades y experiencia, y comienza a postularte a los trabajos que más te interesen. Recibe alertas de trabajos relevantes y solicitudes de trabajo y compara las ofertas de trabajo en un solo lugar.'
-            }
-          />
-        </div>
-        <div className="flex w-full justify-between bg-white p-4">
-          <InfoCard
-            image={persona}
-            imageOnRight={true}
-            title={
-              '¿Buscas a los mejores profesionales para tus proyectos y trabajos?'
-            }
-            description={
-              'Nuestra plataforma de trabajo te permite publicar ofertas de trabajo de manera fácil y conveniente, lo que te permite llegar a una amplia audiencia de candidatos calificados. Utiliza nuestras herramientas para evaluar y comparar a los candidatos y encontrar al mejor talento para tus necesidades empresariales. Con nuestra plataforma, encontrar el talento adecuado nunca ha sido más fácil.'
-            }
-          />
-        </div>
-        <div className="flex w-full justify-center bg-hint-of-red p-4">
-          <CardBox data={data} />
-        </div>
-        <div className="flex w-full justify-center bg-white p-4">
-          <div className="flex w-9/12 flex-wrap justify-center">
-            {data.map(
-              (
-                { logo, title, subtitle, time, amount, rol, description },
-                index,
-              ) => {
-                return (
-                  <div key={index} className="inline-block">
-                    <MiniCard
-                      key={index}
-                      logo={logo}
-                      title={title}
-                      subtitle={subtitle}
-                      description={description}
-                      time={time}
-                      amount={amount}
-                      rol={rol}
-                    />
-                  </div>
-                )
-              },
-            )}
-            <div className="flex w-full justify-center">
-              <Link to="/talents" className="h-15 w-28">
-                <p className="mt-5 w-auto text-center text-xl font-bold text-blue-whale">
-                  Ver más
-                </p>
-              </Link>
-            </div>
-          </div>
+    <Container>
+      {/* -- HERO -- */}
+
+      <div className="flex">
+        <TextHero />
+        <ImageHero />
+      </div>
+      {/* COUNTER BAR*/}
+      <CardLarge />
+      {/* SLIDE COMPANIES */}
+      <div className="mt-10 h-auto w-full shadow-sm ">
+        <SlideCompanies />
+      </div>
+
+      <InfoCard
+        image={pj}
+        title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
+        description="Nuestra plataforma de trabajo conecta a profesionales como tú con
+              una amplia variedad de oportunidades laborales. Simplemente crea
+              tu perfil, comparte tus habilidades y experiencia, y comienza a
+              postularte a los trabajos que más te interesen. Recibe alertas de
+              trabajos relevantes y solicitudes de trabajo y compara las ofertas
+              de trabajo en un solo lugar."
+      />
+      <InfoCard
+        image={lupa}
+        title="¿Buscas a los mejores profesionales para tus proyectos y
+                trabajos?"
+        description="Nuestra plataforma de trabajo te permite publicar ofertas de
+                trabajo de manera fácil y conveniente, lo que te permite llegar
+                a una amplia audiencia de candidatos calificados. Utiliza
+                nuestras herramientas para evaluar y comparar a los candidatos y
+                encontrar al mejor talento para tus necesidades empresariales.
+                Con nuestra plataforma, encontrar el talento adecuado nunca ha
+                sido más fácil."
+        imageOnRight={true}
+        background="gray"
+      />
+
+      <div className="max-w-screen-xl justify-center rounded-3xl shadow-lg">
+        <CardBox data={data} />
+      </div>
+      <SectionTitle
+        textColor="prussian-blue"
+        title="Nuevas Ofertas"
+        subtitle="Mas de +200 ofertas laborales por dia"
+        imgColor="#53917b"
+      />
+      <div className="mx-auto flex h-auto max-w-screen-xl flex-wrap justify-center">
+        {data.map(
+          (
+            { logo, title, subtitle, time, amount, rol, description },
+            index,
+          ) => {
+            return (
+              <div key={index} className="inline-block">
+                <MiniCard
+                  key={index}
+                  logo={logo}
+                  title={title}
+                  subtitle={subtitle}
+                  description={description}
+                  time={time}
+                  amount={amount}
+                  rol={rol}
+                />
+              </div>
+            )
+          },
+        )}
+        <div className="m-10 flex w-full justify-center">
+          <Button link="/talents" title="Ver mas" color="black" />
         </div>
       </div>
-    </div>
+      <div></div>
+
+      <div className="flexc w-full bg-[#f5e4cb] p-10">
+        <SectionQuote
+          text="Haz que tu proyecto sea un éxito al conectarte con los profesionales independientes más valiosos en Empli."
+          size="9xl"
+        />
+      </div>
+    </Container>
   )
 }

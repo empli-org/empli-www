@@ -1,11 +1,11 @@
 .titulo {
   font-size: 50px;
-  margin-bottom: 500px;
-  border-radius: 12px;
+  /* margin-bottom: 500px;
+  border-radius: 12px; */
   font-weight: bold;
   /* background: #fafafa10;
   backdrop-filter: blur(0.1rem); */
-  left: 500px;
+  /* left: 500px; */
 }
 
 .empresa {
@@ -18,8 +18,8 @@
   font-weight: bold;
   /* background: #fafafa10;
   backdrop-filter: blur(0.1rem); */
-  margin-left: 378px;
-  border-radius: 5px;
+  /* margin-left: 378px; */
+  /* border-radius: 5px; */
 }
 
 .boton {
@@ -43,15 +43,15 @@
   font-size: 20px;
   font-family: Open Sans, Arial, sans-serif;
   font-weight: 500;
-  width: 800px;
+  width: 50%;
   text-align: justify;
 }
 
 .lupa {
-  height: 350px;
-  width: 300px;
+  height: 320px;
+  width: auto;
   margin-top: 900px;
-  margin-left: 1500px;
+  margin-left: 1410px;
 }
 
 .contenedor-principal {
@@ -186,8 +186,8 @@
 
 .segundo .info {
   position: absolute;
-  top: 50%;
-  left: 65%;
+  top: 73%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(242, 236, 236, 0.8);
   padding: 20px;
@@ -229,12 +229,181 @@
 
 .mapa {
   position: absolute;
-  top: 50%;
-  left: 780px;
+  top: 25%;
+  left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50px;
   padding: 20px;
   text-align: center;
   height: 420px;
-  width: 450px;
+  width: 50%;
+  flex-grow: 1;
+}
+
+.mapa-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contenedor-total {
+  margin: 0 auto;
+}
+
+/* HomeEmpresa.css */
+.home-empresa {
+  position: relative;
+  height: 100vh; /* Establece la altura del contenedor principal al 100% del viewport */
+}
+
+@media (min-width: 1200px) {
+  .titulo {
+    font-size: 3rem;
+  }
+  .titulo-2 {
+    font-size: 2rem;
+  }
+  .boton {
+    font-size: 1.5rem;
+  }
+  .contenedor-total {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 24px;
+  }
+
+  .empresa {
+    height: 400px;
+  }
+  .contenedor-total {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .titulo {
+    text-align: center;
+  }
+  .titulo2 {
+    text-align: center;
+  }
+  nav {
+    position: static;
+  }
+  .empresa
+    .parrafo
+    .boton
+    .nosotros
+    .lupa
+    .contenedor-principal
+    .servicios
+    .texto
+    .persona
+    .titulo-head
+    .caja,
+  .principal,
+  .mapa-contenido,
+  .mapa {
+    width: auto;
+  }
+
+  .persona1 {
+    width: 50%;
+  }
+  .contenedor1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .persona {
+    width: 100%;
+    max-width: 300px;
+  }
+  .contenedor-total {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .contenedor-principal {
+    width: 80%;
+    max-width: 1080px;
+    margin: auto;
+    position: relative;
+  }
+  .persona {
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 0;
+  }
+  .titulo {
+    font-size: 24px;
+    top: 20%;
+  }
+
+  .titulo-2 {
+    font-size: 18px;
+    bottom: 30%;
+  }
+
+  .boton {
+    font-size: 14px;
+    top: 40%;
+  }
+
+  .empresa {
+    height: 400px;
+  }
+
+  .nosotros {
+    top: 80%;
+    font-size: 18px;
+  }
+
+  .parrafo {
+    font-size: 14px;
+    top: 95%;
+  }
+
+  .lupa {
+    width: 20px;
+  }
+
+  .servicios {
+    font-size: 18px;
+    top: 120%;
+  }
+
+  .contenedor1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .persona1,
+  .persona2,
+  .persona3,
+  .persona4 {
+    margin-bottom: 30px;
+  }
+
+  .titulo-head,
+  .titulo2,
+  .titulo3 {
+    font-size: 16px;
+  }
+
+  .texto,
+  .parrafo2,
+  .parrafo3 {
+    font-size: 14px;
+  }
+  .contenedor-total {
+    margin: 0 auto;
+  }
 }

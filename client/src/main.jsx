@@ -6,8 +6,8 @@ import { router } from './router'
 import { Provider } from 'react-redux'
 import { store } from './redux/store/store'
 import { ClerkProvider } from '@clerk/clerk-react'
-import { AppContextProvider } from './pages/Account/OnboardingContext'
-// import '@tremor/react/dist/esm/tremor.css'
+import { AppContextProvider } from 'pages'
+import { AccountContextProvider } from './pages/Account/AccountContext'
 
 // @ts-ignore
 const CLERK_PUB_KEY = import.meta.env.VITE_CLERK_PUB_KEY
@@ -21,16 +21,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       },
       variables: {
         colorPrimary: '#1c2441',
-        colorBackground: '#fbfbfb',
+        colorBackground: '#e4e4e4',
       },
     }}
   >
-    <React.StrictMode>
+    <AccountContextProvider>
       <AppContextProvider>
         <Provider store={store}>
           <RouterProvider router={router} />
         </Provider>
       </AppContextProvider>
-    </React.StrictMode>
+    </AccountContextProvider>
   </ClerkProvider>,
 )
