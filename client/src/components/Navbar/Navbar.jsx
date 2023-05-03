@@ -15,11 +15,11 @@ export const Navbar = () => {
               <EmpliLogo />
             </Link>
             <div className="flex items-center gap-16">
-              <ul className="hidden items-stretch font-quicksand gap-10 text-sm text-gray-700 lg:flex">
-                <li className="py-2 uppercase font-bold tracking-widest">
+              <ul className="hidden items-stretch gap-10 font-quicksand text-sm text-gray-700 lg:flex">
+                <li className="py-2 font-bold uppercase tracking-widest">
                   <Link to="/info/empresas">Empresas</Link>
                 </li>
-                <li className="py-2 uppercase font-bold tracking-widest">
+                <li className="py-2 font-bold uppercase tracking-widest">
                   <Link to="/info/professionals">Profesionales</Link>
                 </li>
                 <MenuItem label="Comunidad">
@@ -27,7 +27,7 @@ export const Navbar = () => {
                     <CommunityItems />
                   </MenuItem.Body>
                 </MenuItem>
-                <li className="py-2 uppercase font-bold tracking-widest">
+                <li className="py-2 font-bold uppercase tracking-widest">
                   <Link to="/pricing">Precios</Link>
                 </li>
                 <MenuItem label="Contacto">

@@ -4,9 +4,9 @@ export const Button = ({ title, link, color = 'white', background }) => {
   return (
     <Link to={link}>
       <button
-        className={`border py-2 px-4 rounded-3xl text-${color} bg-${background} tracking-widest font-quicksand font-ligth 
-        uppercase font-bold text-xs border-${color} hover:bg-prussian-blue hover:text-white hover:font-bold 
-      transition duration-300 ease-in-out  mx-auto md:mx-0`}
+        className={`rounded-3xl border px-4 py-2 text-${color} bg-${background} font-ligth font-quicksand text-xs 
+        font-bold uppercase tracking-widest border-${color} mx-auto transition duration-300 
+      ease-in-out hover:bg-prussian-blue hover:font-bold  hover:text-white md:mx-0`}
       >
         {title}
       </button>

@@ -156,7 +156,7 @@ export const RegisterBack = () => {
                 </button>
               </div>
             </form>
-            <h6 className="text-center font-quicksand-light text-base font-bold">
+            <h6 className="font-quicksand-light text-center text-base font-bold">
               Ingresar con:
             </h6>
             <div className="flex flex-row items-center justify-center gap-6">
@@ -179,4 +179,3 @@ export const RegisterBack = () => {
     </div>
   )
 }
-

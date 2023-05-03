@@ -1,7 +1,7 @@
 import { Fragment, useContext, useState } from 'react'
 import { Switch, RadioGroup } from '@headlessui/react'
 import { ButtonContainerLg } from '../ButtonContainerLg'
-import { AppContext } from "../OnBoarding/AppContext"
+import { AppContext } from '../OnBoarding/AppContext'
 import { plansData } from '@/constants/plansData'
 
 export const Step2 = () => {

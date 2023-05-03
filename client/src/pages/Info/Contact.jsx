@@ -161,7 +161,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="name"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Nombre Completo
                 </label>
@@ -184,7 +184,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="asunto"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Asunto
                 </label>
@@ -209,7 +209,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="email"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Email
                 </label>
@@ -233,7 +233,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="category"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Categoría
                 </label>
@@ -253,7 +253,7 @@ export const Contact = () => {
           </div>
           <label
             htmlFor="description"
-            className="flex items-start justify-start font-quicksand-light text-lg font-semibold"
+            className="font-quicksand-light flex items-start justify-start text-lg font-semibold"
           >
             Descripción
           </label>

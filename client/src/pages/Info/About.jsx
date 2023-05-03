@@ -95,7 +95,7 @@ export const About = () => {
                   alt="one"
                   className="inline h-6 xs:h-7 sm:h-9 md:h-10 lg:h-12"
                 />
-                <p className="inline p-3 font-quicksand-light text-sm text-white-font md:text-xl xl:text-2xl">
+                <p className="font-quicksand-light inline p-3 text-sm text-white-font md:text-xl xl:text-2xl">
                   Profesionales con experiencia verificada al 100%
                 </p>
               </div>
@@ -105,7 +105,7 @@ export const About = () => {
                   alt="two"
                   className="inline h-6 xs:h-7 sm:h-9 md:h-10 lg:h-12"
                 />
-                <p className="inline p-3 font-quicksand-light text-sm text-white-font md:text-xl xl:text-2xl">
+                <p className="font-quicksand-light inline p-3 text-sm text-white-font md:text-xl xl:text-2xl">
                   Expertos en la atracción de talentos
                 </p>
               </div>
@@ -115,7 +115,7 @@ export const About = () => {
                   alt="three"
                   className="inline h-6 xs:h-7 sm:h-9 md:h-10 lg:h-12"
                 />
-                <p className="inline p-3 font-quicksand-light text-sm text-white-font md:text-xl xl:text-2xl">
+                <p className="font-quicksand-light inline p-3 text-sm text-white-font md:text-xl xl:text-2xl">
                   Extensa cartera de profesionales
                 </p>
               </div>
@@ -125,7 +125,7 @@ export const About = () => {
                   alt="four"
                   className="inline h-6 xs:h-7 sm:h-9 md:h-10 lg:h-12"
                 />
-                <p className="inline p-3 font-quicksand-light text-sm text-white-font md:text-xl xl:text-2xl">
+                <p className="font-quicksand-light inline p-3 text-sm text-white-font md:text-xl xl:text-2xl">
                   Brindamos profesionales competentes
                 </p>
               </div>
@@ -135,7 +135,7 @@ export const About = () => {
                   alt="five"
                   className="inline h-6 xs:h-7 sm:h-9 md:h-10 lg:h-12"
                 />
-                <p className="inline p-3 font-quicksand-light text-sm text-white-font md:text-xl xl:text-2xl">
+                <p className="font-quicksand-light inline p-3 text-sm text-white-font md:text-xl xl:text-2xl">
                   Procesos culminados en tiempo record
                 </p>
               </div>
@@ -152,37 +152,37 @@ export const About = () => {
           <div className="flex flex-col justify-center">
             <div>
               <img src={dot} alt="one" className="inline h-12 w-12" />
-              <p className="inline p-3 font-quicksand-light text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
+              <p className="font-quicksand-light inline p-3 text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
                 Pasión
               </p>
             </div>
             <div>
               <img src={dot} alt="two" className="inline h-12 w-12" />
-              <p className="inline p-3 font-quicksand-light text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
+              <p className="font-quicksand-light inline p-3 text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
                 Compromiso
               </p>
             </div>
             <div>
               <img src={dot} alt="three" className="inline h-12 w-12" />
-              <p className="inline p-3 font-quicksand-light text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
+              <p className="font-quicksand-light inline p-3 text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
                 Honestidad
               </p>
             </div>
             <div>
               <img src={dot} alt="four" className="inline h-12 w-12" />
-              <p className="inline p-3 font-quicksand-light text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
+              <p className="font-quicksand-light inline p-3 text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
                 Confidencialidad
               </p>
             </div>
             <div>
               <img src={dot} alt="five" className="inline h-12 w-12" />
-              <p className="inline p-3 font-quicksand-light text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
+              <p className="font-quicksand-light inline p-3 text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
                 Lealtad
               </p>
             </div>
             <div>
               <img src={dot} alt="five" className="inline h-12 w-12" />
-              <p className="inline p-3 font-quicksand-light text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
+              <p className="font-quicksand-light inline p-3 text-xl font-bold text-blue-font md:text-2xl lg:text-3xl">
                 Transparencia
               </p>
             </div>
