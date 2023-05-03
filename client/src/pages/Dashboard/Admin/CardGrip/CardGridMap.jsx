@@ -47,10 +47,10 @@ const data = [
 const CardGridMap = () => {
   return (
     <Grid numColsMd={2} numColsLg={3} className=" mt-6 gap-x-6 gap-y-6">
-      {data.map(item => (
+      {data.map((item, idx) => (
         <Card
           className="transform border border-blue-500 shadow-md transition duration-500 hover:scale-105"
-          key={item.title}
+          key={idx}
         >
           <Flex className="items-start">
             <div>
