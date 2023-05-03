@@ -34,16 +34,9 @@ import {
   DashProfessionalOffers,
   FavedTalents,
   // FormOffer,
-  CompanyOffers,
-  CreateOffer,
-  SavedProfessionalOffers,
-  DashProfessionalOffers,
-  FavedTalents,
-  // FormOffer,
 } from 'pages'
 import FormOffer from './components/Forms/FormOffer'
 import NewsDetailPage from './pages/Info/NewsDetail'
-
 
 export const router = createBrowserRouter([
   {

@@ -1,29 +1,19 @@
 /* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
-import {
-  useGetJobsQuery,
-  useGetAllTalentsQuery,
-} from '@/redux/features/api/base'
+import { useGetJobsQuery } from '@/redux/features/api/jobs/jobApi'
+import { useGetTalentQuery } from '@/redux/features/api/talent/talentApi'
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
   const { data: offersData = [] } = useGetJobsQuery()
-  const { data: talentsData = [] } = useGetAllTalentsQuery()
+  const { data: talentsData = [] } = useGetTalentQuery()
 
   // total talentsData in the aplication. it is array
   const countTalents = talentsData && talentsData.length
-  const countTalents = talentsData && talentsData.length
 
-  const uniqueCompany = offersData &&
-    offersData.reduce((acu, curr) => {
-      const name = curr.company.name
-      if (!acu[name]) {
-        acu[name] = true
-      }
-      return acu
-    }, {})
-  const uniqueCompany = offersData &&
+  const uniqueCompany =
+    offersData &&
     offersData.reduce((acu, curr) => {
       const name = curr.company.name
       if (!acu[name]) {
@@ -32,7 +22,6 @@ export const CardLarge = () => {
       return acu
     }, {})
 
-  const countCompany = Object.keys(uniqueCompany).length
   const countCompany = Object.keys(uniqueCompany).length
 
   // total offersData in the aplication. it is array
@@ -41,8 +30,9 @@ export const CardLarge = () => {
   const Marked = ({ data, title, isBorder = false }) => {
     return (
       <div
-        className={`flex w-1/3 flex-col items-center text-center transition ${isBorder ? 'border-gray border-l-2 border-r-2' : ''
-          } duration-300 hover:scale-125 md:text-left`}
+        className={`flex w-1/3 flex-col items-center text-center transition ${
+          isBorder ? 'border-gray border-l-2 border-r-2' : ''
+        } duration-300 hover:scale-125 md:text-left`}
       >
         <h1 className="mb-3 text-center font-quicksand text-xs font-bold uppercase tracking-wider text-gray-400">
           {title}

@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { Image } from 'cloudinary-react';
-import { useUpload } from '@/hooks/upload';
+import { useState } from 'react'
+import { Image } from 'cloudinary-react'
+import { useUpload } from '@/hooks/upload'
 
 export function ProfileImageForm({ image: savedImage }) {
-  const [file, setFile] = useState(null);
-  const { loading, data } = useUpload(file);
-  const image = data?.public_id || null;
+  const [file, setFile] = useState(null)
+  const { loading, data } = useUpload(file)
+  const image = data?.public_id || null
 
   const handleChange = e => {
-    const file = e.target.files[0];
-    setFile(file);
-  };
+    const file = e.target.files[0]
+    setFile(file)
+  }
 
   return (
     <div>
@@ -27,7 +27,8 @@ export function ProfileImageForm({ image: savedImage }) {
         accept="image/*"
         type="file"
         name="image"
-        onChange={handleChange} />
+        onChange={handleChange}
+      />
     </div>
-  );
+  )
 }
