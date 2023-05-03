@@ -19,7 +19,7 @@ import {
   HomeEmpresa,
   AuthLayout,
   Onboarding,
-  Payment,
+  FeedBackPayment,
   DashboardLayout,
   Dashboard,
   CompanyDash,
@@ -125,7 +125,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/account/payment',
-        element: <Payment />,
+        element: <FeedBackPayment />,
       },
     ],
   },

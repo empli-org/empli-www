@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useGetJobsQuery } from 'redux/features/api/base'
+import { useGetJobsQuery } from '@/redux/features/api/jobs/jobApi'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'

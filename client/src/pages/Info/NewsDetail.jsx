@@ -1,5 +1,5 @@
 import { DetailPublication, Container } from '@/components'
-import { useGetPostByIdQuery } from '@/redux/features/api/base'
+import { useGetPostByIdQuery } from '@/redux/features/api/news/newsApi'
 import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'

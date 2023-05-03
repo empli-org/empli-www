@@ -38,6 +38,13 @@ export const endpoints = {
     create: 'create',
     verify: 'verify',
   },
+  news: {
+    all: 'news',
+  },
+  companies: {
+    all: 'companies',
+    favs: 'favs',
+  },
 }
 
 //* Función para configurar los headers de las peticiones

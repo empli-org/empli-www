@@ -1,4 +1,4 @@
-import { useGetJobByCodeQuery } from '@/redux/features/api/base'
+import { useGetJobByCodeQuery } from '@/redux/features/api/jobs/jobApi'
 import { useNavigate, useParams } from 'react-router-dom'
 import { marked } from 'marked'
 
