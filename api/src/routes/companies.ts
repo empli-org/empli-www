@@ -7,6 +7,7 @@ import {
   getAllCompanies,
   getCompanyOffers,
   getFavProfiles,
+  publishOffer,
 } from "../controllers/companies";
 
 export function getCompaniesRoutes() {
@@ -14,6 +15,7 @@ export function getCompaniesRoutes() {
 
   router.route("/").get(getAllCompanies).post(createCompany);
   router.route("/:id/favs").get(getFavProfiles).put(favProfile);
+  router.route("/:id/publish").put(publishOffer);
   router
     .route("/:id/offers")
     .get(getCompanyOffers)

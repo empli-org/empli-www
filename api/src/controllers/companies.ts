@@ -150,6 +150,21 @@ export async function deleteOffer(req: Request, res: Response) {
   }
 }
 
+export async function publishOffer(req: Request, res: Response) {
+  try {
+    const { offerId, published } = req.body;
+    const updated = await db.job.update({
+      where: { id: offerId },
+      data: {
+        published,
+      },
+    });
+    return res.json({ message: "Ok" });
+  } catch {
+    return res.status(500).json({ message: "Fail to publish offer" });
+  }
+}
+
 export async function getCompanyOffers(req: Request, res: Response) {
   try {
     const { id } = req.params;
