@@ -71,11 +71,16 @@ export async function getJobLocations(req: Request, res: Response) {
 
 export async function getAllJobs(req: Request, res: Response) {
   try {
-    const { key, page, location, area } = req.query;
+    const { key, page, location, area, published } = req.query;
     const currentPage = Math.max(Number(page) || 1, 1);
     const peerPage = 10;
     const countOptions: Prisma.JobCountArgs = {};
     const options: Prisma.JobFindManyArgs = {
+      ...(published === "true" && {
+        where: {
+          published: true,
+        },
+      }),
       select: {
         id: true,
         code: true,

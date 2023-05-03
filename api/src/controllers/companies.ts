@@ -167,6 +167,7 @@ export async function getCompanyOffers(req: Request, res: Response) {
         minRate: true,
         maxRate: true,
         image: true,
+        published: true,
         company: {
           select: {
             name: true,
