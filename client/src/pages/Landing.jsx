@@ -170,13 +170,13 @@ export const Landing = () => {
             )
           },
         )}
-        <div className="flex w-full m-10 justify-center">
+        <div className="m-10 flex w-full justify-center">
           <Button link="/talents" title="Ver mas" color="black" />
         </div>
       </div>
       <div></div>
 
-      <div className="bg-[#f5e4cb] w-full flexc p-10">
+      <div className="flexc w-full bg-[#f5e4cb] p-10">
         <SectionQuote
           text="Haz que tu proyecto sea un éxito al conectarte con los profesionales independientes más valiosos en Empli."
           size="9xl"

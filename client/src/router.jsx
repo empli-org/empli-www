@@ -41,6 +41,7 @@ import {
 // import FavedTalents from './pages/Dashboard/Company/Favorites'
 // import CreateOffer from './pages/Dashboard/Company/CreateOffer'
 import NewsDetailPage from './pages/Info/NewsDetail'
+import FormOffer from './components/Forms/FormOffer'
 // import UserProfile from './pages/Dashboard/Professional/Profile'
 
 // import { Admin } from './pages/Dashboard/Administrator/Admin'
@@ -105,6 +106,7 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
+      { path: '/formjobs', element: <FormOffer /> },
     ],
   },
   {
