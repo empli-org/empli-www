@@ -1,4 +1,4 @@
-import { useGetPostsQuery } from '@/redux/features/api/base'
+import { useGetPostsQuery } from '@/redux/features/api/news/newsApi'
 import { BlogNews, CloseIcon, Container } from 'components'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { FaSearch } from 'react-icons/fa'

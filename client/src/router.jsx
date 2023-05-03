@@ -19,7 +19,7 @@ import {
   HomeEmpresa,
   AuthLayout,
   Onboarding,
-  Payment,
+  FeedBackPayment,
   DashboardLayout,
   Dashboard,
   CompanyDash,
@@ -35,16 +35,8 @@ import {
   FavedTalents,
   // FormOffer,
 } from 'pages'
-// import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
-// import { SavedOffers } from './pages/Dashboard/Professional/Saved'
-// import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
-// import FavedTalents from './pages/Dashboard/Company/Favorites'
-// import CreateOffer from './pages/Dashboard/Company/CreateOffer'
-import NewsDetailPage from './pages/Info/NewsDetail'
 import FormOffer from './components/Forms/FormOffer'
-// import UserProfile from './pages/Dashboard/Professional/Profile'
-
-// import { Admin } from './pages/Dashboard/Administrator/Admin'
+import NewsDetailPage from './pages/Info/NewsDetail'
 
 export const router = createBrowserRouter([
   {
@@ -133,7 +125,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/account/payment',
-        element: <Payment />,
+        element: <FeedBackPayment />,
       },
     ],
   },
