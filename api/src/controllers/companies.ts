@@ -168,10 +168,13 @@ export async function publishOffer(req: Request, res: Response) {
 export async function getCompanyOffers(req: Request, res: Response) {
   try {
     const { id } = req.params;
+    const { published, code } = req.query;
 
     const offers = await db.job.findMany({
       where: {
         companyId: id,
+        ...(published === "true" && { published: true }),
+        ...(code && { code: { startsWith: code as string } }),
       },
       select: {
         id: true,
