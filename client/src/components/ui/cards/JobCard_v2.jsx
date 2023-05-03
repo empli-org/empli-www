@@ -70,6 +70,7 @@ export const JobCard = ({ job, apply } = { apply: true }) => {
         )}
       </div>
       <div className="border-t p-4">
+        {!apply && <h2 className="text-sm font-bold">#{code}</h2>}
         <h3 className="font-medium text-gray-900">{title}</h3>
         <p className="text-gray-500">{company?.name}</p>
         <div className="mt-2 flex items-center gap-2">
