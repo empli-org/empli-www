@@ -104,12 +104,18 @@ export async function createAccount(req: Request, res: Response) {
 export async function deleteAccount(req: Request, res: Response) {
   try {
     const { email } = req.body;
-    // const deleted = await db.talent.delete({ where: { userEmail: email } });
-    const deleted = await db.company.delete({ where: { userEmail: email } });
-    if (!deleted) return res.status(400).json({ message: "not found account" });
+    const tdeleted = await db.talent.delete({ where: { userEmail: email } });
+    if (tdeleted) {
+      return res.status(201).json({ message: "talent deleted" });
+    }
 
-    return res.json({ message: "ok" });
-  } catch (e) {
-    return res.json({ message: "Fail to delete", error: e });
+    const deleted = await db.company.delete({ where: { userEmail: email } });
+    if (deleted) {
+      return res.status(201).json({ message: "company deleted" });
+    }
+
+    return res.status(400).json({ message: "Cannot find account" });
+  } catch {
+    return res.status(400).json({ message: "Fail to delete" });
   }
 }

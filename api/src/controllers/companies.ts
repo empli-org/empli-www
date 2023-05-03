@@ -126,6 +126,33 @@ export async function createOffer(req: Request, res: Response) {
         },
         company: { connect: { id } },
       },
+      select: {
+        id: true,
+        code: true,
+        title: true,
+        area: true,
+        type: true,
+        minRate: true,
+        maxRate: true,
+        image: true,
+        company: {
+          select: {
+            name: true,
+          },
+        },
+        location: {
+          select: {
+            city: true,
+            country: true,
+          },
+        },
+        createdAt: true,
+        savedBy: {
+          select: {
+            id: true,
+          },
+        },
+      },
     });
 
     if (!created) {
