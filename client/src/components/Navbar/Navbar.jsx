@@ -39,7 +39,12 @@ export const Navbar = () => {
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
               <SignedOut>
-                <Button link="/auth/login" color="black" title="Acceder" />
+                <Button
+                  link="/auth/login"
+                  color="black"
+                  title="Acceder"
+                  background={undefined}
+                />
                 <Button
                   link="/auth/register"
                   title="Unirse"

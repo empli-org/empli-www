@@ -21,7 +21,7 @@ const companyItems = [
   { name: 'Inicio', icon: '', to: 'company' },
   { name: 'Perfiles', icon: '', to: 'company/talents' },
   { name: 'Mis Ofertas', icon: '', to: 'company/offers' },
-  { name: 'Configuración', icon: '', to: 'company/settings' },
+  { name: 'Favoritos', icon: '', to: 'company/favorites' },
 ]
 
 const adminItems = [
@@ -39,6 +39,7 @@ export const DashboardLayout = () => {
   const itemsSide = [
     isCompany ? companyItems : isAdmin ? adminItems : professionalItems,
   ]
+  const { account } = useAccountContext()
 
   return (
     <>
@@ -75,7 +76,6 @@ export const DashboardLayout = () => {
                     <span>Ayuda</span>
                   </button>
                 </li>
-
                 <li>
                   <button
                     onClick={() => {
@@ -93,7 +93,17 @@ export const DashboardLayout = () => {
             </div>
           </aside>
           <div className="ml-64 flex-1 pb-8">
-            {isCompany ? <CompanyHeader /> : <ProfessionalHeader />}
+            {isCompany ? (
+              <CompanyHeader
+                name={account?.name}
+                verified={account?.plan !== 'Free'}
+              />
+            ) : (
+              <ProfessionalHeader
+                name={account?.name}
+                verified={account?.verified}
+              />
+            )}
             <Outlet />
           </div>
         </div>
@@ -105,15 +115,13 @@ export const DashboardLayout = () => {
   )
 }
 
-function ProfessionalHeader() {
-  const { account } = useAccountContext()
-
+function ProfessionalHeader({ name, verified }) {
   return (
     <div className="flex items-center justify-between border-b px-10 py-7">
       <div>
         <h1 className="flex items-center gap-2 text-2xl font-semibold leading-relaxed text-gray-800">
-          <span>{account?.name}</span>
-          <VerifiedIcon verified={account?.verified} />
+          <span>{name}</span>
+          <VerifiedIcon verified={verified} />
         </h1>
         <p className="text-sm font-medium text-gray-500">
           Encuentra la oferta de trabajo ideal para tu perfil
@@ -130,23 +138,27 @@ function ProfessionalHeader() {
   )
 }
 
-function CompanyHeader() {
+function CompanyHeader({ name, verified }) {
   return (
     <div className="flex items-center justify-between border-b px-10 py-7">
       <div>
-        <h1 className="text-2xl font-semibold leading-relaxed text-gray-800">
-          Nombre Empresa
+        <h1 className="flex items-center gap-2 text-2xl font-semibold leading-relaxed text-gray-800">
+          <span>{name}</span>
+          <VerifiedIcon verified={verified} />
         </h1>
         <p className="text-sm font-medium text-gray-500">
           Te ayudamos a encontrar los mejores profesionales para tu empresa
         </p>
       </div>
-      <button className="inline-flex items-center gap-x-2 rounded-md bg-blue-whale px-6 py-2.5 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-whale focus:ring-offset-1">
+      <Link
+        to="company/offers/create"
+        className="inline-flex items-center gap-x-2 rounded-md bg-blue-whale px-6 py-2.5 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-whale focus:ring-offset-1"
+      >
         <DocumentIcon />
         <span className="text-sm font-semibold tracking-wide">
           Publicar Oferta
         </span>
-      </button>
+      </Link>
     </div>
   )
 }

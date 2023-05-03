@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import {
   useCreateAccountMutation,
   useVerifyAccountMutation,
@@ -8,6 +7,7 @@ import {
 import { AppContext } from 'pages'
 import { useClerk } from '@clerk/clerk-react'
 import { useAccountContext } from '../AccountContext'
+import { useNavigate } from 'react-router-dom'
 
 const childVariants = {
   hidden: {
@@ -21,30 +21,50 @@ const childVariants = {
   },
 }
 export const Step6 = () => {
-  const [createAccount, { isLoading, error }] = useCreateAccountMutation()
-  const { accountType, selectedPlan } = useContext(AppContext)
-  const [verifyUser, { data }] = useVerifyAccountMutation()
+  const [ok, setOk] = useState(false)
+  const [createAccount, { isLoading: creating, isSuccess: created, error }] =
+    useCreateAccountMutation()
+  const { accountType, selectedPlan, companyInfo, professionalInfo } =
+    useContext(AppContext)
+  const [
+    verifyUser,
+    { data, isLoading: verifying, isSuccess, error: verifyError },
+  ] = useVerifyAccountMutation()
   const { user } = useClerk()
   const { setAccount, setAccountType } = useAccountContext()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isLoading && !error)
+    if (
+      !creating &&
+      created &&
+      !verifying &&
+      !isSuccess &&
+      !data?.success &&
+      !verifyError
+    )
       verifyUser({ email: user.primaryEmailAddress.emailAddress })
 
     if (data) {
       setAccount(data.account)
       setAccountType(accountType.name)
+      setOk(true)
     }
-  }, [data, isLoading])
+  }, [data, creating, created, verifying, verifyError])
 
   useEffect(() => {
     let ignore = false
+    const name =
+      accountType.name === 'Professional' ? user.fullName : companyInfo.name
     const body = {
-      name: user.fullName,
+      name,
       plan: selectedPlan.name.toUpperCase(),
       email: user.primaryEmailAddress.emailAddress,
       image: user.profileImageUrl,
       type: accountType.name.toLowerCase(),
+      ...(accountType.name === 'Professional'
+        ? { career: professionalInfo.career, bio: professionalInfo.bio }
+        : { description: companyInfo.description }),
     }
     if (!ignore) {
       createAccount(body)
@@ -68,17 +88,18 @@ export const Step6 = () => {
           nuestra plataforma. Si necesitas soporte, estamos disponibles para que
           nos contactes mediante <b>support@empli.com</b>.
         </motion.p>
-        {isLoading ? (
-          <p>Estamos creando tu cuenta...</p>
+        {creating ? (
+          <p>Estamos creando/verificando tu cuenta...</p>
         ) : error ? (
           <>{JSON.stringify(error)}</>
         ) : (
-          <Link
-            to="/dashboard"
-            className="mt-4 rounded-md bg-blue-whale px-6 py-3 text-white"
+          <button
+            onClick={() => navigate(`/dashboard`)}
+            disabled={!ok}
+            className="mt-4 rounded-md bg-blue-whale px-6 py-3 text-white disabled:bg-slate-500"
           >
             Mi cuenta
-          </Link>
+          </button>
         )}
       </div>
     </div>
