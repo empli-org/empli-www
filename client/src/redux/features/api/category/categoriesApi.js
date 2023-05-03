@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { endpoints, setHeaders, headers, baseQuery } from '../baseConfig'
 
-export const categorySlice = createApi({
+export const categoryApi = createApi({
   /* 
           El código define un conjunto de endpoints de API para interactuar con 
           recursos relacionados con categorías.
@@ -66,4 +66,4 @@ export const {
   useGetCategoriesQuery,
   useLazyGetCategoriesQuery,
   useUpdateCategoriesMutation,
-} = categorySlice
+} = categoryApi

@@ -7,33 +7,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL_API }),
   tagTypes: ['Saved'],
   endpoints: builder => ({
-    getJobs: builder.query({
-      query: ({ queryString, page }) => `/jobs?page=${page}&${queryString}`,
-    }),
-    searchJobs: builder.query({
-      query: key => `/jobs/search?key=${key}`,
-    }),
-    getJobByCode: builder.query({
-      query: code => `/jobs/${code}`,
-    }),
-    getJobLocations: builder.query({
-      query: key => `/jobs/locations${key ? `?key=${key}` : ''}`,
-    }),
-    getJobAreas: builder.query({
-      query: key => `/jobs/areas${key ? `?key=${key}` : ''}`,
-    }),
-    searchCareers: builder.query({
-      query: key => `/talents/careers${key ? `?key=${key}` : ''}`,
-    }),
-    searchSkills: builder.query({
-      query: key => `/talents/skills${key ? `?key=${key}` : ''}`,
-    }),
-    getAllTalents: builder.query({
-      query: ({ queryString }) => `/talents?${queryString}`,
-    }),
-    getTalentById: builder.query({
-      query: id => `/talents/${id}`,
-    }),
+
     createAccount: builder.mutation({
       query: body => ({
         url: '/account/create',
@@ -65,16 +39,7 @@ export const baseApi = createApi({
 })
 
 export const {
-  useGetJobsQuery,
-  useGetJobByCodeQuery,
-  useSearchJobsQuery,
-  useGetJobLocationsQuery,
-  useGetJobAreasQuery,
-  useSearchCareersQuery,
-  useSearchSkillsQuery,
-  useGetAllTalentsQuery,
-  useLazyGetAllTalentsQuery,
-  useGetTalentByIdQuery,
+
   useCreateAccountMutation,
   useVerifyAccountMutation,
   useGetSavedOffersQuery,

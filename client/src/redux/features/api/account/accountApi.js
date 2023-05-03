@@ -1,7 +1,9 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
-import { endpoints, setHeaders, headers, baseQuery } from '../baseConfig'
+import { endpoints, baseQuery } from '../baseConfig'
 
-export const planSlice = createApi({
+const { base, create, verify } = endpoints.accounts
+
+export const accountApi = createApi({
   /* 
           El código define un conjunto de endpoints de API para interactuar con 
           recursos relacionados con Planes de suscripcion.
@@ -17,45 +19,27 @@ export const planSlice = createApi({
       El código utiliza los tagTypes para cachear los resultados y mejorar la eficiencia al recuperar datos ya obtenidos. 
       */
 
-  reducerPath: 'planApi',
+  reducerPath: 'accountApi',
   baseQuery,
-  tagTypes: ['Plans'],
+  tagTypes: ['Account'],
   endpoints: builder => ({
     // * Endpoints Plan
 
-    getPlan: builder.query({
-      query: () => ({
-        url: endpoints.plan,
-        method: 'GET',
-        mode: 'cors',
-      }),
-      providesTags: ['Plans'],
-    }),
-    // //transformResponse: res => res.sort((a,b) => b.id - a.id)
-    createPlan: builder.mutation({
-      query: newPlan => ({
-        url: `${endpoints.Plan}/link`,
+    createAccount: builder.mutation({
+      query: body => ({
+        url: `/${base}/${create}`,
         method: 'POST',
-        body: newPlan,
-        mode: 'cors',
-        prepareHeaders: () => setHeaders(headers),
+        body,
       }),
     }),
-    updatePlan: builder.mutation({
-      query: updatePlan => ({
-        url: `${endpoints.Plan}/${updatePlan.id}/`,
-        method: 'PUT',
-        body: updatePlan,
-        mode: 'cors',
-        prepareHeaders: () => setHeaders(headers),
+    verifyAccount: builder.mutation({
+      query: body => ({
+        url: `/${base}/${verify}`,
+        method: 'POST',
+        body,
       }),
     }),
   }),
 })
 
-export const {
-  useUpdatePlanMutation,
-  useCreatePlanMutation,
-  useGetPlanQuery,
-  useLazyGetPlanQuery,
-} = planSlice
+export const { useCreateAccountMutation, useVerifyAccountMutation } = accountApi

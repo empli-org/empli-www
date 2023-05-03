@@ -1,10 +1,12 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { endpoints, setHeaders, headers, baseQuery } from '../baseConfig'
 
-export const jobSlice = createApi({
+const { all, link } = endpoints.plans
+
+export const planApi = createApi({
   /* 
           El código define un conjunto de endpoints de API para interactuar con 
-          recursos relacionados con trabajos.
+          recursos relacionados con Planes de suscripcion.
   
       Cada endpoint define un conjunto de operaciones que se pueden realizar sobre el recurso relacionado.
   
@@ -16,43 +18,37 @@ export const jobSlice = createApi({
           
       El código utiliza los tagTypes para cachear los resultados y mejorar la eficiencia al recuperar datos ya obtenidos. 
       */
-  reducerPath: 'jobsApi',
-  baseQuery,
-  tagTypes: ['Jobs'],
-  endpoints: builder => ({
-    //* Endpoints Jobs
 
-    getJobs: builder.query({
+  reducerPath: 'planApi',
+  baseQuery,
+  tagTypes: ['Plans'],
+  endpoints: builder => ({
+    // * Endpoints Plan
+
+    getPlan: builder.query({
       query: () => ({
-        url: endpoints.jobs,
+        url: all,
         method: 'GET',
         mode: 'cors',
       }),
-      providesTags: ['Jobs'],
+      providesTags: ['Plans'],
     }),
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
-    createJobs: builder.mutation({
-      query: newJobs => ({
-        url: `${endpoints.jobs}/`,
+    createPlan: builder.mutation({
+      query: newPlan => ({
+        url: `${all}/${link}`,
         method: 'POST',
-        body: newJobs,
+        body: newPlan,
         mode: 'cors',
-        prepareHeaders: headers => setHeaders(headers),
+        prepareHeaders: () => setHeaders(headers),
       }),
     }),
-    updateJobs: builder.mutation({
-      query: updateJobs => ({
-        url: `${endpoints.jobs}/${updateJobs.id}/`,
-        method: 'PATCH',
-        body: updateJobs,
+    updatePlan: builder.mutation({
+      query: updatePlan => ({
+        url: `${all}/${updatePlan.id}/`,
+        method: 'PUT',
+        body: updatePlan,
         mode: 'cors',
-        prepareHeaders: headers => setHeaders(headers),
-      }),
-    }),
-    deleteJobs: builder.mutation({
-      query: id => ({
-        url: `${endpoints.jobs}/${id}/`,
-        method: 'DELETE',
         prepareHeaders: () => setHeaders(headers),
       }),
     }),
@@ -60,9 +56,8 @@ export const jobSlice = createApi({
 })
 
 export const {
-  useCreateJobsMutation,
-  useDeleteJobsMutation,
-  useGetJobsQuery,
-  useLazyGetJobsQuery,
-  useUpdateJobsMutation,
-} = jobSlice
+  useUpdatePlanMutation,
+  useCreatePlanMutation,
+  useGetPlanQuery,
+  useLazyGetPlanQuery,
+} = planApi

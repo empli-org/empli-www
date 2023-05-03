@@ -13,13 +13,33 @@ export const baseQuery = fetchBaseQuery({
   baseUrl: 'http://localhost:3001/api/' || import.meta.env.VITE_API_URL_BASE,
 })
 
+// * manejo de endpoint
 export const endpoints = {
-  jobs: 'jobs',
-  talents: 'talents',
+  jobs: {
+    all: 'jobs',
+    search: 'search',
+    locations: 'locations',
+    areas: 'areas',
+  },
+  talents: {
+    all: 'talents',
+    careers: 'careers',
+    skills: 'skills',
+    saved: 'saved',
+  },
   categories: 'categories',
   careers: 'careers',
-  plan: 'plans',
+  plans: {
+    all: 'plans',
+    link: 'link',
+  },
+  accounts: {
+    base: 'account',
+    create: 'create',
+    verify: 'verify',
+  },
 }
+
 //* Función para configurar los headers de las peticiones
 export const setHeaders = headers => {
   headers['Content-type'] = 'application/json;'

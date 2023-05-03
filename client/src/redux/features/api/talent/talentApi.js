@@ -1,6 +1,9 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { endpoints, setHeaders, headers, baseQuery } from '../baseConfig'
-export const talentSlice = createApi({
+
+const { all, careers, skills, saved } = endpoints.talents
+
+export const talentApi = createApi({
   /* 
       El código define un conjunto de endpoints de API para interactuar con 
       recursos relacionados con talentos
@@ -18,22 +21,32 @@ export const talentSlice = createApi({
 
   reducerPath: 'talentApi',
   baseQuery,
-  tagTypes: ['Talents'],
+  tagTypes: ['Talents', 'Saved'],
   endpoints: builder => ({
     // * Endpoints Talents
 
     getTalent: builder.query({
-      query: () => ({
-        url: endpoints.talents,
+      query: ({ queryString }) => ({
+        url: ` /${all}?${queryString}`,
         method: 'GET',
         mode: 'cors',
       }),
       providesTags: ['Talents'],
     }),
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
+    searchCareers: builder.query({
+      query: key => `/${all}/${careers}${key ? `?key=${key}` : ''}`,
+    }),
+    searchSkills: builder.query({
+      query: key => `/${all}/${skills}${key ? `?key=${key}` : ''}`,
+    }),
+
+    getTalentById: builder.query({
+      query: id => `/${all}/${id}`,
+    }),
     createTalent: builder.mutation({
       query: newTalent => ({
-        url: `${endpoints.talents}/`,
+        url: `${all}/`,
         method: 'POST',
         body: newTalent,
         mode: 'cors',
@@ -42,8 +55,8 @@ export const talentSlice = createApi({
     }),
     updateTalent: builder.mutation({
       query: updateTalent => ({
-        url: `${endpoints.talents}/${updateTalent.id}/`,
-        method: 'PATCH',
+        url: `${all}/${updateTalent.id}/`,
+        method: 'PUT',
         body: updateTalent,
         mode: 'cors',
         prepareHeaders: () => setHeaders(headers),
@@ -51,10 +64,23 @@ export const talentSlice = createApi({
     }),
     deleteTalent: builder.mutation({
       query: id => ({
-        url: `${endpoints.talents}/${id}/`,
+        url: `${all}/${id}/`,
         method: 'DELETE',
         prepareHeaders: () => setHeaders(headers),
       }),
+    }),
+    getSavedOffers: builder.query({
+      query: ({ userId, queryString }) =>
+        `/${all}/${userId}/${saved}${queryString ? `?${queryString}` : ''}`,
+      providesTags: ['Saved'],
+    }),
+    saveOffer: builder.mutation({
+      query: ({ userId, ...body }) => ({
+        url: `/${all}/${userId}/${saved}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['Saved'],
     }),
   }),
 })
@@ -65,4 +91,9 @@ export const {
   useDeleteTalentMutation,
   useGetTalentQuery,
   useLazyGetTalentQuery,
-} = talentSlice
+  useSearchCareersQuery,
+  useSearchSkillsQuery,
+  useGetTalentByIdQuery,
+  useGetSavedOffersQuery,
+  useSaveOfferMutation,
+} = talentApi
