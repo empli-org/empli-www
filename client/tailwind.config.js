@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx }',
+    './node_modules/@tremor/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -17,6 +21,9 @@ export default {
         listing: 'repeat(auto-fill, minmax(375px, 1fr))',
       },
       colors: {
+        yellow: {
+          DEFAULT: '#FBBF24',
+        },
         'white-font': '#F6F2EC',
         'blue-font': '#1C2441',
         'bg-tw': '#9FCEE7',

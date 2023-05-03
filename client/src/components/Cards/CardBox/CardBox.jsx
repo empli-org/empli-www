@@ -24,7 +24,7 @@ export const CardBox = ({ data }) => {
   ))
 
   return (
-    <div className="flex h-4/6 w-full flex-col rounded-3xl bg-gray-900 p-2 relative">
+    <div className="relative flex h-4/6 w-full flex-col rounded-3xl bg-gray-900 p-2">
       <div className="mx-10">
         <SectionTitle
           imageOnRight={true}
@@ -56,7 +56,7 @@ export const CardBox = ({ data }) => {
         }}
       />
 
-      <div className="flex p-2 justify-end absolute bottom-2 right-2 ">
+      <div className="absolute bottom-2 right-2 flex justify-end p-2 ">
         <Button link="/talents" title="ver mas" />
       </div>
     </div>
