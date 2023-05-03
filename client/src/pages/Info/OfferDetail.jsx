@@ -7,7 +7,16 @@ export const OfferDetail = () => {
   const navigate = useNavigate()
   const { data: detail, isLoading } = useGetJobByCodeQuery(code)
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading)
+    return (
+      <div>
+        <strong className="p-10 text-blue-whale">Loading...</strong>
+        <div
+          className="ml-auto inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+          role="status"
+        ></div>
+      </div>
+    )
 
   if (!detail) return new Response('', { status: 404 })
 

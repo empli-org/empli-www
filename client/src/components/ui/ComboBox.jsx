@@ -54,7 +54,11 @@ export const ComboBox = ({
   return (
     <div className="relative w-full">
       <div
-        {...cb.getMenuProps({ id: 'menu-lb', className: 'relative', role: '' })}
+        {...cb.getMenuProps({
+          id: 'menu-lb',
+          className: 'relative',
+          role: '',
+        })}
       >
         {label && (
           <label className="mb-px px-1 text-sm text-slate-700" htmlFor={id}>

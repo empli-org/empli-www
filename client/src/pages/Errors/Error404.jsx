@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { PageNotFound } from '@/components/PageNotFound/PageNotFound'
+import { PageNotFound } from 'components'
 import { useRouteError } from 'react-router-dom'
 
 export const Error404 = () => {
@@ -8,7 +8,7 @@ export const Error404 = () => {
 
   return (
     <div id="error-page">
-      <PageNOtFound />
+      <PageNotFound />
     </div>
   )
 }

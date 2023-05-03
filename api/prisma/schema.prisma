@@ -1,11 +1,12 @@
 generator client {
   provider = "prisma-client-js"
+  // previewFeatures = ["orderByRelation"]
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model Talent {
@@ -152,6 +153,20 @@ model Skill {
   description String?
   talentId    String?
   talent      Talent? @relation(fields: [talentId], references: [id], onDelete: SetNull)
+}
+
+model Payment {
+  id        String @id @default(cuid())
+  paymentId String
+  Plans     Plans? @relation(fields: [plansId], references: [id])
+  plansId   Int?
+}
+
+model Plans {
+  id         Int       @id @default(autoincrement())
+  plan       Json[]
+  created_at DateTime  @default(now())
+  payments   Payment[]
 }
 
 enum Plan {
