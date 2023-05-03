@@ -8,9 +8,11 @@ export const headers = {
   Authorization: `Bearer ${TOKEN}`,
 }
 
+const BASE_URL = import.meta.env.VITE_API_URL_BASE
+
 //* Creamos una instancia de "fetchBaseQuery" con la URL base de la API
 export const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:3001/api/' || import.meta.env.VITE_API_URL_BASE,
+  baseUrl: BASE_URL,
 })
 
 // * manejo de endpoint
