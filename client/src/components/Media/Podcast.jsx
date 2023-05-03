@@ -1,9 +1,10 @@
-export const Podcast = () => {
+export const Podcast = ({ linkShare }) => {
+  
   return (
     <div>
       <iframe
         title="#01"
-        src="https://open.spotify.com/embed/playlist/377JKfxwDSFNVi0bf1H53i?utm_source=generator&theme=0"
+        src={linkShare}
         width="100%"
         height="352"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

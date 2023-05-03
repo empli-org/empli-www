@@ -1,13 +1,13 @@
 import { Navigate } from 'react-router-dom'
 import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
-import { useVerifyAccountMutation } from '@/redux/features/api/base'
+import { useVerifyAccountMutation } from '@/redux/features/api/account/accountApi'
 import { useEffect } from 'react'
 
 export const Dashboard = () => {
   const { user } = useClerk()
   const [verifyAccount, { isLoading, isSuccess, error, data }] =
     useVerifyAccountMutation()
-
+  console.log(data)
   useEffect(() => {
     if (!isLoading && !isSuccess && !error) {
       verifyAccount({ email: user.emailAddresses[0].emailAddress })

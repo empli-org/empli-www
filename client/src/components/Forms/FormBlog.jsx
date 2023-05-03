@@ -37,11 +37,7 @@ export default function FormBlog() {
     <div className="flex items-center justify-center">
       <form
         action=""
-<<<<<<< HEAD
-        className="flex w-3/4 flex-col items-center justify-center"
-=======
         className="m-6 flex w-full flex-col items-center justify-center xl:m-1 xl:w-3/4"
->>>>>>> e657c51400facdf546114ab0a1557cc6563da84e
         onSubmit={handleSubmit(onSubmit)}
         id="form"
       >
@@ -139,11 +135,7 @@ export default function FormBlog() {
           </h1>
           <div className="w-full rounded-3xl bg-hint-of-red shadow-xl">
             <div className="flex w-full flex-col items-center justify-around gap-5 p-10">
-<<<<<<< HEAD
-              <div className="flex w-full justify-around gap-4">
-=======
               <div className="flex w-full flex-col justify-around gap-4 md:w-3/4 lg:w-full lg:flex-row">
->>>>>>> e657c51400facdf546114ab0a1557cc6563da84e
                 <div className="w-full">
                   <label
                     htmlFor="title"
@@ -215,15 +207,10 @@ export default function FormBlog() {
                   <textarea
                     name="descripcion"
                     id=""
-<<<<<<< HEAD
-                    className="font-quicksand-light h-40 w-3/4 resize-none rounded-xl border-2 border-opacity-hint p-2"
-                    {...register('descripcion')}
-=======
                     className="w-full md:w-3/4 h-40 resize-none p-2 font-quicksand-light border-2 border-opacity-hint rounded-xl"
                     {...register('descripcion', {
                       required: 'Ingrese una descripcion',
                     })}
->>>>>>> e657c51400facdf546114ab0a1557cc6563da84e
                   ></textarea>
                   {errors.descripcion && (
                     <span className="font-quicksand font-bold text-red-600">
@@ -243,15 +230,10 @@ export default function FormBlog() {
                   <textarea
                     name="cuerpo"
                     id=""
-<<<<<<< HEAD
-                    className="font-quicksand-light h-40 w-3/4 resize-none rounded-xl border-2 border-opacity-hint p-2"
-                    {...register('cuerpo')}
-=======
                     className="w-full md:w-3/4 h-40 resize-none p-2 font-quicksand-light border-2 border-opacity-hint rounded-xl"
                     {...register('cuerpo', {
                       required: 'Ingrese un cuerpo para el blog',
                     })}
->>>>>>> e657c51400facdf546114ab0a1557cc6563da84e
                   ></textarea>
                   {errors.cuerpo && (
                     <span className="font-quicksand font-bold text-red-600">
@@ -260,11 +242,7 @@ export default function FormBlog() {
                   )}
                 </div>
               </div>
-<<<<<<< HEAD
-              <div className="mt-5 flex w-1/2 justify-around gap-4">
-=======
               <div className="mt-5 flex w-3/4 flex-col justify-around gap-4 sm:w-1/2 sm:flex-row">
->>>>>>> e657c51400facdf546114ab0a1557cc6563da84e
                 <div className="font-quicksand-light relative rounded-lg border-2 border-opacity bg-blue-whale px-2 py-3 font-semibold text-hint-of-red">
                   <input
                     type="checkbox"
