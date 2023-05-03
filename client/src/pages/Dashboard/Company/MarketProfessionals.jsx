@@ -1,4 +1,4 @@
-import { useGetAllTalentsQuery } from 'redux/features/api/base'
+import { useGetTalentQuery } from '@/redux/features/api/talent/talentApi'
 import { useEffect, useState } from 'react'
 import {
   Container,
@@ -35,7 +35,7 @@ export const MarketProfessionals = () => {
     key,
     location: locationFilter.value === 'all' ? null : locationFilter.value,
   })
-  const { data, isLoading, isFetching } = useGetAllTalentsQuery({
+  const { data, isLoading, isSuccess } = useGetTalentQuery({
     page,
     key,
     verified,
@@ -44,7 +44,7 @@ export const MarketProfessionals = () => {
   const talents = data?.data
   const countTalents = data?.count
   const totalPages = Math.ceil(countTalents / 10)
-  const loading = isLoading || isFetching
+  const loading = isLoading || isSuccess
 
   useEffect(() => {
     setPage(1)

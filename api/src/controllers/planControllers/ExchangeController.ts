@@ -1,4 +1,4 @@
-import { getMoneyConvert } from "../services/exchange";
+import { getMoneyConvert } from "../../services/exchange";
 
 export const getMoneyData = async (req, res) => {
 	try {

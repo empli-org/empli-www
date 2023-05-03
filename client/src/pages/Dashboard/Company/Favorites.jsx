@@ -1,7 +1,7 @@
 import { Container, TalentCard, TalentsFallback } from '@/components'
 import { SelectBox } from '@/components/ui/Select'
 import { useAccountContext } from '@/pages/Account/AccountContext'
-import { useGetFavsProfilesQuery } from '@/redux/features/api/base'
+import { useGetFavsProfilesQuery } from '@/redux/features/api/company/companyApi'
 import { experienceSortOptions, locationFilterOptions } from '@/utils/data'
 import { useState } from 'react'
 
