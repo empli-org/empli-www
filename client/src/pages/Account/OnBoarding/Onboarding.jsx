@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useContext, useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { AppContext, Step1, Step2, Step3, Step4, Step6 } from 'pages'
-import { useVerifyAccountMutation } from '@/redux/features/api/base'
 import { useAccountContext } from '../AccountContext'
+import { useVerifyAccountMutation } from '@/redux/features/api/account/accountApi'
 
 export const Onboarding = () => {
   const [verifyUser, { isLoading, isSuccess, error, data }] =

@@ -1,8 +1,11 @@
 // @ts-nocheck
 import { Button, Container } from '@/components'
+import { useContext } from 'react'
+import { AppContext } from '../OnBoarding/AppContext'
 // import { useEffect } from 'react'
 
 export const FeedBackPayment = () => {
+  const { setActiveStep } = useContext(AppContext)
   // useEffect(() => {
   //   const idQuery = new URLSearchParams(window.location.search)
   //   let payment_id = idQuery.get('payment_id')
@@ -29,7 +32,12 @@ export const FeedBackPayment = () => {
           Gracias por hacer updgrade en nuestra plataforma
         </h1>
         <div className="py-6">
-          <Button link="/" title="Ir al inicio" color="blue-whale" />
+          <Button
+            onClick={() => setActiveStep(6)}
+            link="/account/onboarding"
+            title="Finalizar"
+            color="blue-whale"
+          />
         </div>
       </div>
     </Container>
