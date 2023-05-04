@@ -12,7 +12,7 @@ const BASE_URL = import.meta.env.VITE_API_URL_BASE
 
 //* Creamos una instancia de "fetchBaseQuery" con la URL base de la API
 export const baseQuery = fetchBaseQuery({
-  baseUrl: BASE_URL,
+  baseUrl: 'http://localhost:3001/api' || BASE_URL,
 })
 
 // * manejo de endpoint
@@ -32,8 +32,10 @@ export const endpoints = {
   categories: 'categories',
   careers: 'careers',
   plans: {
-    all: 'plans',
+    base: 'payments',
+    all: 'plan',
     link: 'link',
+    subs: 'subs',
   },
   accounts: {
     base: 'account',

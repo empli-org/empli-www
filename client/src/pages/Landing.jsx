@@ -14,6 +14,8 @@ import {
 } from 'components'
 import lupa from 'assets/img/lupa.webp'
 import pj from 'assets/img/persona2.png'
+import { Welcome } from './Dashboard/Wellcome'
+import { FeedBackPayment } from './Account/Premium/FeedbackPayment'
 
 export const Landing = () => {
   const data = [
@@ -174,6 +176,7 @@ export const Landing = () => {
           <Button link="/talents" title="Ver mas" color="black" />
         </div>
       </div>
+      {/* <FeedBackPayment /> */}
       <div></div>
 
       <div className="flexc w-full bg-[#f5e4cb] p-10">

@@ -1,63 +1,138 @@
-import React from 'react'
-import { dataEmpresa } from './data'
+import { useEffect, useState } from 'react'
+import { data } from './data'
+import { useGetPlanQuery } from '@/redux/features/api/plan/planApi'
+import { PricingCard } from './PricingCard'
 
-export const PricingEmpresa = () => {
+export const PricingCompany = () => {
+  const [stn, setStn] = useState({ amount: 0, link: '' })
+  const [prm, setPrm] = useState({ amount: 0, link: '' })
+  const {
+    data: plansData,
+    isLoading,
+    isFetching,
+    isSuccess,
+    isError,
+  } = useGetPlanQuery()
+  const { company } = data
+  const { free, standard, premium } = company
+
+  useEffect(() => {
+    if (isSuccess && plansData != null) {
+      plansData.list.filter(
+        ({ auto_recurring, external_reference, init_point }) => {
+          // console.log(auto_recurring)
+          if (external_reference === 'HOZM') {
+            // stn.amount = auto_recurring.transaction_amount
+            //  stn.link= init_point
+            setStn({
+              amount: auto_recurring.transaction_amount,
+              link: init_point,
+            })
+          }
+          if (external_reference === 'ODYM') {
+            setPrm({
+              amount: auto_recurring.transaction_amount,
+              link: init_point,
+            })
+          }
+        },
+      )
+    }
+  }, [isSuccess, plansData, stn, prm])
+
+  if (isLoading || isFetching)
+    return <div className="flex w-full items-center">Loading....</div>
+
   return (
-    <>
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-7 sm:px-6 lg:grid-cols-3 lg:gap-8 lg:px-8">
-        {dataEmpresa.map((data, ind) => {
-          return (
-            <div
-              key={ind}
-              className={`relative flex flex-col rounded-lg border-slate-200 bg-white p-8 shadow-xl hover:shadow-xl hover:shadow-blue-100 
-              ${data.popular ? 'lg:row-span-3' : ''}`}
-            >
-              <h3 className="rounded-lg bg-black text-center text-lg font-semibold leading-5 text-white">
-                {data.titulo}
-              </h3>
-              {data.popular && (
-                <p className="absolute  -top-3 rounded-full bg-green-500 px-3 py-0.5 text-sm font-semibold tracking-wide text-white shadow-md">
-                  Más popular
-                </p>
-              )}
-              <p className="mt-4 text-sm leading-6 text-slate-700">
-                {data.descripcion}
-              </p>
-              <div className="-mx-6 mt-4 rounded-lg bg-slate-50 p-6">
-                <p className="flex items-center text-sm font-semibold text-slate-500">
-                  USD
-                  <span className="ml-3 text-2xl text-slate-900">
-                    {data.precio}
-                  </span>
-                  /month
-                </p>
-              </div>
-              <ul className="mt-6 flex-1 space-y-4">
-                {data.caracteristicas.map(car => {
-                  return (
-                    <li key={car} className="text-sm text-slate-700">
-                      ✔ {car}
-                    </li>
-                  )
-                })}
-              </ul>
-              <div className="flex justify-center">
-                <button
-                  className={`mt-6  rounded-lg px-6 py-1.5 text-sm font-semibold leading-4 
-              ${
-                data.popular
-                  ? 'bg-green-500 text-white shadow-md hover:bg-green-600'
-                  : 'bg-green-50 text-green-700 hover:bg-green-500 hover:text-white'
-              }`}
-                >
-                  {' '}
-                  COMPRAR{' '}
-                </button>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </>
+    <div className="px-auto items-center flex md:justify-center flex-col lg:flex-row  ">
+      <PricingCard
+        title={free.plan_name}
+        popular={free.plan_type}
+        feat={free.features}
+      />
+      <PricingCard
+        title={standard.plan_name}
+        popular={standard.plan_type}
+        free={false}
+        link={stn.link}
+        price={stn.amount}
+        feat={standard.features}
+      />
+      <PricingCard
+        title={premium.plan_name}
+        popular={premium.plan_type}
+        free={false}
+        price={prm.amount}
+        link={prm.link}
+        feat={premium.features}
+      />
+    </div>
+  )
+}
+
+export const PricinTalent = () => {
+  const [stn, setStn] = useState({ amount: 0, link: '' })
+  const [prm, setPrm] = useState({ amount: 0, link: '' })
+  const {
+    data: plansData,
+    isLoading,
+    isFetching,
+    isSuccess,
+    isError,
+  } = useGetPlanQuery()
+  const { talent } = data
+  const { free, standard, premium } = talent
+
+  useEffect(() => {
+    if (isSuccess && plansData != null) {
+      plansData.list.filter(
+        ({ auto_recurring, external_reference, init_point }) => {
+          // console.log(auto_recurring)
+          if (external_reference === 'ORBM') {
+            // stn.amount = auto_recurring.transaction_amount
+            //  stn.link= init_point
+            setStn({
+              amount: auto_recurring.transaction_amount,
+              link: init_point,
+            })
+          }
+          if (external_reference === 'GXYM') {
+            setPrm({
+              amount: auto_recurring.transaction_amount,
+              link: init_point,
+            })
+          }
+        },
+      )
+    }
+  }, [isSuccess, plansData, stn, prm])
+
+  if (isLoading || isFetching)
+    return <div className="flex w-full items-center">Loading....</div>
+
+  return (
+    <div className="px-auto items-center flex md:justify-center flex-col lg:flex-row  ">
+      <PricingCard
+        title={free.plan_name}
+        popular={free.plan_type}
+        feat={free.features}
+      />
+      <PricingCard
+        title={standard.plan_name}
+        popular={standard.plan_type}
+        free={false}
+        link={stn.link}
+        price={stn.amount}
+        feat={standard.features}
+      />
+      <PricingCard
+        title={premium.plan_name}
+        popular={premium.plan_type}
+        free={false}
+        price={prm.amount}
+        link={prm.link}
+        feat={premium.features}
+      />
+    </div>
   )
 }

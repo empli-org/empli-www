@@ -1,7 +1,14 @@
 import { useState } from 'react'
-import { PricingEmpresa, PricingProfesional } from 'pages'
+import { PricingCard, PricingCompany } from 'pages'
+import { PricinTalent } from './PricingEmpresa'
+import { data } from './data'
+import { CheckOut } from '@/components/MercadoPago/CheckOut'
+import { useGetPlanQuery } from '@/redux/features/api/plan/planApi'
+import { Button } from '@/components'
 
 export default function PricingPage() {
+  const { data: plansData = [], isLoading, isSuccess } = useGetPlanQuery()
+  const { company, talent } = data
   const [selected, setSelected] = useState('empresa')
 
   const handleEmpresaClick = () => {
@@ -14,28 +21,34 @@ export default function PricingPage() {
 
   return (
     <>
+      <CheckOut />
       <div className="flex justify-center pt-7">
-        <h1 className="text-3xl">Elige tu plan de subscripción</h1>
+        <h1 className="text-3xl font-quicksand font-bold uppercase">
+          Elige tu plan de subscripción
+        </h1>
       </div>
       <div className="m-5 flex justify-center">
-        <button
-          className={`m-5 rounded-md bg-blue-500 p-3 text-white ${
-            selected === 'empresa' ? ' bg-blue-whale ' : ''
+        <Button
+          title="empresas"
+          color=""
+          extend={`m-5 p-3 border-blue-whale hover:bg-blue-whale hover:text-white ${
+            selected === 'empresa' ? ' bg-blue-whale text-white ' : ''
           }`}
           onClick={handleEmpresaClick}
-        >
-          EMPRESA
-        </button>
-        <button
-          className={`m-5 rounded-md bg-blue-500 p-3 text-white ${
-            selected === 'profesional' ? 'bg-blue-whale ' : ''
+        />
+
+        <Button
+          title="profesional"
+          color=""
+          extend={`m-5 p-3 border-blue-whale hover:bg-blue-whale hover:text-white ${
+            selected === 'profesional' ? ' bg-blue-whale text-white ' : ''
           }`}
           onClick={handleProfesionalClick}
-        >
-          PROFESIONAL
-        </button>
+        />
       </div>
-      {selected === 'empresa' ? <PricingEmpresa /> : <PricingProfesional />}
+      <div className="mx-auto">
+        {selected === 'empresa' ? <PricingCompany /> : <PricinTalent />}
+      </div>
     </>
   )
 }
