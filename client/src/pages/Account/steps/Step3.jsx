@@ -37,7 +37,7 @@ export const Step3 = () => {
     <div className="rounded-lg bg-white px-8 py-12 shadow-lg">
       {accountType.name === 'Professional' ? (
         <>
-          <h1 className="text-xl font-bold">Información professional</h1>
+          <h1 className="text-xl font-bold">Información profesional</h1>
           <p className="mt-2 text-slate-600">
             Necesitamos algunos datos sobre tu carrera profesional.
           </p>

@@ -56,9 +56,9 @@ export const OfferDetail = () => {
           />
         </section>
         <section className="flex flex-col gap-4 py-6">
-          <p>Years of experience required: {detail.requiredExp}</p>
+          <p>Años de experiencia requerida: {detail.requiredExp}</p>
           <p>
-            Salary range: ${detail.minRate} - ${detail.maxRate}
+            Rango salarial: ${detail.minRate} - ${detail.maxRate}
           </p>
         </section>
       </div>
