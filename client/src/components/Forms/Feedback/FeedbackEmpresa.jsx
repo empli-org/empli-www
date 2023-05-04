@@ -20,24 +20,24 @@ export default function FeedbackProf() {
 
   return (
     <div>
-      <div className="w-full flex flex-col items-center">
-        <h1 className="font-amenable text-5xl font-bold text-center text-blue-whale">
+      <div className="flex w-full flex-col items-center">
+        <h1 className="text-center font-amenable text-5xl font-bold text-blue-whale">
           Feedback
         </h1>
-        <p className="font-quicksand text-2xl text font-semibold text-blue-whale">
+        <p className="text font-quicksand text-2xl font-semibold text-blue-whale">
           Nos gustaria que respondan las preguntas, nos ayuda mucho a crecer
         </p>
       </div>
       <form
-        className="w-full flex flex-col items-center justify-center mt-20"
+        className="mt-20 flex w-full flex-col items-center justify-center"
         onSubmit={handleSubmit(onSubmit)}
         id="form"
       >
-        <div className="w-3/4 flex flex-col items-center justify-evenly p-7 bg-hint-of-red rounded-2xl shadow-lg">
-          <h1 className="font-amenable text-2xl font-semibold text-center text-blue-whale">
+        <div className="flex w-3/4 flex-col items-center justify-evenly rounded-2xl bg-hint-of-red p-7 shadow-lg">
+          <h1 className="text-center font-amenable text-2xl font-semibold text-blue-whale">
             ¿Qué le parece nuestra plataforma de empleos?
           </h1>
-          <div className="flex flex-col items-start w-full gap-3 mt-7">
+          <div className="mt-7 flex w-full flex-col items-start gap-3">
             <div className="flex gap-1">
               <input
                 type="radio"
@@ -129,11 +129,11 @@ export default function FeedbackProf() {
             )}
           </div>
 
-          <h1 className="font-amenable text-2xl font-semibold text-center text-blue-whale mt-10">
+          <h1 className="mt-10 text-center font-amenable text-2xl font-semibold text-blue-whale">
             ¿Cuáles fueron los principales motivos que llevaron a la empresa a
             rechazar la postulación?
           </h1>
-          <div className="flex flex-col items-start w-full gap-3 mt-7">
+          <div className="mt-7 flex w-full flex-col items-start gap-3">
             <div className="flex gap-1">
               <input
                 type="radio"
@@ -271,11 +271,11 @@ export default function FeedbackProf() {
               </span>
             )}
           </div>
-          <h1 className="font-amenable text-2xl font-semibold text-center text-blue-whale mt-10">
+          <h1 className="mt-10 text-center font-amenable text-2xl font-semibold text-blue-whale">
             ¿Consideraría volver a postularse en el futuro para este empleo o
             para otros trabajos en nuestra plataforma?
           </h1>
-          <div className="flex flex-col items-start w-full gap-3 mt-7">
+          <div className="mt-7 flex w-full flex-col items-start gap-3">
             <div className="flex gap-1">
               <input
                 type="radio"
@@ -354,10 +354,10 @@ export default function FeedbackProf() {
               </span>
             )}
           </div>
-          <div className="w-full flex justify-center items-center">
+          <div className="flex w-full items-center justify-center">
             <button
               type="submit"
-              className="my-8 h-12 w-2/6 font-amenable rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
+              className="my-8 h-12 w-2/6 rounded-xl bg-blue-font font-amenable text-white-font shadow-lg shadow-gray-900"
             >
               Enviar
             </button>

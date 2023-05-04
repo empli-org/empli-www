@@ -33,7 +33,7 @@ export default function InfoProfessionals() {
           </h1>
           <div className="my-6 ml-15 w-32 rounded-2xl border-t-4 border-bg-green sm:w-32 lg:w-40 xl:w-56"></div>
           <br />
-          <p className="text-center font-quicksand-light font-semibold text-blue-whale md:text-lg lg:text-xl xl:text-2xl">
+          <p className="font-quicksand-light text-center font-semibold text-blue-whale md:text-lg lg:text-xl xl:text-2xl">
             Si es así, ¡estás en el lugar correcto! Únete a nuestra comunidad de
             talentos y descubre nuevas oportunidades de trabajo, mejora tus
             habilidades laborales y amplía tu red de contactos en el sector de
