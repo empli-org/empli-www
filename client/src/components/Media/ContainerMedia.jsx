@@ -1,28 +1,35 @@
-import { CardPro } from '../Cards/CardPro/CardPro'
-import imagen from '../../assets/emplitos-24.svg'
 import { Podcast } from './Podcast'
+import { SectionTitle } from '../Section/SectionTitle'
+import { TextHeroPod } from './TextHeroPod'
+// import { FormPodcast } from './FormPodcast'
 
-export const ContainerMedia = () => {
-  const link = [
-    'https://open.spotify.com/embed/playlist/377JKfxwDSFNVi0bf1H53i?utm_source=generator&theme=0',
-    'https://open.spotify.com/embed/playlist/377JKfxwDSFNVi0bf1H53i?utm_source=generator&theme=0',
-  ]
+export const ContainerMedia = ({ data }) => {
   return (
-    <div className="h-11/12 flex--wrap m-5 flex w-11/12 justify-center bg-hint-of-red bg-opacity-10 p-5">
-      <label>Url</label>
-      <input type="text" placeholder="" name="url" />
-      <CardPro rol="" name="Videos" logo={imagen} />
-      <CardPro rol="" name="Podcast" logo={imagen} />
-      <CardPro rol="" name="Reels" logo={imagen} />
-      {link.map((item, index) => {
-        return (
-          <select key={index}>
-            <option>
-              <Podcast linkShare={item} />
-            </option>
-          </select>
-        )
-      })}
+    <div>
+      {/* <FormPodcast /> */}
+      <div className="flex justify-between">
+        <SectionTitle
+          title={null}
+          subtitle={null}
+          textColor="text-blue-whale"
+          imageOnRight={false}
+          imgColor={null}
+        />
+        <TextHeroPod />
+      </div>
+      <div className="h-full w-full flex flex-wrap bg-hint-of-red bg-opacity-25 rounded-3xl shadow-sm shadow-white">
+        {data?.map((track, index) => {
+          return (
+            <Podcast
+              title={track.title}
+              key={index}
+              url={track.url}
+              description={track.description}
+              className="w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/6 mx-10"
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }
