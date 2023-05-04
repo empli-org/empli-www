@@ -16,11 +16,11 @@ export const Footer = () => {
         <div>
           <ul className="flex flex-col flex-nowrap items-center gap-3 space-y-0 font-amenable text-2xl lg:flex-row lg:gap-9 lg:text-lg">
             <li>
-              <Link to="/offers">Ofertas</Link>
+              <Link to="/info/empresas">Empresas</Link>
             </li>
 
             <li>
-              <Link to="/companies">Empresas</Link>
+              <Link to="/info/professionals">Profesionales</Link>
             </li>
 
             <li>
@@ -35,7 +35,7 @@ export const Footer = () => {
               <Link to="/contact">Contacto</Link>
             </li>
             <li>
-              <Link to="/perfil">perfil</Link>
+              <Link to="/dashboard">Mi cuenta</Link>
             </li>
           </ul>
         </div>

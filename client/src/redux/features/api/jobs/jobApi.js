@@ -26,7 +26,7 @@ export const jobApi = createApi({
 
     getJobs: builder.query({
       query: ({ queryString, page }) => ({
-        url: `/${all}?page=${page}&${queryString}`,
+        url: `/${all}?published=true&page=${page}&${queryString}`,
         method: 'GET',
         mode: 'cors',
       }),
