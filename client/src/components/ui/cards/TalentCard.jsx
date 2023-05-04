@@ -1,15 +1,15 @@
 import { BookmarkIcon } from '@/components/icons/BookmarkIcon'
 import { VerifiedIcon } from '@/components/icons/VerifiedIcon'
 import { useAccountContext } from '@/pages/Account/AccountContext'
-import { useFavProfileMutation } from '@/redux/features/api/base'
+import { useUpdateFavProfileMutation } from '@/redux/features/api/company/companyApi'
 import { Link } from 'react-router-dom'
 
 export const TalentCard = ({ talent }) => {
   const { account } = useAccountContext()
   const { id, name, lastname, image, career, skills, contactInfo, verified } =
     talent
-  const [favProfile, { isLoading, isFetching }] = useFavProfileMutation()
-  const loading = isLoading || isFetching
+  const [favProfile, { isLoading, isSuccess }] = useUpdateFavProfileMutation()
+  const loading = isLoading || isSuccess
 
   return (
     <div className="group relative box-border flex w-full items-center gap-2 rounded-md  bg-white p-6 shadow-md transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg">

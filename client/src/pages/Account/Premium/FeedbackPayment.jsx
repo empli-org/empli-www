@@ -1,25 +1,43 @@
+// @ts-nocheck
+import { Button, Container } from '@/components'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { AppContext } from 'pages'
-import { Container } from '@/components'
+import { AppContext } from '../OnBoarding/AppContext'
+// import { useEffect } from 'react'
 
 export const FeedBackPayment = () => {
   const { setActiveStep } = useContext(AppContext)
+  // useEffect(() => {
+  //   const idQuery = new URLSearchParams(window.location.search)
+  //   let payment_id = idQuery.get('payment_id')
+  //   setTimeout(() => {
+  //     verify({ payment_id })
+  //       .unwrap()
+  //       .then(res => {
+  //         res.status === 200
+  //           ? Swal.fire('Approved payment', undefined, 'success')
+  //           : Swal.fire({ icon: 'error', title: 'Failed payment' })
+  //         navigate(`/${res.data}/profile`)
+  //       })
+  //       .catch(() => {
+  //         Swal.fire({ icon: 'error', title: 'Failed payment' })
+  //         navigate('/home')
+  //       })
+  //   }, 3500)
+  // }, [])
 
   return (
     <Container>
       <div className="py-12">
-        <h1 className="text-xl font-bold">
-          Acá va el checkout de mercado pago
+        <h1 className="font-amenable text-xl font-bold">
+          Gracias por hacer updgrade en nuestra plataforma
         </h1>
         <div className="py-6">
-          <Link
-            className="rounded bg-blue-whale px-6 py-3 text-white"
+          <Button
             onClick={() => setActiveStep(6)}
-            to="/account/onboarding"
-          >
-            Pagar
-          </Link>
+            link="/account/onboarding"
+            title="Finalizar"
+            color="blue-whale"
+          />
         </div>
       </div>
     </Container>

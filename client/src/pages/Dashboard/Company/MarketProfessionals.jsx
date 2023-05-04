@@ -1,4 +1,4 @@
-import { useGetAllTalentsQuery } from 'redux/features/api/base'
+import { useGetTalentQuery } from '@/redux/features/api/talent/talentApi'
 import { useEffect, useState } from 'react'
 import {
   Container,
@@ -35,7 +35,7 @@ export const MarketProfessionals = () => {
     key,
     location: locationFilter.value === 'all' ? null : locationFilter.value,
   })
-  const { data, isLoading, isFetching } = useGetAllTalentsQuery({
+  const { data, isLoading, isFetching } = useGetTalentQuery({
     page,
     key,
     verified,
