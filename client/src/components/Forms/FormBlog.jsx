@@ -207,7 +207,7 @@ export default function FormBlog() {
                   <textarea
                     name="descripcion"
                     id=""
-                    className="w-full md:w-3/4 h-40 resize-none p-2 font-quicksand-light border-2 border-opacity-hint rounded-xl"
+                    className="font-quicksand-light h-40 w-full resize-none rounded-xl border-2 border-opacity-hint p-2 md:w-3/4"
                     {...register('descripcion', {
                       required: 'Ingrese una descripcion',
                     })}
@@ -230,7 +230,7 @@ export default function FormBlog() {
                   <textarea
                     name="cuerpo"
                     id=""
-                    className="w-full md:w-3/4 h-40 resize-none p-2 font-quicksand-light border-2 border-opacity-hint rounded-xl"
+                    className="font-quicksand-light h-40 w-full resize-none rounded-xl border-2 border-opacity-hint p-2 md:w-3/4"
                     {...register('cuerpo', {
                       required: 'Ingrese un cuerpo para el blog',
                     })}
