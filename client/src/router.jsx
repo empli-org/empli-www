@@ -35,10 +35,19 @@ import {
   FavedTalents,
   // FormOffer,
 } from 'pages'
-import FormOffer from './components/Forms/FormOffer'
+// import { AdminDash } from './pages/Dashboard/Admin/AdminDash'
+// import { SavedOffers } from './pages/Dashboard/Professional/Saved'
+// import CompanyOffers from './pages/Dashboard/Company/CompanyOffers'
+// import FavedTalents from './pages/Dashboard/Company/Favorites'
+// import CreateOffer from './pages/Dashboard/Company/CreateOffer'
 import NewsDetailPage from './pages/Info/NewsDetail'
 import AdminMediaPage from './pages/Dashboard/Admin/Media/AdminMedia'
 import CreateMediaPage from './pages/Dashboard/Admin/Media/Create'
+// import FormOffer from './components/Forms/FormOffer'
+import Credits from './components/Credits/Credits'
+// import UserProfile from './pages/Dashboard/Professional/Profile'
+
+// import { Admin } from './pages/Dashboard/Administrator/Admin'
 
 export const router = createBrowserRouter([
   {
@@ -100,7 +109,10 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       { path: '/media', element: <Media /> },
-      { path: '/formjobs', element: <FormOffer /> },
+      {
+        path: '/credits',
+        element: <Credits />,
+      },
     ],
   },
   {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { TabList, Tab, Title } from '@tremor/react'
 import React, { useState } from 'react'
 import CardGridMap from '../CardGrip/CardGridMap'
