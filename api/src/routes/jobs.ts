@@ -1,11 +1,9 @@
 import express from "express";
-import {
-  getAllJobs,
-  getJobAreas,
-  getJobByCode,
-  getJobLocations,
-  searchJobsByKey,
-} from "../controllers/jobs";
+import { getJobAreas } from "../controllers/jobsControllers/getJobAreas";
+import { getJobLocations } from "../controllers/jobsControllers/getJobLocations";
+import { getAllJobs } from "../controllers/jobsControllers/getAllJobs";
+import { getJobByCode } from "../controllers/jobsControllers/getJobByCode";
+import { searchJobsByKey } from "../controllers/jobsControllers/searchJobsByKey";
 
 export function getJobsRoutes() {
   const router = express.Router();

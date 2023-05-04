@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom'
 import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
-import { useVerifyAccountMutation } from '@/redux/features/api/base'
 import { useEffect } from 'react'
+import { useVerifyAccountMutation } from '@/redux/features/api/account/accountApi'
 
 export const Dashboard = () => {
   const { user } = useClerk()

@@ -1,4 +1,4 @@
-import { useGetAllTalentsQuery } from 'redux/features/api/base'
+import { useGetTalentQuery } from '@/redux/features/api/talent/talentApi'
 import { useState } from 'react'
 import {
   Container,
@@ -12,11 +12,11 @@ import {
 export const Talents = () => {
   const [page, setPage] = useState(1)
   const [key, setKey] = useState('')
-  const { data, isLoading, isFetching } = useGetAllTalentsQuery({ page, key })
+  const { data, isLoading, isSuccess } = useGetTalentQuery({ page, key })
   const talents = data?.data
   const countTalents = data?.count
   const totalPages = Math.ceil(countTalents / 10)
-  const loading = isLoading || isFetching
+  const loading = isLoading || isSuccess
 
   return (
     <div>

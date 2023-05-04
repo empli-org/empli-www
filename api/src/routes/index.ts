@@ -9,10 +9,10 @@ export function getRoutes() {
 
 	router.route("/").get((_req:Request, res:Response) => {
 		res.json({
-			"/jobs": "link",
-			"/talents": "link",
-			"/companies": "link",
-			"/payments": "link",
+			"/jobs": "Rutas para las ofertas de trabajo",
+			"/talents": "Rutas de profesionales",
+			"/companies": "Rutas de empresas",
+			"/payments": "Rutas de pago planes",
 		});
 	});
 
