@@ -1,11 +1,13 @@
 // @ts-nocheck
-import { useState } from 'react'
+import { useCreatePostMutation } from '@/redux/features/api/news/newsApi'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 export default function FormBlog() {
-  const [select, setSelect] = useState(false)
+  const [createPost, { isLoading, isSuccess }] = useCreatePostMutation()
+  const [, setSelect] = useState(false)
 
   const {
     register,
@@ -15,10 +17,28 @@ export default function FormBlog() {
 
   const MySwal = withReactContent(Swal)
 
+  useEffect(() => {
+    if (!isLoading && isSuccess) {
+      MySwal.fire('Listo!', 'Publicacion realizada', 'success')
+      document.getElementById('form').reset()
+    }
+  }, [isLoading, isSuccess])
+
   const onSubmit = data => {
-    MySwal.fire('Listo!', 'Publicacion realizada', 'success')
-    document.getElementById('form').reset()
-    console.log(data)
+    const cat = document.querySelector('input[name="tipo"]:checked').value
+
+    const body = {
+      title: data.titulo,
+      description: data.descripcion,
+      category: cat,
+      body: data.cuerpo,
+      published: data.publicado,
+      premium: data.premium,
+      image:
+        data.image ||
+        'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    }
+    createPost(body)
   }
 
   const style =
@@ -27,9 +47,8 @@ export default function FormBlog() {
   const style2 =
     'p-2 w-3/4 font-quicksand-light border-2 border-opacity-hint rounded-xl'
 
-  const handleVideo = () => {
-    setSelect(true)
-  }
+  //   setSelect(true)
+  // }
   const handleLink = () => {
     setSelect(false)
   }
@@ -46,6 +65,7 @@ export default function FormBlog() {
             ¿Que publicacion desea hacer?
           </h1>
           <section className="mt-7 flex flex-wrap justify-around gap-4">
+            {/* 
             <div className={style} id="video">
               <input
                 type="radio"
@@ -76,51 +96,51 @@ export default function FormBlog() {
               />
               <label htmlFor="Podcast"> Podcast</label>
             </div>
+            */}
             <div className={style}>
               <input
                 type="radio"
                 name="tipo"
+                value="Boletin"
                 id="Boletin"
+                defaultChecked={true}
                 onClick={handleLink}
                 {...register('tipo', { required: 'Seleccione una opción' })}
               />
-              <label htmlFor="Boletin informativo"> Boletin informativo</label>
+              <label htmlFor="Boletin"> Boletin informativo</label>
             </div>
             <div className={style}>
               <input
                 type="radio"
                 name="tipo"
                 id="Bienestar"
+                value="Bienestar"
                 onClick={handleLink}
                 {...register('tipo', { required: 'Seleccione una opción' })}
               />
-              <label htmlFor="Bienestar laboral"> Bienestar laboral</label>
+              <label htmlFor="Bienestar"> Bienestar laboral</label>
             </div>
             <div className={style}>
               <input
                 type="radio"
                 name="tipo"
                 id="Proyectos"
+                value="Proyectos"
                 onClick={handleLink}
                 {...register('tipo', { required: 'Seleccione una opción' })}
               />
-              <label htmlFor="Proyectos importantes">
-                {' '}
-                Proyectos importantes
-              </label>
+              <label htmlFor="Proyectos"> Proyectos importantes</label>
             </div>
             <div className={style}>
               <input
                 type="radio"
                 name="tipo"
                 id="Capacitaciones"
+                value="Capacitaciones"
                 onClick={handleLink}
                 {...register('tipo', { required: 'Seleccione una opción' })}
               />
-              <label htmlFor="Capacitaciones de interes">
-                {' '}
-                Capacitaciones de interes
-              </label>
+              <label htmlFor="Capacitaciones"> Capacitaciones de interes</label>
             </div>
             {errors.tipo && (
               <p className="block font-quicksand font-bold text-red-600">
@@ -136,12 +156,12 @@ export default function FormBlog() {
           <div className="w-full rounded-3xl bg-hint-of-red shadow-xl">
             <div className="flex w-full flex-col items-center justify-around gap-5 p-10">
               <div className="flex w-full flex-col justify-around gap-4 md:w-3/4 lg:w-full lg:flex-row">
-                <div className="w-full">
+                <div className="w-full text-center">
                   <label
                     htmlFor="title"
                     className="font-quicksand-light block font-medium"
                   >
-                    Titulo
+                    Titulo*
                   </label>
                   <input
                     type="text"
@@ -157,6 +177,7 @@ export default function FormBlog() {
                     </span>
                   )}
                 </div>
+                {/*
                 {select ? (
                   <div className="w-full">
                     <label
@@ -195,6 +216,7 @@ export default function FormBlog() {
                     )}
                   </div>
                 )}
+                    */}
               </div>
               <div className="flex w-full items-center justify-center">
                 <div className="flex w-full flex-col items-center justify-center">
@@ -202,12 +224,12 @@ export default function FormBlog() {
                     htmlFor="descripcion"
                     className="font-quicksand-light block font-medium"
                   >
-                    Descripcion
+                    Descripcion*
                   </label>
                   <textarea
                     name="descripcion"
                     id=""
-                    className="w-full md:w-3/4 h-40 resize-none p-2 font-quicksand-light border-2 border-opacity-hint rounded-xl"
+                    className="font-quicksand-light h-40 w-full resize-none rounded-xl border-2 border-opacity-hint p-2 md:w-3/4"
                     {...register('descripcion', {
                       required: 'Ingrese una descripcion',
                     })}
@@ -219,18 +241,38 @@ export default function FormBlog() {
                   )}
                 </div>
               </div>
+              <div className="w-full text-center">
+                <label
+                  htmlFor="title"
+                  className="font-quicksand-light block font-medium"
+                >
+                  Imagen (url)
+                </label>
+                <input
+                  type="text"
+                  className={style2}
+                  name="image"
+                  {...register('image')}
+                />
+                {errors.image && (
+                  <span className="block font-quicksand font-bold text-red-600">
+                    Ingrese una imagen
+                  </span>
+                )}
+              </div>
+
               <div className="flex w-full items-center justify-center">
                 <div className="flex w-full flex-col items-center justify-center">
                   <label
                     htmlFor="cuerpo"
                     className="font-quicksand-light block font-medium"
                   >
-                    Cuerpo
+                    Cuerpo*
                   </label>
                   <textarea
                     name="cuerpo"
                     id=""
-                    className="w-full md:w-3/4 h-40 resize-none p-2 font-quicksand-light border-2 border-opacity-hint rounded-xl"
+                    className="font-quicksand-light h-40 w-full resize-none rounded-xl border-2 border-opacity-hint p-2 md:w-3/4"
                     {...register('cuerpo', {
                       required: 'Ingrese un cuerpo para el blog',
                     })}
@@ -247,6 +289,7 @@ export default function FormBlog() {
                   <input
                     type="checkbox"
                     name="premium"
+                    id="premium"
                     {...register('premium')}
                   />
                   <label
@@ -261,6 +304,8 @@ export default function FormBlog() {
                   <input
                     type="checkbox"
                     name="publicado"
+                    id="publicado"
+                    defaultChecked={true}
                     {...register('publicado')}
                   />
                   <label
@@ -275,6 +320,7 @@ export default function FormBlog() {
             </div>
             <div className="flex w-full items-center justify-center">
               <button
+                disabled={isLoading}
                 type="submit"
                 className="my-8 h-12 w-2/6 rounded-xl bg-blue-font font-amenable text-white-font shadow-lg shadow-gray-900"
               >

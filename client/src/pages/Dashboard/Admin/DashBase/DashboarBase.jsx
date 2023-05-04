@@ -15,7 +15,7 @@ const tabs = [
 const DashboarBase = () => {
   const [selectedView, setSelectedView] = useState(1)
   return (
-    <main className="sm-:p-10 bg-slate-200 p-6">
+    <main className="bg-slate-100 p-6">
       <Title>Panel </Title>
 
       <TabList

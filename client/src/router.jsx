@@ -41,6 +41,8 @@ import {
 // import FavedTalents from './pages/Dashboard/Company/Favorites'
 // import CreateOffer from './pages/Dashboard/Company/CreateOffer'
 import NewsDetailPage from './pages/Info/NewsDetail'
+import AdminMediaPage from './pages/Dashboard/Admin/Media/AdminMedia'
+import CreateMediaPage from './pages/Dashboard/Admin/Media/Create'
 // import FormOffer from './components/Forms/FormOffer'
 import Credits from './components/Credits/Credits'
 // import UserProfile from './pages/Dashboard/Professional/Profile'
@@ -191,11 +193,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/admin/media',
-        element: <h1>Acá van noticias y multimedia</h1>,
+        element: <AdminMediaPage />,
       },
       {
-        path: '/dashboard/admin/accounts',
-        element: <h1>Acá va el manejo de cuentas de usuarios</h1>,
+        path: '/dashboard/admin/media/create',
+        element: <CreateMediaPage />,
       },
     ],
   },
