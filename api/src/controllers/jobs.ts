@@ -71,7 +71,7 @@ export async function getJobLocations(req: Request, res: Response) {
 
 export async function getAllJobs(req: Request, res: Response) {
   try {
-    const { key, page, location, area, published } = req.query;
+    const { key, page, location, area, published, sort } = req.query;
     const currentPage = Math.max(Number(page) || 1, 1);
     const peerPage = 10;
     const countOptions: Prisma.JobCountArgs = {};
@@ -110,6 +110,7 @@ export async function getAllJobs(req: Request, res: Response) {
       },
       take: peerPage,
       skip: (currentPage - 1) * peerPage,
+      orderBy: { updatedAt: sort === "asc" ? "asc" : "desc" },
     };
     options.where = {
       ...(key && { title: { contains: key as string, mode: "insensitive" } }),
