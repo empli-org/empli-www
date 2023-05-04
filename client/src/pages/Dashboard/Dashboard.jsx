@@ -7,7 +7,7 @@ export const Dashboard = () => {
   const { user } = useClerk()
   const [verifyAccount, { isLoading, isSuccess, error, data }] =
     useVerifyAccountMutation()
-
+  console.log(data)
   useEffect(() => {
     if (!isLoading && !isSuccess && !error) {
       verifyAccount({ email: user.emailAddresses[0].emailAddress })

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
 /*
 import { useGetJobsQuecountCompanyry } from '@/redux/features/api/jobs/jobApi'
@@ -38,16 +37,17 @@ export const CardLarge = () => {
           isBorder ? 'border-gray border-l-2 border-r-2' : ''
         } duration-300 hover:scale-125 md:text-left`}
       >
+        {' '}
         <h1 className="mb-3 text-center font-quicksand text-xs font-bold uppercase tracking-wider text-gray-400">
-          {title}
-        </h1>
+          {title}{' '}
+        </h1>{' '}
         <h1 className="flex items-center justify-center text-3xl font-bold">
+          {' '}
           {/* usamos .length pensando que exista un objeto cuyo nombre sea info, con una propiedad proffesionals que sea un array,
-           y la cantidad de objetos dentro de ese array seria el numero de professionales registrados en la plataforma.
-           Pero esto puede ser modificado segun venga la informacion */}
-          <PlusIcons className="text-sm" />
-          {data}
-        </h1>
+          y la cantidad de objetos dentro de ese array seria el numero de professionales registrados en la plataforma.
+          Pero esto puede ser modificado segun venga la informacion */}{' '}
+          <PlusIcons className="text-sm" /> {data}{' '}
+        </h1>{' '}
       </div>
     )
   }
