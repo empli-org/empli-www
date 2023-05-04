@@ -7,24 +7,24 @@ import prog from './assets/prog.svg'
 export default function CreditsCards(props) {
   const mailto = `mailto:${props.mail}`
   return (
-    <div className="flex flex-col items-center w-500 h-auto rounded-2xl gap-5 bg-opacity">
+    <div className="flex h-auto w-500 flex-col items-center gap-5 rounded-2xl bg-opacity">
       <img
         src={props.image}
         alt="profilePhoto"
-        className="w-52 h-52 m-4 rounded-full"
+        className="m-4 aspect-square w-32 rounded-full object-cover"
       />
-      <div className="w-full h-full bg-opacity2 flex flex-col items-center gap-5 rounded-2xl">
-        <h1 className="font-amenable text-2xl text-blue-whale font-bold mt-4">
+      <div className="flex h-full w-full flex-col items-center gap-5 rounded-2xl bg-opacity2">
+        <h1 className="mt-4 font-amenable text-2xl font-bold text-blue-whale">
           {props.name}
         </h1>
         <div className="flex w-full justify-around">
-          <div className="flex gap-1 items-center">
+          <div className="flex items-center gap-1">
             <img src={prog} alt="prog" className="w-7" />
             <p className="font-quicksand text-lg font-medium text-blue-whale">
               {props.carrer}
             </p>
           </div>
-          <div className="flex gap-1 items-center">
+          <div className="flex items-center gap-1">
             <img src={prog} alt="prog" className="w-7" />
             <p className="font-quicksand text-lg font-medium text-blue-whale">
               {props.location}
@@ -55,9 +55,9 @@ export default function CreditsCards(props) {
             </p>
           </a>
         </div>
-        <div className="flex w-full justify-center mb-5">
+        <div className="mb-5 flex w-full justify-center">
           <a href={mailto}>
-            <button className="bg-blue-whale w-24 h-10 font-quicksand font-bold rounded-2xl text-hint-of-red">
+            <button className="h-10 w-24 rounded-2xl bg-blue-whale font-quicksand font-bold text-hint-of-red">
               Contactar
             </button>
           </a>
