@@ -72,9 +72,9 @@ export const Footer = () => {
       <p className="font-quicksand-light text-center text-xl lg:mt-5 lg:text-base">
         &copy; 2022 Empli. Todos los derechos reservados
       </p>
-      <p className="text-center font-quicksand-light text-xl lg:mt-5 lg:text-base">
+      <p className="font-quicksand-light text-center text-xl lg:mt-5 lg:text-base">
         Pagina realizada por:{' '}
-        <Link to="/creditos" className="underline">
+        <Link to="/credits" className="underline">
           créditos
         </Link>
       </p>
