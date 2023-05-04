@@ -97,6 +97,7 @@ export default function FormJobs({ onApply }) {
             </div>
               */}
           </div>
+
           <div className="flex w-full items-center justify-center gap-4">
             <div className="flex w-full flex-col items-center gap-1">
               <label

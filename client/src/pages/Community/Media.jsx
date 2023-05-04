@@ -1,10 +1,10 @@
 import { Container } from '@/components'
-
+import { ContainerMedia } from '@/components/Media/ContainerMedia'
 export default function Media() {
   return (
     <Container>
       <h1>Media page</h1>
-      <p>Acá van podcasts, contenido de redes y algunas otras publicaciones</p>
+      <ContainerMedia />
     </Container>
   )
 }

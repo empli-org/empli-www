@@ -190,7 +190,9 @@ export default function FormOffer() {
               </label>
               <select
                 name="lugar"
+
                 defaultValue="-1"
+
                 className="w-11/12 rounded-lg border-2 border-blue-whale p-2 lg:w-1/2"
                 {...register('lugar', { required: 'Seleccione un lugar' })}
               >
