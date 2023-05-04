@@ -37,6 +37,8 @@ import {
 } from 'pages'
 import FormOffer from './components/Forms/FormOffer'
 import NewsDetailPage from './pages/Info/NewsDetail'
+import AdminMediaPage from './pages/Dashboard/Admin/Media/AdminMedia'
+import CreateMediaPage from './pages/Dashboard/Admin/Media/Create'
 
 export const router = createBrowserRouter([
   {
@@ -179,11 +181,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/admin/media',
-        element: <h1>Acá van noticias y multimedia</h1>,
+        element: <AdminMediaPage />,
       },
       {
-        path: '/dashboard/admin/accounts',
-        element: <h1>Acá va el manejo de cuentas de usuarios</h1>,
+        path: '/dashboard/admin/media/create',
+        element: <CreateMediaPage />,
       },
     ],
   },
