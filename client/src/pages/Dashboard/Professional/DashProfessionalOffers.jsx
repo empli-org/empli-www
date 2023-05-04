@@ -154,7 +154,7 @@ export const DashProfessionalOffers = () => {
 
         <section className="grid grid-cols-listing gap-4 py-4">
           {!jobsLoading &&
-            jobs?.map(job => <JobCard key={job.code} job={job} />)}
+            jobs?.map(job => <JobCard key={job.code} job={job} apply={true} />)}
         </section>
 
         {(!countJobs || countJobs === 0) && !jobsLoading && (
