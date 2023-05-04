@@ -35,7 +35,7 @@ export const Footer = () => {
               <Link to="/contact">Contacto</Link>
             </li>
             <li>
-              <Link to="/dashboard">Mi cuenta</Link>
+              <Link to="/dashboard">Perfil</Link>
             </li>
           </ul>
         </div>
@@ -71,6 +71,12 @@ export const Footer = () => {
       </div>
       <p className="font-quicksand-light text-center text-xl lg:mt-5 lg:text-base">
         &copy; 2022 Empli. Todos los derechos reservados
+      </p>
+      <p className="text-center font-quicksand-light text-xl lg:mt-5 lg:text-base">
+        Pagina realizada por:{' '}
+        <Link to="/creditos" className="underline">
+          créditos
+        </Link>
       </p>
       {/* </Container> */}
     </footer>
