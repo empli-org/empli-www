@@ -64,11 +64,29 @@ export const Contact = () => {
     )
   }
 
+  const handleErrors = () => {
+    if (
+      !name.value ||
+      !email.value ||
+      !asunto.value ||
+      !category.value ||
+      !message.value
+    ) {
+      MySwal.fire('Ocurrio un error', 'Revisa todos los campos', 'warning')
+    }
+  }
+
   const onSubmit = data => {
     sendFormData(data, form)
     MySwal.fire('Listo!', 'Ya te contactaremos via email', 'success')
     document.getElementById('form').reset()
   }
+
+  const name = document.getElementById('name')
+  const email = document.getElementById('email')
+  const asunto = document.getElementById('asunto')
+  const category = document.getElementById('category')
+  const message = document.getElementById('message')
 
   return (
     <div className="w-screen">
@@ -272,6 +290,7 @@ export const Contact = () => {
           <button
             type="submit"
             className="mt-8 h-12 w-2/6 rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
+            onClick={handleErrors}
           >
             Enviar
           </button>

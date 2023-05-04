@@ -11,11 +11,13 @@ export const Publication = ({ publicacion }) => {
       whileHover={{ scale: 1.05 }}
       onClick={() => navigate(`/news/${publicacion.id}`)}
     >
-      <img
-        src={publicacion.image}
-        alt={publicacion.title}
-        className="rounded-2xl group-hover:bg-hint-of-red group-hover:shadow-lg group-hover:shadow-black"
-      />
+      {publicacion.image && (
+        <img
+          src={publicacion.image}
+          alt={publicacion.title}
+          className="rounded-2xl group-hover:bg-hint-of-red group-hover:shadow-lg group-hover:shadow-black"
+        />
+      )}
       <div className="backdrop-blur-4xl mt-2 rounded-3xl bg-opacity-60 p-4 shadow-2xl backdrop-filter">
         <h2 className="mb-2 text-xl font-bold text-gray-700 group-hover:text-black">
           {publicacion.title}
