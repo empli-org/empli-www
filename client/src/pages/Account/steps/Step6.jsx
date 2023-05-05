@@ -45,9 +45,9 @@ export const Step6 = () => {
     )
       verifyUser({ email: user.primaryEmailAddress.emailAddress })
 
-    if (data) {
+    if (data && data.success) {
       setAccount(data.account)
-      setAccountType(accountType.name)
+      setAccountType(data.type)
       setOk(true)
     }
   }, [data, creating, created, verifying, verifyError])

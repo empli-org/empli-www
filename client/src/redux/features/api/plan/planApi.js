@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { endpoints, setHeaders, headers, baseQuery } from '../baseConfig'
 
-const { all, link } = endpoints.plans
+const { all, link, base, subs } = endpoints.plans
 
 export const planApi = createApi({
   /* 
@@ -27,7 +27,15 @@ export const planApi = createApi({
 
     getPlan: builder.query({
       query: () => ({
-        url: all,
+        url: `${base}/${all}s`,
+        method: 'GET',
+        mode: 'cors',
+      }),
+      providesTags: ['Plans'],
+    }),
+    getFeedbackPlan: builder.query({
+      query: payment_id => ({
+        url: `${base}/${all}/${subs}/${payment_id}`,
         method: 'GET',
         mode: 'cors',
       }),
@@ -36,7 +44,7 @@ export const planApi = createApi({
     // //transformResponse: res => res.sort((a,b) => b.id - a.id)
     createPlan: builder.mutation({
       query: newPlan => ({
-        url: `${all}/${link}`,
+        url: `${base}/${all}/${link}`,
         method: 'POST',
         body: newPlan,
         mode: 'cors',
@@ -45,7 +53,7 @@ export const planApi = createApi({
     }),
     updatePlan: builder.mutation({
       query: updatePlan => ({
-        url: `${all}/${updatePlan.id}/`,
+        url: `${base}/${all}/${updatePlan.id}/`,
         method: 'PUT',
         body: updatePlan,
         mode: 'cors',
@@ -59,5 +67,7 @@ export const {
   useUpdatePlanMutation,
   useCreatePlanMutation,
   useGetPlanQuery,
+  useGetFeedbackPlanQuery,
+  useLazyGetFeedbackPlanQuery,
   useLazyGetPlanQuery,
 } = planApi

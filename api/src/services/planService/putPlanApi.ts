@@ -43,3 +43,18 @@ export const putPlanApi = async (id, pref) => {
 		return false;
 	}
 };
+
+// Orbit Mensual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487dc415e0187e4a3884e0481 ORBM
+// Galaxy Mensual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487e086860187e4b03d8a0228 GXYM
+
+// Orbit Anual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487e086860187e4b9eee7022f ORBA
+// Galaxy Anual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487dc415e0187e4bd3831048f GXYA
+
+// Horizons Mensual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487dc415e0187e4be6bda0491 HOZM
+// Odyssey Mensual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487e0f47f0187e4c72e93022a ODYM
+
+// Horizons Anual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487e086860187e4ca9b0b0233 HOZA
+// Odyssey Anual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487dc415e0187e4cb8c800493 ODYA
+
+
+// https://empli-org.netlify.app/payments/plan/feedback

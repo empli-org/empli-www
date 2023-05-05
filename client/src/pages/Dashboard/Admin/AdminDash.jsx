@@ -5,9 +5,5 @@ import DashboarBase from './DashBase/DashboarBase'
 // import '@tremor/react/dist/esm/tremor.css'
 
 export const AdminDash = () => {
-  return (
-    <div>
-      <DashboarBase />
-    </div>
-  )
+  return <DashboarBase />
 }
