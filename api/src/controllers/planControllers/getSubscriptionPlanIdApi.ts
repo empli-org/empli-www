@@ -22,7 +22,6 @@ export const getMpSubscriptionPlanIdApi = async (
       });
     }
   } catch (err) {
-    console.log(err);
     res.status(500).json({
       error: true,
       msg: "Hubo un error al obtener el id del plan",

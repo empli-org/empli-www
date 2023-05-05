@@ -8,7 +8,6 @@ export const putPlanApi = async (id, pref) => {
   // * Funcion que edita los planes y actualiza la base de datos
   let endpoint = `/preapproval_plan/${id}`;
   let url = `${baseUrl}${endpoint}`;
-  console.log(url);
   try {
     const body = {
       binari_mode: true,

@@ -8,7 +8,6 @@ export const getPlanLinkApi = async (pref) => {
   // * empresas: Starter ,Engine ,Ascend
   let endpoint = "/preapproval_plan";
   let url = `${baseUrl}${endpoint}`;
-  console.log(url);
   try {
     const body = {
       binari_mode: true,

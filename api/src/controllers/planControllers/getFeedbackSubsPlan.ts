@@ -17,7 +17,6 @@ export const getFeedbackSubsPlan = async (req: Request, res: Response) => {
       });
     }
   } catch (err) {
-    console.log(err);
     res.status(500).json({
       error: true,
       msg: "Hubo un error al obtener la informacion del pago",
