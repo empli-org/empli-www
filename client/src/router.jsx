@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Navigate, Outlet, createBrowserRouter } from 'react-router-dom'
+import { Link, Navigate, Outlet, createBrowserRouter } from 'react-router-dom'
 import { Layout } from 'components'
 import {
   Landing,
@@ -48,6 +48,27 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
+      },
+      {
+        path: 'payments/plan/feedback',
+        element: (
+          <div className="flex flex-col items-center justify-center py-8">
+            <div className="rounded-xl bg-hint-of-red p-8 shadow">
+              <h1 className="text-xl font-bold">
+                Gracias por actualizar tu sub
+              </h1>
+              <p className="text-lg text-slate-600">
+                Disfruta de características y beneficios que tenemos para tí
+              </p>
+            </div>
+            <Link
+              className="mt-8 rounded-lg bg-blue-whale px-6 py-4 font-medium text-white"
+              to="/dashboard"
+            >
+              Volver a cuenta
+            </Link>
+          </div>
+        ),
       },
       {
         path: 'info/empresas',
