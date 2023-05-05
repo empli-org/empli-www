@@ -3,7 +3,7 @@ import { data } from './data'
 import { useGetPlanQuery } from '@/redux/features/api/plan/planApi'
 import { PricingCard } from './PricingCard'
 
-export const PricingCompany = () => {
+export const PricinTalent = () => {
   const [stn, setStn] = useState({ amount: 0, link: '' })
   const [prm, setPrm] = useState({ amount: 0, link: '' })
   const {
@@ -11,17 +11,16 @@ export const PricingCompany = () => {
     isLoading,
     isFetching,
     isSuccess,
-    isError,
   } = useGetPlanQuery()
-  const { company } = data
-  const { free, standard, premium } = company
+  const { talent } = data
+  const { free, standard, premium } = talent
 
   useEffect(() => {
     if (isSuccess && plansData != null) {
       plansData.list.filter(
         ({ auto_recurring, external_reference, init_point }) => {
           // console.log(auto_recurring)
-          if (external_reference === 'HOZM') {
+          if (external_reference === 'ORBM') {
             // stn.amount = auto_recurring.transaction_amount
             //  stn.link= init_point
             setStn({
@@ -29,7 +28,7 @@ export const PricingCompany = () => {
               link: init_point,
             })
           }
-          if (external_reference === 'ODYM') {
+          if (external_reference === 'GXYM') {
             setPrm({
               amount: auto_recurring.transaction_amount,
               link: init_point,
@@ -69,5 +68,3 @@ export const PricingCompany = () => {
     </div>
   )
 }
-
-

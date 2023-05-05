@@ -1,14 +1,9 @@
 import { useState } from 'react'
-import { PricingCard, PricingCompany } from 'pages'
-import { PricinTalent } from './PricingEmpresa'
-import { data } from './data'
-import { CheckOut } from '@/components/MercadoPago/CheckOut'
-import { useGetPlanQuery } from '@/redux/features/api/plan/planApi'
+import { PricingCompany } from 'pages'
+import { PricinTalent } from "./PricinTalent"
 import { Button } from '@/components'
 
 export default function PricingPage() {
-  const { data: plansData = [], isLoading, isSuccess } = useGetPlanQuery()
-  const { company, talent } = data
   const [selected, setSelected] = useState('empresa')
 
   const handleEmpresaClick = () => {
@@ -21,7 +16,6 @@ export default function PricingPage() {
 
   return (
     <>
-      <CheckOut />
       <div className="flex justify-center pt-7">
         <h1 className="text-3xl font-quicksand font-bold uppercase">
           Elige tu plan de subscripción
