@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ComboBox } from 'components'
-import { useSearchCareersQuery } from '@/redux/features/api/base'
+import { useSearchCareersQuery } from '@/redux/features/api/talent/talentApi'
 
 export const CareerSearch = ({ onSelect, onEnter }) => {
   const [query, setQuery] = useState('')

@@ -9,4 +9,7 @@ export default defineConfig({
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
+  server: {
+    routes: [{ path: '/sign-in', redirect: '/' }],
+  },
 })

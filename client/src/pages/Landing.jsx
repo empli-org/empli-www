@@ -1,130 +1,156 @@
-import { MiniCard, CardBox, Container } from '@/components'
-import { Link } from 'react-router-dom'
+// @ts-nocheck
+import {
+  MiniCard,
+  CardBox,
+  Container,
+  CardLarge,
+  SlideCompanies,
+  InfoCard,
+  TextHero,
+  ImageHero,
+  SectionTitle,
+  Button,
+  SectionQuote,
+} from 'components'
+import lupa from 'assets/img/lupa.webp'
+import pj from 'assets/img/persona2.png'
+import { Welcome } from './Dashboard/Wellcome'
+import { FeedBackPayment } from './Account/Premium/FeedbackPayment'
 
 export const Landing = () => {
-  // Data sirve unicamente para probar que las cards,
-  // porque lo que se quiere es que la informacion que utilizan las cards vengan por props
   const data = [
     {
       title: 'Incoingroup',
+      name: 'Carlos J. Gonzalez',
       subtitle: 'Buenos Aires, ARG',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 1,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      title: 'Open',
+      name: 'Carlos J. Gonzalez',
+      subtitle: 'Mendoza, ARG',
+      rol: 'Albañil',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.labsaenzrenauld.com/wp-content/uploads/2020/10/Perfil-hombre-ba%CC%81sico_738242395.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      title: 'Historical',
+      name: 'Carlos J. Gonzalez',
+      subtitle: 'Chaco, ARG',
+      rol: 'Ingeniero',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/02/posedepie15-scaled.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'Nosy',
+      subtitle: 'Santa Cruz, ARG',
+      name: 'Carlos J. Gonzalez',
       rol: 'Arquitecto',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 1,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/02/apoyado6-2-scaled.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      title: 'Helpfull',
+      name: 'Carlos J. Gonzalez',
+      subtitle: 'Salta, ARG',
+      rol: 'Obrero',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://imagenesparaperfildewasap.com/wp-content/uploads/imagenes-de-hombres-para-descargar.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'Immediate',
+      subtitle: 'Catamarca, ARG',
       rol: 'Arquitecto',
+      name: 'Carlos J. Gonzalez',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://imagenesparaperfildewasap.com/wp-content/uploads/imagenes-de-hombres-serios.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'American',
+      subtitle: 'La Pampa, ARG',
       rol: 'Arquitecto',
-      description: 'obtener la oportunidad de trabajar con una gran empresa',
-      amount: 1,
-      time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
-    },
-    {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
-      rol: 'Arquitecto',
+      name: 'Carlos J. Gonzalez',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 2,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://imagenesparaperfildewasap.com/wp-content/uploads/imagenes-de-hombres-sexys.jpg',
     },
     {
-      title: 'Incoingroup',
-      subtitle: 'Buenos Aires, ARG',
+      title: 'Bitter',
+      subtitle: 'Cordoba, ARG',
       rol: 'Arquitecto',
+      name: 'Carlos J. Gonzalez',
       description: 'obtener la oportunidad de trabajar con una gran empresa',
       amount: 3,
       time: '1 hora',
-      logo: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/821.jpg',
+      logo: 'https://www.blogdelfotografo.com/wp-content/uploads/2020/02/sentado10-scaled.jpg',
     },
   ]
 
   return (
     <Container>
-      <div className="mx-auto max-w-screen-lg py-12">
-        <div className="flex flex-col">
-          <h1 className="text-5xl font-bold">
-            Encuentra{' '}
-            <span className="relative inline-block before:absolute  before:inset-x-0 before:-bottom-2 before:block before:h-7 before:scale-x-[110%] before:rounded-lg before:bg-green-400">
-              <span className="relative ">La Mejor</span>
-            </span>
-            <br />
-            Oferta de Trabajo
-          </h1>
-        </div>
-        <div className="mt-14">
-          <h2 className="mt-5 text-xl">
-            Encontrar trabajo puede ser un proceso difícil. En <br></br>nuestra
-            red, contamos con una gran cantidad de <br></br>empresas que buscan
-            personas talentosas como <br></br>tú para unirse a su equipo.{' '}
-          </h2>
-          <div className="flex items-center gap-4 py-6">
-            <Link
-              to="/offers"
-              className="rounded-lg bg-slate-800 px-6 py-4 text-white"
-            >
-              Ver Ofertas
-            </Link>
-            <Link
-              className="rounded-lg bg-slate-800 px-6 py-4 text-white"
-              to="/talents"
-            >
-              Ver Profesionales
-            </Link>
-          </div>
-        </div>
+      {/* -- HERO -- */}
+
+      <div className="flex">
+        <TextHero />
+        <ImageHero />
       </div>
-      <CardBox data={data} />
-      <div className="p2 w-11-12 m-6 flex flex-wrap justify-between rounded-s-2xl shadow-lg">
+      {/* COUNTER BAR*/}
+      <CardLarge />
+      {/* SLIDE COMPANIES */}
+      <div className="mt-10 h-auto w-full shadow-sm ">
+        <SlideCompanies />
+      </div>
+
+      <InfoCard
+        image={pj}
+        title="¿Buscas una forma fácil de encontrar trabajo en tu campo?"
+        description="Nuestra plataforma de trabajo conecta a profesionales como tú con
+              una amplia variedad de oportunidades laborales. Simplemente crea
+              tu perfil, comparte tus habilidades y experiencia, y comienza a
+              postularte a los trabajos que más te interesen. Recibe alertas de
+              trabajos relevantes y solicitudes de trabajo y compara las ofertas
+              de trabajo en un solo lugar."
+      />
+      <InfoCard
+        image={lupa}
+        title="¿Buscas a los mejores profesionales para tus proyectos y
+                trabajos?"
+        description="Nuestra plataforma de trabajo te permite publicar ofertas de
+                trabajo de manera fácil y conveniente, lo que te permite llegar
+                a una amplia audiencia de candidatos calificados. Utiliza
+                nuestras herramientas para evaluar y comparar a los candidatos y
+                encontrar al mejor talento para tus necesidades empresariales.
+                Con nuestra plataforma, encontrar el talento adecuado nunca ha
+                sido más fácil."
+        imageOnRight={true}
+        background="gray"
+      />
+
+      <div className="max-w-screen-xl justify-center rounded-3xl shadow-lg">
+        <CardBox data={data} />
+      </div>
+      <SectionTitle
+        textColor="prussian-blue"
+        title="Nuevas Ofertas"
+        subtitle="Mas de +200 ofertas laborales por dia"
+        imgColor="#53917b"
+      />
+      <div className="mx-auto flex h-auto max-w-screen-xl flex-wrap justify-center">
         {data.map(
           (
             { logo, title, subtitle, time, amount, rol, description },
@@ -146,6 +172,17 @@ export const Landing = () => {
             )
           },
         )}
+        <div className="m-10 flex w-full justify-center">
+          <Button link="/talents" title="Ver mas" color="black" />
+        </div>
+      </div>
+      <div></div>
+
+      <div className="flexc w-full bg-[#f5e4cb] p-10">
+        <SectionQuote
+          text="Haz que tu proyecto sea un éxito al conectarte con los profesionales independientes más valiosos en Empli."
+          size="9xl"
+        />
       </div>
     </Container>
   )

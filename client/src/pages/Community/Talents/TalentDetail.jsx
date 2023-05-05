@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container'
-import { useGetTalentByIdQuery } from '@/redux/features/api/base'
+import { useGetTalentByIdQuery } from '@/redux/features/api/talent/talentApi'
 import clsx from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
 

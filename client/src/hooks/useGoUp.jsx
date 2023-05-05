@@ -35,7 +35,7 @@ export const useGoUp = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
-          className="fixed bottom-10 right-10 z-50 rounded-md bg-gray-900 p-2 text-white shadow-lg"
+          className="fixed bottom-10 right-10 z-50 animate-bounce rounded-md bg-gray-900 p-2 text-white shadow-lg"
         >
           <RiArrowUpSLine />
         </motion.button>

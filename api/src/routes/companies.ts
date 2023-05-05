@@ -8,7 +8,7 @@ import {
   getCompanyOffers,
   getFavProfiles,
   publishOffer,
-} from "../controllers/companies";
+} from "../controllers/companiesControllers/companies";
 
 export function getCompaniesRoutes() {
   const router = express.Router();

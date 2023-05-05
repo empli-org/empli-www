@@ -3,11 +3,11 @@ import {
   createTalent,
   getAllSkills,
   getAllTalents,
+  getCareers,
   getSavedOffers,
   getTalentById,
   saveOffer,
-} from "../controllers/talents";
-import { getCareers } from "../controllers/talents";
+} from "../controllers/talentsControllers/talents";
 
 export function getTalentRoutes() {
   const router = express.Router();

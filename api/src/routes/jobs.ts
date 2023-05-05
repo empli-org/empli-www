@@ -6,8 +6,8 @@ import {
   getJobByCode,
   getJobLocations,
   publishJob,
-  searchJobsByKey,
-} from "../controllers/jobs";
+} from "../controllers/jobsControllers/jobs";
+import { searchJobsByKey } from "../controllers/jobsControllers/searchJobsByKey";
 
 export function getJobsRoutes() {
   const router = express.Router();

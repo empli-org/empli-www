@@ -1,6 +1,7 @@
 import axios from "axios";
 import { header } from "../../utils/headers";
-import { baseUrl, prisma } from "./PlanServiceAPI";
+import { baseUrl } from "./PlanServiceAPI";
+import db from "../../utils/db";
 
 // * Editar Plan
 
@@ -29,7 +30,7 @@ export const putPlanApi = async (id, pref) => {
     const linkCheckout = mp && mp.data && mp.data.init_point;
     mp &&
       mp.data &&
-      (await prisma.plans.update({
+      (await db.plans.update({
         where: { id },
         data: {
           plan: mp.data,

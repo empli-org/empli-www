@@ -1,6 +1,5 @@
-import { Request, Response } from "express";
+import express, { Request, Response } from "express";
 import { getJobsRoutes } from "./jobs";
-import express from "express";
 import { getTalentRoutes } from "./talents";
 import { getCompaniesRoutes } from "./companies";
 import { getAccountRoutes } from "./account";

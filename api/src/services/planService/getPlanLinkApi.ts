@@ -1,6 +1,7 @@
 import axios from "axios";
 import { header } from "../../utils/headers";
-import { baseUrl, prisma } from "./PlanServiceAPI";
+import { baseUrl } from "./PlanServiceAPI";
+import db from "../../utils/db";
 
 export const getPlanLinkApi = async (pref) => {
   // * Funcion que genera el link de creacion de plan
@@ -31,7 +32,7 @@ export const getPlanLinkApi = async (pref) => {
     // * Guarda el response  en la base de datos
     mp &&
       mp.data &&
-      (await prisma.plans.create({
+      (await db.plans.create({
         data: {
           plan: mp.data,
         },

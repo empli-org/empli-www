@@ -5,8 +5,8 @@ import {
   pauseCompany,
   pauseTalent,
 } from "../controllers/admin";
-import { getAllTalents } from "../controllers/talents";
-import { getAllCompanies } from "../controllers/companies";
+import { getAllTalents } from "../controllers/talentsControllers/talents";
+import { getAllCompanies } from "../controllers/companiesControllers/companies";
 
 export function getAdminRoutes() {
   const router = express.Router();

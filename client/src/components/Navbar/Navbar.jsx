@@ -1,54 +1,64 @@
 import { Link } from 'react-router-dom'
-import EmpliLogo from '@/components/ui/brand/EmpliLogo'
-import { Container } from '@/components/ui/Container'
+import { Button, Container, EmpliLogo } from 'components'
 import { MenuItem } from './MenuItem'
-import { CommunityItems, CompanyItems, TalentItems } from './NavbarItems'
+import { CommunityItems, ContactItems } from './NavbarItems'
 import MobileMenu from './MobileMenu'
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 export const Navbar = () => {
   return (
-    <header className="w-full bg-hint-of-red">
+    <header className="w-full bg-slate-100">
       <Container>
         <nav className="flex w-full items-center justify-between shadow-sm">
           <div className="flex w-full items-center justify-between py-6">
+            <Link to="/" className="w-24 text-gulf-stream">
+              <EmpliLogo />
+            </Link>
             <div className="flex items-center gap-16">
-              <Link to="/" className="w-24 text-gulf-stream">
-                <EmpliLogo />
-              </Link>
-              <ul className="hidden items-stretch gap-10 text-sm text-gray-700 lg:flex">
-                <MenuItem label="Empresas">
-                  <MenuItem.Body>
-                    <CompanyItems />
-                  </MenuItem.Body>
-                </MenuItem>
-                <MenuItem label="Profesionales">
-                  <MenuItem.Body>
-                    <TalentItems />
-                  </MenuItem.Body>
-                </MenuItem>
+              <ul className="hidden items-stretch gap-10 font-quicksand text-sm text-gray-700 lg:flex">
+                <li className="py-2 font-bold uppercase tracking-widest">
+                  <Link to="/info/empresas">Empresas</Link>
+                </li>
+                <li className="py-2 font-bold uppercase tracking-widest">
+                  <Link to="/info/professionals">Profesionales</Link>
+                </li>
                 <MenuItem label="Comunidad">
                   <MenuItem.Body>
                     <CommunityItems />
                   </MenuItem.Body>
                 </MenuItem>
-                <li className="py-2">
+                <li className="py-2 font-bold uppercase tracking-widest">
                   <Link to="/pricing">Precios</Link>
                 </li>
-                <li className="py-2">
-                  <Link to="/contact">Contacto</Link>
-                </li>
+                <MenuItem label="Contacto">
+                  <MenuItem.Body>
+                    <ContactItems />
+                  </MenuItem.Body>
+                </MenuItem>
               </ul>
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
-              <Link className="p-3" to="/login">
-                Ingresar
-              </Link>
-              <Link
-                className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
-                to="/register"
-              >
-                Crear Cuenta
-              </Link>
+              <SignedOut>
+                <Button
+                  link="/auth/login"
+                  color="black"
+                  title="Acceder"
+                  background={undefined}
+                />
+                <Button
+                  link="/auth/register"
+                  title="Unirse"
+                  background="black"
+                />
+              </SignedOut>
+              <SignedIn>
+                <Link
+                  to="/dashboard"
+                  className="rounded-md bg-blue-whale p-3 text-white hover:opacity-90"
+                >
+                  Mi cuenta
+                </Link>
+              </SignedIn>
             </div>
             <div className="flex text-sm lg:hidden">
               <MobileMenu />
@@ -59,5 +69,3 @@ export const Navbar = () => {
     </header>
   )
 }
-
-export default Navbar

@@ -1,8 +1,9 @@
-/* eslint-disable prettier/prettier */
-import React from 'react'
-import { MiniCard } from 'components'
+// @ts-nocheck
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
+import { Button, CardPro, SectionTitle } from 'components'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
-//We can received data from props or bring from global state
 export const CardBox = ({ data }) => {
   const gruposDeDiez = data.reduce((accumulator, obj, index) => {
     const indexGroup = Math.floor(index / 10)
@@ -16,33 +17,48 @@ export const CardBox = ({ data }) => {
     return accumulator
   }, [])
 
+  const items = gruposDeDiez[0].map((obj, index) => (
+    <div key={index} className="h-50 z-10 flex w-64 flex-auto">
+      <CardPro rol={obj.rol} name={obj.name} logo={obj.logo} />
+    </div>
+  ))
+
   return (
-    <div className="m-5 flex w-full flex-col rounded-3xl bg-gray-900 p-10">
-      <div className="m-5 flex flex-col items-end justify-end p-5 text-white">
-        <div className="text-2xl font-bold">
-          <h1>Top Profesionales</h1>
-        </div>
-        <div>
-          <span>Mas de 200 ofertas por dia</span>
-        </div>
+    <div className="relative flex h-4/6 w-full flex-col rounded-3xl bg-gray-900 p-2">
+      <div className="mx-10">
+        <SectionTitle
+          imageOnRight={true}
+          title="Top Talents"
+          subtitle="Mas de 200 ofertas profesionales por dia"
+          imgColor="#F6F2EC"
+          textColor="hint-of-red"
+        />
       </div>
-      <div className="flex w-full overflow-x-scroll p-5">
-        {gruposDeDiez[0].map((obj, index) => (
-          <div key={index} className="flex-shrink-0">
-            <MiniCard
-              subtitle={obj.subtitle}
-              amount={null}
-              rol={obj.rol}
-              time={null}
-              title={obj.title}
-              description={obj.descripcion}
-              logo={obj.logo}
-            />
-          </div>
-        ))}
+      <AliceCarousel
+        items={items}
+        autoPlay
+        disableDotsControls
+        autoPlayInterval={1000}
+        infinite
+        autoWidth
+        swipeExtraPadding={2}
+        renderPrevButton={() => {
+          // @ts-ignore
+          return <Button title={<FaArrowLeft />} />
+        }}
+        renderNextButton={() => {
+          // @ts-ignore
+          return <Button title={<FaArrowRight />} />
+        }}
+        mouseTracking
+        responsive={{
+          820: { items: 4 },
+        }}
+      />
+
+      <div className="absolute bottom-2 right-2 flex justify-end p-2 ">
+        <Button link="/talents" title="ver mas" />
       </div>
     </div>
   )
 }
-
-export default CardBox
