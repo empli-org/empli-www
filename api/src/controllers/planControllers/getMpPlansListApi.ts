@@ -21,6 +21,7 @@ export const getMpPlansListApi = async (req: Request, res: Response) => {
     res.status(500).json({
       error: true,
       msg: "Hubo un error al obtener la lista de planes",
+      e: err,
     });
   }
 };
