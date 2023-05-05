@@ -1,50 +1,12 @@
-import { useEffect, useState } from 'react'
 import { data } from './data'
-import { useGetPlanQuery } from '@/redux/features/api/plan/planApi'
 import { PricingCard } from './PricingCard'
 
-export const PricingCompany = () => {
-  const [stn, setStn] = useState({ amount: 0, link: '' })
-  const [prm, setPrm] = useState({ amount: 0, link: '' })
-  const {
-    data: plansData,
-    isLoading,
-    isFetching,
-    isSuccess,
-    isError,
-  } = useGetPlanQuery()
+export const PricingCompany = ({ stn, prm }) => {
   const { company } = data
   const { free, standard, premium } = company
 
-  useEffect(() => {
-    if (isSuccess && plansData != null) {
-      plansData.list.filter(
-        ({ auto_recurring, external_reference, init_point }) => {
-          // console.log(auto_recurring)
-          if (external_reference === 'HOZM') {
-            // stn.amount = auto_recurring.transaction_amount
-            //  stn.link= init_point
-            setStn({
-              amount: auto_recurring.transaction_amount,
-              link: init_point,
-            })
-          }
-          if (external_reference === 'ODYM') {
-            setPrm({
-              amount: auto_recurring.transaction_amount,
-              link: init_point,
-            })
-          }
-        },
-      )
-    }
-  }, [isSuccess, plansData, stn, prm])
-
-  if (isLoading || isFetching)
-    return <div className="flex w-full items-center">Loading....</div>
-
   return (
-    <div className="px-auto items-center flex md:justify-center flex-col lg:flex-row  ">
+    <div className="px-auto flex flex-col items-center md:justify-center lg:flex-row  ">
       <PricingCard
         title={free.plan_name}
         popular={free.plan_type}
@@ -70,48 +32,12 @@ export const PricingCompany = () => {
   )
 }
 
-export const PricinTalent = () => {
-  const [stn, setStn] = useState({ amount: 0, link: '' })
-  const [prm, setPrm] = useState({ amount: 0, link: '' })
-  const {
-    data: plansData,
-    isLoading,
-    isFetching,
-    isSuccess,
-    isError,
-  } = useGetPlanQuery()
+export const PricinTalent = ({ stn, prm }) => {
   const { talent } = data
   const { free, standard, premium } = talent
 
-  useEffect(() => {
-    if (isSuccess && plansData != null) {
-      plansData.list.filter(
-        ({ auto_recurring, external_reference, init_point }) => {
-          // console.log(auto_recurring)
-          if (external_reference === 'ORBM') {
-            // stn.amount = auto_recurring.transaction_amount
-            //  stn.link= init_point
-            setStn({
-              amount: auto_recurring.transaction_amount,
-              link: init_point,
-            })
-          }
-          if (external_reference === 'GXYM') {
-            setPrm({
-              amount: auto_recurring.transaction_amount,
-              link: init_point,
-            })
-          }
-        },
-      )
-    }
-  }, [isSuccess, plansData, stn, prm])
-
-  if (isLoading || isFetching)
-    return <div className="flex w-full items-center">Loading....</div>
-
   return (
-    <div className="px-auto items-center flex md:justify-center flex-col lg:flex-row  ">
+    <div className="px-auto flex flex-col items-center md:justify-center lg:flex-row  ">
       <PricingCard
         title={free.plan_name}
         popular={free.plan_type}
