@@ -212,6 +212,20 @@ model Postulation {
   talent    Talent?  @relation(fields: [talentId], references: [id])
 }
 
+model Payment {
+  id        String @id @default(cuid())
+  paymentId String
+  plansId   Int?
+  Plans     Plans? @relation(fields: [plansId], references: [id])
+}
+
+model Plans {
+  id         Int       @id @default(autoincrement())
+  plan       Json[]
+  created_at DateTime  @default(now())
+  payments   Payment[]
+}
+
 enum JobType {
   FULLTIME
   PARTIME

@@ -8,6 +8,7 @@ import { getNewsRoutes } from "./news";
 import { getMediaRoutes } from "./media";
 import { getPostulationRoutes } from "./postulations";
 import { getAdminRoutes } from "./admin";
+import { getPaymentRoutes } from "./payment";
 
 export function getRoutes() {
   const router = express.Router();
@@ -20,6 +21,7 @@ export function getRoutes() {
   router.use("/media", getMediaRoutes());
   router.use("/postulations", getPostulationRoutes());
   router.use("/admin", getAdminRoutes());
+  router.use("/payments", getPaymentRoutes());
 
   router.use(function (_req: Request, res: Response) {
     res.status(404).json({ error: "Sorry! Could not found page." });
