@@ -9,28 +9,42 @@ datasource db {
   // directUrl = env("DIRECT_URL")
 }
 
+model Admin {
+  id        String   @id @default(cuid())
+  userEmail String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Talent {
   id             String          @id @default(cuid())
-  name           String
-  lastname       String
-  age            Int
+  name           String?
+  age            Int?
   image          String?
   plan           Plan?           @default(FREE)
   verified       Boolean         @default(false)
   userEmail      String?         @unique
-  tuitionNumber  Int
+  tuitionNumber  Int?
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
   careerId       String?
+  firstname      String?
+  paused         Boolean         @default(false)
+  firstName      String?
+  bio            String?
   contactInfo    ContactInfo?
   experienceInfo ExperienceInfo?
+  postulations   Postulation[]
   skills         Skill[]
-  career         Career?         @relation(fields: [careerId], references: [id], onDelete: SetNull)
+  career         Career?         @relation(fields: [careerId], references: [id])
+  favedBy        Company[]       @relation("CompanyToTalent")
+  saved          Job[]           @relation("JobToTalent")
 }
 
 model ExperienceInfo {
   id         String      @id @default(cuid())
   talentId   String      @unique
+  time       Float?
   talent     Talent      @relation(fields: [talentId], references: [id], onDelete: Cascade)
   projects   Project[]
   references Reference[]
@@ -38,7 +52,7 @@ model ExperienceInfo {
 
 model Career {
   id      String   @id @default(cuid())
-  name    String
+  name    String   @unique
   talents Talent[]
 }
 
@@ -52,13 +66,13 @@ model Project {
   verified     Boolean         @default(false)
   jobAreaId    String?
   experienceId String?
-  experience   ExperienceInfo? @relation(fields: [experienceId], references: [id], onDelete: SetNull)
-  area         JobArea?        @relation(fields: [jobAreaId], references: [id], onDelete: SetNull)
+  experience   ExperienceInfo? @relation(fields: [experienceId], references: [id])
+  area         JobArea?        @relation(fields: [jobAreaId], references: [id])
 }
 
 model Location {
   id          String        @id @default(cuid())
-  city        String
+  city        String        @unique
   country     String
   zip         String?
   ContactInfo ContactInfo[]
@@ -72,7 +86,7 @@ model SocialInfo {
   linkedin      String?
   website       String?
   contactInfoId String      @unique
-  ContactInfo   ContactInfo @relation(fields: [contactInfoId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  ContactInfo   ContactInfo @relation(fields: [contactInfoId], references: [id], onDelete: Cascade)
 }
 
 model ContactInfo {
@@ -86,7 +100,7 @@ model ContactInfo {
   talentId   String?     @unique
   companyId  String?     @unique
   company    Company?    @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  location   Location?   @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  location   Location?   @relation(fields: [locationId], references: [id])
   talent     Talent?     @relation(fields: [talentId], references: [id], onDelete: Cascade)
   social     SocialInfo?
 }
@@ -101,16 +115,18 @@ model JobArea {
 model Company {
   id          String       @id @default(cuid())
   name        String
-  description String
+  description String?
   plan        Plan?        @default(FREE)
   userEmail   String?      @unique
   categoryId  String?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+  paused      Boolean      @default(false)
   category    Category?    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   contactInfo ContactInfo?
   jobs        Job[]
   references  Reference[]
+  favorites   Talent[]     @relation("CompanyToTalent")
 }
 
 model Category {
@@ -120,22 +136,26 @@ model Category {
 }
 
 model Job {
-  id          String    @id @default(cuid())
-  code        String    @unique
-  title       String
-  description String
-  area        String
-  type        String
-  body        String
-  requiredExp Int
-  minRate     Float?
-  maxRate     Float?
-  companyId   String
-  locationId  String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  location    Location? @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  id           String        @id @default(cuid())
+  code         String        @unique
+  title        String
+  description  String?
+  area         String?
+  body         String?
+  requiredExp  Int?
+  minRate      Float?
+  maxRate      Float?
+  companyId    String
+  locationId   String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  published    Boolean       @default(true)
+  type         JobType?      @default(FULLTIME)
+  image        String?
+  company      Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  location     Location?     @relation(fields: [locationId], references: [id])
+  postulations Postulation[]
+  savedBy      Talent[]      @relation("JobToTalent")
 }
 
 model Reference {
@@ -143,8 +163,8 @@ model Reference {
   experienceId String?
   companyId    String?
   description  String
-  company      Company?        @relation(fields: [companyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  experience   ExperienceInfo? @relation(fields: [experienceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  company      Company?        @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  experience   ExperienceInfo? @relation(fields: [experienceId], references: [id], onDelete: Cascade)
 }
 
 model Skill {
@@ -152,14 +172,52 @@ model Skill {
   name        String
   description String?
   talentId    String?
-  talent      Talent? @relation(fields: [talentId], references: [id], onDelete: SetNull)
+  talent      Talent? @relation(fields: [talentId], references: [id])
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  image       String?
+  title       String
+  description String
+  category    String?
+  body        String
+  premium     Boolean  @default(false)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Media {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  url         String
+  category    String?
+  image       String?
+  premium     Boolean  @default(false)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Postulation {
+  id        String   @id @default(cuid())
+  talentId  String?
+  jobId     String?
+  status    Status   @default(PENDING)
+  feedback  String?
+  cretedAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  job       Job?     @relation(fields: [jobId], references: [id])
+  talent    Talent?  @relation(fields: [talentId], references: [id])
 }
 
 model Payment {
   id        String @id @default(cuid())
   paymentId String
-  Plans     Plans? @relation(fields: [plansId], references: [id])
   plansId   Int?
+  Plans     Plans? @relation(fields: [plansId], references: [id])
 }
 
 model Plans {
@@ -169,8 +227,19 @@ model Plans {
   payments   Payment[]
 }
 
+enum JobType {
+  FULLTIME
+  PARTIME
+}
+
 enum Plan {
   FREE
-  PRO
+  PREMIUM
   ADVANCED
+}
+
+enum Status {
+  PENDING
+  REJECTED
+  ACCEPTED
 }

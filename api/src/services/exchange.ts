@@ -11,15 +11,15 @@ const apiUrl = `${excUrl}latest.json?app_id=${apiKey}&symbols=COP`;
 
 // * Obtener la tasa de cambio USD/COP en tiempo real
 export const getMoneyConvert = async () => {
-	try {
-		const { data } = await axios.get(apiUrl);
-		const rate = data.rates.COP;
-		const priceUSD = 3; // Precio en dólares
-		const priceCOP = priceUSD * rate; // Precio en pesos colombianos
-		console.log(`La tasa de cambio actual de USD/COP es: ${rate}`);
-		console.log(`El precio en pesos colombianos es: ${priceCOP}`);
-        return priceCOP
-	} catch (e) {
-		return e
-	}
+  try {
+    const { data } = await axios.get(apiUrl);
+    const rate = data.rates.COP;
+    const priceUSD = 3; // Precio en dólares
+    const priceCOP = priceUSD * rate; // Precio en pesos colombianos
+    console.log(`La tasa de cambio actual de USD/COP es: ${rate}`);
+    console.log(`El precio en pesos colombianos es: ${priceCOP}`);
+    return priceCOP;
+  } catch (e) {
+    return e;
+  }
 };
