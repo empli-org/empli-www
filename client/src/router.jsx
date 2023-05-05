@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { Outlet, createBrowserRouter } from 'react-router-dom'
+import { Link, Navigate, Outlet, createBrowserRouter } from 'react-router-dom'
 import { Layout } from 'components'
 import {
   Landing,
@@ -11,9 +11,7 @@ import {
   Contact,
   Login,
   Register,
-  Talents,
   Error404,
-  Offers,
   PricingPage,
   Media,
   HomeEmpresa,
@@ -33,10 +31,13 @@ import {
   SavedProfessionalOffers,
   DashProfessionalOffers,
   FavedTalents,
-  // FormOffer,
 } from 'pages'
-import FormOffer from './components/Forms/FormOffer'
 import NewsDetailPage from './pages/Info/NewsDetail'
+import AdminMediaPage from './pages/Dashboard/Admin/Media/AdminMedia'
+import CreateMediaPage from './pages/Dashboard/Admin/Media/Create'
+import Credits from './components/Credits/Credits'
+import Protected from './pages/Dashboard/Protected'
+import { SignedIn, SignedOut } from '@clerk/clerk-react'
 
 export const router = createBrowserRouter([
   {
@@ -45,60 +46,76 @@ export const router = createBrowserRouter([
     errorElement: <Error404 />,
     children: [
       {
-        path: '/',
+        index: true,
         element: <Landing />,
       },
       {
-        path: '/info/empresas',
+        path: 'payments/plan/feedback',
+        element: (
+          <div className="flex flex-col items-center justify-center py-8">
+            <div className="rounded-xl bg-hint-of-red p-8 shadow">
+              <h1 className="text-xl font-bold">
+                Gracias por actualizar tu sub
+              </h1>
+              <p className="text-lg text-slate-600">
+                Disfruta de características y beneficios que tenemos para tí
+              </p>
+            </div>
+            <Link
+              className="mt-8 rounded-lg bg-blue-whale px-6 py-4 font-medium text-white"
+              to="/dashboard"
+            >
+              Volver a cuenta
+            </Link>
+          </div>
+        ),
+      },
+      {
+        path: 'info/empresas',
         element: <HomeEmpresa />,
       },
       {
-        path: '/info/professionals',
+        path: 'info/professionals',
         element: <InfoProfessionals />,
       },
       {
-        path: '/pricing',
+        path: 'pricing',
         element: <PricingPage />,
       },
       {
-        path: '/offers',
-        element: <Offers />,
-      },
-      {
-        path: '/offers/:code',
+        path: 'offers/:code',
         element: <OfferDetail />,
       },
       {
-        path: '/talents',
-        element: <Talents />,
-      },
-      {
-        path: '/talents/:id',
+        path: 'talents/:id',
         element: <TalentDetail />,
       },
       {
-        path: '/companies',
+        path: 'companies',
         element: <Companies />,
       },
       {
-        path: '/news',
+        path: 'news',
         element: <News />,
       },
       {
-        path: '/news/:id',
+        path: 'news/:id',
         element: <NewsDetailPage />,
       },
       {
-        path: '/about',
+        path: 'about',
         element: <About />,
       },
 
       {
-        path: '/contact',
+        path: 'contact',
         element: <Contact />,
       },
-      { path: '/media', element: <Media /> },
-      { path: '/formjobs', element: <FormOffer /> },
+      { path: 'media', element: <Media /> },
+      {
+        path: 'credits',
+        element: <Credits />,
+      },
     ],
   },
   {
@@ -106,11 +123,11 @@ export const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       {
-        path: '/auth/login',
+        path: 'login',
         element: <Login />,
       },
       {
-        path: '/auth/register',
+        path: 'register',
         element: <Register />,
       },
     ],
@@ -120,70 +137,100 @@ export const router = createBrowserRouter([
     element: <Outlet />,
     children: [
       {
-        path: '/account/onboarding',
+        path: 'onboarding',
         element: <Onboarding />,
       },
       {
-        path: '/account/payment',
+        path: 'payment',
         element: <FeedBackPayment />,
       },
     ],
   },
   {
     path: '/dashboard',
-    element: <DashboardLayout />,
+    element: (
+      <>
+        <SignedIn>
+          <DashboardLayout />
+        </SignedIn>
+        <SignedOut>
+          <Navigate to="/auth/login" />
+        </SignedOut>
+      </>
+    ),
     children: [
       {
-        path: '/dashboard',
+        index: true,
         element: <Dashboard />,
       },
       {
-        path: '/dashboard/company',
-        element: <CompanyDash />,
+        path: 'company',
+        element: (
+          <Protected accountType="company">
+            <Outlet />
+          </Protected>
+        ),
+        children: [
+          { index: true, element: <CompanyDash /> },
+          {
+            path: 'talents',
+            element: <MarketProfessionals />,
+          },
+          {
+            path: 'offers',
+            element: <CompanyOffers />,
+          },
+          {
+            path: 'favorites',
+            element: <FavedTalents />,
+          },
+          {
+            path: 'offers/create',
+            element: <CreateOffer />,
+          },
+        ],
       },
       {
-        path: '/dashboard/company/talents',
-        element: <MarketProfessionals />,
+        path: 'professional',
+        element: (
+          <Protected accountType="professional">
+            <Outlet />
+          </Protected>
+        ),
+        children: [
+          { index: true, element: <ProfessionalDash /> },
+          {
+            path: 'offers',
+            element: <DashProfessionalOffers />,
+          },
+          {
+            path: 'saved',
+            element: <SavedProfessionalOffers />,
+          },
+          {
+            path: 'profile',
+            element: <DashUserProfile />,
+          },
+        ],
       },
       {
-        path: '/dashboard/company/offers',
-        element: <CompanyOffers />,
-      },
-      {
-        path: '/dashboard/company/favorites',
-        element: <FavedTalents />,
-      },
-      {
-        path: '/dashboard/company/offers/create',
-        element: <CreateOffer />,
-      },
-      {
-        path: '/dashboard/professional',
-        element: <ProfessionalDash />,
-      },
-      {
-        path: '/dashboard/professional/offers',
-        element: <DashProfessionalOffers />,
-      },
-      {
-        path: '/dashboard/professional/saved',
-        element: <SavedProfessionalOffers />,
-      },
-      {
-        path: '/dashboard/professional/profile',
-        element: <DashUserProfile />,
-      },
-      {
-        path: '/dashboard/admin',
-        element: <AdminDash />,
-      },
-      {
-        path: '/dashboard/admin/media',
-        element: <h1>Acá van noticias y multimedia</h1>,
-      },
-      {
-        path: '/dashboard/admin/accounts',
-        element: <h1>Acá va el manejo de cuentas de usuarios</h1>,
+        path: 'admin',
+        element: (
+          <Protected accountType="admin">
+            <Outlet />
+          </Protected>
+        ),
+        children: [
+          { index: true, element: <AdminDash /> },
+          {
+            path: 'media',
+            element: <AdminMediaPage />,
+          },
+          {
+            path: 'media/create',
+            element: <CreateMediaPage />,
+          },
+        ],
       },
     ],
   },

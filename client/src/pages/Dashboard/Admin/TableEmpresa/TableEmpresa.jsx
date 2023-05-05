@@ -13,6 +13,15 @@ import {
   Button,
 } from '@tremor/react'
 import { CameraIcon } from '@heroicons/react/24/solid'
+import Swal from 'sweetalert2'
+// @ts-ignore
+import imagen1 from '../img/emplitos-16.png'
+// @ts-ignore
+import emplito from '../img/emplitos-17.png'
+// @ts-ignore
+import emplito29 from '../img/emplitos-29.png'
+// @ts-ignore
+import imagenmo from '../img/imagenmo.png'
 
 const TableEmpresa = () => {
   const [pausedItems, setPausedItems] = useState([])
@@ -20,53 +29,137 @@ const TableEmpresa = () => {
   const [, setData] = useState([])
 
   const handlePause = item => {
-    const confirmed = window.confirm(
-      `¿Estás seguro que quieres pausar a la Empresa ${item.name}?`,
-    )
-
-    if (confirmed) {
-      alert(`La Empresa ${item.name} ha sido pausado.`)
-      item.status = 'pausado'
-      setData(prevData => {
-        return prevData.map(dataItem => {
-          if (dataItem === item) {
-            return { ...dataItem, status: 'pausado' }
-          }
-          return dataItem
+    Swal.fire({
+      imageUrl: imagen1,
+      imageHeight: 200,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito',
+      title: `¿Estás seguro que quieres pausar a la Empresa ${item.name}?`,
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Aceptar`,
+      confirmButtonColor: 'skyblue',
+      denyButtonText: `Cancelar`,
+      denyButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          `¡La Empresa ${item.name} ha sido pausada con exito!`,
+          '',
+          'success',
+        )
+        item.status = 'pausado'
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              return { ...dataItem, status: 'pausado' }
+            }
+            return dataItem
+          })
         })
-      })
-      setPausedItems([...pausedItems, item])
-    }
+        setPausedItems([...pausedItems, item])
+      }
+    })
   }
 
   const handleActivar = item => {
-    item.status = 'active'
-    setPausedItems(pausedItems.filter(pausedItem => pausedItem !== item))
-    setData(prevData => {
-      return prevData.map(dataItem => {
-        if (dataItem === item) {
-          return { ...dataItem, status: 'active' }
-        }
-        return dataItem
-      })
+    Swal.fire({
+      imageUrl: emplito,
+      imageHeight: 200,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito1',
+      title: `¿Estás seguro que quieres activar a la Empresa ${item.name}?`,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: 'skyblue',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        item.status = 'activo'
+        setPausedItems(pausedItems.filter(pausedItem => pausedItem !== item))
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              return { ...dataItem, status: 'activo' }
+            }
+            return dataItem
+          })
+        })
+        Swal.fire('¡Empresa activada!', '', 'success')
+      }
     })
   }
 
   const handleBlock = item => {
-    alert(`Item ${item.name} bloqueado.`)
-    setBlockedItems([...blockedItems, item])
+    const GLOBAL_BLOCK_MESSAGE =
+      '¿Estás seguro que quieres bloquear a la Empresa'
+    Swal.fire({
+      imageUrl: emplito29,
+      imageHeight: 250,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito2',
+      title: `${GLOBAL_BLOCK_MESSAGE} ${item.name}`,
+      showCancelButton: true,
+      confirmButtonColor: 'skyblue',
+      cancelButtonColor: 'darkcyan',
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then(result => {
+      if (result.isConfirmed) {
+        item.previousStatus = item.status // Guardar el status anterior
+        item.status = 'bloqueado'
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              return { ...dataItem, status: 'bloqueado' }
+            }
+            return dataItem
+          })
+        })
+        setBlockedItems([...blockedItems, item])
+        Swal.fire(
+          'Bloqueado',
+          `La Empresa ${item.name} ha sido bloqueada con éxito.`,
+          'success',
+        )
+      }
+    })
   }
 
   const handleUnblock = item => {
-    setBlockedItems(blockedItems.filter(blockedItem => blockedItem !== item))
-    const unBlockButton = document.getElementById(`bloquear-button-${item}`)
-    unBlockButton.innerText = 'bloquear'
-    const desbloButton = document.getElementById(`desbloquear-button-${item}`)
-    desbloButton.style.display = 'none'
+    Swal.fire({
+      imageUrl: imagenmo,
+      imageHeight: 200,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito1',
+      title: `¿Estás seguro que quieres desbloquear  a la Empresa ${item.name}?`,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: 'skyblue',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        const previousStatus = item.previousStatus || 'inactivo' // Asignar el status anterior o "inactive" si no hay uno anterior
+        item.status = previousStatus
+        setBlockedItems(blockedItems.filter(blockItem => blockItem !== item))
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              delete item.previousStatus // Eliminar la propiedad previousStatus
+              return { ...dataItem, status: previousStatus }
+            }
+            return dataItem
+          })
+        })
+        Swal.fire('¡Empresa desbloqueada!', '', 'success')
+      }
+    })
   }
 
   const getStatusStyle = status => {
-    if (status === 'active') {
+    if (status === 'activo') {
       return { color: 'green' }
     } else if (status === 'pausado') {
       return { color: '#1a3587' }

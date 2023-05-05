@@ -1,12 +1,6 @@
 import { VerifiedIcon } from '@/components/icons/VerifiedIcon'
-import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
-import {
-  Link,
-  Navigate,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom'
+import { useClerk } from '@clerk/clerk-react'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useAccountContext } from '../Account/AccountContext'
 import { EmpliLogo } from '@/components'
 
@@ -27,12 +21,11 @@ const companyItems = [
 const adminItems = [
   { name: 'Inicio', icon: '', to: 'admin' },
   { name: 'Media', icon: '', to: 'admin/media' },
-  { name: 'Cuentas', icon: '', to: 'admin/accounts' },
 ]
 
 export const DashboardLayout = () => {
   const { pathname } = useLocation()
-  const { signOut } = useClerk()
+  const { user, signOut } = useClerk()
   const navigate = useNavigate()
   const isCompany = pathname.split('/').includes('company')
   const isAdmin = pathname.split('/').includes('admin')
@@ -43,74 +36,71 @@ export const DashboardLayout = () => {
 
   return (
     <>
-      <SignedIn>
-        <div className="flex min-h-screen w-full bg-gray-50 font-sans text-gray-900">
-          <aside className="fixed h-screen w-64 border-r border-gray-200 px-10 py-6">
-            <Link to="/">
-              <div className="w-24 text-blue-whale/50">
-                <EmpliLogo />
-              </div>
-            </Link>
-            <div className="flex h-full flex-col justify-between py-20">
-              {itemsSide.map((group, idx) => (
-                <ul key={idx} className="flex flex-col gap-y-6">
-                  {group.map((item, i) => (
-                    <li key={i}>
-                      <Link
-                        to={item.to}
-                        className="group flex items-center gap-x-4 py-2 text-gray-600 hover:text-gulf-stream"
-                      >
-                        <span className="absolute left-0 h-8 w-1.5 -translate-x-full scale-y-0 rounded-r-full bg-gulf-stream transition-transform ease-in-out group-hover:translate-x-0 group-hover:scale-y-100" />
-                        {item?.icon && item.icon}
-                        <span>{item.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ))}
-              <ul>
-                <li>
-                  <button className="group flex items-center gap-x-4 py-2 text-gray-600 hover:text-gulf-stream">
-                    <span className="absolute left-0 h-8 w-1.5 -translate-x-full scale-y-0 rounded-r-full bg-gulf-stream transition-transform ease-in-out group-hover:translate-x-0 group-hover:scale-y-100" />
-                    <QuestionMarkCircleIcon />
-                    <span>Ayuda</span>
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      signOut()
-                      navigate('/auth/login')
-                    }}
-                    className="group flex items-center gap-x-4 py-2 text-gray-600 hover:text-gulf-stream"
-                  >
-                    <span className="absolute left-0 h-8 w-1.5 -translate-x-full scale-y-0 rounded-r-full bg-gulf-stream transition-transform ease-in-out group-hover:translate-x-0 group-hover:scale-y-100" />
-                    <PowerIcon />
-                    <span>Cerrar Sessión</span>
-                  </button>
-                </li>
-              </ul>
+      <div className="flex min-h-screen w-full bg-gray-50 font-sans text-gray-900">
+        <aside className="fixed h-screen w-64 border-r border-gray-200 px-10 py-6">
+          <Link to="/">
+            <div className="w-24 text-blue-whale/50">
+              <EmpliLogo />
             </div>
-          </aside>
-          <div className="ml-64 flex-1 pb-8">
-            {isCompany ? (
-              <CompanyHeader
-                name={account?.name}
-                verified={account?.plan !== 'Free'}
-              />
-            ) : (
-              <ProfessionalHeader
-                name={account?.name}
-                verified={account?.verified}
-              />
-            )}
-            <Outlet />
+          </Link>
+          <div className="flex h-full flex-col justify-between py-20">
+            {itemsSide.map((group, idx) => (
+              <ul key={idx} className="flex flex-col gap-y-6">
+                {group.map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      to={item.to}
+                      className="group flex items-center gap-x-4 py-2 text-gray-600 hover:text-gulf-stream"
+                    >
+                      <span className="absolute left-0 h-8 w-1.5 -translate-x-full scale-y-0 rounded-r-full bg-gulf-stream transition-transform ease-in-out group-hover:translate-x-0 group-hover:scale-y-100" />
+                      {item?.icon && item.icon}
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+            <ul>
+              <li>
+                <button className="group flex items-center gap-x-4 py-2 text-gray-600 hover:text-gulf-stream">
+                  <span className="absolute left-0 h-8 w-1.5 -translate-x-full scale-y-0 rounded-r-full bg-gulf-stream transition-transform ease-in-out group-hover:translate-x-0 group-hover:scale-y-100" />
+                  <QuestionMarkCircleIcon />
+                  <span>Ayuda</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    signOut()
+                    navigate('/auth/login')
+                  }}
+                  className="group flex items-center gap-x-4 py-2 text-gray-600 hover:text-gulf-stream"
+                >
+                  <span className="absolute left-0 h-8 w-1.5 -translate-x-full scale-y-0 rounded-r-full bg-gulf-stream transition-transform ease-in-out group-hover:translate-x-0 group-hover:scale-y-100" />
+                  <PowerIcon />
+                  <span>Cerrar Sessión</span>
+                </button>
+              </li>
+            </ul>
           </div>
+        </aside>
+        <div className="ml-64 flex-1 pb-8">
+          {isCompany ? (
+            <CompanyHeader
+              name={account?.name}
+              verified={account?.plan !== 'Free'}
+            />
+          ) : isAdmin ? (
+            <AdminHeader name={user?.fullName} />
+          ) : (
+            <ProfessionalHeader
+              name={account?.name}
+              verified={account?.verified}
+            />
+          )}
+          <Outlet />
         </div>
-      </SignedIn>
-      <SignedOut>
-        <Navigate to="/auth/login" />
-      </SignedOut>
+      </div>
     </>
   )
 }
@@ -274,5 +264,30 @@ function UserCircleIcon() {
         d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
       />
     </svg>
+  )
+}
+
+function AdminHeader({ name }) {
+  return (
+    <div className="flex items-center justify-between border-b px-10 py-7">
+      <div>
+        <h1 className="flex items-center gap-2 text-2xl font-semibold leading-relaxed text-gray-800">
+          <span>{name ? name?.toUpperCase() : 'ADMIN'}</span>
+          <span className="rounded-md bg-gulf-stream/50 px-2 py-1 text-[10px]">
+            ADMIN
+          </span>
+        </h1>
+        <p className="text-sm font-medium text-gray-500">
+          Encuentra toda los datos que necesitas de Empli.
+        </p>
+      </div>
+      <Link
+        to="admin/media/create"
+        className="inline-flex items-center gap-x-2 rounded-md bg-blue-whale px-6 py-2.5 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-whale focus:ring-offset-1"
+      >
+        <DocumentIcon />
+        <span className="text-sm font-semibold tracking-wide">Publicar</span>
+      </Link>
+    </div>
   )
 }
