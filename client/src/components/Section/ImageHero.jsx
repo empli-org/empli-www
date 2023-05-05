@@ -12,32 +12,32 @@ export const ImageHero = () => {
       <img
         src={ob}
         alt="ob"
-        className="absolute z-10 hidden sm:hidden md:block xl:block h-all w-80 rounded-br-2xl"
+        className="absolute z-10 hidden h-all w-80 rounded-br-2xl sm:hidden md:block xl:block"
       />
       <img
         src={dialogue}
         alt="dialogue"
-        className="absolute z-10 hidden sm:hidden md:block xl:block mr-56 mt-5 h-72 w-56"
+        className="absolute z-10 mr-56 mt-5 hidden h-72 w-56 sm:hidden md:block xl:block"
       />
       <img
         src={text}
         alt="text"
-        className="absolute z-20 hidden sm:hidden md:block xl:block mr-76 mt-12 h-56 w-32"
+        className="absolute z-20 mr-76 mt-12 hidden h-56 w-32 sm:hidden md:block xl:block"
       />
       <img
         src={wave}
         alt="wave"
-        className="absolute z-10 hidden sm:hidden md:block xl:block mr-80 mt-80 h-auto w-20"
+        className="absolute z-10 mr-80 mt-80 hidden h-auto w-20 sm:hidden md:block xl:block"
       />
       <img
         src={wave}
         alt="wave"
-        className="absolute z-10 hidden sm:hidden md:block xl:block mr-48 mt-14 h-auto w-20"
+        className="absolute z-10 mr-48 mt-14 hidden h-auto w-20 sm:hidden md:block xl:block"
       />
       <img
         src={circle}
         alt="circle"
-        className="absolute z-0 hidden sm:hidden md:block xl:block h-all w-all"
+        className="absolute z-0 hidden h-all w-all sm:hidden md:block xl:block"
       />
     </div>
   )

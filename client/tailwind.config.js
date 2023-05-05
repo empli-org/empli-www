@@ -32,7 +32,8 @@ export default {
         'bg-green': '#70b39b',
         'yellow-border': '#FFD15D',
         opacity: 'rgba(28, 36, 65, 0.1)',
-        'opacity-hint': 'rgba(28, 36, 65, 0.6)',
+        opacity2: 'rgba(28, 36, 65, 0.2)',
+        'opacity-hint': 'rgba(246, 242, 236, 0.5)',
         // Brand colors with names
         'hint-of-red': '#F6F2EC',
         fog: '#e0dadf',
@@ -53,6 +54,8 @@ export default {
         left: '750px',
         circle: '600px',
         76: '305px',
+        500: '500px',
+        600: '600px',
       },
       screens: {
         xs: '420px',

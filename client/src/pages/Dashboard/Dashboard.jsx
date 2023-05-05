@@ -1,35 +1,15 @@
-import { Navigate } from 'react-router-dom'
-import { SignedIn, SignedOut, useClerk } from '@clerk/clerk-react'
-import { useVerifyAccountMutation } from '@/redux/features/api/base'
 import { useEffect } from 'react'
+import { useAccountContext } from '../Account/AccountContext'
+import { useNavigate } from 'react-router-dom'
 
 export const Dashboard = () => {
-  const { user } = useClerk()
-  const [verifyAccount, { isLoading, isSuccess, error, data }] =
-    useVerifyAccountMutation()
+  const { accountType } = useAccountContext()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isLoading && !isSuccess && !error) {
-      verifyAccount({ email: user.emailAddresses[0].emailAddress })
-    }
-  }, [isLoading, isSuccess, error, data])
+    const goTo = () => navigate(`/dashboard/${accountType}`)
+    if (accountType) goTo()
+  }, [accountType])
 
-  if (isLoading && !error && !isSuccess) return <p>Loading..</p>
-
-  return (
-    <>
-      <SignedIn>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <Navigate to="/auth/login" />
-        ) : (
-          data && data?.success && <Navigate to={`/dashboard/${data?.type}`} />
-        )}
-      </SignedIn>
-      <SignedOut>
-        <Navigate to="/auth/login" />
-      </SignedOut>
-    </>
-  )
+  return <h1>Dash</h1>
 }

@@ -1,17 +1,21 @@
-/* eslint-disable prettier/prettier */
 import { PlusIcons } from 'components'
+/*
+import { useGetJobsQuecountCompanyry } from '@/redux/features/api/jobs/jobApi'
+import { useGetTalentQuery } from '@/redux/features/api/talent/talentApi'
+*/
 
 export const CardLarge = () => {
   // info sirve unicamente para probar que la card renderiza,
   // porque lo que se quiere es que la info venga por props, asi todo seria dinamico
   /*
   const { data: offersData = [] } = useGetJobsQuery()
-  const { data: talentsData = [] } = useGetAllTalentsQuery()
+  const { data: talentsData = [] } = useGetTalentQuery()
 
   // total talentsData in the aplication. it is array
   const countTalents = talentsData && talentsData.length
 
-  const uniqueCompany = offersData &&
+  const uniqueCompany =
+    offersData &&
     offersData.reduce((acu, curr) => {
       const name = curr.company.name
       if (!acu[name]) {
@@ -33,26 +37,27 @@ export const CardLarge = () => {
           isBorder ? 'border-gray border-l-2 border-r-2' : ''
         } duration-300 hover:scale-125 md:text-left`}
       >
+        {' '}
         <h1 className="mb-3 text-center font-quicksand text-xs font-bold uppercase tracking-wider text-gray-400">
-          {title}
-        </h1>
+          {title}{' '}
+        </h1>{' '}
         <h1 className="flex items-center justify-center text-3xl font-bold">
+          {' '}
           {/* usamos .length pensando que exista un objeto cuyo nombre sea info, con una propiedad proffesionals que sea un array,
-           y la cantidad de objetos dentro de ese array seria el numero de professionales registrados en la plataforma.
-           Pero esto puede ser modificado segun venga la informacion */}
-          <PlusIcons className="text-sm" />
-          {data}
-        </h1>
+          y la cantidad de objetos dentro de ese array seria el numero de professionales registrados en la plataforma.
+          Pero esto puede ser modificado segun venga la informacion */}{' '}
+          <PlusIcons className="text-sm" /> {data}{' '}
+        </h1>{' '}
       </div>
     )
   }
   return (
     <div className="relative mx-auto flex w-full flex-col rounded-3xl bg-white shadow-2xl md:flex-row md:items-center md:justify-center md:p-2 lg:p-10">
-      <Marked data="12k+" title="Profesionales" />
+      <Marked data="5k" title="Profesionales" />
 
-      <Marked data="2k+" title="Ofertas" isBorder={true} />
+      <Marked data="1k" title="Ofertas" isBorder={true} />
 
-      <Marked data="5k+" title="Empresas" />
+      <Marked data="3k" title="Empresas" />
     </div>
   )
 }

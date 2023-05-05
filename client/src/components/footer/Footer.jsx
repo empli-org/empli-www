@@ -16,11 +16,11 @@ export const Footer = () => {
         <div>
           <ul className="flex flex-col flex-nowrap items-center gap-3 space-y-0 font-amenable text-2xl lg:flex-row lg:gap-9 lg:text-lg">
             <li>
-              <Link to="/offers">Ofertas</Link>
+              <Link to="/info/empresas">Empresas</Link>
             </li>
 
             <li>
-              <Link to="/companies">Empresas</Link>
+              <Link to="/info/professionals">Profesionales</Link>
             </li>
 
             <li>
@@ -35,7 +35,7 @@ export const Footer = () => {
               <Link to="/contact">Contacto</Link>
             </li>
             <li>
-              <Link to="/perfil">perfil</Link>
+              <Link to="/dashboard">Perfil</Link>
             </li>
           </ul>
         </div>
@@ -69,8 +69,14 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-center font-quicksand-light text-xl lg:mt-5 lg:text-base">
+      <p className="font-quicksand-light text-center text-xl lg:mt-5 lg:text-base">
         &copy; 2022 Empli. Todos los derechos reservados
+      </p>
+      <p className="font-quicksand-light text-center text-xl lg:mt-5 lg:text-base">
+        Pagina realizada por:{' '}
+        <Link to="/credits" className="underline">
+          créditos
+        </Link>
       </p>
       {/* </Container> */}
     </footer>

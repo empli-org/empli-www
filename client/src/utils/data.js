@@ -1,6 +1,6 @@
 export const dateSortOptions = [
-  { label: 'Recientes', value: 'asc' },
-  { label: 'Mas antiguos', value: 'desc' },
+  { label: 'Recientes', value: 'desc' },
+  { label: 'Mas antiguos', value: 'asc' },
 ]
 
 export const experienceSortOptions = [

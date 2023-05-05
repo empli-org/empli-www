@@ -64,11 +64,29 @@ export const Contact = () => {
     )
   }
 
+  const handleErrors = () => {
+    if (
+      !name.value ||
+      !email.value ||
+      !asunto.value ||
+      !category.value ||
+      !message.value
+    ) {
+      MySwal.fire('Ocurrio un error', 'Revisa todos los campos', 'warning')
+    }
+  }
+
   const onSubmit = data => {
     sendFormData(data, form)
     MySwal.fire('Listo!', 'Ya te contactaremos via email', 'success')
     document.getElementById('form').reset()
   }
+
+  const name = document.getElementById('name')
+  const email = document.getElementById('email')
+  const asunto = document.getElementById('asunto')
+  const category = document.getElementById('category')
+  const message = document.getElementById('message')
 
   return (
     <div className="w-screen">
@@ -159,7 +177,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="name"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Nombre Completo
                 </label>
@@ -182,7 +200,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="asunto"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Asunto
                 </label>
@@ -207,7 +225,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="email"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Email
                 </label>
@@ -231,7 +249,7 @@ export const Contact = () => {
               <div className="w-full md:w-3/5">
                 <label
                   htmlFor="category"
-                  className="block font-quicksand-light text-lg font-semibold"
+                  className="font-quicksand-light block text-lg font-semibold"
                 >
                   Categoría
                 </label>
@@ -251,7 +269,7 @@ export const Contact = () => {
           </div>
           <label
             htmlFor="description"
-            className="flex items-start justify-start font-quicksand-light text-lg font-semibold"
+            className="font-quicksand-light flex items-start justify-start text-lg font-semibold"
           >
             Descripción
           </label>
@@ -272,6 +290,7 @@ export const Contact = () => {
           <button
             type="submit"
             className="mt-8 h-12 w-2/6 rounded-xl bg-blue-font text-white-font shadow-lg shadow-gray-900"
+            onClick={handleErrors}
           >
             Enviar
           </button>

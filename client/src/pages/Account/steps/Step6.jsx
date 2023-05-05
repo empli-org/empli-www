@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  useCreateAccountMutation,
-  useVerifyAccountMutation,
-} from '@/redux/features/api/base'
 import { AppContext } from 'pages'
 import { useClerk } from '@clerk/clerk-react'
 import { useAccountContext } from '../AccountContext'
 import { useNavigate } from 'react-router-dom'
+import {
+  useCreateAccountMutation,
+  useVerifyAccountMutation,
+} from '@/redux/features/api/account/accountApi'
 
 const childVariants = {
   hidden: {
@@ -45,9 +45,9 @@ export const Step6 = () => {
     )
       verifyUser({ email: user.primaryEmailAddress.emailAddress })
 
-    if (data) {
+    if (data && data.success) {
       setAccount(data.account)
-      setAccountType(accountType.name)
+      setAccountType(data.type)
       setOk(true)
     }
   }, [data, creating, created, verifying, verifyError])

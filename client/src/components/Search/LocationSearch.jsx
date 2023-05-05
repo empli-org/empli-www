@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ComboBox } from 'components'
-import { useGetJobLocationsQuery } from '@/redux/features/api/base'
+import { useGetJobLocationsQuery } from '@/redux/features/api/jobs/jobApi'
 
 export const LocationSearch = ({ onSelect }) => {
   const [query, setQuery] = useState('')
