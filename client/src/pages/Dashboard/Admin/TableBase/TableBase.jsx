@@ -13,6 +13,16 @@ import {
   Button,
 } from '@tremor/react'
 import { CameraIcon } from '@heroicons/react/24/solid'
+import Swal from 'sweetalert2'
+// @ts-ignore
+import imagen1 from '../img/emplitos-16.png'
+// @ts-ignore
+import emplito from '../img/emplitos-17.png'
+// @ts-ignore
+import emplito29 from '../img/emplitos-29.png'
+// @ts-ignore
+import imagenmo from '../img/imagenmo.png'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 const TableBase = () => {
   const [pausedItems, setPausedItems] = useState([])
@@ -20,53 +30,136 @@ const TableBase = () => {
   const [, setData] = useState([])
 
   const handlePause = item => {
-    const confirmed = window.confirm(
-      `¿Estás seguro que quieres pausar al Profesional ${item.name}?`,
-    )
-
-    if (confirmed) {
-      alert(`El profesional ${item.name} ha sido pausado.`)
-      item.status = 'pausado'
-      setData(prevData => {
-        return prevData.map(dataItem => {
-          if (dataItem === item) {
-            return { ...dataItem, status: 'pausado' }
-          }
-          return dataItem
+    Swal.fire({
+      imageUrl: imagen1,
+      imageHeight: 200,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito',
+      title: `¿Estás seguro que quieres pausar al Profesional ${item.name}?`,
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: `Aceptar`,
+      confirmButtonColor: 'skyblue',
+      denyButtonText: `Cancelar`,
+      denyButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          `¡El Profesional ${item.name} ha sido pausado con exito!`,
+          '',
+          'success',
+        )
+        item.status = 'pausado'
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              return { ...dataItem, status: 'pausado' }
+            }
+            return dataItem
+          })
         })
-      })
-      setPausedItems([...pausedItems, item])
-    }
+        setPausedItems([...pausedItems, item])
+      }
+    })
   }
 
   const handleActivar = item => {
-    item.status = 'active'
-    setPausedItems(pausedItems.filter(pausedItem => pausedItem !== item))
-    setData(prevData => {
-      return prevData.map(dataItem => {
-        if (dataItem === item) {
-          return { ...dataItem, status: 'active' }
-        }
-        return dataItem
-      })
+    Swal.fire({
+      imageUrl: emplito,
+      imageHeight: 200,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito1',
+      title: `¿Estás seguro que quieres activar al Profesional ${item.name}?`,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: 'skyblue',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        item.status = 'activo'
+        setPausedItems(pausedItems.filter(pausedItem => pausedItem !== item))
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              return { ...dataItem, status: 'activo' }
+            }
+            return dataItem
+          })
+        })
+        Swal.fire('¡Profesional activado!', '', 'success')
+      }
     })
   }
 
   const handleBlock = item => {
-    alert(`Item ${item.name} bloqueado.`)
-    setBlockedItems([...blockedItems, item])
+    const GLOBAL_BLOCK_MESSAGE = `¿Estás seguro que quieres bloquear al profesional ${item.name}`
+    Swal.fire({
+      imageUrl: emplito29,
+      imageHeight: 250,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito2',
+      title: GLOBAL_BLOCK_MESSAGE,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: 'skyblue',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        item.previousStatus = item.status // Guardar el status anterior
+        item.status = 'bloqueado'
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              return { ...dataItem, status: 'bloqueado' }
+            }
+            return dataItem
+          })
+        })
+        setBlockedItems([...blockedItems, item])
+        Swal.fire(
+          'Bloqueado',
+          `El profesional ${item.name} ha sido bloqueado con éxito.`,
+          'success',
+        )
+      }
+    })
   }
 
   const handleUnblock = item => {
-    setBlockedItems(blockedItems.filter(blockedItem => blockedItem !== item))
-    const unBlockButton = document.getElementById(`bloquear-button-${item}`)
-    unBlockButton.innerText = 'bloquear'
-    const desbloButton = document.getElementById(`desbloquear-button-${item}`)
-    desbloButton.style.display = 'none'
+    Swal.fire({
+      imageUrl: imagenmo,
+      imageHeight: 200,
+      imageWidth: 200,
+      imageAlt: 'imagen de emplito1',
+      title: `¿Estás seguro que quieres desbloquear al Profesional ${item.name}?`,
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: 'skyblue',
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: 'darkcyan',
+    }).then(result => {
+      if (result.isConfirmed) {
+        const previousStatus = item.previousStatus || 'inactive' // Asignar el status anterior o "inactive" si no hay uno anterior
+        item.status = previousStatus
+        setBlockedItems(blockedItems.filter(blockItem => blockItem !== item))
+        setData(prevData => {
+          return prevData.map(dataItem => {
+            if (dataItem === item) {
+              delete item.previousStatus // Eliminar la propiedad previousStatus
+              return { ...dataItem, status: previousStatus }
+            }
+            return dataItem
+          })
+        })
+        Swal.fire('¡Profesional desbloqueado!', '', 'success')
+      }
+    })
   }
 
   const getStatusStyle = status => {
-    if (status === 'active') {
+    if (status === 'activo') {
       return { color: 'green' }
     } else if (status === 'pausado') {
       return { color: '#1a3587' }

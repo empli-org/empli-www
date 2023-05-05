@@ -3,25 +3,25 @@
     "name": "Juan Camilo Perez",
     "Role": "Arquitecto",
     "departement": "Amazonas",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Alain Berset",
     "Role": "Obrero",
     "departement": "Ancash",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Ignazio Cassis",
     "Role": "Maestro de Obra",
     "departement": "Cusco",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Ueli Maurer",
     "Role": "Ingeniero Civil",
     "departement": "Callao",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Guy Parmelin",
@@ -39,13 +39,13 @@
     "name": "Viola Amherd",
     "Role": "Obrero",
     "departement": "Moquegua",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Simonetta Diaz",
     "Role": "Arquitecto",
     "departement": "Junin",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Manuel Martinez",
@@ -57,7 +57,7 @@
     "name": "Ignazio Martinez",
     "Role": "Ingeniero Civil",
     "departement": "Piura",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "yusma torres",
@@ -69,20 +69,20 @@
     "name": "pedroParmelin",
     "Role": "Arquitecto",
     "departement": "Piura",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Karin Simond",
     "Role": "Maestro de Obra",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
 
   {
     "name": "Carmen padilla",
     "Role": "Arquitecto",
     "departement": "Piura",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Carlos Domingues",
@@ -94,55 +94,55 @@
     "name": "Alan Lopez",
     "Role": "Albañil",
     "departement": "Piura",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Ignazio Montesino",
     "Role": "Arquitecto",
     "departement": "Loreto",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Juan Perez",
     "Role": "Ingeniero Civil",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Ramon Cruz",
     "Role": "Obrero",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Tom Reyes",
     "Role": "Ingeniero Civil",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Jesus Martinez",
     "Role": "Ingeniero Civil",
     "departement": "Piura",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Manuel Reboiras",
     "Role": "Obrero",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Euro Patiño",
     "Role": "Ingeniero Civil",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Ignazio Lopez",
     "Role": "Obrero",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Luis Rodriguez",
@@ -154,18 +154,18 @@
     "name": "Mogollon Duarte",
     "Role": "Arquitecto",
     "departement": "Ayacucho",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Nicolas Villamizar",
     "Role": "Ingeniero Civil",
     "departement": "Lima",
-    "status": "active"
+    "status": "activo"
   },
   {
     "name": "Pedro Bustamante",
     "Role": "Ayudante de Obra",
     "departement": "Cajamarca",
-    "status": "active"
+    "status": "activo"
   }
 ]

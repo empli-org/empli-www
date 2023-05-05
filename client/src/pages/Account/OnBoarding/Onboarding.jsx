@@ -17,15 +17,18 @@ export const Onboarding = () => {
 
   useEffect(() => {
     const goToDash = accountType => navigate(`/dashboard/${accountType}`)
+    if (!isLoading && data && data.success) {
+      setAccount(data.account)
+      setAccountType(data.type)
+      goToDash(data.type)
+    }
+  }, [isLoading, data])
+
+  useEffect(() => {
     if (loaded && activeStep === 1) {
       if (!isLoading && !isSuccess && !data?.success && !error) {
         verifyUser({ email: user.primaryEmailAddress.emailAddress })
       }
-    }
-    if (data && data.success) {
-      setAccount(data.account)
-      setAccountType(data.type)
-      goToDash(data.type)
     }
   }, [loaded, isLoading, error, data, isSuccess, activeStep])
 
