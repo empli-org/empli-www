@@ -8,6 +8,7 @@ import {
   Category,
   Skill,
 } from "@prisma/client";
+import { careers, locations } from "./data";
 
 export function createCategory(n: number = 3): Prisma.CategoryCreateInput[] {
   return Array.from({ length: n }, () => ({
@@ -22,17 +23,14 @@ export function createSkill(n: number = 3): Prisma.SkillCreateInput[] {
   }));
 }
 
-export function createCareer(n: number = 3): Prisma.CareerCreateInput[] {
-  return Array.from({ length: n }, () => ({
-    name: faker.name.jobArea(),
+export function createCareer(): Prisma.CareerCreateInput[] {
+  return careers.map((c) => ({
+    name: c,
   }));
 }
 
-export function createLocation(n: number = 3): Prisma.LocationCreateInput[] {
-  return Array.from({ length: n }, () => ({
-    city: faker.address.city(),
-    country: faker.address.country(),
-  }));
+export function createLocation(): Prisma.LocationCreateInput[] {
+  return locations;
 }
 
 export function createProjects(n: number = 3): Prisma.ProjectCreateInput[] {
@@ -66,7 +64,6 @@ export function createTalent({
 }): Prisma.TalentCreateInput[] {
   return Array.from({ length: n }, () => ({
     name: faker.name.firstName(),
-    lastname: faker.name.lastName(),
     age: faker.datatype.number({ min: 18, max: 50 }),
     image: faker.image.avatar(),
     verified: faker.datatype.boolean(),
@@ -83,6 +80,7 @@ export function createTalent({
     },
     experienceInfo: {
       create: {
+        time: faker.datatype.float({ min: 300, max: 1500 }),
         projects: {
           connect: {
             id: projects[Math.floor(Math.random() * projects.length)].id,
@@ -134,7 +132,6 @@ export function createJob({
     title: faker.name.jobTitle(),
     description: faker.name.jobDescriptor(),
     area: faker.name.jobArea(),
-    type: faker.name.jobType(),
     requiredExp: faker.datatype.number({ min: 1, max: 5 }),
     minRate: faker.datatype.float({ min: 1000, max: 1999 }),
     maxRate: faker.datatype.float({ min: 2000, max: 3000 }),
@@ -149,19 +146,27 @@ export function createJob({
       },
     },
     body: `
-## This is the first section. 
+## Esta es la primera sección.
 
 ${faker.lorem.paragraph()}
 
-### This is another section.
+### Esta es otra sección.
 
 ${faker.lorem.paragraph()}
 
-### Other section
+### Otra sección
 
-- item1
-- item2
-- item3
+- Item descriptivo 1
+- Item descriptivo 2
+- Item descriptivo 3
 `,
   }));
+}
+
+export function titleCase(str: string) {
+  let arr = str.toLowerCase().split(" ");
+  for (var i = 0; i < str.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  return arr.join(" ");
 }
