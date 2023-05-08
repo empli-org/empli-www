@@ -7,10 +7,86 @@
   backdrop-filter: blur(0.1rem); */
   /* left: 500px; */
 }
+.bgCom {
+  background: url('../assets/blob/bgCom.png');
+  background-size: cover;
+}
 
 .empresa {
   filter: blur(2px);
   /* filter: brightness(0.7); */
+}
+
+.center-con {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.ronald {
+  position: relative;
+  border: 1px solid #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+span.ronald {
+  z-index: 999;
+  height: 1px;
+  margin: 1px;
+  width: 10px;
+  background: #000;
+  transition: 0.4s ease;
+}
+
+span.ronald:first-child {
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 15%;
+  bottom: 25%;
+}
+
+span.ronald:nth-child(2) {
+  display: block;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 45%;
+  bottom: 25%;
+}
+
+span.ronald:nth-child(3) {
+  display: block;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 15%;
+  bottom: 54%;
+}
+
+span.ronald:nth-child(4) {
+  display: block;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 45%;
+  bottom: 54%;
+}
+
+.ronald:hover span:nth-child(1) {
+  transform: rotate(-135deg);
+}
+
+.ronald:hover span:nth-child(2) {
+  transform: rotate(135deg);
+}
+
+.ronald:hover span:nth-child(3) {
+  transform: rotate(225deg);
+}
+
+.ronald:hover span:nth-child(4) {
+  transform: rotate(-225deg);
 }
 
 .titulo-2 {

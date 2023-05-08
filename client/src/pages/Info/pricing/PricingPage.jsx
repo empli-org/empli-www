@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { PricingCompany } from 'pages'
-import { PricinTalent } from "./PricinTalent"
+import { PricinTalent } from './PricinTalent'
 import { Button } from '@/components'
 
 export default function PricingPage() {
   const [selected, setSelected] = useState('empresa')
+  const [color, SetColor] = useState('')
 
   const handleEmpresaClick = () => {
     setSelected('empresa')
@@ -24,19 +25,13 @@ export default function PricingPage() {
       <div className="m-5 flex justify-center">
         <Button
           title="empresas"
-          color=""
-          extend={`m-5 p-3 border-blue-whale hover:bg-blue-whale hover:text-white ${
-            selected === 'empresa' ? ' bg-blue-whale text-white ' : ''
-          }`}
+          inverted={selected === 'empresa' ? false : true}
           onClick={handleEmpresaClick}
         />
 
         <Button
           title="profesional"
-          color=""
-          extend={`m-5 p-3 border-blue-whale hover:bg-blue-whale hover:text-white ${
-            selected === 'profesional' ? ' bg-blue-whale text-white ' : ''
-          }`}
+          inverted={selected === 'empresa' ? true : false}
           onClick={handleProfesionalClick}
         />
       </div>

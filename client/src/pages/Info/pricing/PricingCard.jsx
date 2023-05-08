@@ -60,10 +60,7 @@ export const PricingCard = ({
           <Button
             disabled={free}
             title="Upgrade"
-            color={`${
-              free ? 'gray ' : popular == 'estandar' ? 'white' : 'green'
-            } `}
-            extend={`${
+            custom={`${
               free
                 ? 'bg-gray-200 border-gray-200 '
                 : popular == 'estandar'

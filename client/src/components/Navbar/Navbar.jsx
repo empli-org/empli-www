@@ -17,6 +17,9 @@ export const Navbar = () => {
             <div className="flex items-center gap-16">
               <ul className="hidden items-stretch gap-10 font-quicksand text-sm text-gray-700 lg:flex">
                 <li className="py-2 font-bold uppercase tracking-widest">
+                  <Link to="/">inicio</Link>
+                </li>
+                <li className="py-2 font-bold uppercase tracking-widest">
                   <Link to="/info/empresas">Empresas</Link>
                 </li>
                 <li className="py-2 font-bold uppercase tracking-widest">
@@ -39,17 +42,8 @@ export const Navbar = () => {
             </div>
             <div className="hidden gap-4 text-sm lg:flex">
               <SignedOut>
-                <Button
-                  link="/auth/login"
-                  color="black"
-                  title="Acceder"
-                  background={undefined}
-                />
-                <Button
-                  link="/auth/register"
-                  title="Unirse"
-                  background="black"
-                />
+                <Button link="/auth/login" title="Acceder" custom={undefined} />
+                <Button link="/auth/register" title="Unirse" inverted={false} />
               </SignedOut>
               <SignedIn>
                 <Link
