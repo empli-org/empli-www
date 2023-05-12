@@ -1,8 +1,11 @@
 // @ts-nocheck
 import { Button, Container } from '@/components'
-import { useContext,  useEffect} from 'react'
+import { useContext, useEffect } from 'react'
 import { AppContext } from '../OnBoarding/AppContext'
-import { useGetFeedbackPlanQuery, useLazyGetPlanQuery } from '@/redux/features/api/plan/planApi'
+import {
+  useGetFeedbackPlanQuery,
+  useLazyGetPlanQuery,
+} from '@/redux/features/api/plan/planApi'
 import Swal from 'sweetalert2'
 import { Navigate } from 'react-router-dom'
 import { useUser } from '@clerk/clerk-react'
@@ -41,7 +44,6 @@ export const FeedBackPayment = () => {
           // navigate('/home')
         })
     }, 3500)
-    
   }, [])
 
   return (

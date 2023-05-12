@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { Button } from '@/components'
 import bgPricing from 'assets/blob/bgPr.jpg'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
 
 export const PricingCard = ({
   title,
@@ -12,30 +13,30 @@ export const PricingCard = ({
 }) => {
   return (
     <>
-      <div className="md:w-86 relative mx-5 flex w-96 flex-col rounded-2xl bg-white p-2 hover:shadow-2xl hover:transition-shadow">
+      <div className="relative flex mx-5 p-2 flex-col rounded-2xl w-96 bg-white hover:shadow-2xl hover:transition-shadow md:w-86">
         <div className="relative mb-2">
           {popular == 'estandar' && (
             <p className="absolute -top-3 rounded-full bg-green-500 px-3 py-0.5 text-sm font-semibold tracking-wide text-white shadow-md">
               Recomendado
             </p>
           )}
-          <h1 className="absolute left-5 top-10 font-quicksand text-3xl font-bold text-white">
+          <h1 className="absolute top-10 left-5 text-white font-quicksand text-3xl font-bold">
             Plan
           </h1>
-          <h1 className="absolute left-5 top-20 font-quicksand text-3xl font-bold text-white lg:text-5xl">
+          <h1 className="absolute top-20 left-5 text-white font-quicksand text-3xl lg:text-5xl font-bold">
             {title}
           </h1>
           <img
             src={bgPricing}
             alt=""
-            className="h-40 w-full rounded-2xl object-cover lg:h-52"
+            className="rounded-2xl h-40 w-full object-cover lg:h-52"
           />
         </div>
-        <div className={`item-center relative flex flex-col rounded-2xl`}>
+        <div className={`relative flex flex-col item-center rounded-2xl`}>
           <div className="-mx-6 mt-4 flex justify-center  p-6">
-            <p className="flex items-center font-quicksand text-2xl font-bold text-slate-500">
+            <p className="flex items-center text-2xl font-quicksand font-bold text-slate-500">
               S/.
-              <span className="mx-2 font-quicksand text-xl text-slate-900 lg:text-2xl">
+              <span className="mx-2 text-xl lg:text-2xl font-quicksand text-slate-900">
                 {price}
               </span>
               mes
@@ -47,7 +48,7 @@ export const PricingCard = ({
                 feat.map((feature, index) => {
                   return (
                     <li key={index} className=" text-sm text-slate-700">
-                      <div className="flex items-center justify-center">
+                      <div className="flex justify-center items-center">
                         {/* <AiOutlineCheckCircle className="w-4 h-4" /> */}
                         <p className="mx-3 text-center">{feature}</p>
                       </div>
@@ -59,10 +60,7 @@ export const PricingCard = ({
           <Button
             disabled={free}
             title="Upgrade"
-            color={`${
-              free ? 'gray ' : popular == 'estandar' ? 'white' : 'green'
-            } `}
-            extend={`${
+            custom={`${
               free
                 ? 'bg-gray-200 border-gray-200 '
                 : popular == 'estandar'

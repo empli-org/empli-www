@@ -106,7 +106,7 @@ export const Landing = () => {
       {/* -- HERO -- */}
 
       <div className="flex">
-        <TextHero />
+        <TextHero landing={true} />
         <ImageHero />
       </div>
       {/* COUNTER BAR*/}

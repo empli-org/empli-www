@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { WaveCir } from 'components'
+import { People4 } from '@/assets/Emplitos/people-4'
 
 export const SectionTitle = ({
   title,
@@ -6,6 +8,8 @@ export const SectionTitle = ({
   textColor,
   imgColor,
   imageOnRight = false,
+  image,
+  svg = true,
 }) => {
   return (
     <>
@@ -26,13 +30,19 @@ export const SectionTitle = ({
           </div>
         </div>
         <div
-          className={` flex animate-pulse justify-center duration-500 ${
+          className={` flex transition duration-300 ease-in-out animate-fade-in justify-center ${
             !imageOnRight
               ? 'order-first md:order-last'
               : 'order-first md:order-first'
           } ${'hidden md:block'}`} /* La clase hidden oculta el componente en pantallas menores a md (768px) */
         >
-          <WaveCir color={imgColor} />
+          {image ? (
+            <img src={image} className="w-60" alt="" />
+          ) : svg ? (
+            <WaveCir color={imgColor || '#53917b'} />
+          ) : (
+            <People4 />
+          )}
         </div>
       </div>
     </>

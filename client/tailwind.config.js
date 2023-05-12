@@ -42,6 +42,9 @@ export default {
         lochinvar: '#53917b',
         'blue-whale': '#1c2441',
         'prussian-blue': '#1C2441',
+        'linkedin-blue': '#0A66C2',
+        'facebook-blue': '#1877F2',
+        'instagram-purple': '#962FBF',
       },
       spacing: {
         login: '93vh',
@@ -62,6 +65,13 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 10s linear infinite',
+        'fade-in': 'fade-in 0.5s ease-in-out',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
     },
   },

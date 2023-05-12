@@ -56,4 +56,5 @@ export const putPlanApi = async (id, pref) => {
 // Horizons Anual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487e086860187e4ca9b0b0233 HOZA
 // Odyssey Anual https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808487dc415e0187e4cb8c800493 ODYA
 
+
 // https://empli-org.netlify.app/payments/plan/feedback
