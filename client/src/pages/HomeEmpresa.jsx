@@ -1,12 +1,12 @@
 // @ts-nocheck
 /* eslint-disable no-unused-vars */
 
-import nuevo from '../assets/img/fondo6.jpg'
 import lupa from '../assets/img/lupa.webp'
-
-import { People4 } from 'assets/Emplitos/people-4'
+import eLupa from 'assets/Emplitos/eLupa.svg'
+import emplito25 from "assets/Emplitos/emplitos-25.svg"
+import emplito23 from "assets/Emplitos/emplitos-23.svg"
+import emplito21 from "assets/Emplitos/emplitos-21.svg"
 import bgServ from 'assets/blob/bgSev.webp'
-import bgTeam from 'assets/blob/Group15.png'
 import bgCom from 'assets/blob/bgCom.png'
 
 // import bgCom from 'assets/blob/bgCom.jpg'
@@ -14,7 +14,6 @@ import bgCom from 'assets/blob/bgCom.png'
 import empresaP from '../assets/img/empre.jpg'
 
 // import { Container } from '../components/ui/Container.jsx'
-import './HomeEmpresa.css'
 
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import {
@@ -24,6 +23,7 @@ import {
   InfoCard,
   SectionTitle,
   SectionQuote,
+  Button,
 } from '@/components'
 import { SectionCard } from '@/components/Section/SectionCard'
 import { services } from './services'
@@ -52,34 +52,39 @@ const HomeEmpresa = () => {
           <div></div>
           {/* <ImageHero /> */}
         </div>
+        <div className="mb-5 flex flex-col items-center">
+          <SectionQuote text="¿Le interesa descubrir por qué los principales empresas de construccion eligen a Empli?" />
+          <Button title={'Aprende mas'} link={'/auth/register'} />
+        </div>
         <InfoCard
           title="Realice contrataciones con plena confianza"
           tExtend={'text-3xl font- '}
           description="Realizamos un minucioso examen de todo nuestro talento para evitar que usted tenga que hacerlo."
-          image={lupa}
+          image={eLupa}
         />
         <InfoCard
           title="Adquiera total transparencia. "
           tExtend={'text-3xl font- '}
           description="Acceda al historial de trabajo, testimonios de clientes, portafolios y otros recursos adicionales."
-          image={lupa}
+          image={emplito25}
           imageOnRight={true}
         />
         <InfoCard
           title="Prescinda del intermediario en su totalidad."
           tExtend={'text-3xl font- '}
           description="Supera los límites y logra que tu presupuesto aumente hasta 4 veces más."
-          image={lupa}
+          image={emplito23}
         />
         <InfoCard
           title="Garantice entregas rápidas y eficientes."
           tExtend={'text-3xl font- '}
           description="Obtenga una asociación con talento altamente compatible en un plazo de 48 horas."
-          image={lupa}
+          image={emplito21}
           imageOnRight={true}
         />
-        <div className="mb-5">
-          <SectionQuote text="¿Le interesa descubrir por qué los principales empresas de construccion eligen a Empli?" />
+        <div className="mb-5 flex flex-col items-center">
+          <SectionQuote text="Explore cómo empresas similares a la suya utilizan Empli para contratar sus equipos.?" />
+          <Button title={'Unete ahora'} link={'/auth/register'} />
         </div>
 
         <SectionTitle

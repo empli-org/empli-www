@@ -30,6 +30,8 @@
     "framer-motion": "^10.12.2",
     "fs": "^0.0.1-security",
     "marked": "^4.3.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.7",
     "react": "^18.2.0",
     "react-admin": "^4.9.4",
     "react-admin-lb4": "^1.0.3",
@@ -44,15 +46,14 @@
     "react-router-dom": "^6.10.0",
     "react-social-media-embed": "^2.3.5",
     "react-spotify-web-playback": "^0.14.0",
+    "react-svg": "^16.1.11",
     "react-timeago": "^7.1.0",
     "redux-persist": "^6.0.0",
     "sweetalert2": "^11.7.3",
     "sweetalert2-react-content": "^5.0.7",
     "swiper": "^9.2.4",
     "vite-jsconfig-paths": "^2.0.1",
-    "yup": "^1.1.1",
-    "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7"
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",

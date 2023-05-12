@@ -1,5 +1,5 @@
-import * as React from "react"
-export const Gradient = (props) => (
+import * as React from 'react'
+export const Gradient = props => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" {...props}>
     <defs>
       <filter

@@ -11,12 +11,12 @@ export const Blob = () => {
           <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
             <stop
               id="stop1"
-              stopColor="rgba(83, 145, 123, 0.21)"
+              stopColor="rgba(6, 255, 209, 0.21)"
               offset="0%"
             ></stop>
             <stop
               id="stop2"
-              stopColor="rgba(204, 252, 235, 0.36)"
+              stopColor="rgba(255, 221, 0, 0.36)"
               offset="100%"
             ></stop>
           </linearGradient>

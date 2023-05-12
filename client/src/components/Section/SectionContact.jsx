@@ -22,7 +22,7 @@ export const SectionContact = () => {
                 <h3 className="font-quicksand"> contacto@empli.org</h3>
               </div>
               <div className="flex my-3  bg-white shadow-lg rounded-2xl w-full p-4 m-2">
-              <h3 className="mr-4 font-amenable text-xl">Social media:</h3>
+                <h3 className="mr-4 font-amenable text-xl">Social media:</h3>
                 <a
                   target="_blank"
                   rel="noreferrer"
@@ -39,10 +39,7 @@ export const SectionContact = () => {
                   href="https://www.instagram.com/empli_org"
                   title="Seguir en Instagram"
                 >
-                  <FaInstagram
-                    className="text-instagram-purple"
-
-                  />
+                  <FaInstagram className="text-instagram-purple" />
                 </a>
                 <a
                   className="mx-3 text-2xl taxt-lochinvar"

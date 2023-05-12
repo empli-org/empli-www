@@ -44,7 +44,7 @@ export default {
         'prussian-blue': '#1C2441',
         'linkedin-blue': '#0A66C2',
         'facebook-blue': '#1877F2',
-        'instagram-purple':'#962FBF',
+        'instagram-purple': '#962FBF',
       },
       spacing: {
         login: '93vh',

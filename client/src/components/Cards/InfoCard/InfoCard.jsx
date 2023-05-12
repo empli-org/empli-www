@@ -1,4 +1,6 @@
 import { Blob } from './Blob'
+import { ReactSVG } from 'react-svg'
+import gradient from 'assets/blob/gradient.svg'
 export const InfoCard = ({
   image,
   title,
@@ -8,6 +10,7 @@ export const InfoCard = ({
   extend,
   tExtend,
   pExtend,
+  svg,
 }) => {
   return (
     <div className={`flex flex-col md:flex-row bg-${background}-200 ${extend}`}>
@@ -18,11 +21,19 @@ export const InfoCard = ({
             : 'order-last md:order-last'
         }`}
       >
-        <img
-          src={image}
-          alt=""
-          className="absolute inset-0 m-auto mx-auto h-80 w-auto"
-        />
+        {(image && (
+          <img
+            src={image}
+            alt=""
+            className="absolute inset-0 m-auto mx-auto h-80 w-auto"
+          />
+        )) ||
+          (svg && (
+            <ReactSVG
+              src={svg}
+              className="absolute inset-0 m-auto mx-auto h-80 w-auto"
+            />
+          ))}
         <Blob />
       </div>
       <div
