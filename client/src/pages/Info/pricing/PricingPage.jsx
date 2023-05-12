@@ -14,6 +14,32 @@ export default function PricingPage() {
   const handleProfesionalClick = () => {
     setSelected('profesional')
   }
+  useEffect(() => {
+    if (!isLoading && isSuccess && plansData != null) {
+      plansData.list.forEach(
+        ({ auto_recurring, external_reference, init_point }) => {
+          // console.log(auto_recurring)
+          if (external_reference === 'ORBM') {
+            // stn.amount = auto_recurring.transaction_amount
+            //  stn.link= init_point
+            setStn({
+              amount: auto_recurring.transaction_amount,
+              link: init_point,
+            })
+          }
+          if (external_reference === 'GXYM') {
+            setPrm({
+              amount: auto_recurring.transaction_amount,
+              link: init_point,
+            })
+          }
+        },
+      )
+    }
+  }, [isLoading, isSuccess, plansData])
+
+  if (isLoading || isFetching)
+    return <div className="flex w-full items-center">Loading....</div>
 
   return (
     <>

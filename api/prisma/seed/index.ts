@@ -27,12 +27,12 @@ async function main() {
   console.timeEnd("Inserting skills");
   console.time("Inserting careers");
   const careers = await Promise.all(
-    createCareer(5).map((c) => prisma.career.create({ data: c }))
+    createCareer().map((c) => prisma.career.create({ data: c }))
   );
   console.timeEnd("Inserting careers");
   console.time("Inserting locations");
   const locations = await Promise.all(
-    createLocation(5).map((l) => prisma.location.create({ data: l }))
+    createLocation().map((l) => prisma.location.create({ data: l }))
   );
   console.timeEnd("Inserting locations");
   console.time("Inserting projects");
@@ -42,21 +42,21 @@ async function main() {
   console.timeEnd("Inserting projects");
   console.time("Inserting talents");
   await Promise.all(
-    createTalent({ n: 5, locations, projects, careers, skills }).map((t) =>
+    createTalent({ n: 15, locations, projects, careers, skills }).map((t) =>
       prisma.talent.create({ data: t })
     )
   );
   console.timeEnd("Inserting talents");
   console.time("Inserting companies");
   const companies = await Promise.all(
-    createCompany({ n: 5, categories }).map((c) =>
+    createCompany({ n: 15, categories }).map((c) =>
       prisma.company.create({ data: c })
     )
   );
   console.timeEnd("Inserting companies");
   console.time("Inserting jobs");
   await Promise.all(
-    createJob({ n: 5, companies, locations }).map((j) =>
+    createJob({ n: 15, companies, locations }).map((j) =>
       prisma.job.create({ data: j })
     )
   );

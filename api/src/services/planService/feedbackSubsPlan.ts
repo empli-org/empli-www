@@ -1,23 +1,23 @@
 import axios from "axios";
 import { header } from "../../utils/headers";
-import {  baseUrl, prisma } from "./PlanServiceAPI";
+import { baseUrl } from "./PlanServiceAPI";
+import db from "../../utils/db";
 
 // * Feedback Suscriptrion plan
 
 export const feedbackSubsPlan = async (payment_id) => {
-	let endpoint = "/preapproval";
-	let url = `${baseUrl}${endpoint}/${payment_id}`;
-	const { data } = await axios.get(url, header);
-	console.log(data);
+  let endpoint = "/preapproval";
+  let url = `${baseUrl}${endpoint}/${payment_id}`;
+  const { data } = await axios.get(url, header);
 
-	let paymentId = await prisma.payment.findMany({
-		where: { paymentId: data.id.toString() },
-	});
+  let paymentId = await db.payment.findMany({
+    where: { paymentId: data.id.toString() },
+  });
 
-	if (data.status === "authorized" && !paymentId.length) {
-		await prisma.payment.create({
-			data: { paymentId: data.id.toString() },
-		});
-		return data;
-	}
+  if (data.status === "authorized" && !paymentId.length) {
+    await db.payment.create({
+      data: { paymentId: data.id.toString() },
+    });
+    return data;
+  }
 };
