@@ -58,16 +58,13 @@ export const PricingCard = ({
           </div>
           <Button
             disabled={free}
-            title="Upgrade"
-            color={`${
-              free ? 'gray ' : popular == 'estandar' ? 'white' : 'green'
-            } `}
-            extend={`${
+            title={free ? 'Gratis' : popular == 'estandar' ? 'update' : 'Sin Limites'}
+            custom={`${
               free
-                ? 'bg-gray-200 border-gray-200 '
+                ? 'bg-gray-200 uppercase font-bold text-gray-400 border-gray-200 '
                 : popular == 'estandar'
-                ? 'bg-green-500 hover:bg-green-600 border-green-500 '
-                : 'hover:bg-green-600 hover:text-white border-green-500'
+                ? 'bg-green-500 uppercase font-bold text-white hover:bg-green-600 border-green-500 '
+                : 'border border-green-500 uppercase text-green-500  font-bold hover:bg-green-600 hover:text-white '
             } rounded-b-2xl rounded-t-lg w-full h-10 hover:transition mt-6`}
             link={link}
           />
