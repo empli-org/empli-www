@@ -111,7 +111,11 @@ export const Landing = () => {
       <CardLarge />
       {/* SLIDE COMPANIES */}
       <div className="mt-10 h-auto w-full shadow-sm ">
-        <SlideCompanies />
+        <SlideCompanies
+          textQuote="Hemos reclutado a profesionales que han trabajado en grandes proyectos
+          para importantes entidades."
+          sizeQuote={'text-4xl'}
+        />
       </div>
 
       <InfoCard

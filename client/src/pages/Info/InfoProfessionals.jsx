@@ -9,7 +9,7 @@ import job from '../../assets/Contact/job.svg'
 import { Link } from 'react-router-dom'
 import autumn from 'assets/blob/autumn.png'
 import hand from 'assets/blob/hand.jpg'
-import { Button, InfoCard } from '@/components'
+import { Button, InfoCard, SectionQuote, SlideCompanies } from '@/components'
 
 export default function InfoProfessionals() {
   useEffect(() => {
@@ -32,10 +32,10 @@ export default function InfoProfessionals() {
             que te brinden resultados positivos.
           </h1>
           <h3 className="font-quicksand text-xl text-center mb-10">
-            Sabemos que encontrar un empleo de alta calidad que te apasione y
-            tener que lidiar con los aspectos administrativos puede ser
-            agotador. Permítenos ser tu apoyo para que puedas dedicarte
-            plenamente a lo que amas hacer.
+            Sabemos que encontrar un empleo de alta calidad que te apasione.
+            Permítenos ser tu apoyo para que puedas dedicarte plenamente a lo
+            que amas, nete a nuestra comunidad de talentos y amplía tu red de
+            contactos en el sector de la construcción.
           </h3>
           <Button title="Unete ahora" link="/auth/register" />
         </div>
@@ -49,39 +49,38 @@ export default function InfoProfessionals() {
   )
   return (
     <div className="w-full">
+      <div className="mb-10">
       {Hero}
+      </div>
+
       <div className="mx-auto">
-        <div className="flex h-80 w-full justify-center bg-hint-of-red sm:h-auto sm:items-center sm:justify-evenly">
+        <SlideCompanies textQuote="Obtenga accesso a una amplia red de empresas que colaboran con EMPLI."/>
+
+        <div className="mx-20">
+          <SectionQuote text="Como funciona" textColor="black"/>
           <InfoCard
-            title="¿Te gustaría encontrar nuevas oportunidades laborales en la
-            construcción?"
-            description="Si es así, ¡estás en el lugar correcto! Únete a nuestra comunidad de
-            talentos y descubre nuevas oportunidades de trabajo, mejora tus
-            habilidades laborales y amplía tu red de contactos en el sector de
-            la construcción."
+            title="Registra tu perfil"
+            description="Agregue su cartera, conjuntos de habilidades e historial laboral."
             image={pj}
           />
-        </div>
-        <div className="flex w-full justify-center bg-hint-of-red sm:items-center sm:justify-evenly">
-          <img
-            src={profile}
-            alt="profile"
-            className="hidden sm:inline-block sm:w-28 md:w-44 lg:w-60	xl:h-76 xl:w-76"
-            data-aos="fade-right"
+          <InfoCard
+            title="Verifica tu perfil"
+            description="Completa los filtros de verificacion y obten tu insignia de verificacion."
+            image={pj}
+            imageOnRight={true}
           />
-          <div
-            className="mt-28 w-3/4 border-8 border-double border-yellow-border p-7 shadow-2xl shadow-yellow-border sm:w-4/6 md:my-28 md:p-10 lg:w-1/2 lg:p-15 xl:p-20"
-            data-aos="zoom-in"
-          >
-            <p className="font-quicksand-light font-semibold text-blue-whale md:text-xl xl:text-3xl">
-              En nuestra plataforma de trabajo, podrás crear un perfil detallado
-              que destaque tus habilidades, experiencia y logros. Podrás buscar
-              y postularte a ofertas de trabajo que se ajusten a tus habilidades
-              y preferencias laborales. Además, nuestra plataforma te mantendrá
-              informado sobre las últimas tendencias y oportunidades del mercado
-              laboral en el sector de la construcción.
-            </p>
-          </div>
+          <InfoCard
+            title="Postula a las ofertas empli"
+            description="Solicite su primer empleo, complete la evaluacion y empiece a trabajar."
+            image={pj}
+          />
+          <InfoCard
+            title="Impulsa tu carrera"
+            description="Consiga empleos en cualquier parte del Peru."
+            image={pj}
+            imageOnRight={true}
+          />
+          <SectionQuote text="Asi de facil es ganar con EMPLI" />
         </div>
         <div className="flex w-full items-center justify-evenly">
           <div className="my-28 flex w-4/6 flex-col items-center justify-evenly lg:w-1/2">
