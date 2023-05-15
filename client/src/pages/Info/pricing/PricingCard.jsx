@@ -58,7 +58,9 @@ export const PricingCard = ({
           </div>
           <Button
             disabled={free}
-            title={free ? 'Gratis' : popular == 'estandar' ? 'update' : 'Sin Limites'}
+            title={
+              free ? 'Gratis' : popular == 'estandar' ? 'update' : 'Sin Limites'
+            }
             custom={`${
               free
                 ? 'bg-gray-200 uppercase font-bold text-gray-400 border-gray-200 '

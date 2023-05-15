@@ -14,8 +14,6 @@ import {
 } from 'components'
 import lupa from 'assets/img/lupa.webp'
 import pj from 'assets/img/persona2.png'
-import { Welcome } from './Dashboard/Wellcome'
-import { FeedBackPayment } from './Account/Premium/FeedbackPayment'
 
 export const Landing = () => {
   const data = [
@@ -113,7 +111,11 @@ export const Landing = () => {
       <CardLarge />
       {/* SLIDE COMPANIES */}
       <div className="mt-10 h-auto w-full shadow-sm ">
-        <SlideCompanies />
+        <SlideCompanies
+          textQuote="Hemos reclutado a profesionales que han trabajado en grandes proyectos
+          para importantes entidades."
+          sizeQuote={'text-4xl'}
+        />
       </div>
 
       <InfoCard
