@@ -45,7 +45,7 @@ const HomeEmpresa = () => {
             title="Lleva a tu empresa a otro nivel"
             description="En EMPLI, ofrecemos soluciones integrales para encontrar, contratar y gestionar talento de calidad. Con experiencia y recursos, 
             brindamos servicios personalizados que impulsan el éxito organizacional. Confíe en nosotros para obtener resultados excepcionales en la gestión del talento humano."
-            textBtn="Unete Ahora"
+            textBtn="Únete Ahora"
             url="#nosotros"
             contrast={'white'}
           />
@@ -102,12 +102,12 @@ const HomeEmpresa = () => {
           ))}
         </div>
 
-        {/* <SectionTitle
+        {<SectionTitle
           title="Equipo EMPLI"
           subtitle="Servicios integrales de alta calidad para tu empresa."
           imageOnRight={true}
-        /> */}
-        {/* <div
+        />}
+        {<div
           className="p-10 h-100"
           style={{ background: `url(${bgTeam})`, backgroundSize: 'cover' }}
         >
@@ -121,7 +121,7 @@ const HomeEmpresa = () => {
               />
             ))}
           </div>
-        </div> */}
+        </div>}
 
         <div className="">
           <SectionTitle
